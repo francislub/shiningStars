@@ -37,11 +37,11 @@ export default function Home() {
       <ExploreBugema />
       <Events />
       <News />
-      <ResearchSection />
+      {/* <ResearchSection /> */}
       <SchoolsPage />
-      <CampusNews />
-      <Blog />
-      <Brands />
+      {/* <CampusNews /> */}
+      {/* <Blog /> */}
+      {/* <Brands /> */}
       <Contact />
       <ScrollToTop />
     </>

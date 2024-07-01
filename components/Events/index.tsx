@@ -35,8 +35,8 @@ const Events = () => {
     <section id="blog" className="bg-primary/5 py-16 md:py-20 lg:py-28">
       <div className="container">
         <SectionTitle
-          title="Upcoming Events"
-          paragraph="Explore a diverse array of activities whether workshops and seminars, cultural and social engagements, sports activities you do not want to miss."
+          title="Events"
+          paragraph="Stay up-to-date with the latest events at our school!"
           center
         />
 
