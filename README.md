@@ -1,7 +1,7 @@
 
-# BUGEMA UNIVERSITY SPORTS WEBSITE
+# SHINING STARS NURSERY AND PRIMARY SCHOOL WEBSITE
 
-Welcome to the bugema university website.
+Welcome to the shining-stars website.
 
 ## Table of Contents
 
@@ -70,4 +70,4 @@ Our team will review your pull request, provide feedback, and merge it if everyt
 
 ## Bug Report
 
-If you encounter any bugs or issues while using the bugema university website, please open a new issue in this repository. Be sure to include details about the problem, steps to reproduce it, and any relevant error messages.
+If you encounter any bugs or issues while using the shining-stars website, please open a new issue in this repository. Be sure to include details about the problem, steps to reproduce it, and any relevant error messages.
