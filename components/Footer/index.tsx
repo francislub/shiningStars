@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FaChevronDown } from 'react-icons/fa'
-import image from "@/public/images/logo/bugema.png";
+import image from "@/public/images/logo/logo.png";
 
 const Footer = () => {
 
@@ -48,7 +48,7 @@ const Footer = () => {
                   />
                 </Link>
                 <h1 className="mb-9 text-base font-medium leading-relaxed text-body-color">
-                Bugema University, P.O. Box 6529 Kampala, Uganda
+                Shining Stars Nursery And Primary School, P.O. Box 31007 Kampala, Uganda
                 </h1>
                 <div className="flex items-center justify-center">
                   <Link
@@ -129,7 +129,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Apply Today{" "}
+                      Religious Affairs{" "}
                     </Link>
                   </li>
                   <li>
@@ -138,7 +138,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Graduate Verification{" "}
+                      Accomodation And Meals{" "}
                     </Link>
                   </li>
                   <li>
@@ -147,7 +147,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      ERMS Staff Login{" "}
+                      Student Health Care{" "}
                     </Link>
                   </li>
                   <li>
@@ -156,7 +156,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Student Portal{" "}
+                      Music Dance And Drama{" "}
                     </Link>
                   </li>
                   <li>
@@ -165,7 +165,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      E-Learning{" "}
+                      Academic Programs{" "}
                     </Link>
                   </li>
                   <li>
@@ -174,10 +174,10 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Library{" "}
+                      Stuff{" "}
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link
                       href="/"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
@@ -185,7 +185,7 @@ const Footer = () => {
                       {" "}
                       E-Library{" "}
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
@@ -219,7 +219,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Apply Today{" "}
+                      Religious Affairs{" "}
                     </Link>
                     </li>
                     <li>
@@ -228,7 +228,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Graduate Verification{" "}
+                      Accomodation And Meals{" "}
                     </Link>
                     </li>
                     <li>
@@ -237,7 +237,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      ERMS Staff Login{" "}
+                      Student Health Care{" "}
                     </Link>
                     </li>
                     <li>
@@ -246,7 +246,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Student Portal{" "}
+                      Music Dance And Drama{" "}
                     </Link>
                     </li>
                     <li>
@@ -255,7 +255,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      E-Learning{" "}
+                      Academic Programs{" "}
                     </Link>
                     </li>
                     <li>
@@ -264,10 +264,10 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Library{" "}
+                      Stuff{" "}
                     </Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <Link
                       href="/"
                       className="inline-block text-base font-medium text-body-color hover:text-primary"
@@ -275,7 +275,7 @@ const Footer = () => {
                       {" "}
                       E-Library{" "}
                     </Link>
-                    </li>
+                    </li> */}
                   </ul>
                 )}
               </div>
@@ -285,7 +285,7 @@ const Footer = () => {
             <div className="hidden md:block w-full md:pl-6 px-4 md:px-0 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
-                  Resources
+                  Downloads
                 </h2>
                 <ul>
                   <li>
@@ -303,7 +303,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Synopsis Concept{" "}
+                      Fees Structure{" "}
                     </Link>
                   </li>
                   <li>
@@ -312,7 +312,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Annual Report{" "}
+                      Rules And Regulations{" "}
                     </Link>
                   </li>
                   <li>
@@ -321,7 +321,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      State Of The University Address{" "}
+                      School Program{" "}
                     </Link>
                   </li>
                   <li>
@@ -330,10 +330,10 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Gender Equality Plan{" "}
+                      Academic Program{" "}
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link
                       href="/"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
@@ -350,7 +350,7 @@ const Footer = () => {
                       {" "}
                       Grading System Transcript{" "}
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
@@ -364,14 +364,14 @@ const Footer = () => {
                         className="text-left focus:outline-none mb-4 block"
                         onClick={() => toggleDropdown("downloads")}
                       >
-                        Resources
+                        Downloads
                       </button>
                     ) : (
                       <button
                         className="text-left focus:outline-none mb-4 block"
                         onClick={() => toggleDropdown("downloads")}
                       >
-                        Resources
+                        Downloads
                       </button>
                     )}
                   </h2>
@@ -394,7 +394,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Synopsis Concept{" "}
+                      Fees Structure{" "}
                     </Link>
                     </li>
                     <li>
@@ -403,7 +403,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Annual Report{" "}
+                      Rules And Regulations{" "}
                     </Link>
                     </li>
                     <li>
@@ -412,7 +412,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      State Of The University Address{" "}
+                      School Program{" "}
                     </Link>
                     </li>
                     <li>
@@ -421,10 +421,10 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Gender Equality Plan{" "}
+                      Academic Program{" "}
                     </Link>
                     </li>
-                    <li>
+                    {/* <li>
                       <Link
                       href="/"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
@@ -441,7 +441,7 @@ const Footer = () => {
                       {" "}
                       Grading System Transcript{" "}
                     </Link>
-                    </li>
+                    </li> */}
                   </ul>
                 )}
               </div>
@@ -450,7 +450,7 @@ const Footer = () => {
             <div className="hidden md:block w-full md:pl-6 px-4 md:px-0 md:w-1/2 lg:w-4/12 xl:w-3/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
-                  Policies
+                  Facilities
                 </h2>
                 <ul>
                   <li>
@@ -459,7 +459,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Examination Policy{" "}
+                      Academics{" "}
                     </Link>
                   </li>
                   <li>
@@ -468,7 +468,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      ICT Policy{" "}
+                      Transport{" "}
                     </Link>
                   </li>
                   <li>
@@ -477,7 +477,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Annual Report{" "}
+                      Residence{" "}
                     </Link>
                   </li>
                   <li>
@@ -486,18 +486,10 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Blended Learning Policy{" "}
+                      ICT{" "}
                     </Link>
                   </li>
-                  <li>
-                    <Link
-                      href="/"
-                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
-                    >
-                      {" "}
-                      BU Research Policy{" "}
-                    </Link>
-                  </li>
+                  
                 </ul>
               </div>
             </div>
@@ -511,14 +503,14 @@ const Footer = () => {
                         className="text-left focus:outline-none mb-4 block"
                         onClick={() => toggleDropdown("policies")}
                       >
-                        Policies
+                        Facilities
                       </button>
                     ) : (
                       <button
                         className="text-left focus:outline-none mb-4 block"
                         onClick={() => toggleDropdown("policies")}
                       >
-                        Policies
+                        Facilities
                       </button>
                     )}
                   </h2>
@@ -526,13 +518,13 @@ const Footer = () => {
                 </div>
                 {isOpen.policies && (
                   <ul className="list-none">
-                    <li>
+                  <li>
                       <Link
                       href="/"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Examination Policy{" "}
+                      Academics{" "}
                     </Link>
                     </li>
                     <li>
@@ -541,7 +533,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      ICT Policy{" "}
+                      Residence{" "}
                     </Link>
                     </li>
                     <li>
@@ -550,7 +542,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Annual Report{" "}
+                      ICT {" "}
                     </Link>
                     </li>
                     <li>
@@ -559,16 +551,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Blended Learning Policy{" "}
-                    </Link>
-                    </li>
-                    <li>
-                      <Link
-                      href="/"
-                      className=" inline-block text-base font-medium text-body-color hover:text-primary"
-                    >
-                      {" "}
-                      BU Research Policy{" "}
+                      Transport{" "}
                     </Link>
                     </li>
                   </ul>
@@ -581,16 +564,16 @@ const Footer = () => {
         <div className="bg-primary/10 py-8">
           <div className="container md:flex md:justify-center text-center md:space-x-12">
             <Link href="/" className="text-center hover:scale-105 hover:transition-all hover:duration-300 text-base text-body-color dark:text-white">
-              &#169;  Bugema University
+              &#169;  Shining Stars Nursery And Primary
             </Link>
             <h1 className="text-center text-base text-body-color hover:scale-105 hover:transition-all hover:duration-300 dark:text-white">
-              <a href="tel:+256-312-351-400">Phone: +256-312-351-400</a>
+              <a href="tel:+256-753-753-179">Phone: +256-753-753-179</a>
             </h1>
-            <Link href='https://www.bugemauniv.ac.ug' className="text-center hover:scale-105 hover:transition-all hover:duration-300 text-base text-body-color dark:text-white">
-              Website: www.bugemauniv.ac.ug
-            </Link>
+            <h1 className="text-center text-base text-body-color hover:scale-105 hover:transition-all hover:duration-300 dark:text-white">
+              <a href="tel:+256-773-297-951">Phone: +256-773-297-951</a>
+            </h1>
             <h1 className="text-center text-base hover:scale-105  hover:transition-all hover:duration-300 text-body-color dark:text-white">
-              <a href="mailto:info@bugemauniv.ac.ug">Email: info@bugemauniv.ac.ug</a>
+              <a href="mailto:shiningstars.school2022@gmail.com">Email: shiningstars.school2022@gmail.com</a>
             </h1>
           </div>
         </div>

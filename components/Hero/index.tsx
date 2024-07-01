@@ -51,13 +51,13 @@ const Hero = () => {
 
         <HeroVideo src={heroVid} />
         <HeroOverlay
-          title="BUGEMA UNIVERSITY"
-          title2 = "Service."
-          title3="Where Head, Heart and Hands unite in"
-          subtitle="Excellence In Service"
-          subtitle2="With over 100 academic programs, Bugema University is where Knowledge meets Opportunity "
-          subtitle3="to offer you Quality education with a hands on experience. . ."
-          buttonText="Apply Now"
+          title="Arise and shine"
+          title2 = ""
+          title3="SHINING STARS NURSERY AND PRIMARY SCHOOL- VVUMBA"
+          subtitle="A Center for Guaranteed excellence"
+          subtitle2=""
+          subtitle3=""
+          buttonText="Explore more"
           buttonLink="/apply-now"
         />
 
