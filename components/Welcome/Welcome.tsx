@@ -78,7 +78,7 @@ const Welcome = () => {
 
                 <div className="bg-primary rounded-md py-1 px-3 mt-4 w-[170px]">
                   <Link
-                    href="/whybugema"
+                    href="/whyshin"
                     className="text-base font-semibold text-white "
                   >
                     <span className="flex items-center gap-2 justify-center">
