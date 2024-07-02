@@ -222,11 +222,13 @@ const Foot = () =>{
                   <div className=" ml-12 my-24 fade-in-slow " id='courses' style={{marginTop:'15%'}}> 
                         <ul>
                               <li>
-                              <div className="mr-2 my-5  ">
-                              
-                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Classrooms </h1> 
-                              
-                              </div>
+                              <Link href={"/schoolife/classrooms"}>
+                                    <div className="mr-2 my-5  ">
+                                    
+                                    <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Classrooms </h1> 
+                                    
+                                    </div>
+                              </Link>
                               </li>
                               
                               {/* <li>
@@ -255,30 +257,38 @@ const Foot = () =>{
                   <div className=" fade-in ml-24 my-24 hidden " style={{marginTop:'12%'}} id='fees'> 
                         <ul className='ml-10 my-20'>
                               <li>
-                              <div className="mr-2 my-5 ">
-                              
-                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Foot} > Football </h1> 
-                              
-                              </div>
+                              <Link href={"/studentlife"}>
+                                    <div className="mr-2 my-5 ">
+                                    
+                                    <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Foot} > Football </h1> 
+                                    
+                                    </div>
+                              </Link>
                               </li>
                               <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Net}>Net ball</h1> 
-                                    
-                              </div>
+                              <Link href={"/studentlife"}>
+                                    <div className="mr-2 my-5  ">
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Net}>Net ball</h1> 
+                                          
+                                    </div>
+                              </Link>
                               </li>
                               <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Volley}> Volley </h1> 
-                                    
-                              </div>
+                              <Link href={"/studentlife"}>
+                                    <div className="mr-2 my-5  ">
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Volley}> Volley Ball</h1> 
+                                          
+                                    </div>
+                              </Link>
                               </li>
 
                               <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Basket}>Basket</h1> 
-                                    
-                              </div>
+                              <Link href={"/studentlife"}>
+                                    <div className="mr-2 my-5  ">
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' onMouseOver={Basket}>Basket Ball</h1> 
+                                          
+                                    </div>
+                              </Link>
                               </li>
                               <li>
                               </li>
@@ -296,18 +306,22 @@ const Foot = () =>{
                   <div className=" fade-in ml-24 my-24 hidden " style={{marginTop:'12%'}} id='why_bugema-data'> 
                         <ul className='ml-10 my-20'>
                               <li>
-                              <div className="mr-2 my-5 ">
-                              
-                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > IT Club </h1> 
-                              
-                              </div>
+                              <Link href={"/schoolife/itclub"}>
+                                    <div className="mr-2 my-5 ">
+                                    
+                                    <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > IT Club </h1> 
+                                    
+                                    </div>
+                              </Link>
                               </li>
                               
                               <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Nkoba Zambogo</h1> 
-                                    
-                              </div>
+                              <Link href={"/schoolife/nkoba"}>
+                                    <div className="mr-2 my-5  ">
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Nkoba Zambogo</h1> 
+                                          
+                                    </div>
+                              </Link>
                               </li>
                               <li>
                               <div className="mr-2 my-5  ">
@@ -344,38 +358,48 @@ const Foot = () =>{
                   <div className=" fade-in ml-24 my-24 hidden " style={{marginTop:'12%'}} id='get-in-touch'> 
                         <ul className='ml-10 my-20'>
                               <li>
-                              <div className="mr-2 my-5 ">
-                              
-                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Transport </h1> 
-                              
-                              </div>
+                              <Link href={"/schoolife/transport"}>
+                                    <div className="mr-2 my-5 ">
+                                    
+                                    <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Transport </h1> 
+                                    
+                                    </div>
+                              </Link>
                               </li>
                               
                               <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Residence</h1> 
-                                    
-                              </div>
+                              <Link href={"/schoolife/residence"}>
+                                    <div className="mr-2 my-5  ">
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Residence</h1> 
+                                          
+                                    </div>
+                              </Link>
                               </li>
                               <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > ICT </h1> 
-                                    
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Library</h1>
-                                    
-                              </div>
+                              <Link href={"/schoolife/ICT"}>
+                                    <div className="mr-2 my-5  ">
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > ICT </h1> 
+                                          
+                                    </div>
+                              </Link>
                               </li>
                               
                               <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Music</h1> 
-                                    
-                              </div>
+                              <Link href={"/schoolife/library"}>
+                                    <div className="mr-2 my-5  ">
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Library</h1>
+                                          
+                                    </div>
+                              </Link>
+                              </li>
+                              
+                              <li>
+                              <Link href={"/schoolife/music"}>
+                                    <div className="mr-2 my-5  ">
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Music</h1> 
+                                          
+                                    </div>
+                              </Link>
                               </li>
                               
                              

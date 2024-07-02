@@ -2,7 +2,7 @@ import SectionTitle from "@/components/Common/SectionTitle";
 import School from "@/components/school/School";
 import React from "react";
 
-export default function SchoolOfBusiness() {
+export default function Teaching() {
   return (
     <div>
       <section className="my-20 mt-36 mx-10">

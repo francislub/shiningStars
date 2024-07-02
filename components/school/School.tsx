@@ -27,9 +27,9 @@ const School = ({
         style={{ marginBottom: mb }}
       >
         <div className=" flex flex-col justify-center items-center">
-          <h2 className="mb-4 text-3xl font-bold !leading-tight text-black/70 dark:text-white sm:text-4xl md:text-[45px]">
+          {/* <h2 className="mb-4 text-3xl font-bold !leading-tight text-black/70 dark:text-white sm:text-4xl md:text-[45px]">
             Dean
-          </h2>
+          </h2> */}
           <h1 className="mb-4 text-body-color">{dean}</h1>
           <Image src={deanImage} alt="dean" width={200} height={200} />
         </div>
