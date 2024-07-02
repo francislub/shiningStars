@@ -161,7 +161,7 @@ const Header = () => {
                         onMouseEnter={first_modal}
 
                       >
-                        <span className={showModel ? "active" : ""}>Programs</span>
+                        <span className={showModel ? "active" : ""}>About Us</span>
                         <span className="my-1 ml-2 dark:text-dark  text-bold">
                           <FaChevronDown className={showModel ? "drop" : ""} />
                         </span>
@@ -174,7 +174,7 @@ const Header = () => {
                         className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onMouseEnter={second_modal}
                       >
-                        <span className={showModel1 ? "active" : ""}>Student life</span>
+                        <span className={showModel1 ? "active" : ""}>School life</span>
                         <span className="my-1 ml-2 dark:text-dark ">
                           <FaChevronDown className={showModel1 ? "drop" : ""} />
                         </span>
@@ -189,7 +189,7 @@ const Header = () => {
                         className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onMouseEnter={third_modal}
                       >
-                        <span className={showModel2 ? "active" : ""}>Research</span>
+                        <span className={showModel2 ? "active" : ""}>Resources</span>
                         <span className={"my-1 ml-2 dark:text-dark "}>
                           <FaChevronDown className={showModel2 ? "drop" : ""} />
                         </span>
