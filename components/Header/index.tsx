@@ -8,7 +8,7 @@ import Model1 from "@/components/model/Model1";
 import Model2 from "@/components/model/Model2";
 import Model3 from "@/components/model/Model3";
 import Model4 from "@/components/model/Model4";
-import image from "../../public/images/logo/logo1.png";
+import image from "../../public/images/logo/logo.png";
 import "../../styles/nav.css";
 import "../../styles/index.css";
 import { FaChevronDown } from "react-icons/fa";
@@ -126,13 +126,23 @@ const Header = () => {
       <header className={`header top-0 left-0 z-40 flex w-full items-center  mt-[-8px] ${sticky ? " bg-dark !fixed !z-[9999] ! bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100" : "absolute"}`}>
         <div className="container">
           <div className="relative flex items-center justify-between">
-            <div className="w-60 relative z-10" >
-                  <Link href="/"  className={`header-logo block w-full ${sticky ? "py-2 lg:py-2" : "py-3"}`}>
-                        <Image src={image} alt="logo" width={140} height={40} className="w-full dark:hidden" />
-                        <Image src={image} alt="logo" width={100} height={20} className="hidden w-full dark:block" />
-                         
-                  </Link>
-                 
+           <div className="w-30 relative z-10">
+                <Link href="/" className={`header-logo block w-full ${sticky ? "py-2 lg:py-2" : "py-3"}`}>
+                    <Image 
+                        src={image} 
+                        alt="logo" 
+                        width={80} 
+                        height={25} 
+                        className="w-full dark:hidden rounded-full" 
+                    />
+                    <Image 
+                        src={image} 
+                        alt="logo" 
+                        width={50} 
+                        height={15} 
+                        className="hidden w-full dark:block rounded-full" 
+                    />
+                </Link>
             </div>
             <div className="flex space-x-20 justify-between transform bg-white">
               <div>
@@ -189,7 +199,7 @@ const Header = () => {
                         className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onMouseEnter={third_modal}
                       >
-                        <span className={showModel2 ? "active" : ""}>Resources</span>
+                        <span className={showModel2 ? "active" : ""}>Others</span>
                         <span className={"my-1 ml-2 dark:text-dark "}>
                           <FaChevronDown className={showModel2 ? "drop" : ""} />
                         </span>
@@ -201,7 +211,7 @@ const Header = () => {
                         className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
                         onMouseEnter={forth_modal}
                       >
-                        <span className={showModel3 ? "active" : ""}>Campuses</span>
+                        <span className={showModel3 ? "active" : ""}>Resources</span>
                         <span className="my-1 ml-2 dark:text-dark ">
                           <FaChevronDown className={showModel3 ? "drop" : ""} />
                         </span>

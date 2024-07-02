@@ -108,21 +108,21 @@ const why_bugema = () =>{
                         <div className="vertical-line ml-24 my-24 fade-in "  style={{marginLeft:'115px',marginTop:'25%'}}> 
                               <div className="mr-2 my-5 slider slide--fast">
                                     
-                                    <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main ' > <span id='Main' className='animated href=""'> Main Campus</span></h1> 
+                                    <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main ' > <span id='Main' className='animated href=""'> Events</span></h1> 
                               </div>
                               <div className="mr-2 my-5  slider slide--slow ">
-                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' ><span id='Kampala' className='animated'>Kampala Campus</span></h1> 
+                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' ><span id='Kampala' className='animated'>News</span></h1> 
                               </div>
                               <div className="mr-2 my-5  slider slide--slower">
-                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '>  <span id='Mbale' className='animated'> Mbale Campus</span></h1> 
+                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '>  <span id='Mbale' className='animated'> Circular</span></h1> 
                               </div>
-                              <div className="mr-2 my-5 slider slide--slowest ">
+                              {/* <div className="mr-2 my-5 slider slide--slowest ">
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' > <span className='animated' id='Kasese'> Kasese Campus</span></h1> 
                               </div>
 
                               <div className="mr-2 my-5 slider slide--slowest ">
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '> <span className='animated' id='Arua'> Arua Campus</span></h1> 
-                              </div>
+                              </div> */}
 
                               {/*###===============================================================================
                                A T T A C H M E N T   P I C T U R E S    U N D E R    T H E   F I R S T   C O L U M N 
@@ -161,7 +161,7 @@ const why_bugema = () =>{
                   </div>
                   <div className=" ml-12 my-24 fade-in " id='courses' style={{marginTop:'19%'}}> 
 
-                         <h1  style={{marginRight:'5px'}} className='text-black text-center' >One institution, many worlds. <br/> Explore our Different Campuses and <br/> find your perfect fit ... </h1> 
+                         <h1  style={{marginRight:'5px'}} className='text-black text-center' >Shining Stars Nursery And Primary. <br/>Stay up-to-date with the latest news and events <br/> find your perfect fit ... </h1> 
                         
                   </div>
 

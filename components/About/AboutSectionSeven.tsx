@@ -10,11 +10,11 @@ const AboutSectionSeven = () => {
   return (
     <section className="py-16 md:py-20 lg:py-28">
 
-    <div className="container">
-        <h3 className="mb-2 mt-3 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-4xl text-center">
+    <div className="container -mb-20">
+        <h3 className=" -mt-20 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-4xl text-center">
            Excellence in research, teaching, and medical care
         </h3>
-        <div className="flex items-center gap-10 mt-8 -mb-8">
+        <div className="flex items-center gap-10 -mb-8">
           <div
             className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
             data-wow-delay=".15s" 
@@ -25,7 +25,7 @@ const AboutSectionSeven = () => {
               className="w-[500px] h-[300px]"
             />
           </div>
-          <div className="w-full px-2 lg:w-1/2 h-[500px] mt-8">
+          <div className="w-full px-2 lg:w-1/2 h-[500px] mt-4">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Professional Courses
             </h3>
@@ -152,7 +152,7 @@ const AboutSectionSeven = () => {
               className="w-[500px]"
             />
         </div>
-        <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5">
+        <div className="w-full px-2 lg:w-1/2 h-[500px]">
           <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
           Professional Certificate
           </h3>
@@ -168,7 +168,7 @@ const AboutSectionSeven = () => {
         </div>
       </div>
 
-      <div className="container">
+      {/* <div className="container">
         <div className="flex flex-wrap items-center -mx-4 -mt-12">
           <div className="w-full px-4 lg:w-1/2">
             <div
@@ -189,7 +189,6 @@ const AboutSectionSeven = () => {
             </h3>
             <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
               <div className="mb-9 flex-1">
-                {/* <StarIcon className="w-12 h-12 text-black dark:text-white" /> */}
                 <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
                    Award-winning Careers and Employability Service
                 </h3>
@@ -232,7 +231,7 @@ const AboutSectionSeven = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

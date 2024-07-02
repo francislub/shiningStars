@@ -109,7 +109,7 @@ const why_bugema = () =>{
                         <div className="vertical-line ml-24 my-24 fade-in "  style={{marginLeft:'115px',marginTop:'25%'}}> 
                               <div className="mr-2 my-5 slider slide--fast">
                                     
-                                    <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main '   onClick={main}> <span id='main' className='current animated href=""'>Courses</span></h1> 
+                                    <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main '   onClick={main}> <span id='main' className='current animated href=""'>Academic Center</span></h1> 
                               </div>
                               <div className="mr-2 my-5  slider slide--slow ">
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={payments}><span id='payments' className='animated'>Fees and Payments</span></h1> 
@@ -159,7 +159,7 @@ const why_bugema = () =>{
                               <li>
                               <div className="mr-2 my-5 slider slide--slow ">
                                     <Link href={"/"} >
-                                          <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Science and Technology </h1> 
+                                          <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Subjects </h1> 
                                     </Link> 
                               </div>
                               </li>
@@ -168,12 +168,12 @@ const why_bugema = () =>{
                               <div className="mr-2 my-5 slider slide--slow ">
                                     
                                     <Link href={"/schools/school-of-health"} >
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Heath and Alied Sciences</h1> 
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Co Curricular Activities</h1> 
                                     </Link> 
                               </div>
                               </li>
-                              <li>
-                              <div className="mr-2 my-5 slider slide--fast ">
+                              {/* <li> */}
+                              {/* <div className="mr-2 my-5 slider slide--fast ">
                                      
                                     <Link href={"/schools/school-of-theology"} >
                                           <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Theology and Religious Studies </h1> 
@@ -213,7 +213,7 @@ const why_bugema = () =>{
                                           <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Graduate studies, Reseacrch <br/>&  Publications</h1> 
                                     </Link> 
                               </div>
-                              </li>
+                              </li> */}
                               
                         </ul>
                         
@@ -386,18 +386,18 @@ const why_bugema = () =>{
                               </div>
                               <div className="ml-19 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
                                     <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Why Study at Bugema University <FaArrowRight className='arrow1'/></h1>
+                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Why Study at Shining Stars  <FaArrowRight className='arrow1'/></h1>
                                     </div>
                               </div> 
                               
                               <div className="ml-12 my-1 transform -skew-x-11 text-white grid-rows-2 " >
                                     <div className='columns-1 bg-black change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Masters of Science in Information <FaArrowRight className='arrow2'/></h1>
+                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Why Study at Shining Stars <FaArrowRight className='arrow2'/></h1>
                                     </div>
                               </div>  
                               <div className="ml-24 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px'}} >
                                     <div className='columns-1 bg-black slider slide--slow change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Masters of Science in Information <FaArrowRight className='arrow3'/></h1>
+                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Why Study at Shining Stars <FaArrowRight className='arrow3'/></h1>
                                     </div>
                               </div>
                         </div>
@@ -432,18 +432,18 @@ const why_bugema = () =>{
                               </div>
                               <div className="ml-19 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
                                     <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Why Study at Bugema University <FaArrowRight className='arrow1'/></h1>
+                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Why Study at Shining Stars Vvumba <FaArrowRight className='arrow1'/></h1>
                                     </div>
                               </div> 
                               
                               <div className="ml-12 my-1 transform -skew-x-11 text-white grid-rows-2 " >
                                     <div className='columns-1 bg-black change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Why Study at Bugema University <FaArrowRight className='arrow2'/></h1>
+                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Why Study at Shining Stars Vvumba <FaArrowRight className='arrow2'/></h1>
                                     </div>
                               </div>  
                               <div className="ml-24 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px'}} >
                                     <div className='columns-1 bg-black slider slide--slow change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Why Study at Bugema University <FaArrowRight className='arrow3'/></h1>
+                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Why Study at Shining Stars Vvumba <FaArrowRight className='arrow3'/></h1>
                                     </div>
                               </div>
                         </div>
@@ -461,7 +461,7 @@ const why_bugema = () =>{
                               
                               <div className="ml-12 -mr-4 my-1 transform -skew-x-11 text-white grid-rows-2 " >
                                     <div className='columns-1 bg-black change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Other Campuses <FaArrowRight className='arrow2'/></h1>
+                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Vist Us <FaArrowRight className='arrow2'/></h1>
                                     </div>
                               </div>  
                               <div className="ml-24 -mr-3 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px',}} >
