@@ -158,7 +158,7 @@ const why_bugema = () =>{
                         <ul>
                               <li>
                               <div className="mr-2 my-5 slider slide--slow ">
-                                    <Link href={"/"} >
+                                    <Link href={"/subjects"} >
                                           <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Subjects </h1> 
                                     </Link> 
                               </div>
@@ -167,7 +167,7 @@ const why_bugema = () =>{
                               <li>
                               <div className="mr-2 my-5 slider slide--slow ">
                                     
-                                    <Link href={"/schools/school-of-health"} >
+                                    <Link href={"/curricular-activities"} >
                                           <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Co Curricular Activities</h1> 
                                     </Link> 
                               </div>
@@ -232,16 +232,20 @@ const why_bugema = () =>{
                               </li>
                               
                               <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Scholarships</h1> 
-                                    
-                              </div>
+                              <Link href={"/scholarships"}>
+                                    <div className="mr-2 my-5  ">
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Scholarships</h1> 
+                                          
+                                    </div>
+                              </Link>
                               </li>
                               <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Pupils pay code</h1> 
-                                    
-                              </div>
+                              <Link href={"/codepay"}>
+                                    <div className="mr-2 my-5  ">
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Pupils pay code</h1> 
+                                          
+                                    </div>
+                              </Link>
                               </li>
                               
                               <li>
@@ -264,38 +268,46 @@ const why_bugema = () =>{
                   <div className=" fade-in ml-24 my-24 hidden " style={{marginTop:'12%'}} id='why_bugema-data'> 
                         <ul className='ml-10 my-20'>
                               <li>
-                              <div className="mr-2 my-5 ">
-                              
-                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Sports </h1> 
-                              
-                              </div>
+                              <Link href={"/studentlife"}>
+                                    <div className="mr-2 my-5 ">
+                                    
+                                    <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Sports </h1> 
+                                    
+                                    </div>
+                              </Link>
                               </li>
                               
                               <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Accommodation</h1> 
-                                    
-                              </div>
+                              <Link href={"/accommodation"}>
+                                    <div className="mr-2 my-5">
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Accommodation</h1> 
+                                    </div>
+                              </Link>
                               </li>
                               <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Religion </h1> 
-                                    
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Health</h1>
-                                    
-                              </div>
+                              <Link href={"/health"}>
+                                    <div className="mr-2 my-5  ">
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Religion </h1> 
+                                    </div>
+                              </Link>
                               </li>
                               
                               <li>
-                              <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Feeding</h1> 
-                                    
-                              </div>
+                              <Link href={"/health"}>
+                                    <div className="mr-2 my-5 ">
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools  text-black font-bold'> Health</h1>
+                                         
+                                    </div>
+                              </Link>
+                              </li>
+                              
+                              <li>
+                                    <Link href={"/feeding"}>
+                                          <div className="mr-2 my-5  ">
+                                                <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Feeding</h1> 
+                                                
+                                          </div>
+                                    </Link>
                               </li>
   
                         </ul>
@@ -384,22 +396,27 @@ const why_bugema = () =>{
                               <div className=' ml-24 fade-in '>
                                           <Image src={image} alt='img' width={350} height={450} className="-ml-5 my-10 slider slide--fast"/>
                               </div>
-                              <div className="ml-19 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
-                                    <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Why Study at Shining Stars  <FaArrowRight className='arrow1'/></h1>
+                              <Link href={"/whyshin"}>
+                                    <div className="ml-19 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
+                                          <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
+                                          <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Why Study at Shining Stars  <FaArrowRight className='arrow1'/></h1>
+                                          </div>
+                                    </div> 
+                              </Link>
+                              <Link href={"/whyshin"}>
+                                    <div className="ml-12 my-1 transform -skew-x-11 text-white grid-rows-2 " >
+                                          <div className='columns-1 bg-black change-on-hover'>
+                                          <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Why Study at Shining Stars <FaArrowRight className='arrow2'/></h1>
+                                          </div>
+                                    </div>  
+                              </Link>
+                              <Link href={"/whyshin"}>
+                                    <div className="ml-24 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px'}} >
+                                          <div className='columns-1 bg-black slider slide--slow change-on-hover'>
+                                          <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Why Study at Shining Stars <FaArrowRight className='arrow3'/></h1>
+                                          </div>
                                     </div>
-                              </div> 
-                              
-                              <div className="ml-12 my-1 transform -skew-x-11 text-white grid-rows-2 " >
-                                    <div className='columns-1 bg-black change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Why Study at Shining Stars <FaArrowRight className='arrow2'/></h1>
-                                    </div>
-                              </div>  
-                              <div className="ml-24 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px'}} >
-                                    <div className='columns-1 bg-black slider slide--slow change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Why Study at Shining Stars <FaArrowRight className='arrow3'/></h1>
-                                    </div>
-                              </div>
+                              </Link>
                         </div>
 
                         {/* ###=============F E E S       M O R E =================### */}
@@ -430,22 +447,27 @@ const why_bugema = () =>{
                               <div className=' ml-24 fade-in '>
                                           <Image src={bucosa} alt='img' width={350} height={450} className="-ml-5 my-10 slider slide--fast"/>
                               </div>
-                              <div className="ml-19 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
-                                    <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Why Study at Shining Stars Vvumba <FaArrowRight className='arrow1'/></h1>
+                              <Link href={"/whyshin"}>
+                                    <div className="ml-19 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
+                                          <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
+                                          <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Why Study at Shining Stars Vvumba <FaArrowRight className='arrow1'/></h1>
+                                          </div>
+                                    </div> 
+                              </Link>
+                              <Link href={"/whyshin"}>
+                                    <div className="ml-12 my-1 transform -skew-x-11 text-white grid-rows-2 " >
+                                          <div className='columns-1 bg-black change-on-hover'>
+                                          <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Why Study at Shining Stars Vvumba <FaArrowRight className='arrow2'/></h1>
+                                          </div>
+                                    </div> 
+                              </Link> 
+                              <Link href={"/whyshin"}>
+                                    <div className="ml-24 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px'}} >
+                                          <div className='columns-1 bg-black slider slide--slow change-on-hover'>
+                                          <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Why Study at Shining Stars Vvumba <FaArrowRight className='arrow3'/></h1>
+                                          </div>
                                     </div>
-                              </div> 
-                              
-                              <div className="ml-12 my-1 transform -skew-x-11 text-white grid-rows-2 " >
-                                    <div className='columns-1 bg-black change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Why Study at Shining Stars Vvumba <FaArrowRight className='arrow2'/></h1>
-                                    </div>
-                              </div>  
-                              <div className="ml-24 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px'}} >
-                                    <div className='columns-1 bg-black slider slide--slow change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Why Study at Shining Stars Vvumba <FaArrowRight className='arrow3'/></h1>
-                                    </div>
-                              </div>
+                              </Link>
                         </div>
 
                         {/* ###=============G E T   IN  T O U C H       M O R E =================### */}
