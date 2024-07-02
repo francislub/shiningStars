@@ -1,4 +1,3 @@
-// env.ts
 import { createEnv } from "@t3-oss/env-nextjs";
 import { z } from "zod";
 
@@ -24,8 +23,9 @@ export const env = createEnv({
    * 💡 You'll get type errors if not all variables from `server` & `client` are included here.
    */
   runtimeEnv: {
+    // NEXT_PUBLIC_HASHNODE_ENDPOINT: process.env.NEXT_PUBLIC_HASHNODE_ENDPOINT,
+    // NEXT_PUBLIC_HASHNODE_PUBLICATION_ID: process.env.NEXT_PUBLIC_HASHNODE_PUBLICATION_ID,
     NEXT_PUBLIC_HASHNODE_ENDPOINT: process.env.NEXT_PUBLIC_HASHNODE_ENDPOINT,
-    NEXT_PUBLIC_HASHNODE_PUBLICATION_ID:
-      process.env.NEXT_PUBLIC_HASHNODE_PUBLICATION_ID,
+    NEXT_PUBLIC_HASHNODE_PUBLICATION_ID: process.env.NEXT_PUBLIC_HASHNODE_PUBLICATION_ID,
   },
 });

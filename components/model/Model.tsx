@@ -115,10 +115,10 @@ const why_bugema = () =>{
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={payments}><span id='payments' className='animated'>Fees and Payments</span></h1> 
                               </div>
                               <div className="mr-2 my-5  slider slide--slower">
-                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold 'onClick={why_bugema} >  <span id='why_bugema' className='animated'> Why Bugema University </span></h1> 
+                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold 'onClick={why_bugema} >  <span id='why_bugema' className='animated'> Why Shining Stars </span></h1> 
                               </div>
                               <div className="mr-2 my-5 slider slide--slowest ">
-                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={touch}> <span className='animated' id='contact'> Staff & Faculty </span></h1> 
+                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={touch}> <span className='animated' id='contact'> Staff </span></h1> 
                               </div>
                               <div id='attachment-get-in-toch' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
                                     <div className='fade-in'>
@@ -226,7 +226,7 @@ const why_bugema = () =>{
                               <li>
                               <div className="mr-2 my-5 ">
                               
-                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Tution Fees </h1> 
+                              <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Fees Structure </h1> 
                               
                               </div>
                               </li>
@@ -239,28 +239,28 @@ const why_bugema = () =>{
                               </li>
                               <li>
                               <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Funding Your Studies </h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Pupils pay code</h1> 
                                     
                               </div>
                               </li>
                               
                               <li>
                               <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> BUSA Fees</h1>
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Trip Fees</h1>
                                     
                               </div>
                               </li>
                               
                               <li>
                               <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> NHCE Fees</h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Others</h1> 
                                     
                               </div>
                               </li>
                         </ul>
                         
                   </div>
-                  {/*###============== W  H  Y    B U G E M A ==============###*/}
+                  {/*###============== W  H  Y    shining ==============###*/}
                   <div className=" fade-in ml-24 my-24 hidden " style={{marginTop:'12%'}} id='why_bugema-data'> 
                         <ul className='ml-10 my-20'>
                               <li>
@@ -308,7 +308,7 @@ const why_bugema = () =>{
                                     <Link href={"/schools/school-of-science"}>
                                           <div className="mr-2 my-5 ">
                                     
-                                                <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Science and Technology  </h1> 
+                                                <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Administrators  </h1> 
                                     
                                           </div>
                                     </Link>
@@ -318,7 +318,7 @@ const why_bugema = () =>{
                               <li>
                                     <Link href={"/schools/school-of-health"}>
                                     <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>School of Heath and Alied Sciences</h1> 
+                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Teaching</h1> 
                                     </div>
                                     </Link>
                               
@@ -326,7 +326,7 @@ const why_bugema = () =>{
                               <li>
                               <Link href={"/schools/school-of-theology"} >
                                     <div className="mr-2 my-5  ">
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Theology and Religious Studies </h1> 
+                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Non-Teaching </h1> 
                                     </div>
                               </Link>
                              
@@ -334,13 +334,13 @@ const why_bugema = () =>{
                               <li>
                                     <Link href={"/schools/school-of-agric"} >
                                           <div className="mr-2 my-5  ">
-                                                <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Agriculture and Applied Sciences</h1>
+                                                <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Pupils Leadership</h1>
                                                 
                                           </div>
                                     </Link>
                               </li>
                               
-                              <li>
+                              {/* <li>
                                     <Link href={"/schools/school-of-agric"}>
                                     <div className="mr-2 my-5  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Business</h1> 
@@ -367,7 +367,7 @@ const why_bugema = () =>{
                                     </div>
                                     </Link>
                               
-                              </li>
+                              </li> */}
 
                         </ul>
                         
@@ -418,11 +418,11 @@ const why_bugema = () =>{
                                     <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Fees Structure <FaArrowRight className='arrow2'/></h1>
                                     </div>
                               </div>  
-                              <div className="ml-24 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px'}} >
+                              {/* <div className="ml-24 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px'}} >
                                     <div className='columns-1 bg-black slider slide--slow change-on-hover'>
                                     <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Donate <FaArrowRight className='arrow3'/></h1>
                                     </div>
-                              </div>
+                              </div> */}
                         </div>
 
                         {/* ###============= W  H  Y    B U G E M A      M O R E =================### */}

@@ -103,13 +103,12 @@ const Video = () => {
         <div className="wow fadeInUp w-full" data-wow-delay=".1s">
           
           <h1 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px]">
-          Discover Your Path at Bugema University! 
+          Discover Your Path at Shining Stars! 
           </h1>
           <p className="text-base !leading-relaxed text-body-color md:text-lg">
           
-At Bugema, it’s not just about academics; it’s about nurturing your mind, heart, and hands. Bugema fosters holistic excellence – where character development meets intellectual growth.
-With Flexible Intakes, whether you’re a fresh high school graduate or a working professional seeking advancement, Bugema offers multiple intakes throughout the year. No need to wait – start your journey now!
-Bugema University, where dreams take root, friendships flourish, and purpose unfolds. Join us today – your adventure awaits! 
+At Shining Stars, it’s not just about academics; it’s about nurturing your mind, heart, and hands. Shining Stars fosters holistic excellence – where character development meets intellectual growth.
+With Flexible Intakes, whether you’re a fresh high school graduate or a working professional seeking advancement. 
 
           </p>
         </div>
@@ -125,13 +124,13 @@ Bugema University, where dreams take root, friendships flourish, and purpose unf
             <Image
               className="img1 mb-2 rounded"
               src={img}
-              alt="Bugema University"
+              alt="Shining Stars"
               width="600"
               height="250"
             />
           </div>
           <p className="text-base !leading-relaxed text-body-color md:text-lg">
-            Join us at Bugema University, where education is embraced as
+            Join us at Shining Stars, where education is embraced as
             a catalyst for empowerment and change. Experience an
             inclusive and enriching learning environment where equal
             opportunities, academic excellence, and a commitment to the
