@@ -305,7 +305,7 @@ const why_bugema = () =>{
                   <div className=" fade-in ml-24 my-24 hidden " style={{marginTop:'6%'}} id='get-in-touch'> 
                         <ul className='ml-10 my-20'>
                               <li>
-                                    <Link href={"/schools/school-of-science"}>
+                                    <Link href={"/administrators"}>
                                           <div className="mr-2 my-5 ">
                                     
                                                 <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Administrators  </h1> 
@@ -316,7 +316,7 @@ const why_bugema = () =>{
                               </li>
                               
                               <li>
-                                    <Link href={"/schools/school-of-health"}>
+                                    <Link href={"/teaching"}>
                                     <div className="mr-2 my-5  ">
                                     <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Teaching</h1> 
                                     </div>
@@ -324,7 +324,7 @@ const why_bugema = () =>{
                               
                               </li>
                               <li>
-                              <Link href={"/schools/school-of-theology"} >
+                              <Link href={"/non-teaching"} >
                                     <div className="mr-2 my-5  ">
                                           <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Non-Teaching </h1> 
                                     </div>
@@ -332,7 +332,7 @@ const why_bugema = () =>{
                              
                               </li>
                               <li>
-                                    <Link href={"/schools/school-of-agric"} >
+                                    <Link href={"/studentleader"} >
                                           <div className="mr-2 my-5  ">
                                                 <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Pupils Leadership</h1>
                                                 
