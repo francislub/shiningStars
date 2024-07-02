@@ -20,13 +20,13 @@ const AboutSectionLife2 = () => {
                               <FaWpforms className="w-10 h-8  text-black dark:text-white items-center"/>
 
                         <h3 className="mb-2 mt-3 text-xl font-bold text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                        Admissions
+                        Fees Structure
                         </h3>
                         <p className="mb-4 text-base text-white ">
-                        Embark on your journey towards exellence.
+                        Get more information about fees structure.
                         </p>
                         <button className="px-6 py-2 text-white bg-[#e72725] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                              Apply Now
+                              Download
                         </button>
                         </div>
                         </div>
@@ -34,14 +34,14 @@ const AboutSectionLife2 = () => {
                         <div className="wow fadeInUp relative mx-auto mb-6 aspect-[25/24] lg:m-0 flex flex-col justify-center items-center text-center" data-wow-delay=".15s">
                         <FaMoneyCheckDollar className="w-10 h-8 text-black dark:text-white items-center"/>
                         <h3 className="mb-2 mt-3 text-xl font-bold text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                              Financial Info
+                              Pupils pay code
                         </h3>
                         <p className="mb-4 text-base text-white">
-                        Providing quality education that is affordable for all students. 
+                        Search for your childs mobile pay code for easy transactions.
                         </p>
                         
                         <button className="px-6 py-2 text-white bg-[#234297] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                              Explore
+                         Search
                         </button>
                         </div>
                         </div>
@@ -49,13 +49,13 @@ const AboutSectionLife2 = () => {
                         <div className="wow fadeInUp relative mx-auto mb-6 aspect-[25/24] lg:m-0 flex flex-col justify-center items-center text-center" data-wow-delay=".15s">
                         <IoBookOutline className="w-10 h-8 text-black dark:text-white items-center"/>
                         <h3 className="mb-2 mt-3 text-xl font-bold text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                        Student Portal
+                        School Circular
                         </h3>
                         <p className="mb-4 text-base text-white dark:text-gray-300">
-                        Access all your information and notifications
+                        Find the attached circular for school fees dues/fees remainder.
                         </p>
                         <button className="px-6 py-2 text-white bg-[#e72725] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                              Login
+                              Download
                         </button>
                         </div>
                         </div>
@@ -63,13 +63,13 @@ const AboutSectionLife2 = () => {
                         <div className="wow fadeInUp relative mx-auto mb-12 aspect-[25/24] lg:m-0 flex flex-col justify-center items-center text-center" data-wow-delay=".15s">
                         <FaScroll className="w-10 h-8 text-black dark:text-white "/>
                         <h3 className="mb-2 mt-3 text-xl font-bold text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                        Programs
+                        Meeting Letters
                         </h3>
                         <p className="mb-2 text-base text-white ">
-                        With over 100 academic programs delivering world-class education.
+                        Find a your meeting letter
                         </p>
                         <button className="px-6 py-2 mt-2 text-white bg-[#234297] rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                              Learn More
+                              Explore More
                         </button>
                         </div>
                         </div>
