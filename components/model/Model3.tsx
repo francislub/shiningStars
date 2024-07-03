@@ -9,6 +9,7 @@ import bucosa from "../../public/images/nav/bucosa.jpg";
 import palm_girls from "../../public/images/nav/palm-girls.jpg";
 import palm_girls1 from "../../public/images/nav/palm-girls1.jpg";
 import Image from "next/image";
+import Link from 'next/link';
 import { useEffect, useState } from "react";
 
 
@@ -106,13 +107,17 @@ const why_bugema = () =>{
                   <div id="programs">
 
                         <div className="vertical-line ml-24 my-24 fade-in "  style={{marginLeft:'115px',marginTop:'25%'}}> 
-                              <div className="mr-2 my-5 slider slide--fast">
-                                    
-                                    <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main ' > <span id='Main' className='animated href=""'> Events</span></h1> 
-                              </div>
-                              <div className="mr-2 my-5  slider slide--slow ">
-                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' ><span id='Kampala' className='animated'>News</span></h1> 
-                              </div>
+                              <Link href={"/events"}>
+                                    <div className="mr-2 my-5 slider slide--fast">
+                                          
+                                          <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main ' > <span id='Main' className='animated href=""'> Events</span></h1> 
+                                    </div>
+                              </Link>
+                              <Link href={"/news"}>
+                                    <div className="mr-2 my-5  slider slide--slow ">
+                                          <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' ><span id='Kampala' className='animated'>News</span></h1> 
+                                    </div>
+                              </Link>
                               <div className="mr-2 my-5  slider slide--slower">
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '>  <span id='Mbale' className='animated'> Circular</span></h1> 
                               </div>
