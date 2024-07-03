@@ -9,7 +9,7 @@ const Events = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch("https://buweb.onrender.com/events", {
+        const response = await fetch("https://shining-stars-dashboard.onrender.com/api/v1/events", {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

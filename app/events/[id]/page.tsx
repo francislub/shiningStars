@@ -14,7 +14,7 @@ export default async function EventPage({ params }: Props) {
   let event: Event | null = null;
 
   try {
-    const response = await fetch(`https://buweb.onrender.com/events/${id}`, {
+    const response = await fetch(`https://shining-stars-dashboard.onrender.com/api/v1/events/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -38,10 +38,10 @@ export default async function EventPage({ params }: Props) {
     <div className="pt-[120px] pb-[120px]">
       <div className="container p-20">
         <div className="flex items-center justify-center ">
-          <Image src={event.coverPhotoUrl} alt={event.title} width={1200} height={100} className="custom-image" />
+          <Image src={event.photo} alt={event.activity} width={1200} height={100} className="custom-image" />
         </div> 
         <h1 className="text-4xl lg:text-6xl text-center leading-relaxed font-bold mt-5">
-          {event.title}
+          {event.activity}
         </h1>
         <p className="my-5 text-center text-xl text-gray-400">{event.date}</p>
         <div className="my-5 flex items-center justify-center text-lg">
@@ -54,7 +54,7 @@ export default async function EventPage({ params }: Props) {
               className="rounded-full"
             />
           )} */}
-          <span>{event.title}</span>
+          <span>{event.activity}</span>
         </div>
         <div
           className="blog-content text-xl leading-loose flex flex-col gap-5 mt-5"
