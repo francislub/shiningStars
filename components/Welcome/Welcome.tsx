@@ -20,15 +20,15 @@ const Welcome = () => {
                     You Are Welcome To
                   </h2>
                   <h1 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px]">
-                    Bugema University
+                    Shining Stars
                   </h1>
                   <p className="text-base !leading-relaxed text-body-color md:text-lg">
-                    At Bugema University, we understand the importance of
+                    At Shining Stars, we understand the importance of
                     quality assurance. We have developed comprehensive
                     self-regulating and self-maintaining procedures to ensure
                     the highest standards of excellence in academic delivery and
                     performance. <br />
-                    <br /> Join us at Bugema University, where education is
+                    <br /> Join us at Shining Stars, where education is
                     embraced as a catalyst for empowerment and change.
                     Experience an inclusive and enriching learning environment
                     where equal opportunities, academic excellence, and a
@@ -40,7 +40,7 @@ const Welcome = () => {
 
                 <div className="bg-primary hover:bg-primary/90 duration-300 rounded-md py-1 px-3 md:py-2 md:px-4 ml-12 mt-4 w-[170px] transition-all hover:scale-105">
                   <Link
-                    href="/whybugema"
+                    href="/whyshin"
                     className="text-base font-semibold text-white"
                   >
                     <span className="flex items-center gap-2 justify-center">
@@ -61,13 +61,13 @@ const Welcome = () => {
                     <Image
                       className="img1 mb-2 rounded"
                       src={img}
-                      alt="Bugema University"
+                      alt="Shining Stars"
                       width="600"
                       height="250"
                     />
                   </div>
                   <p className="text-base !leading-relaxed text-body-color md:text-lg">
-                    Join us at Bugema University, where education is embraced as
+                    Join us at Shining Stars, where education is embraced as
                     a catalyst for empowerment and change. Experience an
                     inclusive and enriching learning environment where equal
                     opportunities, academic excellence, and a commitment to the
@@ -78,7 +78,7 @@ const Welcome = () => {
 
                 <div className="bg-primary rounded-md py-1 px-3 mt-4 w-[170px]">
                   <Link
-                    href="/whybugema"
+                    href="/whyshin"
                     className="text-base font-semibold text-white "
                   >
                     <span className="flex items-center gap-2 justify-center">
@@ -94,7 +94,7 @@ const Welcome = () => {
               <Image
                 className="img1 hidden md:block mt-28 rounded"
                 src={img}
-                alt="Bugema University"
+                alt="Shining Stars"
                 width={500}
                 height={245}
               />

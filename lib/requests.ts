@@ -1,5 +1,5 @@
 import request, { gql } from "graphql-request";
-import { env } from "./env";
+// import { env } from "./env";
 import {
   GetPostsArgs,
   GetPostsResponse,
@@ -9,8 +9,8 @@ import {
   Post,
 } from "@/lib/types";
 
-const endpoint = env.NEXT_PUBLIC_HASHNODE_ENDPOINT;
-const publicationId = env.NEXT_PUBLIC_HASHNODE_PUBLICATION_ID;
+// const endpoint = env.NEXT_PUBLIC_HASHNODE_ENDPOINT;
+// const publicationId = env.NEXT_PUBLIC_HASHNODE_PUBLICATION_ID;
 
 
 export async function getBlogName() {
@@ -24,15 +24,15 @@ export async function getBlogName() {
     }
   `;
 
-  const response = await request<PublicationName>(endpoint, query, {
-    publicationId,
-  });
+  // const response = await request<PublicationName>(endpoint, query, {
+  //   publicationId,
+  // });
 
-  return {
-    title: response.publication.title,
-    displayTitle: response.publication.displayTitle,
-    favicon: response.publication.favicon,
-  };
+  // return {
+  //   title: response.publication.title,
+  //   displayTitle: response.publication.displayTitle,
+  //   favicon: response.publication.favicon,
+  // };
 }
 
 export async function getPosts({ first = 9, pageParam = "" }: GetPostsArgs) {
@@ -68,13 +68,13 @@ export async function getPosts({ first = 9, pageParam = "" }: GetPostsArgs) {
   }
   `;
 
-  const response = await request<GetPostsResponse>(endpoint, query, {
-    publicationId,
-    first,
-    after: pageParam,
-  });
+  // const response = await request<GetPostsResponse>(endpoint, query, {
+  //   publicationId,
+  //   first,
+  //   after: pageParam,
+  // });
 
-  return response.publication.posts.edges;
+  // return response.publication.posts.edges;
 }
 
 export async function subscribeToNewsletter(email: string) {
@@ -88,44 +88,44 @@ export async function subscribeToNewsletter(email: string) {
     }
   `;
 
-  const response = await request<SubscribeToNewsletterResponse>(
-    endpoint,
-    mutation,
-    {
-      publicationId,
-      email,
-    }
-  );
+  // const response = await request<SubscribeToNewsletterResponse>(
+  //   endpoint,
+  //   mutation,
+  //   {
+  //     publicationId,
+  //     email,
+  //   }
+  // );
 
-  return response;
+  // return response;
 }
 
-export async function getPostBySlug(slug: string): Promise<Post> {
-  const query = gql`
-    query getPostBySlug($publicationId: ObjectId!, $slug: String!) {
-      publication(id: $publicationId) {
-        post(slug: $slug) {
-          title
-          subtitle
-          coverImage {
-            url
-          }
-          content {
-            html
-          }
-          author {
-            name
-            profilePicture
-          }
-        }
-      }
-    }
-  `;
+// export async function getPostBySlug(slug: string): Promise<Post> {
+//   const query = gql`
+//     query getPostBySlug($publicationId: ObjectId!, $slug: String!) {
+//       publication(id: $publicationId) {
+//         post(slug: $slug) {
+//           title
+//           subtitle
+//           coverImage {
+//             url
+//           }
+//           content {
+//             html
+//           }
+//           author {
+//             name
+//             profilePicture
+//           }
+//         }
+//       }
+//     }
+  //`;
 
-  const response = await request<GetPostBySlugResponse>(endpoint, query, {
-    publicationId,
-    slug,
-  });
+  // const response = await request<GetPostBySlugResponse>(endpoint, query, {
+  //   publicationId,
+  //   slug,
+  // });
 
-  return response.publication.post;
-}
+  // return response.publication.post;
+//}
