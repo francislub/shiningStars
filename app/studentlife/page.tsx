@@ -2,23 +2,20 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import AboutSectionLife from "@/components/About/AboutSectionLife";
 import AboutSectionLife2 from "@/components/About/AboutSectionLife2";
 import Breadcrumb from "@/components/Common/Breadcrumb";
-import LifeHero from "@/components/LifeHero";
 
-const AboutPage = () => {
+const AboutSports = () => {
   return (
     <>
-      <LifeHero />
       <Breadcrumb
-        pageName="Student Life"
-        description=""
+        pageName="Sports"
+        description="Welcome to Shining Stars Sports page! Here, you'll find sports
+         on various topics related to different activities"
       />
-      <AboutSectionLife />
       <AboutSectionLife2 />
     </>
   );
 };
 
-export default AboutPage;
+export default AboutSports;

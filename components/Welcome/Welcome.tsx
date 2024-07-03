@@ -40,7 +40,7 @@ const Welcome = () => {
 
                 <div className="bg-primary hover:bg-primary/90 duration-300 rounded-md py-1 px-3 md:py-2 md:px-4 ml-12 mt-4 w-[170px] transition-all hover:scale-105">
                   <Link
-                    href="/whybugema"
+                    href="/whyshin"
                     className="text-base font-semibold text-white"
                   >
                     <span className="flex items-center gap-2 justify-center">
@@ -78,7 +78,7 @@ const Welcome = () => {
 
                 <div className="bg-primary rounded-md py-1 px-3 mt-4 w-[170px]">
                   <Link
-                    href="/whybugema"
+                    href="/whyshin"
                     className="text-base font-semibold text-white "
                   >
                     <span className="flex items-center gap-2 justify-center">
