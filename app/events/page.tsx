@@ -12,7 +12,7 @@ export default function Blog  () {
     useEffect(() => {
       const fetchPosts = async () => {
         try {
-          const response = await fetch("https://buweb.onrender.com/events", {
+          const response = await fetch("https://shining-stars-dashboard.onrender.com/api/v1/events", {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
@@ -36,8 +36,8 @@ export default function Blog  () {
   return (
     <>
       <Breadcrumb
-        pageName="Bugema University Blogs"
-        description="Welcome to the Bugema University Blog page! Here, you'll find a wealth of 
+        pageName="Shining Stars Events"
+        description="Welcome to Shining Stars events! Here, you'll find a wealth of 
         knowledge and insights on various topics related to academia, student life, research, and more. 
         "
       />
