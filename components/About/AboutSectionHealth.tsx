@@ -3,7 +3,8 @@ import { BookOpenIcon } from '@heroicons/react/solid';
 import { GlobeAltIcon } from '@heroicons/react/solid';
 import { StarIcon } from '@heroicons/react/solid';
 import { EyeIcon } from '@heroicons/react/solid';
-import image from "../../public/images/features/bu.jpg";
+
+import image from "../../public/images/shin/stu.jpg";
 
 
 const AboutSectionHealth = () => {

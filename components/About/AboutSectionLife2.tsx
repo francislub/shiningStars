@@ -3,7 +3,6 @@ import { BookOpenIcon } from '@heroicons/react/solid';
 import { GlobeAltIcon } from '@heroicons/react/solid';
 import { StarIcon } from '@heroicons/react/solid';
 import { EyeIcon } from '@heroicons/react/solid';
-import image from "../../public/images/features/bu.jpg";
 import sport from "../../public/images/life/sport.jpg";
 import wooda from "../../public/images/shin/s.jpg";
 import woodb from "../../public/images/shin/st.jpg";
