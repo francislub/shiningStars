@@ -36,15 +36,15 @@ const Footer = () => {
                     src={image}
                     alt="logo"
                     className="flex dark:hidden rounded-full"
-                    width={300}
-                    height={30}
+                    width={100}
+                    height={25}
                   />
                   <Image
                     src={image}
                     alt="logo"
                     className="hidden dark:block rounded-full"
-                    width={300}
-                    height={30}
+                    width={100}
+                    height={25}
                   />
                 </Link>
                 <h1 className="mb-9 text-base font-medium leading-relaxed text-body-color">
