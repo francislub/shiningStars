@@ -12,16 +12,13 @@ import { FaGraduationCap } from 'react-icons/fa';
 
 import Buadmin from '../../../public/images/carousel/buadmin.jpg';
 import Bugate from '../../../public/images/carousel/bugate.jpg';
-import Bb from '../../../public/images/features/bb.jpg';
-import Bu from '../../../public/images/features/bu.jpg';
-import Bulife from '../../../public/images/features/life.jpg';
 
 export const SchoolsData = [
     {
         icon: RxDesktop,
         title: "Academic",
         content:"Students enjoy a fulfilling lifestyle with academic excellence, personal growth, and preparation for future endeavors.",
-        backgroundImage: "/images/features/bb.jpg",
+        backgroundImage: "/images/shin/s.jpg",
         cardlink: "schools/school-of-science",
     },
     {
@@ -35,21 +32,21 @@ export const SchoolsData = [
         icon: BiCross,
         title: "Art & Clubs",
         content:"Students explore their passions, unleash their creativity, and build new skills through a variety of enriching programs.",
-        backgroundImage: "/images/features/bb.jpg",
+        backgroundImage: "/images/shin/s.jpg",
         cardlink: "schools/school-of-theology",
     },
     {
         icon: BiSolidBusiness,
         title: "ICT",
         content:"Computer is the ..................................................................................................",
-        backgroundImage: "/images/features/life.jpg",
+        backgroundImage: "/images/shin/s.jpg",
         cardlink: "schools/school-of-business",
     },
     {
         icon: BiSolidFactory,
         title: "Music ",
         content:"Music helps in providing pupils talents .......................................................................",
-        backgroundImage: "/images/carousel/bugate.jpg",
+        backgroundImage: "/images/shin/s.jpg",
         cardlink: "schools/school-of-agric",
     },
 ];
@@ -59,7 +56,7 @@ export const ServiceData2 = [
         icon: RxAccessibility,
         title: "RESEARCH",
         content:"Bugema University re-recognised as Academic Centre of Excellence in Cyber Security Research (ACE-CSR)",
-        backgroundImage: "/images/features/life.jpg",
+        backgroundImage: "/images/shin/s.jpg",
         // cardlink: "https://www.bugemauniv.ac.ug/bursaries",
     },
     {
@@ -83,7 +80,7 @@ export const ServiceData3 = [
         icon: RxPencil2,
         title: "RESEARCH",
         content:"TFive ways Bugema University research is improving our food systems",
-        backgroundImage: "/images/carousel/buadmin.jpg",
+        backgroundImage: "/images/shin/s.jpg",
         // cardlink: "https://www.bugemauniv.ac.ug/evangelism",
     },
     // {
@@ -114,7 +111,7 @@ export const ServiceData4 = [
         icon: RxDesktop,
         title: "RESEARCH",
         content:"Partners donate 200 desktop computers to facilitate IT students in the computer labs.",
-        backgroundImage: "/images/features/bb.jpg",
+        backgroundImage: "/images/shin/s.jpg",
         // cardlink: "https://www.bugemauniv.ac.ug/facilities",
     },
     {
@@ -138,7 +135,7 @@ export const ServiceData5 = [
         icon: RxReader,
         title: "Admissions",
         content:"Admissions for August Intake are currently ongoing at all campuses of Bugema University.",
-        backgroundImage: "/images/carousel/bugate.jpg",
+        backgroundImage: "/images/shin/s.jpg",
         // cardlink: "https://www.bugemauniv.ac.ug/admissions",
     },
     {

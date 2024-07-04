@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import HeroVideo from "../HeroVideo/HeroVideo";
 import HeroOverlay from "../HeroOverlay/HeroOverlay";
 
-export const bgImage = "/images/features/life.jpg";
+export const bgImage = "/images/shin/s.jpg";
 export const heroVid = "https://res.cloudinary.com/dfqmkufnq/video/upload/v1720035342/francis_f6ijfa.mp4";
 
 // Variants for hero content
