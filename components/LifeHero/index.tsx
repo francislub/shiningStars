@@ -5,7 +5,7 @@ import { BiBookOpen, BiSolidPencil } from 'react-icons/bi';
 import { motion } from 'framer-motion';
 // import background from '../../public/images/features/int.jpg'
 
-export const bgImage = '/images/features/life.jpg'
+export const bgImage = '/images/shin/s.jpg'
 
 const textVariants = {
   initial: {
