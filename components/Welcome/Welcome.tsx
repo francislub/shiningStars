@@ -1,11 +1,11 @@
 import SectionTitle from "../Common/SectionTitle";
 import Image from "next/image";
-import img1 from "../../public/images/vc/vc.jpg";
+import img1 from "../../public/images/shin/hm.png";
 
 import React, { useState } from "react";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
-export const img = "/images/vc/vc.jpg";
+export const img = "/images/shin/hm.png";
 const Welcome = () => {
   return (
     <>

@@ -1,13 +1,9 @@
 import React, { Children } from 'react';
 import { FaArrowRight } from 'react-icons/fa6';
-import imagenew from "../../public/images/nav/IMG_9313.jpg";
-import image from "../../public/images/nav/labs.jpg";
-import gate from "../../public/images/nav/gate.jpg";
-import nurses1 from "../../public/images/nav/nurses1.jpg";
-import burundi from "../../public/images/nav/burundi.jpg";
-import bucosa from "../../public/images/nav/bucosa.jpg";
-import palm_girls from "../../public/images/nav/palm-girls.jpg";
-import palm_girls1 from "../../public/images/nav/palm-girls1.jpg";
+import gate from "../../public/images/shin/stuf.jpg";
+import nurses1 from "../../public/images/shin/tt.jpg";
+import burundi from "../../public/images/shin/stua.jpg";
+import palm_girls1 from "../../public/images/shin/s.jpg";
 import Image from "next/image";
 import Link from 'next/link';
 import { useEffect, useState } from "react";
