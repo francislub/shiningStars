@@ -15,7 +15,6 @@ import Testimonials from "@/components/Testimonials";
 import ExploreBugema from "@/components/ExploreBugema";
 import { Inter } from "next/font/google";
 import { Component } from "react";
-import EventsAndNews from "@/components/EventsandNews/EventsAndNews";
 import CampusNews from "@/components/CampusNews";
 import ResearchSection from "@/components/Research";
 import Welcome from "@/components/Welcome/Welcome";
