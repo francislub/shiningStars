@@ -1,7 +1,8 @@
 'use client';
 import { useState } from "react";
 import Image from "next/image";
-import im3 from "../../public/images/features/reg.jpg";
+
+import image from "../../public/images/shin/stu.jpg";
 
 
 const AboutSectionOne = () => {

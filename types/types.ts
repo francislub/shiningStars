@@ -2,22 +2,22 @@ export interface News {
     _id: string;
     title: string;
     category: string;
-    content: string;
+    description: string;
     photo: string;
     date: string;
     tags: string[];
-    author: string;
+    creator: string;
     summary: string;
 }
 
 export interface Event {
     _id: string;
-    title: string;
+    activity: string;
     description: string;
     date: string;
-    location: string;
-    coverPhotoUrl: string;
-    organizer: string;
+    place: string;
+    photo: string;
+    creator: string;
     tags: string[];
     status: string;
 }

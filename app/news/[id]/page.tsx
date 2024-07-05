@@ -14,7 +14,7 @@ export default async function NewsPage({ params }: Props) {
   let news: News | null = null;
 
   try {
-    const response = await fetch(`https://buweb.onrender.com/news/${id}`, {
+    const response = await fetch(`https://shining-stars-dashboard.onrender.com/api/v1/news/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ export default async function NewsPage({ params }: Props) {
         </div>
         <div
           className="blog-content text-xl leading-loose flex flex-col gap-5 mt-5"
-          dangerouslySetInnerHTML={{ __html: news.content }}
+          dangerouslySetInnerHTML={{ __html: news.description }}
         />
       </div>
     </div>
