@@ -53,9 +53,10 @@ export default function StudentLeader() {
                       {events.map((post) => (
                           <div className="box flex flex-col md:w-[300px] lg:w-[350px] xl:w-[400px] 2xl:w-[450px] p-4 md:max-w-[25%] md:p-4 hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer" key={post._id}>
                               
-                              {/* <div className="">
-                              <Image src={chapter.photo} alt={chapter.name} className="w-full h-40 object-cover" style={{ height: "200px", width: "300px" }}/>
-                              </div> */}
+                              <div className="">
+                              {/* <Image src={post.photo} alt={post.name} className="w-full h-40 object-cover" /> */}
+                              <Image src={post.photo} alt={post.name} layout="fill" />
+                              </div>
                               <div className="programTitle px-5">
                               <span className="text-xl text-[#1f8cad]">{post.title}</span>
                               </div>
