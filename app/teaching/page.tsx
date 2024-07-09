@@ -24,7 +24,8 @@ export default function Teaching() {
         }
 
         const data = await response.json();
-        setTeachings(data);
+        const teaching = data.filter(item => item.staffType === "teaching");
+        setTeachings(teaching);
       } catch (err) {
         setError(err.message);
       }
