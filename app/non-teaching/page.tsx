@@ -24,7 +24,8 @@ export default function NonTeaching() {
         }
 
         const data = await response.json();
-        setNoTeachings(data);
+        const noteaching = data.filter(item => item.staffType === "non-teaching");
+        setNoTeachings(noteaching);
       } catch (err) {
         setError(err.message);
       }
