@@ -4,11 +4,11 @@ import { GlobeAltIcon } from '@heroicons/react/solid';
 import { StarIcon } from '@heroicons/react/solid';
 import { EyeIcon } from '@heroicons/react/solid';
 
-import image from "../../public/images/shin/buil.jpg";
+import image from "../../public/images/shin/car.jpg";
 import imaga from "../../public/images/shin/buila.jpg";
 
 
-const AboutSectionAcademic = () => {
+const AboutSectionTransport = () => {
   return (
     <section className="py-16 md:py-20 lg:py-28">
 
@@ -68,4 +68,4 @@ const AboutSectionAcademic = () => {
   );
 };
 
-export default AboutSectionAcademic;
+export default AboutSectionTransport;
