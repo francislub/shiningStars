@@ -30,7 +30,7 @@ const HeroOverlay = ({ title,title2,title3, subtitle,subtitle2,subtitle3, button
             </div>
 
                   <div className='flex-1 hidden sm:block'> {/* Hide on small screens, show on medium and above */}
-                   <h2 className='text-start text-2xl mt-5'>{subtitle2},<br />{subtitle3}</h2>
+                   <h2 className='text-start text-2xl mt-5'>{subtitle2}<br />{subtitle3}</h2>
                   </div>
 
                  

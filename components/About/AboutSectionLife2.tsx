@@ -1,13 +1,5 @@
 import Image from "next/image";
-import { BookOpenIcon } from '@heroicons/react/solid';
-import { GlobeAltIcon } from '@heroicons/react/solid';
-import { StarIcon } from '@heroicons/react/solid';
-import { EyeIcon } from '@heroicons/react/solid';
-import sport from "../../public/images/life/sport.jpg";
-import wooda from "../../public/images/shin/s.jpg";
-import woodb from "../../public/images/shin/st.jpg";
-import woodc from "../../public/images/shin/stu.jpg";
-import woodd from "../../public/images/shin/stua.jpg";
+import sport from "../../public/images/shin/chil.jpg";
 
 import neta from "../../public/images/shin/stuc.jpg";
 import netb from "../../public/images/shin/stuf.jpg";

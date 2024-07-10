@@ -109,8 +109,10 @@ const why_bugema = () =>{
                                     
                                     <h1  style={{color:'gray',fontSize: '35px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold main '> <span className='animated'>Directions</span></h1> 
                               </div>
-                               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6206770744043!2d32.64117747432078!3d0.5703006635869016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177c4be209db538d%3A0xe4ac675b7d218fc9!2sBugema%20University!5e0!3m2!1sen!2sug!4v1718632251835!5m2!1sen!2sug" width="500" height="300" style={{border:0}} allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade">
-                                    </iframe>
+                              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15958.473363353443!2d32.6470728!3d0.5736614!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177c49393fb44457%3A0x364fc7d728083562!2sshining%20stars%20nursery%20and%20primary%20school%20-%20Vvumba!5e0!3m2!1sen!2sug!4v1720496544469!5m2!1sen!2sug" width="500" height="300" style={{border:0}} allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade">
+                              </iframe>
+                               {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6206770744043!2d32.64117747432078!3d0.5703006635869016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177c4be209db538d%3A0xe4ac675b7d218fc9!2sBugema%20University!5e0!3m2!1sen!2sug!4v1718632251835!5m2!1sen!2sug" width="500" height="300" style={{border:0}} allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade">
+                                    </iframe> */}
                               
                               {/*###===============================================================================
                                A T T A C H M E N T   P I C T U R E S    U N D E R    T H E   F I R S T   C O L U M N 

@@ -1,32 +1,113 @@
+'use client';
+
 import SectionTitle from "@/components/Common/SectionTitle";
-import School from "@/components/school/School";
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Teaching() {
+  const [teachings, setTeachings] = useState([]);
+  const [filteredTeachings, setFilteredTeachings] = useState([]);
+  const [selectedClass, setSelectedClass] = useState('');
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch("https://shining-stars-dashboard.onrender.com/api/v1/students", {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        setTeachings(data);
+        setFilteredTeachings(data);
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
+  const handleClassChange = (event) => {
+    const selectedClass = event.target.value;
+    setSelectedClass(selectedClass);
+
+    if (selectedClass && selectedClass !== "all") {
+      const filtered = teachings.filter(teach => teach.grade === selectedClass);
+      setFilteredTeachings(filtered);
+    } else {
+      setFilteredTeachings(teachings);
+    }
+  };
+
   return (
     <div>
       <section className="my-20 mt-36 mx-10">
-        <School
-          dean="DR. LUBOWA MARTIN"
-          deanImage={"/images/blog/author-03.png"}
-          message="As business times evolve, so are the skills needed to run such environments. The school of business Bugema University is always evolving to meet the current business trends. We shall equip you with the necessary skills in the areas of accounting, procurement, and management. Your decision to join us is a perfect one. Looking forward to serving and preparing you for a better future."
-          preamble="The School of Business believes in integrity and excellence in business dealings. It is therefore dedicated to the education and development of individuals in the region and beyond. These will become business leaders of both private and public organizations through outstanding business-oriented research, instruction, and service. Therefore, the school endeavors to train and produce human resources that are not only professionals but also morally upright."
-          goal="The goal of the School of Business is to train efficient and effective future professionals who integrate integrity and sound business and organizational functions and who are able to combine knowledge with analytical and practical skills in order to accurately define problems, find viable solutions, and implement desirable decisions."
-        />
       </section>
 
-      <div className="flex flex-col items-start mx-auto md:pl-28">
+      <div className="flex flex-col items-start mx-auto md:pl-28 justify-center items-center">
         <div className="md:pl-2">
-          <SectionTitle title="Departments In The Faculty" paragraph="" />
+          <SectionTitle title="Get Your Child's Pay Code" paragraph="" />
         </div>
 
-        <div className='md:pl-2 mx-auto md:mx-0'>
-          <ul className='flex flex-col space-y-5 text-body-color'>
-            <li>Department Of Accounting And Finance</li>
-            <li>Department Of Management</li>
-          </ul>
+       {/* Combo Box for selecting class */}
+        <div className="mt-4 mb-4">
+          <select
+            value={selectedClass}
+            onChange={handleClassChange}
+            className="p-2 border border-gray-500 rounded-md bg-gray shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-blue-300 hover:bg-blue-200 cursor-pointer"
+          >
+            <option value="all">Select Class</option>
+            <option value="all">All Classes</option>
+            <option value="baby-class">Baby Class</option>
+            <option value="middle-class">Middle Class</option>
+            <option value="top-class">Top Class</option>
+            <option value="primary-one">Primary One</option>
+            <option value="primary-two">Primary Two</option>
+            <option value="primary-three">Primary Three</option>
+            <option value="primary-four">Primary Four</option>
+            <option value="primary-five">Primary Five</option>
+            <option value="primary-six">Primary Six</option>
+            <option value="primary-seven">Primary Seven</option>
+          </select>
         </div>
+      </div>
+
+      <div className="boxContainer justify-center items-center md:flex flex flex-wrap md:flex-row mb-5">
+        {filteredTeachings.map((post) => (
+          <div className="box bg-gray-300 flex flex-col md:w-[300px] lg:w-[350px] xl:w-[400px] 2xl:w-[450px] p-3 md:max-w-[25%] md:p-4 hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer" key={post._id}>
+            <div className="w-full h-60">
+              <Image 
+                src={post.photo} 
+                alt={post.name} 
+                width={340} 
+                height={360} 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="programTitle px-5 text-center">
+              <span className="text-xl text-[#1f8cad]">Class: {post.grade}</span>
+            </div>
+            <div className="programDesc text-center">
+              <h2>Name: {post.name}</h2>
+            </div>
+            <div className="programDesc text-center">
+              <h2>Status: {post.residence}</h2>
+            </div>
+            <div className="programDesc text-center">
+              <h2>Pay Code: {post.paymentCode}</h2>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
 }
+
