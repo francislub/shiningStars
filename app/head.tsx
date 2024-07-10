@@ -4,7 +4,7 @@ export default function Head() {
       <title>Shining Stars Nursery And Primary School</title>
       <meta content="width=device-width, initial-scale=1" name="viewport" />
       <meta name="description" content="Shining Stars Website" />
-      <link rel="favicon" href="/images/log.ico"  />
+      <link rel="favicon" href="/favicon.ico"  />
     </>
   );
 }
