@@ -24,10 +24,10 @@ const AboutSectionSeven = () => {
             <Image
               src={image}
               alt="Bugema University"
-              className="w-[500px] h-[300px]"
+              className="w-[500px] h-[300px] mt-12"
             />
           </div>
-          <div className="w-full px-2 lg:w-1/2 h-[500px] mt-4">
+          <div className="w-full px-2 lg:w-1/2 h-[300px] -mt-20 bg-green-200">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Academics
             </h3>
@@ -45,8 +45,8 @@ const AboutSectionSeven = () => {
           </div>
         </div>
 
-        <div className="flex items-center gap-10 -mt-20">
-          <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5">
+        <div className="flex items-center gap-10 -mt-20 ">
+          <div className="w-full px-2 lg:w-1/2 h-[300px] -mt-20 bg-green-200">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Sports
             </h3>
@@ -68,7 +68,7 @@ const AboutSectionSeven = () => {
             <Image
               src={image}
               alt="Bugema University"
-              className="w-[500px]"
+              className="w-[500px] h-[300px] mt-12"
             />
           </div>
         </div>
@@ -80,10 +80,10 @@ const AboutSectionSeven = () => {
               <Image
                 src={image}
                 alt="Bugema University"
-                className="w-[500px]"
+                className="w-[500px] h-[300px] mt-12"
               />
           </div>
-          <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5">
+          <div className="w-full px-2 lg:w-1/2 h-[300px] -mt-20 bg-green-200">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Accommodation
             </h3>
@@ -100,7 +100,7 @@ const AboutSectionSeven = () => {
           </div>
         </div>
         <div className="flex items-center gap-10 -mt-20">
-          <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5">
+          <div className="w-full px-2 lg:w-1/2 h-[300px] -mt-20 bg-green-200">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Health
             </h3>
@@ -122,12 +122,22 @@ const AboutSectionSeven = () => {
             <Image
               src={image}
               alt="Bugema University"
-              className="w-[500px]"
+              className="w-[500px] h-[300px] mt-12"
             />
           </div>
         </div>
         <div className="flex items-center gap-10 -mt-20">
-          <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5">
+        <div
+            className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
+            data-wow-delay=".15s" 
+          >
+            <Image
+              src={image}
+              alt="Bugema University"
+              className="w-[500px] h-[300px] mt-12"
+            />
+          </div>
+          <div className="w-full px-2 lg:w-1/2 h-[350px] -mt-20 bg-green-200">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
              Religion
             </h3>
@@ -142,29 +152,9 @@ const AboutSectionSeven = () => {
               </div>
             </div>
           </div>
-          <div
-            className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
-            data-wow-delay=".15s" 
-          >
-            <Image
-              src={image}
-              alt="Bugema University"
-              className="w-[500px]"
-            />
-          </div>
         </div>
         <div className="flex items-center gap-10 -mt-20">
-        <div
-            className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
-            data-wow-delay=".15s" 
-          >
-            <Image
-              src={image}
-              alt="Bugema University"
-              className="w-[500px]"
-            />
-        </div>
-        <div className="w-full px-2 lg:w-1/2 h-[500px]">
+        <div className="w-full px-2 lg:w-1/2 h-[300px] -mt-20 bg-green-200">
           <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
           Feeding
           </h3>
@@ -178,6 +168,16 @@ const AboutSectionSeven = () => {
               </Link>
             </div>
           </div>
+        </div>
+        <div
+            className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
+            data-wow-delay=".15s" 
+          >
+            <Image
+              src={image}
+              alt="Bugema University"
+              className="w-[500px] h-[300px] mt-12"
+            />
         </div>
         </div>
       </div>
