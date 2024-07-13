@@ -32,7 +32,7 @@ const News = () => {
   }, [news]);
 
   return (
-    <section id="blog" className="bg-primary/5 py-16 md:py-20 lg:py-28">
+    <section id="blog" className="bg-primary/5 py-16 md:py-20 lg:py-28 -mt-20">
       <div className="container">
         <SectionTitle
           title="Latest News"

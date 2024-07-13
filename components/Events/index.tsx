@@ -33,7 +33,7 @@ const Events = () => {
 
   return (
     <section id="blog" className="bg-primary/5 py-16 md:py-20 lg:py-28">
-      <div className="container">
+      <div className="container -mb-20">
         <SectionTitle
           title="Events"
           paragraph="Stay up-to-date with the latest events at our school!"
