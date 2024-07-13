@@ -13,21 +13,21 @@ const AboutSectionSeven = () => {
     <section className="py-16 md:py-20 lg:py-28">
 
     <div className="container -mb-20">
-        <h3 className=" -mt-20 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-4xl text-center">
+        <h3 className="-mt-7 lg:-mt-20 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-4xl text-center">
            Excellence in research, teaching, and medical care
         </h3>
-        <div className="flex items-center gap-10 -mb-8">
+        <div className="flex flex-col lg:flex-row items-center gap-10 mb-8">
           <div
-            className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
+            className="wow h-[500px] -mb-20 fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
             data-wow-delay=".15s" 
           >
             <Image
               src={image}
-              alt="Bugema University"
-              className="w-[500px] h-[300px] mt-12"
+              alt="Shining Stars"
+              className="w-[500px] h-[300px] mt-3 lg:mt-12"
             />
           </div>
-          <div className="w-full px-2 lg:w-1/2 h-[300px] -mt-20 bg-green-200">
+          <div className="w-full px-2 lg:w-1/2 h-[500px] lg:h-[300px] -mt-20 lg:-mt-20 bg-green-200">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Academics
             </h3>
@@ -36,7 +36,7 @@ const AboutSectionSeven = () => {
               <p className=""> We offer a number of professional courses across our faculties. The Department of Computing and Technology offers certifications from CISCO like CCNA, CCNP, and from Microsoft, the department provides MCSE, MCSA. The School of Business prepares students for CPA and other accounting professional courses. Our Nursing students are assessed by the Uganda Nurses And Midwifery Examination Board (UNMEB).
               </p>
               <Link href="/academics">
-                <button className="bg-gray-700 mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
+                <button className="bg-gray-700 mt-6 lg:mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
                   Explore more
                 </button>
               </Link>
@@ -45,8 +45,8 @@ const AboutSectionSeven = () => {
           </div>
         </div>
 
-        <div className="flex items-center gap-10 -mt-20 ">
-          <div className="w-full px-2 lg:w-1/2 h-[300px] -mt-20 bg-green-200">
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:-mt-20 ">
+          <div className="w-full px-2 lg:w-1/2 h-[410px] lg:h-[300px] -mt-20 bg-green-200">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Sports
             </h3>
@@ -67,23 +67,23 @@ const AboutSectionSeven = () => {
           >
             <Image
               src={image}
-              alt="Bugema University"
-              className="w-[500px] h-[300px] mt-12"
+              alt="Shining Stars"
+              className="w-[500px] h-[300px] lg:mt-12"
             />
           </div>
         </div>
-      <div className="flex items-center gap-10 -mt-20">
+      <div className="flex flex-col lg:flex-row items-center gap-10 -mt-20">
          <div
-              className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
+              className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer -mb-10"
               data-wow-delay=".15s" 
             >
               <Image
                 src={image}
-                alt="Bugema University"
-                className="w-[500px] h-[300px] mt-12"
+                alt="Shining Stars"
+                className="w-[500px] h-[300px] lg:mt-12"
               />
           </div>
-          <div className="w-full px-2 lg:w-1/2 h-[300px] -mt-20 bg-green-200">
+          <div className="w-full px-2 lg:w-1/2 h-[600px] lg:h-[300px] -mt-20 bg-green-200">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Accommodation
             </h3>
@@ -99,8 +99,8 @@ const AboutSectionSeven = () => {
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-10 -mt-20">
-          <div className="w-full px-2 lg:w-1/2 h-[300px] -mt-20 bg-green-200">
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:-mt-20">
+          <div className="w-full px-2 lg:w-1/2 lg:h-[300px] -mt-20 bg-green-200">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Health
             </h3>
@@ -121,23 +121,23 @@ const AboutSectionSeven = () => {
           >
             <Image
               src={image}
-              alt="Bugema University"
-              className="w-[500px] h-[300px] mt-12"
+              alt="Shining Stars"
+              className="w-[500px] h-[300px] lg:mt-12"
             />
           </div>
         </div>
-        <div className="flex items-center gap-10 -mt-20">
+        <div className="flex flex-col lg:flex-row items-center gap-10 -mt-20">
         <div
             className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
             data-wow-delay=".15s" 
           >
             <Image
               src={image}
-              alt="Bugema University"
-              className="w-[500px] h-[300px] mt-12"
+              alt="Shining Stars"
+              className="w-[500px] h-[300px] lg:mt-12"
             />
           </div>
-          <div className="w-full px-2 lg:w-1/2 h-[350px] -mt-20 bg-green-200">
+          <div className="w-full px-2 lg:w-1/2 h-[600px] lg:h-[350px] -mt-20 bg-green-200">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
              Religion
             </h3>
@@ -145,7 +145,7 @@ const AboutSectionSeven = () => {
               <div className="flex-1">
               <p className="">We understand the importance of holistic development and the role of spirituality in our students&apos; lives. We provide a nurturing environment that fosters personal growth and offers opportunities for spiritual enrichment. Our university offers worship services and spaces that cater to diverse religious and spiritual needs. Students can engage in prayer, meditation, and other spiritual activities to promote a sense of community, mindfulness, and well-being.</p>
               <Link href="/religion">
-                <button className="bg-gray-700 mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
+                <button className="bg-gray-700 lg:mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
                   Explore more
                 </button>
               </Link>
@@ -153,8 +153,8 @@ const AboutSectionSeven = () => {
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-10 -mt-20">
-        <div className="w-full px-2 lg:w-1/2 h-[300px] -mt-20 bg-green-200">
+        <div className="flex flex-col lg:flex-row items-center gap-10 -mt-20">
+        <div className="w-full px-2 lg:w-1/2 h-[500px]  lg:h-[300px] lg:-mt-20 bg-green-200">
           <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
           Feeding
           </h3>
@@ -175,77 +175,12 @@ const AboutSectionSeven = () => {
           >
             <Image
               src={image}
-              alt="Bugema University"
-              className="w-[500px] h-[300px] mt-12"
+              alt="Shining Stars"
+              className="w-[500px] h-[300px] lg:mt-12"
             />
         </div>
         </div>
       </div>
-
-      {/* <div className="container">
-        <div className="flex flex-wrap items-center -mx-4 -mt-12">
-          <div className="w-full px-4 lg:w-1/2">
-            <div
-              className="wow fadeInUp relative mx-auto mb-12 aspect-[25/24] text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
-              data-wow-delay=".15s"
-            >
-              <Image
-                src={image}
-                alt="about image"
-                fill
-                className="-mt-7"
-              />
-            </div>
-          </div>
-          <div className="w-full px-4 lg:w-1/2">
-            <h3 className="mb-5 mt-3 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-              Careers
-            </h3>
-            <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
-              <div className="mb-9 flex-1">
-                <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                   Award-winning Careers and Employability Service
-                </h3>
-                <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
-                   Personal guidance and advice on career planning, interview technique and assessment centres.
-                </p>
-              </div>
-              <div className="mb-9 flex-1">
-                <EyeIcon className="w-12 h-12 text-black dark:text-white" />
-                <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                   Accredited programmes
-                </h3>
-                <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
-                  Many subject areas offer professionally accredited programmes.
-                </p>
-              </div>
-            </div>
-
-            <div className="wow fadeInUp flex max-w-[470px] space-x-6" data-wow-delay=".2s">
-              <div className="mb-9 flex-1">
-              <GlobeAltIcon className="w-12 h-12 text-black dark:text-white" />
-              <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                  
-                  Volunteering and paid work opportunities
-              </h3>
-                <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
-                A chance to gain valuable and rewarding experience.
-                </p>
-              </div>
-              <div className="mb-9 flex-1">
-                <BookOpenIcon className="w-12 h-20 text-black dark:text-white" />
-                <h3 className="mb-4 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                  
-                    Career planning
-                </h3>
-                <p className="text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
-                We will help you put a plan in place to reach your goals with support and advice when you need it.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
     </section>
   );
 };
