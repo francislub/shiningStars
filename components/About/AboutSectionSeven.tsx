@@ -36,7 +36,7 @@ const AboutSectionSeven = () => {
               <p className=""> We offer a number of professional courses across our faculties. The Department of Computing and Technology offers certifications from CISCO like CCNA, CCNP, and from Microsoft, the department provides MCSE, MCSA. The School of Business prepares students for CPA and other accounting professional courses. Our Nursing students are assessed by the Uganda Nurses And Midwifery Examination Board (UNMEB).
               </p>
               <Link href="/academics">
-                <button className="bg-gray-700 mt-6 lg:mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
+                <button className="bg-gray-700 mt-6 lg:mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-blue-500 transition-colors duration-300 ease-in-out">
                   Explore more
                 </button>
               </Link>
@@ -54,7 +54,7 @@ const AboutSectionSeven = () => {
               <div className="flex-1">
               <p className="">The university treasures the quality of it&apos;s products, and for that reason, we hire the quality and experienced lecturers to train and produce the quality for our students. Our lecturers are associated with industry enterprises which helps them get the market experience that they instil in our students. Research is a core role for our lecturers to keep producing relevant knowledge for the market.</p>
               <Link href="/studentlife">
-                <button className="bg-gray-700 mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
+                <button className="bg-gray-700 mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-blue-500 transition-colors duration-300 ease-in-out">
                   Explore more
                 </button>
               </Link>
@@ -91,7 +91,7 @@ const AboutSectionSeven = () => {
               <div className="flex-1">
               <p className="">Our blended learning programs combine traditional classroom instruction with interactive online components, empowering students to engage with course materials, collaborate with peers. Our E-Learning system is available all the time to cater for those that may be in different time zones. Our support team will take you step by step on how to get the best from the platform. Pay a visit to our E-Learning Platform.</p>
               <Link href="/accommodation">
-                <button className="bg-gray-700 mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
+                <button className="bg-gray-700 mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-blue-500 transition-colors duration-300 ease-in-out">
                   Explore more
                 </button>
               </Link>
@@ -108,7 +108,7 @@ const AboutSectionSeven = () => {
               <div className="flex-1">
               <p className="">We believe in creating relationships that last with our clients. The institution has academic families where each student is assigned to a mentor. This increases the bond between our students and lecturers. Since students are let free to interact with the lecturers, this gives them a chance to be well prepared for the market challenges ahead of them. This enriches their (Students) career readiness as well.</p>
               <Link href="/health">
-                <button className="bg-gray-700 mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
+                <button className="bg-gray-700 mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-blue-500 transition-colors duration-300 ease-in-out">
                   Explore more
                 </button>
               </Link>
@@ -145,7 +145,7 @@ const AboutSectionSeven = () => {
               <div className="flex-1">
               <p className="">We understand the importance of holistic development and the role of spirituality in our students&apos; lives. We provide a nurturing environment that fosters personal growth and offers opportunities for spiritual enrichment. Our university offers worship services and spaces that cater to diverse religious and spiritual needs. Students can engage in prayer, meditation, and other spiritual activities to promote a sense of community, mindfulness, and well-being.</p>
               <Link href="/religion">
-                <button className="bg-gray-700 lg:mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
+                <button className="bg-gray-700 lg:mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-blue-500 transition-colors duration-300 ease-in-out">
                   Explore more
                 </button>
               </Link>
@@ -162,7 +162,7 @@ const AboutSectionSeven = () => {
             <div className="flex-1">
             <p className="">We believe in equipping our students with the necessary skills and credentials to excel in their chosen professions. As part of our commitment to professional development, we offer a range of professional certification programs. These certifications are designed to enhance students&apos; expertise, improve their marketability, and demonstrate their proficiency in specific areas of study.</p>
             <Link href="/feeding">
-                <button className="bg-gray-700 mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-primary-300 transition-colors duration-300 ease-in-out">
+                <button className="bg-gray-700 mt-12 text-white py-2 px-4 rounded-md shadow-lg hover:bg-blue-500 transition-colors duration-300 ease-in-out">
                   Explore more
                 </button>
               </Link>
