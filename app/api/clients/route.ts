@@ -1,5 +1,5 @@
 import { connect } from "../../../dbConfig/dbConfig";
-import ozohClient from "../../../models/clientModel";
+import ozohClient from "../../../models/childModel";
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from 'nodemailer';
 

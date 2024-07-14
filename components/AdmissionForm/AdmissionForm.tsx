@@ -1,290 +1,627 @@
-'use client';
+"use client";
 
-import Link from "next/link";
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function AdmissionForm() {
+  const router = useRouter();
 
-    const router = useRouter();
+  const [child, setChild] = React.useState({
+    name: "",
+    admission_no: "",
+    date_of_birth: "",
+    age: "",
+    gender: "",
+    grade: "",
+    residence: "",
+    term: "",
+    emis_no: "",
+    parent_name: "",
+    parent_telephone: "",
+    parent_relationship_with_pupil: "",
+    parent_address: "",
+    parent_village: "",
+    parent_lc1: "",
+    parent_nin: "",
+    next_of_kin_name: "",
+    next_of_kin_gender: "",
+    next_of_kin_telephone: "",
+    next_of_kin_relationship_with_pupil: "",
+    next_of_kin_address: "",
+    next_of_kin_village: "",
+    next_of_kin_lc1: "",
+    child_medical_info: "",
+  });
 
-    const [client, setClient] = React.useState({
-        name: "",
-        number: "",
-        service: "",
-        email: "",
-        message: ""
-    });
+  const [clientEmail, setClientEmail] = React.useState({
+    newsemail: "",
+  });
 
-    const [clientEmail, setClientEmail] = React.useState({
-        newsemail: ""
-    });
+  const [loading, setLoading] = React.useState(false);
 
-    const [loading, setLoading] = React.useState(false);
+  const [buttonDisabled, setButtonDisabled] = React.useState(true);
 
-    const [buttonDisabled, setButtonDisabled] = React.useState(true);
+  useEffect(() => {
+    if (
+      child.name.length > 0 &&
+      child.admission_no.length > 0 &&
+      child.date_of_birth.length > 0 &&
+      child.age.length > 0 &&
+      child.gender.length > 0 &&
+      child.grade.length > 0 &&
+      child.residence.length > 0 &&
+      child.term.length > 0 &&
+      child.emis_no.length > 0 &&
+      child.parent_name.length > 0 &&
+      child.parent_telephone.length > 0 &&
+      child.parent_relationship_with_pupil.length > 0 &&
+      child.parent_address.length > 0 &&
+      child.parent_village.length > 0 &&
+      child.parent_lc1.length > 0 &&
+      child.parent_nin.length > 0 &&
+      child.next_of_kin_name.length > 0 &&
+      child.next_of_kin_gender.length > 0 &&
+      child.next_of_kin_telephone.length > 0 &&
+      child.next_of_kin_relationship_with_pupil.length > 0 &&
+      child.next_of_kin_address.length > 0 &&
+      child.next_of_kin_village.length > 0 &&
+      child.next_of_kin_lc1.length > 0 &&
+      child.child_medical_info.length > 0
+    ) {
+      setButtonDisabled(false);
+    } else {
+      setButtonDisabled(true);
+    }
+  }, [child]);
 
-    useEffect(() => {
-        if(client.name.length > 0 && client.number.length > 0 && client.service.length > 0 && client.email.length > 0 && client.message.length > 0) {
-            setButtonDisabled(false);
-        } else {
-            setButtonDisabled(true);
-        }
-    }, [client]);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      const res = await fetch("/api/clients", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(child),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setChild({
+          name: "",
+          admission_no: "",
+          date_of_birth: "",
+          age: "",
+          gender: "",
+          grade: "",
+          residence: "",
+          term: "",
+          emis_no: "",
+          parent_name: "",
+          parent_telephone: "",
+          parent_relationship_with_pupil: "",
+          parent_address: "",
+          parent_village: "",
+          parent_lc1: "",
+          parent_nin: "",
+          next_of_kin_name: "",
+          next_of_kin_gender: "",
+          next_of_kin_telephone: "",
+          next_of_kin_relationship_with_pupil: "",
+          next_of_kin_address: "",
+          next_of_kin_village: "",
+          next_of_kin_lc1: "",
+          child_medical_info: "",
+        });
+        setLoading(false);
+      } else {
+        setLoading(false);
+      }
+      router.push("/services");
+    } catch (error) {
+      console.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    const handleSubmit = async(e) => {
-        e.preventDefault();
-        try {
-            setLoading(true);
-            const res = await fetch('/api/clients', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(client)
-            });
-            const data = await res.json();
-            if(data.success) {
-                setClient({
-                    name: "",
-                    number: "",
-                    service: "",
-                    email: "",
-                    message: ""
-                });
-                setLoading(false);
-            } else {
-                setLoading(false);
-            }
-            router.push('/services');
-        } catch (error) {
-            console.error(error.message);
-        } finally {
-            setLoading(false);
-        }
-    };
+  const handleEmailSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      const res = await fetch("/api/emails", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(clientEmail),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setClientEmail({
+          newsemail: "",
+        });
+        setLoading(false);
+      } else {
+        setLoading(false);
+      }
+      router.push("/contact");
+    } catch (error) {
+      console.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    const handleEmailSubmit = async(e) => {
-        e.preventDefault();
-        try {
-            setLoading(true);
-            const res = await fetch('/api/emails', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(clientEmail)
-            });
-            const data = await res.json();
-            if(data.success) {
-                setClientEmail({
-                    newsemail: ""
-                });
-                setLoading(false);
-            } else {
-                setLoading(false);
-            }
-            router.push('/contact');
-        } catch (error) {
-            console.error(error.message);
-        } finally {
-            setLoading(false);
-        }
-    };
-    
-    return (
-        <div className="container h-screen w-screen my-3 mx-auto">
-
-            {/* contact section  */}
-            <section className="contact_section mt-4">
-                <div className="container">
-                    <div className="heading_container heading_center">
-                        <h2>Get In <span>Touch</span></h2>
-                        <p className="text-lg px-4">
-                            With a proven track record of successful projects and a 
-                            dedication to delivering exceptional results, Ozoh Engineering 
-                            Company is your trusted partner for all your engineering needs. 
-                            Contact us today to discuss how we can bring your visions to life 
-                            and help you achieve your goals.
-                        </p>
+  return (
+    <div className="container h-full w-screen my-3">
+      {/* contact section  */}
+      <section className="mt-4">
+        <div className="container">
+          <h3 className="text-black/90 font-medium my-4 text-2xl">
+            Admission Form
+          </h3>
+          <div className=" flex mx-1">
+            <div className="px-0">
+              <div className=" ">
+                <form action="" onSubmit={handleSubmit}>
+                  <h1 className="text-black/80 font-medium my-4 text-xl">Personal Details</h1>
+                  <div className="my-4 flex flex-col md:flex-row md:justify-between md:gap-[20px]">
+                    <div>
+                      <label className="text-body-color text-lg">
+                        Pupil{"'"}s Name:{" "}
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control rounded px-2 py-1 border border-body-color w-[400px]"
+                        id="name"
+                        onChange={(e) =>
+                          setChild({ ...child, name: e.target.value })
+                        }
+                      />
                     </div>
-                    <h3 className=" font-medium text-center">Contact Form</h3>
-                    <div className="row flex justify-center text-center items-center mx-1">
-                        <div className="col-md-6 px-0">
-                            <div className="form_container ">
-                                <form action="" onSubmit={handleSubmit}>
-                                    <div className="form-row">
-                                        <div className="form-group col">
-                                            <input 
-                                                type="text" 
-                                                className="form-control rounded" 
-                                                id="name" 
-                                                placeholder="Your Name" 
-                                                onChange={(e) => setClient({...client, name:e.target.value})} />
-                                        </div>
-                                    </div>
-                                    <div className="form-row">
-                                        <div className="form-group col-lg-6">
-                                            <input 
-                                                type="text" 
-                                                className="form-control rounded" 
-                                                id="number"
-                                                placeholder="Phone Number" 
-                                                onChange={(e) => setClient({...client, number:e.target.value})} />
-                                        </div>
-                                        <div className="form-group col-lg-6">
-                                            <input 
-                                                type="text" 
-                                                id="service" 
-                                                className="form-control wide rounded" 
-                                                placeholder="Specify Service Here"
-                                                onChange={(e) => setClient({...client, service:e.target.value})} >
-                                            </input>
-                                        </div>
-                                    </div>
-                                    <div className="form-row">
-                                        <div className="form-group col">
-                                            <input 
-                                                type="email" 
-                                                className="form-control rounded" 
-                                                id="email"
-                                                placeholder="Email" 
-                                                onChange={(e) => setClient({...client, email:e.target.value})} />
-                                        </div>
-                                    </div>
-                                    <div className="form-row">
-                                        <div className="form-group col">
-                                            <textarea 
-                                                className="message-box form-control rounded" 
-                                                id="message"
-                                                placeholder="Message" 
-                                                onChange={(e) => setClient({...client, message:e.target.value})} />
-                                        </div>
-                                    </div>
-                                    <div className="btn_box flex-col">
-                                        <div className="-mt-2 mb-4">
-                                            <p className="text-lg text-orange-500">{loading ? 'Please wait, processing Feedback Form .....' : ''}</p>
-                                        </div>
-                                        <button type="submit" className="rounded">
-                                            {buttonDisabled ? 'Provide Feedback' : 'Send Feedback'}
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            {/* end contact section  */}
 
-            {/* info section  */}
-            <section className="info_section mt-10">
-                <div className="info_container layout_padding2">
-                    <div className="container">
-                        <div className="info_logo">
-                            <a className="navbar-brand" href="index.html"> OZOH <span>ENG. COMPANY</span> </a>
-                        </div>
-                        <div className="info_main">
-                            <div className="row">
-                                <div className="col-md-3 col-lg-2">
-                                    <div className="info_link-box">
-                                        <h5>
-                                            Useful Links
-                                        </h5>
-                                        <ul>
-                                            <li>
-                                                <Link href="/">Home</Link>
-                                            </li>
-                                            <li>
-                                                <Link href="/about">About </Link>
-                                            </li>
-                                            <li>
-                                                <Link href="/services">Services </Link>
-                                            </li>
-                                            <li>
-                                                <Link href="/portfolio"> Portfolio </Link>
-                                            </li>
-                                            <li>
-                                                <Link href="/contact"> Contact </Link>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className="col-md-3 mx-auto  ">
-                                    <h5>
-                                        Social Media
-                                    </h5>
-                                    <div className="social_box">
-                                        <Link href="www.facebook.com">
-                                            <i className="fa fa-facebook" aria-hidden="true"></i>
-                                        </Link>
-                                        <Link href="www.twitter.com">
-                                            <i className="fa fa-twitter" aria-hidden="true"></i>
-                                        </Link>
-                                        <Link href="www.linkedin.com">
-                                            <i className="fa fa-linkedin" aria-hidden="true"></i>
-                                        </Link>
-                                        <Link href="www.youtube.com">
-                                            <i className="fa fa-youtube-play" aria-hidden="true"></i>
-                                        </Link>
-                                    </div>
-                                </div>
-                                <div className="col-md-3 mt-4">
-                                    <div className="info_form ">
-                                        <h5>Subscribe To Our Newsletter</h5>
-                                        <div className="-mt-2 mb-4">
-                                            <p className="text-lg text-orange-500">{loading ? 'Please wait, Processing Email .....' : ''}</p>
-                                        </div>
-                                        <form action="" onSubmit={handleEmailSubmit}>
-                                            <input 
-                                                className="text-black" 
-                                                type="email" 
-                                                id="newsemail"
-                                                placeholder="Enter Your Email" 
-                                                onChange={(e) => setClientEmail({...clientEmail, newsemail:e.target.value})} />
-                                            <button type="submit">
-                                                <i className="fa fa-arrow-right" aria-hidden="true"></i>
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="info_bottom">
-                            <div className="info_contact ">
-                                <div className="row">
-                                    <div className="col-md-3">
-                                        <Link href="/" className="link-box">
-                                        <i className="fa fa-map-marker" aria-hidden="true"></i>
-                                        <span>
-                                            Bweyogerere Butto
-                                        </span>
-                                        </Link>
-                                    </div>
-                                    <div className="col-md-5">
-                                        <Link href="/" className="link-box">
-                                            <i className="fa fa-phone" aria-hidden="true"></i>
-                                            <span>
-                                                Call +256 772 174 100 or +256 758 156 715(Whatsapp)
-                                            </span>
-                                        </Link>
-                                    </div>
-                                    <div className="col-md-4">
-                                        <Link href="mailto:ozohengineeringcompany@gmail.com" className="link-box">
-                                            <i className="fa fa-envelope" aria-hidden="true"></i>
-                                            <span>
-                                                ozohengineeringcompany@gmail.com
-                                            </span>
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div>
+                      <label className="text-body-color text-lg">
+                        Admission No:{" "}
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control rounded px-2 py-1 border border-body-color"
+                        id="admission_no"
+                        onChange={(e) =>
+                          setChild({
+                            ...child,
+                            admission_no: e.target.value,
+                          })
+                        }
+                      />
                     </div>
-                </div>
-            </section>
-            {/* end info section  */}
+                  </div>
+
+                  <div className="my-4 flex flex-col md:flex-row md:gap-[50px]">
+                    <div>
+                      <label className="text-body-color text-lg">
+                        Date Of Birth:{" "}
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control rounded px-2 py-1 border border-body-color w-[300px]"
+                        id="date_of_birth"
+                        placeholder="dd/mm/yy"
+                        onChange={(e) =>
+                          setChild({
+                            ...child,
+                            date_of_birth: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+
+                    <div>
+                      <label className="text-body-color text-lg">Age: </label>
+                      <input
+                        type="number"
+                        className="form-control rounded px-2 py-1 border border-body-color w-[100px]"
+                        id="age"
+                        onChange={(e) =>
+                          setChild({
+                            ...child,
+                            age: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+
+                    <div>
+                      <label className="text-body-color text-lg">
+                        Gender:{" "}
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control rounded px-2 py-1 border border-body-color w-[200px]"
+                        id="gender"
+                        onChange={(e) =>
+                          setChild({
+                            ...child,
+                            gender: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+                  </div>
+
+                  <div className="my-4 flex flex-col md:flex-row md:gap-[50px]">
+                    <div>
+                      <label className="text-body-color text-lg mr-[65px]">
+                        Class:{" "}
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control rounded px-2 py-1 border border-body-color w-[300px]"
+                        id="grade"
+                        onChange={(e) =>
+                          setChild({
+                            ...child,
+                            grade: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+
+                    <div>
+                      <label className="text-body-color text-lg">Term: </label>
+                      <input
+                        type="text"
+                        className="form-control rounded px-2 py-1 border border-body-color w-[100px]"
+                        id="term"
+                        onChange={(e) =>
+                          setChild({
+                            ...child,
+                            term: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+
+                    <div>
+                      <label className="text-body-color text-lg">
+                        Residence:{" "}
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Day / Boarding"
+                        className="form-control rounded px-2 py-1 border border-body-color w-[200px]"
+                        id="residence"
+                        onChange={(e) =>
+                          setChild({
+                            ...child,
+                            residence: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="text-body-color text-lg my-4">
+                      Emis No{"("}LIN{")"}:{" "}
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control rounded px-2 py-1 border border-body-color w-[400px]"
+                      id="emis_no"
+                      onChange={(e) =>
+                        setChild({ ...child, emis_no: e.target.value })
+                      }
+                    />
+                  </div>
+
+                  <h1 className="text-black/80 font-medium my-4 text-xl mt-8">Contact Information</h1>
+
+                  <div>
+                    <label className="text-body-color text-lg my-4">
+                      Parent{"'"}s{"/"}Guardian{"'"}s Name:{" "}
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control rounded px-2 py-1 border border-body-color w-[400px]"
+                      id="parent_name"
+                      onChange={(e) =>
+                        setChild({ ...child, parent_name: e.target.value })
+                      }
+                    />
+                  </div>
+
+                  <div className="my-4 flex flex-col md:flex-row md:justify-between md:gap-[20px]">
+                    <div>
+                      <label className="text-body-color text-lg mr-[60px]">
+                        Telephone Number:{" "}
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control rounded px-2 py-1 border border-body-color w-[400px]"
+                        id="parent_telephone"
+                        onChange={(e) =>
+                          setChild({ ...child, parent_telephone: e.target.value })
+                        }
+                      />
+                    </div>
+
+                    <div>
+                      <label className="text-body-color text-lg">
+                        Relationship with pupil:{" "}
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control rounded px-2 py-1 border border-body-color"
+                        id="parent_relationship_with_pupil"
+                        onChange={(e) =>
+                          setChild({
+                            ...child,
+                            parent_relationship_with_pupil: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+                  </div>
+
+                  <div className="my-4 flex flex-col md:flex-row md:gap-[20px]">
+                    <div>
+                      <label className="text-body-color text-lg md:mr-[70px]">
+                        Address:{" "}
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control rounded px-2 py-1 border border-body-color w-[300px]"
+                        id="parent_address"
+                        onChange={(e) =>
+                          setChild({
+                            ...child,
+                            parent_address: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+
+                    <div>
+                      <label className="text-body-color text-lg">Village: </label>
+                      <input
+                        type="text"
+                        className="form-control rounded px-2 py-1 border border-body-color w-[200px] md:mr-[58px]"
+                        id="parent_village"
+                        onChange={(e) =>
+                          setChild({
+                            ...child,
+                            parent_village: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+
+                    <div>
+                      <label className="text-body-color text-lg">
+                        LC1:{" "}
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control rounded px-2 py-1 border border-body-color w-[200px]"
+                        id="parent_lc1"
+                        onChange={(e) =>
+                          setChild({
+                            ...child,
+                            parent_lc1: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="text-body-color text-lg my-4 md:mr-[75px]">
+                      NIN NO:{" "}
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control rounded px-2 py-1 border border-body-color w-[400px]"
+                      id="parent_name"
+                      onChange={(e) =>
+                        setChild({ ...child, parent_name: e.target.value })
+                      }
+                    />
+                  </div>
+
+                  <h1 className="text-black/80 font-medium my-4 text-xl mt-8">Next Of Kin</h1>
+
+                  <div className="my-4 flex flex-col md:flex-row md:gap-[50px]">
+                    <div>
+                      <label className="text-body-color text-lg">
+                        Name:{" "}
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control rounded px-2 py-1 border border-body-color w-[300px]"
+                        id="next_of_kin_name"
+                        onChange={(e) =>
+                          setChild({
+                            ...child,
+                            next_of_kin_name: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+
+                    <div>
+                      <label className="text-body-color text-lg">
+                        Gender:{" "}
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control rounded px-2 py-1 border border-body-color w-[200px]"
+                        id="next_of_kin_gender"
+                        onChange={(e) =>
+                          setChild({
+                            ...child,
+                            next_of_kin_gender: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+                  </div>
+
+                  <div className="my-4 flex flex-col md:flex-row md:justify-between md:gap-[20px]">
+                    <div>
+                      <label className="text-body-color text-lg">
+                        Telephone Number:{" "}
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control rounded px-2 py-1 border border-body-color w-[400px]"
+                        id="next_of_kin_telephone"
+                        onChange={(e) =>
+                          setChild({ ...child, next_of_kin_telephone: e.target.value })
+                        }
+                      />
+                    </div>
+
+                    <div>
+                      <label className="text-body-color text-lg">
+                        Relationship with pupil:{" "}
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control rounded px-2 py-1 border border-body-color"
+                        id="next_of_kin_relationship_with_pupil"
+                        onChange={(e) =>
+                          setChild({
+                            ...child,
+                            next_of_kin_relationship_with_pupil: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+                  </div>
+
+                  <div className="my-4 flex flex-col md:flex-row md:gap-[20px]">
+                    <div>
+                      <label className="text-body-color text-lg md:mr-[70px]">
+                        Address:{" "}
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control rounded px-2 py-1 border border-body-color w-[300px]"
+                        id="next_of_kin_address"
+                        onChange={(e) =>
+                          setChild({
+                            ...child,
+                            next_of_kin_address: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+
+                    <div>
+                      <label className="text-body-color text-lg">Village: </label>
+                      <input
+                        type="text"
+                        className="form-control rounded px-2 py-1 border border-body-color w-[200px] md:mr-[58px]"
+                        id="next_of_kin_village"
+                        onChange={(e) =>
+                          setChild({
+                            ...child,
+                            next_of_kin_village: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+
+                    <div>
+                      <label className="text-body-color text-lg">
+                        LC1:{" "}
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control rounded px-2 py-1 border border-body-color w-[200px]"
+                        id="next_of_kin_lc1"
+                        onChange={(e) =>
+                          setChild({
+                            ...child,
+                            next_of_kin_lc1: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+                  </div>
+
+                  <h1 className="text-black/80 font-medium text-xl mt-8">Medical Information</h1>
+
+                  <h2 className="text-body-color font-medium my-4">If your child has any medical issue{"("}s{")"} of which we need to be aware of please let us know below</h2>
+
+                  <div className="form-row mb-5">
+                    <div className="form-group col">
+                      <textarea
+                        className="message-box form-control rounded px-2 py-1 border border-body-color w-full h-[200px]"
+                        id="child_medical_info"
+                        placeholder="Explain the medical issue(s) here..."
+                        onChange={(e) =>
+                          setChild({ ...child, child_medical_info: e.target.value })
+                        }
+                      />
+                    </div>
+                  </div>
+
+                  <div className="btn_box flex-col">
+                    <div className="-mt-2 mb-4">
+                      <p className="text-lg text-orange-500">
+                        {loading
+                          ? "Please wait, processing Feedback Form ....."
+                          : ""}
+                      </p>
+                    </div>
+                    <button type="submit" className="rounded bg-primary hover:bg-primary/90 py-1 px-2 text-white">
+                      {buttonDisabled ? "All Information Required" : "Submit"}
+                    </button>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
-    )
+      </section>
+      {/* end contact section  */}
+
+      {/* info section  */}
+      <section className=" mt-10">
+        <div className="info_form ">
+          <h5 className="text-xl">Subscribe To Our Newsletter</h5>
+          <div className="-mt-2 mb-4">
+            <p className="text-lg text-orange-500">
+              {loading ? "Please wait, Processing Email ....." : ""}
+            </p>
+          </div>
+
+          <form action="" onSubmit={handleEmailSubmit}>
+
+            <div className="flex flex-col md:flex-row md:gap-5">
+              <input
+                className="text-body-color border border-body-color rounded py-1 px-2 w-[500px]"
+                type="email"
+                id="newsemail"
+                placeholder="Enter Your Email"
+                onChange={(e) =>
+                  setClientEmail({ ...clientEmail, newsemail: e.target.value })
+                }
+              />
+              <button type="submit">
+                <i className="fa fa-arrow-right bg-primary hover:bg-primary/90 py-[7px] px-2 rounded text-white" aria-hidden="true">Subscribe</i>
+              </button>
+
+            </div>
+          </form>
+        </div>
+      </section>
+      {/* end info section  */}
+    </div>
+  );
 }
