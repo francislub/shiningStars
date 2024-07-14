@@ -12,7 +12,7 @@ const SingleEvent = ({ post }: Props) => {
   return (
     <div className="wow fadeInUp relative overflow-hidden rounded-md bg-white shadow-one h-[450px] dark:bg-dark w-[220] mt-5">
 
-      <Link href={`/news/${post._id}`} passHref className="relative block h-[220px] w-full">
+      <Link href={`/events/${post._id}`} passHref className="relative block h-[220px] w-full">
           <span className="absolute top-6 right-6 z-20 inline-flex items-center justify-center rounded-full bg-primary py-2 px-4 text-sm font-semibold capitalize text-white">
             {post.status}
           </span>
@@ -20,7 +20,7 @@ const SingleEvent = ({ post }: Props) => {
       </Link>
       <div className="p-6 sm:p-8 md:py-8 md:px-6 lg:p-8 xl:py-8 xl:px-5 2xl:p-8">
         <h3>
-          <Link href={`/news/${post._id}`} passHref className="mb-4 block text-xl font-bold text-black hover:text-primary dark:text-white dark:hover:text-primary sm:text-2xl">
+          <Link href={`/events/${post._id}`} passHref className="mb-4 block text-xl font-bold text-black hover:text-primary dark:text-white dark:hover:text-primary sm:text-2xl">
               {post.activity}
           </Link>
         </h3>
@@ -36,16 +36,16 @@ const SingleEvent = ({ post }: Props) => {
             </div>
             <div className="w-full">
               <h4 className="mb-1 text-sm font-medium text-dark dark:text-white">
-                By {post.creator}
+                At <br />{post.place}
               </h4>
-              <p className="text-xs text-body-color">{post.activity}</p>
+              <p className="text-xs ">{post.activity}</p>
             </div>
           </div>
           <div className="inline-block">
             <h4 className="mb-1 text-sm font-medium text-dark dark:text-white">
               Date
             </h4>
-            <p className="text-xs text-body-color">{ new Date(post.date).toLocaleDateString()}</p>
+            <p className="text-xs ">{post.date}</p>
           </div>
         </div>
       </div>
