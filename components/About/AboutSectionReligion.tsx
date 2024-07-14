@@ -22,11 +22,11 @@ const AboutSectionReligion = () => {
           >
             <Image
               src={image}
-              alt="Bugema University"
-              className="w-[500px] h-[300px]"
+              alt="Shining Stars"
+              className="w-[500px] h-[300px] lg:mt-12 -mb-10"
             />
           </div>
-          <div className="w-full px-2 lg:w-1/2 h-[500px] mt-4 bg-green-200">
+          <div className="w-full px-2 lg:w-1/2 h-[500px] lg:h-[300px] mt-4 lg:-mt-20 bg-green-200">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
             Academics
             </h3>
@@ -57,7 +57,7 @@ const AboutSectionReligion = () => {
           >
             <Image
               src={image}
-              alt="Bugema University"
+              alt="Shining Stars"
               className="w-[500px]"
             />
           </div>
