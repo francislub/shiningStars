@@ -37,10 +37,10 @@ export default async function EventPage({ params }: Props) {
   return (
     <div className="pt-[120px] pb-[120px]">
       <div className="container p-20">
-        <div className="flex items-center justify-center ">
-          <Image src={event.photo} alt={event.activity} width={1200} height={100} className="custom-image" />
+        <div className="flex items-center justify-center">
+          <Image src={event.photo} alt={event.activity} width={1200} height={250} className="custom-image" />
         </div> 
-        <h1 className="text-4xl lg:text-6xl text-center leading-relaxed font-bold mt-5">
+        <h1 className="text-1xl lg:text-6xl text-center leading-relaxed font-bold mt-5">
           {event.activity}
         </h1>
         <p className="my-5 text-center text-xl text-gray-400">{event.date}</p>
