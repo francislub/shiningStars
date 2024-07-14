@@ -8,7 +8,7 @@ import image from "../../public/images/shin/car.jpg";
 import imaga from "../../public/images/shin/buila.jpg";
 
 
-const AboutSectionTransport = () => {
+const AboutSectionResidence = () => {
   return (
     <section className="py-16 md:py-20 lg:py-28">
 
@@ -68,4 +68,4 @@ const AboutSectionTransport = () => {
   );
 };
 
-export default AboutSectionTransport;
+export default AboutSectionResidence;

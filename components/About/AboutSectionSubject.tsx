@@ -7,7 +7,7 @@ import { EyeIcon } from '@heroicons/react/solid';
 import image from "../../public/images/shin/stu.jpg";
 
 
-const AboutSectionReligion = () => {
+const AboutSectionSubject = () => {
   return (
     <section className="py-16 md:py-20 lg:py-28">
 
@@ -169,4 +169,4 @@ const AboutSectionReligion = () => {
   );
 };
 
-export default AboutSectionReligion;
+export default AboutSectionSubject;
