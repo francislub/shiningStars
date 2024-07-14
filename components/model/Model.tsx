@@ -171,48 +171,6 @@ const why_bugema = () =>{
                                     </Link> 
                               </div>
                               </li>
-                              {/* <li> */}
-                              {/* <div className="mr-2 my-5 slider slide--fast ">
-                                     
-                                    <Link href={"/schools/school-of-theology"} >
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > School of Theology and Religious Studies </h1> 
-                                    </Link> 
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5 slider slide--slow ">
-                                    <Link href={"/schools/school-of-agric"} >
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Agriculture and Applied Sciences</h1> 
-                                    </Link> 
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5 slider slide--slower "> 
-                                    <Link href={"/schools/school-of-business"} >
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Business</h1> 
-                                    </Link> 
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5 slider slide--slow ">
-                                     
-                                    <Link href={"/schools/school-of-education"} >
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Education,Humanities and <br/> Social sciences</h1> 
-                                    </Link> 
-                              </div>
-                              </li>
-                              
-                              <li>
-                              <div className="mr-2 my-5 slider slide--fast ">
-                                     
-                                    <Link href={"/schools/school-of-graduate"} >
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Graduate studies, Reseacrch <br/>&  Publications</h1> 
-                                    </Link> 
-                              </div>
-                              </li> */}
                               
                         </ul>
                         
@@ -350,35 +308,6 @@ const why_bugema = () =>{
                                           </div>
                                     </Link>
                               </li>
-                              
-                              {/* <li>
-                                    <Link href={"/schools/school-of-agric"}>
-                                    <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Business</h1> 
-                                    
-                              </div>
-                                    </Link>
-                              
-                              </li>
-
-                              <li>
-                                    <Link href={"/schools/school-of-education"}>
-                                          <div className="mr-2 my-5  ">
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Education,Humanities and <br/> Social sciences</h1> 
-                                          </div>
-                                    </Link>
-                              
-                              </li>
-
-                              <li>
-                                    <Link href={"/schools/school-of-graduate"}>
-                                    <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> School of Graduate studies, Reseacrch <br/>&  Publications</h1> 
-                                    
-                                    </div>
-                                    </Link>
-                              
-                              </li> */}
 
                         </ul>
                         
@@ -434,11 +363,7 @@ const why_bugema = () =>{
                                     <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Fees Structure <FaArrowRight className='arrow2'/></h1>
                                     </div>
                               </div>  
-                              {/* <div className="ml-24 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px'}} >
-                                    <div className='columns-1 bg-black slider slide--slow change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Donate <FaArrowRight className='arrow3'/></h1>
-                                    </div>
-                              </div> */}
+                             
                         </div>
 
                         {/* ###============= W  H  Y    B U G E M A      M O R E =================### */}
