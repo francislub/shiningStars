@@ -131,15 +131,15 @@ const Header = () => {
                     <Image 
                         src={image} 
                         alt="logo" 
-                        width={80} 
-                        height={25} 
+                        width={70} 
+                        height={20} 
                         className="w-full dark:hidden rounded-full" 
                     />
                     <Image 
                         src={image} 
                         alt="logo" 
-                        width={50} 
-                        height={15} 
+                        width={45} 
+                        height={12} 
                         className="hidden w-full dark:block rounded-full" 
                     />
                 </Link>
