@@ -8,7 +8,7 @@ import image from "../../public/images/shin/car.jpg";
 import imaga from "../../public/images/shin/buila.jpg";
 
 
-const AboutSectionTransport = () => {
+const AboutSectionLibrary = () => {
   return (
     <section className="py-16 md:py-20 lg:py-28">
 
@@ -29,7 +29,7 @@ const AboutSectionTransport = () => {
           </div>
           <div className="w-full px-2 lg:w-1/2 h-[500px] lg:h-[300px] mt-4 lg:-mt-20 bg-green-200">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-            Academics
+            Library
             </h3>
            <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
               <div className="flex-1">
@@ -43,7 +43,7 @@ const AboutSectionTransport = () => {
         <div className="flex flex-col lg:flex-row items-center gap-10 -mt-20">
           <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5 bg-green-200">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-            ........
+            ICT CLUBS
             </h3>
            <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
               <div className="flex-1">
@@ -68,4 +68,4 @@ const AboutSectionTransport = () => {
   );
 };
 
-export default AboutSectionTransport;
+export default AboutSectionLibrary;
