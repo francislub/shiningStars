@@ -36,7 +36,7 @@ const SingleNews = ({ post }: Props) => {
               <h4 className="mb-1 text-sm font-medium text-dark dark:text-white">
                 By {post.title}
               </h4>
-              <p className="text-xs text-body-color">{post.title}</p>
+              <p className="text-xs ">{post.title}</p>
             </div>
           </div>
           <div className="inline-block">
