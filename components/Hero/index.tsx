@@ -57,7 +57,7 @@ const Hero = () => {
           subtitle="A Center for Guaranteed excellence"
           subtitle2=""
           subtitle3=""
-          buttonText="Explore more"
+          buttonText="Apply Now"
           buttonLink="/apply-now"
         />
 
