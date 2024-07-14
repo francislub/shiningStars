@@ -154,7 +154,7 @@ export default function AdmissionForm() {
   };
 
   return (
-    <div className="container h-full w-screen my-3">
+    <div className="container h-full w-full my-3">
       {/* contact section  */}
       <section className="mt-4">
         <div className="container">
@@ -171,9 +171,10 @@ export default function AdmissionForm() {
                       <label className="text-body-color text-lg">
                         Pupil{"'"}s Name:{" "}
                       </label>
+                      <br className="md:hidden"/>
                       <input
                         type="text"
-                        className="form-control rounded px-2 py-1 border border-body-color w-[400px]"
+                        className="form-control rounded px-2 py-1 border border-body-color md:w-[400px] w-[300px] mb-3 md:mb-0"
                         id="name"
                         onChange={(e) =>
                           setChild({ ...child, name: e.target.value })
@@ -185,6 +186,7 @@ export default function AdmissionForm() {
                       <label className="text-body-color text-lg">
                         Admission No:{" "}
                       </label>
+                      <br className="md:hidden"/>
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color"
@@ -206,7 +208,7 @@ export default function AdmissionForm() {
                       </label>
                       <input
                         type="text"
-                        className="form-control rounded px-2 py-1 border border-body-color w-[300px]"
+                        className="form-control rounded px-2 py-1 border border-body-color w-[300px] mb-4 md:mb-0"
                         id="date_of_birth"
                         placeholder="dd/mm/yy"
                         onChange={(e) =>
@@ -219,7 +221,7 @@ export default function AdmissionForm() {
                     </div>
 
                     <div>
-                      <label className="text-body-color text-lg">Age: </label>
+                      <label className="text-body-color text-lg">Age: </label><br className="md:hidden"/>
                       <input
                         type="number"
                         className="form-control rounded px-2 py-1 border border-body-color w-[100px]"
@@ -231,12 +233,12 @@ export default function AdmissionForm() {
                           })
                         }
                       />
-                    </div>
+                    </div><br className="md:hidden"/>
 
                     <div>
                       <label className="text-body-color text-lg">
                         Gender:{" "}
-                      </label>
+                      </label><br className="md:hidden"/>
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[200px]"
@@ -258,7 +260,7 @@ export default function AdmissionForm() {
                       </label>
                       <input
                         type="text"
-                        className="form-control rounded px-2 py-1 border border-body-color w-[300px]"
+                        className="form-control rounded px-2 py-1 border border-body-color w-[300px] mb-4 md:mb-0"
                         id="grade"
                         onChange={(e) =>
                           setChild({
@@ -270,10 +272,10 @@ export default function AdmissionForm() {
                     </div>
 
                     <div>
-                      <label className="text-body-color text-lg">Term: </label>
+                      <label className="text-body-color text-lg">Term: </label><br className="md:hidden"/>
                       <input
                         type="text"
-                        className="form-control rounded px-2 py-1 border border-body-color w-[100px]"
+                        className="form-control rounded px-2 py-1 border border-body-color w-[100px] mb-4 md:mb-0"
                         id="term"
                         onChange={(e) =>
                           setChild({
@@ -287,7 +289,7 @@ export default function AdmissionForm() {
                     <div>
                       <label className="text-body-color text-lg">
                         Residence:{" "}
-                      </label>
+                      </label><br className="md:hidden"/>
                       <input
                         type="text"
                         placeholder="Day / Boarding"
@@ -309,7 +311,7 @@ export default function AdmissionForm() {
                     </label>
                     <input
                       type="text"
-                      className="form-control rounded px-2 py-1 border border-body-color w-[400px]"
+                      className="form-control rounded px-2 py-1 border border-body-color md:w-[400px] w-[300px]"
                       id="emis_no"
                       onChange={(e) =>
                         setChild({ ...child, emis_no: e.target.value })
@@ -325,7 +327,7 @@ export default function AdmissionForm() {
                     </label>
                     <input
                       type="text"
-                      className="form-control rounded px-2 py-1 border border-body-color w-[400px]"
+                      className="form-control rounded px-2 py-1 border border-body-color md:w-[400px] w-[300px]"
                       id="parent_name"
                       onChange={(e) =>
                         setChild({ ...child, parent_name: e.target.value })
@@ -340,7 +342,7 @@ export default function AdmissionForm() {
                       </label>
                       <input
                         type="text"
-                        className="form-control rounded px-2 py-1 border border-body-color w-[400px]"
+                        className="form-control rounded px-2 py-1 border border-body-color md:w-[400px] w-[300px]"
                         id="parent_telephone"
                         onChange={(e) =>
                           setChild({ ...child, parent_telephone: e.target.value })
@@ -370,7 +372,7 @@ export default function AdmissionForm() {
                     <div>
                       <label className="text-body-color text-lg md:mr-[70px]">
                         Address:{" "}
-                      </label>
+                      </label><br className="md:hidden" />
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[300px]"
@@ -385,7 +387,7 @@ export default function AdmissionForm() {
                     </div>
 
                     <div>
-                      <label className="text-body-color text-lg">Village: </label>
+                      <label className="text-body-color text-lg">Village: </label><br className="md:hidden" />
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[200px] md:mr-[58px]"
@@ -423,7 +425,7 @@ export default function AdmissionForm() {
                     </label>
                     <input
                       type="text"
-                      className="form-control rounded px-2 py-1 border border-body-color w-[400px]"
+                      className="form-control rounded px-2 py-1 border border-body-color md:w-[400px] w-[300px]"
                       id="parent_name"
                       onChange={(e) =>
                         setChild({ ...child, parent_name: e.target.value })
