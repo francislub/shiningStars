@@ -56,6 +56,13 @@ export default function Teaching() {
         <div className="md:pl-2">
           <SectionTitle title="Get Your Child's Pay Code" paragraph="" />
         </div>
+        <div className="w-full mt-4 md:mt-6 flex justify-center">
+          <input 
+            type="email" 
+            placeholder="Enter Parent Email" 
+            className="w-64 h-9 p-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
 
        {/* Combo Box for selecting class */}
         <div className="mt-4 mb-4">
@@ -63,6 +70,7 @@ export default function Teaching() {
             value={selectedClass}
             onChange={handleClassChange}
             className="p-2 border border-gray-500 rounded-md bg-gray shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-blue-300 hover:bg-blue-200 cursor-pointer"
+            required
           >
             <option value="all">Select Class</option>
             <option value="all">All Classes</option>
