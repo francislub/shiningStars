@@ -20,6 +20,11 @@ const handleclose = (e)=>{
       document.querySelector('.active')?.classList.remove('active');
       
 }
+const handleButtonClick = (callback) => {
+      callback();
+      onClose();
+    };
+
 const main = ()=>{
       let schools = document.querySelector('schools');
       document.getElementById('main').classList.add('current');
@@ -158,7 +163,7 @@ const why_bugema = () =>{
                               <li>
                               <div className="mr-2 my-5 slider slide--slow ">
                                     <Link href={"/subjects"} >
-                                          <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Subjects </h1> 
+                                          <h1 onClick={onClose} style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Subjects </h1> 
                                     </Link> 
                               </div>
                               </li>
@@ -167,7 +172,7 @@ const why_bugema = () =>{
                               <div className="mr-2 my-5 slider slide--slow ">
                                     
                                     <Link href={"/curricular-activities"} >
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Co Curricular Activities</h1> 
+                                          <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Co Curricular Activities</h1> 
                                     </Link> 
                               </div>
                               </li>
@@ -191,7 +196,7 @@ const why_bugema = () =>{
                               <li>
                               <Link href={"/scholarships"}>
                                     <div className="mr-2 my-5  ">
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Scholarships</h1> 
+                                          <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Scholarships</h1> 
                                           
                                     </div>
                               </Link>
@@ -199,7 +204,7 @@ const why_bugema = () =>{
                               <li>
                               <Link href={"/codepay"}>
                                     <div className="mr-2 my-5  ">
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Pupils pay code</h1> 
+                                          <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Pupils pay code</h1> 
                                           
                                     </div>
                               </Link>
@@ -228,7 +233,7 @@ const why_bugema = () =>{
                               <Link href={"/studentlife"}>
                                     <div className="mr-2 my-5 ">
                                     
-                                    <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Sports </h1> 
+                                    <h1 onClick={onClose} style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Sports </h1> 
                                     
                                     </div>
                               </Link>
@@ -237,14 +242,14 @@ const why_bugema = () =>{
                               <li>
                               <Link href={"/accommodation"}>
                                     <div className="mr-2 my-5">
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Accommodation</h1> 
+                                          <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Accommodation</h1> 
                                     </div>
                               </Link>
                               </li>
                               <li>
                               <Link href={"/religion"}>
                                     <div className="mr-2 my-5  ">
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Religion </h1> 
+                                          <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Religion </h1> 
                                     </div>
                               </Link>
                               </li>
@@ -252,7 +257,7 @@ const why_bugema = () =>{
                               <li>
                               <Link href={"/health"}>
                                     <div className="mr-2 my-5 ">
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools  text-black font-bold'> Health</h1>
+                                          <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools  text-black font-bold'> Health</h1>
                                          
                                     </div>
                               </Link>
@@ -261,7 +266,7 @@ const why_bugema = () =>{
                               <li>
                                     <Link href={"/feeding"}>
                                           <div className="mr-2 my-5  ">
-                                                <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Feeding</h1> 
+                                                <h1 onClick={onClose}  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Feeding</h1> 
                                                 
                                           </div>
                                     </Link>
@@ -277,7 +282,7 @@ const why_bugema = () =>{
                                     <Link href={"/administrators"}>
                                           <div className="mr-2 my-5 ">
                                     
-                                                <h1  style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Administrators  </h1> 
+                                                <h1 onClick={onClose} style={{ fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'> Administrators  </h1> 
                                     
                                           </div>
                                     </Link>
@@ -287,7 +292,7 @@ const why_bugema = () =>{
                               <li>
                                     <Link href={"/teaching"}>
                                     <div className="mr-2 my-5  ">
-                                    <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Teaching</h1> 
+                                    <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Teaching</h1> 
                                     </div>
                                     </Link>
                               
@@ -295,7 +300,7 @@ const why_bugema = () =>{
                               <li>
                               <Link href={"/non-teaching"} >
                                     <div className="mr-2 my-5  ">
-                                          <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Non-Teaching </h1> 
+                                          <h1 onClick={onClose}  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Non-Teaching </h1> 
                                     </div>
                               </Link>
                              
@@ -303,7 +308,7 @@ const why_bugema = () =>{
                               <li>
                                     <Link href={"/studentleader"} >
                                           <div className="mr-2 my-5  ">
-                                                <h1  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Pupils Leadership</h1>
+                                                <h1 onClick={onClose}  style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold'>Pupils Leadership</h1>
                                                 
                                           </div>
                                     </Link>
@@ -327,21 +332,21 @@ const why_bugema = () =>{
                               <Link href={"/whyshin"}>
                                     <div className="ml-19 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
                                           <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
-                                          <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Why Study at Shining Stars  <FaArrowRight className='arrow1'/></h1>
+                                          <h1 onClick={onClose}  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Why Study at Shining Stars  <FaArrowRight className='arrow1'/></h1>
                                           </div>
                                     </div> 
                               </Link>
                               <Link href={"/whyshin"}>
                                     <div className="ml-12 my-1 transform -skew-x-11 text-white grid-rows-2 " >
                                           <div className='columns-1 bg-black change-on-hover'>
-                                          <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Why Study at Shining Stars <FaArrowRight className='arrow2'/></h1>
+                                          <h1 onClick={onClose}  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Why Study at Shining Stars <FaArrowRight className='arrow2'/></h1>
                                           </div>
                                     </div>  
                               </Link>
                               <Link href={"/whyshin"}>
                                     <div className="ml-24 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px'}} >
                                           <div className='columns-1 bg-black slider slide--slow change-on-hover'>
-                                          <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Why Study at Shining Stars <FaArrowRight className='arrow3'/></h1>
+                                          <h1 onClick={onClose}  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Why Study at Shining Stars <FaArrowRight className='arrow3'/></h1>
                                           </div>
                                     </div>
                               </Link>
@@ -374,21 +379,21 @@ const why_bugema = () =>{
                               <Link href={"/whyshin"}>
                                     <div className="ml-19 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
                                           <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
-                                          <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Why Study at Shining Stars Vvumba <FaArrowRight className='arrow1'/></h1>
+                                          <h1 onClick={onClose} style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Why Study at Shining Stars Vvumba <FaArrowRight className='arrow1'/></h1>
                                           </div>
                                     </div> 
                               </Link>
                               <Link href={"/whyshin"}>
                                     <div className="ml-12 my-1 transform -skew-x-11 text-white grid-rows-2 " >
                                           <div className='columns-1 bg-black change-on-hover'>
-                                          <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Why Study at Shining Stars Vvumba <FaArrowRight className='arrow2'/></h1>
+                                          <h1 onClick={onClose} style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Why Study at Shining Stars Vvumba <FaArrowRight className='arrow2'/></h1>
                                           </div>
                                     </div> 
                               </Link> 
                               <Link href={"/whyshin"}>
                                     <div className="ml-24 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px'}} >
                                           <div className='columns-1 bg-black slider slide--slow change-on-hover'>
-                                          <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Why Study at Shining Stars Vvumba <FaArrowRight className='arrow3'/></h1>
+                                          <h1 onClick={onClose} style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Why Study at Shining Stars Vvumba <FaArrowRight className='arrow3'/></h1>
                                           </div>
                                     </div>
                               </Link>
