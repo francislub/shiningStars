@@ -7,6 +7,8 @@ import { EyeIcon } from '@heroicons/react/solid';
 import image from "../../public/images/shin/stu.jpg";
 import academic from "../../public/images/shi/name.jpeg";
 import sports from "../../public/images/shi/mddx.jpeg";
+import feed from "../../public/images/shin/stuf.jpg";
+import accomodation from "../../public/images/shi/buil.jpeg";
 import Link from "next/link";
 
 
@@ -80,7 +82,7 @@ const AboutSectionSeven = () => {
               data-wow-delay=".15s" 
             >
               <Image
-                src={image}
+                src={accomodation}
                 alt="Shining Stars"
                 className="w-[500px] h-[300px] lg:mt-12"
               />
@@ -176,7 +178,7 @@ const AboutSectionSeven = () => {
             data-wow-delay=".15s" 
           >
             <Image
-              src={image}
+              src={feed}
               alt="Shining Stars"
               className="w-[500px] h-[300px] lg:mt-12"
             />
