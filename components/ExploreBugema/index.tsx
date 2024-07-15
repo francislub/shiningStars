@@ -105,9 +105,9 @@ const Video = () => {
       <div
         className={`wow fadeInUp overflow-hidden rounded-md h-[400px]  ${animate ?"slider slide--slower":"" }`}
         data-wow-delay=".15s">
-           
+           {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/kVH8TNOGeF0?si=XAcCeZbkGzFJCBrk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
             <iframe width="500" height="300" title="YouTube video player"  allow="accelerometer; loop=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen
-                src="https://www.youtube.com/embed/0cQGhkbVKQY?si=r5Su1aLLgMK0sMHN &autoplay=1"
+                src="https://www.youtube.com/embed/kVH8TNOGeF0?si=XAcCeZbkGzFJCBrk &autoplay=1"
                 className='w-full h-full'>
             </iframe>
 
