@@ -43,6 +43,7 @@ const Breadcrumb = ({
               alt={`Background ${currentImageIndex + 1}`}
               layout="fill"
               objectFit="cover"
+              // style={{ width: '100%', height: '100%' }}
             />
           </motion.div>
         </AnimatePresence>
