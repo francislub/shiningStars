@@ -26,9 +26,11 @@ const AboutSectionLife2 = () => {
                                           <p className="mb-4 text-base text-white ">
                                           Get more information about fees structure.
                                           </p>
-                                          <button className="px-6 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                                                Download
-                                          </button>
+                                          <Link href="/finances.pdf" target="_blank" rel="noopener noreferrer">
+                                                <button className="px-6 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                                                      Download
+                                                </button>
+                                          </Link>
                                     </div>
                               </div>
                               <div className="w-full px-4 lg:w-1/2 xl:w-1/4 transition-transform duration-300 lg:hover:scale-105 cursor-pointer rounded bg-blue-500">
@@ -57,9 +59,11 @@ const AboutSectionLife2 = () => {
                         <p className="mb-4 text-base text-white dark:text-gray-300">
                         Find the attached circular for school fees dues/fees remainder.
                         </p>
-                        <button className="px-6 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                              Download
-                        </button>
+                        <Link href="/finances.pdf" target="_blank" rel="noopener noreferrer">
+                              <button className="px-6 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                                    Download
+                              </button>
+                        </Link>
                         </div>
                         </div>
                         <div className="w-full px-4 lg:w-1/2 xl:w-1/4 transition-transform duration-300 lg:hover:scale-105 cursor-pointer rounded bg-blue-500 ">
@@ -71,9 +75,11 @@ const AboutSectionLife2 = () => {
                         <p className="mb-2 text-base text-white ">
                         Find meeting letter
                         </p>
-                        <button className="px-6 py-2 mt-2 text-white bg-blue-300 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                              Explore More
-                        </button>
+                        <Link href="/finances.pdf" target="_blank" rel="noopener noreferrer">
+                              <button className="px-6 py-2 mt-2 text-white bg-blue-300 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                                    Download
+                              </button>
+                        </Link>
                         </div>
                         </div>
                         </div>
