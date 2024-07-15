@@ -73,7 +73,7 @@ const Footer = () => {
                     </svg>
                   </Link>
                   <Link
-                    href="/"
+                    href="https://www.youtube.com/@SHININGSTARSNURSERYANDPRIMARY"
                     aria-label="social-link"
                     className="mr-6 text-[#CED3F6] hover:text-primary"
                   >
@@ -83,7 +83,7 @@ const Footer = () => {
                     </svg>
                   </Link>
                   <Link
-                    href="/https://www.youtube.com"
+                    href="/"
                     aria-label="social-link"
                     className="mr-6 text-[#CED3F6] hover:text-primary"
                   >
