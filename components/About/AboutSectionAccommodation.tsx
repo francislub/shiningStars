@@ -4,8 +4,8 @@ import { GlobeAltIcon } from '@heroicons/react/solid';
 import { StarIcon } from '@heroicons/react/solid';
 import { EyeIcon } from '@heroicons/react/solid';
 
-import image from "../../public/images/shin/buil.jpg";
-import imaga from "../../public/images/shin/buila.jpg";
+import image from "../../public/images/shi/car.jpeg";
+import imaga from "../../public/images/shi/cara.jpeg";
 
 
 const AboutSectionAcademic = () => {
@@ -29,7 +29,7 @@ const AboutSectionAcademic = () => {
           </div>
           <div className="w-full px-2 lg:w-1/2 h-[500px] lg:h-[300px] mt-4 lg:-mt-20 bg-green-200">
             <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-            Academics
+            ......................
             </h3>
            <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
               <div className="flex-1">
