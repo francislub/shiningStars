@@ -1,8 +1,8 @@
 import React, { Children } from 'react';
 import { FaArrowRight } from 'react-icons/fa6';
-import gate from "../../public/images/shin/stuf.jpg";
+import gate from "../../public/images/shi/gra.jpeg";
 import nurses1 from "../../public/images/shin/tt.jpg";
-import burundi from "../../public/images/shin/stua.jpg";
+import burundi from "../../public/images/shi/pipp.jpeg";
 import palm_girls1 from "../../public/images/shin/s.jpg";
 import Image from "next/image";
 import Link from 'next/link';
@@ -117,21 +117,15 @@ const why_bugema = () =>{
                               <div className="mr-2 my-5  slider slide--slower">
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '>  <span id='Mbale' className='animated'> Circular</span></h1> 
                               </div>
-                              {/* <div className="mr-2 my-5 slider slide--slowest ">
-                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' > <span className='animated' id='Kasese'> Kasese Campus</span></h1> 
-                              </div>
-
-                              <div className="mr-2 my-5 slider slide--slowest ">
-                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '> <span className='animated' id='Arua'> Arua Campus</span></h1> 
-                              </div> */}
+                              
 
                               {/*###===============================================================================
                                A T T A C H M E N T   P I C T U R E S    U N D E R    T H E   F I R S T   C O L U M N 
                                ==================================================================================###*/}
-                              <div id='attachment-get-in-toch' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'40%'}}>
+                              <div id='attachment-get-in-toch' className="slant-div-right bg-black text-white grid-rows-2 hidden"style={{marginTop:'20%',width:'111%',height:'60%'}}>
                                     <div className='fade-in'>
                                           
-                                    <Image src={burundi} alt='img' width={550} height={450} className="fade-in-slow transform -skew-x-12 '"/>
+                                    <Image src={burundi} alt='img' width={550} height={650} className="fade-in-slow transform -skew-x-12 '"/>
                                     </div>
                                     
                               </div> 

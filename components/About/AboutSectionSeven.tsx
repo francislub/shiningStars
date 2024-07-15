@@ -5,6 +5,8 @@ import { StarIcon } from '@heroicons/react/solid';
 import { EyeIcon } from '@heroicons/react/solid';
 
 import image from "../../public/images/shin/stu.jpg";
+import academic from "../../public/images/shi/name.jpeg";
+import sports from "../../public/images/shi/mddx.jpeg";
 import Link from "next/link";
 
 
@@ -22,7 +24,7 @@ const AboutSectionSeven = () => {
             data-wow-delay=".15s" 
           >
             <Image
-              src={image}
+              src={academic}
               alt="Shining Stars"
               className="w-[500px] h-[300px] mt-3 lg:mt-12"
             />
@@ -66,7 +68,7 @@ const AboutSectionSeven = () => {
             data-wow-delay=".15s" 
           >
             <Image
-              src={image}
+              src={sports}
               alt="Shining Stars"
               className="w-[500px] h-[300px] lg:mt-12"
             />
