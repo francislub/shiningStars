@@ -18,6 +18,7 @@ import ResearchSection from "@/components/Research";
 import Welcome from "@/components/Welcome/Welcome";
 import Events from "@/components/Events";
 import News from "@/components/News";
+import Whatsup from "@/components/whatsup/whatsup";
 
 
 
@@ -39,6 +40,7 @@ export default function Home() {
       {/* <Blog /> */}
       {/* <Brands /> */}
       <Contact />
+      <Whatsup />
       <ScrollToTop />
     </>
   );
