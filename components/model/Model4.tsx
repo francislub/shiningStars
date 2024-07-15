@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa6';
 import { BiPhoneCall } from 'react-icons/bi';
 import burundi from "../../public/images/shin/ear.jpg";
-import palm_girls from "../../public/images/shin/s.jpg";
+import palm_girls from "../../public/images/shi/build.jpeg";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -175,17 +175,15 @@ const why_bugema = () =>{
                               </svg>
                               </Link>
                               <Link
-                              href="/https://www.x.com"
-                              aria-label="social-link"
-                              className="mr-6 text-[#CED3F6] hover:text-primary"
-                              >
-                              <svg className=" hover:scale-110 hover:transition-all rounded dark:bg-none bg-black hover:duration-300" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 50 50">
-                              <path d="M 5.9199219 6 L 20.582031 27.375 L 6.2304688 44 L 9.4101562 44 L 21.986328 29.421875 L 31.986328 44 L 44 44 L 28.681641 21.669922 L 42.199219 6 L 39.029297 6 L 27.275391 19.617188 L 17.933594 6 L 5.9199219 6 z M 9.7167969 8 L 16.880859 8 L 40.203125 42 L 33.039062 42 L 9.7167969 8 z" 
-                              fill="white"></path>
-                              </svg>
+                                    href="https://www.youtube.com/@SHININGSTARSNURSERYANDPRIMARY"
+                                    aria-label="social-link"
+                                    className="mr-6 text-[#CED3F6] hover:text-primary"
+                                    >
+                                    <svg className=" hover:scale-110 hover:transition-all rounded dark:bg-none bg-black hover:duration-300" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 50 50">
+                                    <path d="M 24.402344 9 C 17.800781 9 11.601563 9.5 8.300781 10.199219 C 6.101563 10.699219 4.199219 12.199219 3.800781 14.5 C 3.402344 16.898438 3 20.5 3 25 C 3 29.5 3.398438 33 3.898438 35.5 C 4.300781 37.699219 6.199219 39.300781 8.398438 39.800781 C 11.902344 40.5 17.898438 41 24.5 41 C 31.101563 41 37.097656 40.5 40.597656 39.800781 C 42.800781 39.300781 44.699219 37.800781 45.097656 35.5 C 45.5 33 46 29.402344 46.097656 24.902344 C 46.097656 20.402344 45.597656 16.800781 45.097656 14.300781 C 44.699219 12.101563 42.800781 10.5 40.597656 10 C 37.097656 9.5 31 9 24.402344 9 Z M 24.402344 11 C 31.601563 11 37.398438 11.597656 40.199219 12.097656 C 41.699219 12.5 42.898438 13.5 43.097656 14.800781 C 43.699219 18 44.097656 21.402344 44.097656 24.902344 C 44 29.199219 43.5 32.699219 43.097656 35.199219 C 42.800781 37.097656 40.800781 37.699219 40.199219 37.902344 C 36.597656 38.601563 30.597656 39.097656 24.597656 39.097656 C 18.597656 39.097656 12.5 38.699219 9 37.902344 C 7.5 37.5 6.300781 36.5 6.101563 35.199219 C 5.300781 32.398438 5 28.699219 5 25 C 5 20.398438 5.402344 17 5.800781 14.902344 C 6.101563 13 8.199219 12.398438 8.699219 12.199219 C 12 11.5 18.101563 11 24.402344 11 Z M 19 17 L 19 33 L 33 25 Z M 21 20.402344 L 29 25 L 21 29.597656 Z" 
+                                    fill="white"></path>
+                                    </svg>
                               </Link>
-                              
-
                               <Link
                               href="/https://www.youtube.com"
                               aria-label="social-link"
@@ -243,7 +241,7 @@ const why_bugema = () =>{
                         {/* ###=============G E T   IN  T O U C H       M O R E =================### */}
                         <div className='fade-in' id='touch-more'>
                               <div className=' ml-24 fade-in '>
-                                          <Image src={palm_girls} alt='img' width={350} height={450} className="ml-19 -mr-10 my-10 slider slide--fast"/>
+                                          <Image src={palm_girls} alt='img' width={430} height={550} className="ml-19 -mr-10 my-10 slider slide--fast"/>
                               </div>
                               <div className="ml-19 mr-5 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
                                     <div className='columns-1 bg-black  change-on-hover '>
@@ -256,11 +254,6 @@ const why_bugema = () =>{
                                     <h1  style={{fontSize: '19px',cursor:"pointer",height:"50px"}} className='new-arr change-on-hover2'> Talk to Us <BiPhoneCall className='new-arr'/></h1>
                                     </div>
                               </div>
-
-                              {/* <h1  style={{fontSize: '19px',cursor:"pointer",height:"50px"}} className='new-arr change-on-hover2 text-black'> ERMS  <FaArrowRight className='new-arr'/></h1>
-                              <h1  style={{fontSize: '19px',cursor:"pointer",height:"50px"}} className='new-arr change-on-hover2 text-black'> ERMS-staff  <FaArrowRight className='new-arr'/></h1>
-                                    
-                              <h1  style={{fontSize: '19px',cursor:"pointer",height:"50px"}} className='new-arr change-on-hover2 text-black'> E-Library  <FaArrowRight className='new-arr'/></h1> */}
                               
                               
                         </div>
