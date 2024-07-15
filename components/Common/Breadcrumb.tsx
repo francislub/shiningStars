@@ -64,6 +64,10 @@ const Breadcrumb = ({
                 layout="fill"
                 objectFit="cover"
               />
+               <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white p-4">
+                <h2 className="text-3xl font-bold">{slides[currentImageIndex].title}</h2>
+                <p className="text-xl mt-2">{slides[currentImageIndex].description}</p>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -71,7 +75,7 @@ const Breadcrumb = ({
       <div className="relative container z-20">
         <div className="-mx-4 flex flex-wrap items-center">
           <div className="w-full px-4 md:w-8/12 lg:w-7/12">
-            <div className="mb-8 max-w-[570px] md:mb-0 lg:mb-12 mt-16 lg:mt-0 bg-white bg-opacity-75 p-6 rounded-md">
+            <div className="mb-8 max-w-[570px] md:mb-0 lg:mb-12 mt-16 lg:mt-0 bg-opacity-75 p-6 rounded-md">
               <h1 className="mb-5 text-2xl font-bold text-black dark:text-white sm:text-3xl">
                 {pageName}
               </h1>
@@ -81,7 +85,7 @@ const Breadcrumb = ({
             </div>
           </div>
           <div className="w-full px-4 md:w-4/12 lg:w-5/12">
-            <div className="text-end bg-white bg-opacity-75 p-6 rounded-md">
+            <div className="text-end bg-opacity-75 p-6 rounded-md">
               <ul className="flex items-center md:justify-end">
                 <li className="flex items-center">
                   <Link
