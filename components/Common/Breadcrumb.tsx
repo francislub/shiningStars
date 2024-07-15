@@ -1,13 +1,7 @@
-"use client"
-
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import img from "@/public/images/shin/buil.jpg";
-import img2 from "@/public/images/shin/builb.jpg";
-
-const images = [img, img2];
 
 const Breadcrumb = ({
   pageName,
@@ -17,35 +11,61 @@ const Breadcrumb = ({
   description: string;
 }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [slides, setSlides] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchSlides = async () => {
+      try {
+        const response = await fetch("https://shining-stars-dashboard.onrender.com/api/v1/sliders", {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setSlides(data.reverse());
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+
+    fetchSlides();
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % slides.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [slides]);
 
   return (
     <section className="relative z-10 overflow-hidden pt-8 lg:pt-[150px]">
       <div className="absolute inset-0">
         <AnimatePresence>
-          <motion.div
-            key={currentImageIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
-            className="absolute inset-0"
-          >
-            <Image
-              src={images[currentImageIndex]}
-              alt={`Background ${currentImageIndex + 1}`}
-              layout="fill"
-              objectFit="cover"
-              // style={{ width: '100%', height: '100%' }}
-            />
-          </motion.div>
+          {slides.length > 0 && (
+            <motion.div
+              key={currentImageIndex}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1 }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={slides[currentImageIndex].photo}
+                alt={`Background ${currentImageIndex + 1}`}
+                layout="fill"
+                objectFit="cover"
+              />
+            </motion.div>
+          )}
         </AnimatePresence>
       </div>
       <div className="relative container z-20">
