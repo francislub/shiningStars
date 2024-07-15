@@ -5,6 +5,8 @@ import { StarIcon } from '@heroicons/react/solid';
 import { EyeIcon } from '@heroicons/react/solid';
 
 import image from "../../public/images/shin/stu.jpg";
+import community from "../../public/images/shi/pip.jpeg";
+import music from "../../public/images/shi/songg.jpeg";
 
 
 const AboutSectionCoActivities = () => {
@@ -21,7 +23,7 @@ const AboutSectionCoActivities = () => {
             data-wow-delay=".15s" 
           >
             <Image
-              src={image}
+              src={music}
               alt="Shining Stars"
               className="w-[500px] h-[300px] lg:mt-12 -mb-10"
             />
@@ -76,7 +78,7 @@ const AboutSectionCoActivities = () => {
             data-wow-delay=".15s" 
           >
             <Image
-              src={image}
+              src={community}
               alt="Shining Stars"
               className="w-[500px] h-[300px] lg:mt-12 -mb-10"
             />
