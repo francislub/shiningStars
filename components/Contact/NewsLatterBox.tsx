@@ -80,7 +80,7 @@ const NewsLatterBox: React.FC = () => {
         </div>
         <div>
           <div>
-            <h3 className="mb-4 text-2xl font-bold leading-tight text-black dark:text-white">
+            <h3 className="mb-4 text-2xl font-bold leading-tight text-black dark:text-white ">
               Subscribe to receive the latest from us.
             </h3>
             <p className="mb-11 border-b border-body-color border-opacity-25 pb-11 text-base font-medium leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
