@@ -51,6 +51,11 @@ const childSchema = new mongoose.Schema({
         required: [true, 'Please provide parent or guardian name'],
         trim: true,
     },
+    parent_email: {
+        type: String,
+        required: [true, 'Please provide parent or guardian email'],
+        trim: true,
+    },
     parent_telephone: {
         type: String,
         required: [true, 'Please provide parent or guardian telephone'],
