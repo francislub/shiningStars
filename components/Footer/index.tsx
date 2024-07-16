@@ -299,7 +299,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href="/finances.pdf"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
@@ -389,13 +389,14 @@ const Footer = () => {
                     </Link>
                     </li>
                     <li>
-                      <Link
-                      href="/"
-                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
-                    >
-                      {" "}
-                      Fees Structure{" "}
-                    </Link>
+                      <Link 
+                        href="/finances.pdf" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                      >
+                        Fees Structure
+                      </Link>
                     </li>
                     <li>
                       <Link
@@ -464,7 +465,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href="/schoolife/transport"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
@@ -473,7 +474,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href="/schoolife/residence"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
@@ -482,7 +483,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href="/schoolife/ICT"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
@@ -520,7 +521,7 @@ const Footer = () => {
                   <ul className="list-none">
                   <li>
                       <Link
-                      href="/"
+                      href="/academics"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
@@ -529,7 +530,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link
-                      href="/"
+                      href="/schoolife/residence"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
@@ -538,7 +539,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link
-                      href="/"
+                      href="/schoolife/ICT"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
@@ -547,7 +548,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link
-                      href="/"
+                      href="/schoolife/transport"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
