@@ -34,10 +34,6 @@ export default function AdmissionForm() {
     child_medical_info: "",
   });
 
-  const [newsLetterEmail, setNewsLetterEmail] = React.useState({
-    newsemail: "",
-  });
-
   const [loading, setLoading] = React.useState(false);
 
   const [buttonDisabled, setButtonDisabled] = React.useState(true);
@@ -114,34 +110,6 @@ export default function AdmissionForm() {
           next_of_kin_village: "",
           next_of_kin_lc: "",
           child_medical_info: "",
-        });
-        setLoading(false);
-      } else {
-        setLoading(false);
-      }
-      router.push("/");
-    } catch (error) {
-      console.error(error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleEmailSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      setLoading(true);
-      const res = await fetch("/api/emails", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newsLetterEmail),
-      });
-      const data = await res.json();
-      if (data.success) {
-        setNewsLetterEmail({
-          newsemail: "",
         });
         setLoading(false);
       } else {
@@ -608,38 +576,6 @@ export default function AdmissionForm() {
         </div>
       </section>
       {/* end contact section  */}
-
-      {/* info section  */}
-      <section className=" mt-10">
-        <div className="info_form ">
-          <h5 className="text-xl">Subscribe To Our Newsletter</h5>
-          <div className="-mt-2 mb-4">
-            <p className="text-lg text-orange-500">
-              {loading ? "Please wait, Processing Email ....." : ""}
-            </p>
-          </div>
-
-          <form action="" onSubmit={handleEmailSubmit}>
-
-            <div className="flex flex-col md:flex-row gap-3 md:gap-5">
-              <input
-                className="text-body-color border border-body-color rounded py-1 px-2 w-[350px] md:w-[500px]"
-                type="email"
-                id="newsemail"
-                placeholder="Enter Your Email"
-                onChange={(e) =>
-                  setNewsLetterEmail({ ...newsLetterEmail, newsemail: e.target.value })
-                }
-              />
-              <button type="submit" className="mb-5 md:mb-0">
-                <i className="fa fa-arrow-right bg-primary hover:bg-primary/90 py-[7px] px-2 rounded text-white" aria-hidden="true">Subscribe</i>
-              </button>
-
-            </div>
-          </form>
-        </div>
-      </section>
-      {/* end info section  */}
     </div>
   );
 }
