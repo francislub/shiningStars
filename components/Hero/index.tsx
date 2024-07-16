@@ -58,7 +58,7 @@ const Hero = () => {
           subtitle2=""
           subtitle3=""
           buttonText="Apply Now"
-          buttonLink="/apply-now"
+          buttonLink="/admission"
         />
 
         
@@ -90,8 +90,8 @@ const Hero = () => {
                 className="md:hidden capitalize text-3xl sm:text-4xl font-bold leading-tight text-black/70 dark:text-primary sm:leading-tight md:text-5xl md:leading-tight"
                 variants={textVariants}
               >
-                Excellence <br />
-                in service
+                Arise and shine <br />
+                
               </motion.h1>
 
               {/* Buttons on small screens */}
@@ -112,7 +112,7 @@ const Hero = () => {
                     <FaArrowDownLong className="text-white" />
                   </motion.div>
                   <Link
-                    href="/apply"
+                    href="/admission"
                     className="flex rounded-md bg-primary dark:bg-primary/60 py-2 px-4  text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
                   >
                     Apply Now
