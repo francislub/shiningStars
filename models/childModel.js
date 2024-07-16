@@ -1,29 +1,123 @@
 import mongoose from "mongoose";
 
-const clientSchema = new mongoose.Schema({
+const childSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, 'Please provide your name'],
+        required: [true, 'Please provide child name'],
         trim: true,
     },
-    number: {
+    admission_no: {
         type: String,
-        required: [true, 'Please provide your number'],
+        required: [true, 'Please provide child admission number'],
         trim: true,
     },
-    service: {
+    date_of_birth: {
         type: String,
-        required: [true, 'Please select a service'],
+        required: [true, 'Please provide child date of birth'],
         trim: true,
     },
-    email: {
-        type: String,
-        required: [true, 'Please provide your email'],
+    age: {
+        type: Number,
+        required: [true, 'Please provide child age'],
         trim: true,
     },
-    message: {
+    gender: {
         type: String,
-        required: [true, 'Please provide your message'],
+        required: [true, 'Please provide child gender'],
+        trim: true,
+    },
+    grade: {
+        type: String,
+        required: [true, 'Please provide child class'],
+        trim: true,
+    },
+    residence: {
+        type: String,
+        required: [true, 'Please provide child residence'],
+        trim: true,
+    },
+    term: {
+        type: String,
+        required: [true, 'Please provide the term'],
+        trim: true,
+    },
+    emis_no: {
+        type: String,
+        required: [true, 'Please provide emis number'],
+        trim: true,
+    },
+    parent_name: {
+        type: String,
+        required: [true, 'Please provide parent or guardian name'],
+        trim: true,
+    },
+    parent_telephone: {
+        type: String,
+        required: [true, 'Please provide parent or guardian telephone'],
+        trim: true,
+    },
+    parent_relationship_with_pupil: {
+        type: String,
+        required: [true, 'Please provide the parent or guardian relationship with the pupil'],
+        trim: true,
+    },
+    parent_address: {
+        type: String,
+        required: [true, 'Please provide the parent or guardian address'],
+        trim: true,
+    },
+    parent_village: {
+        type: String,
+        required: [true, 'Please provide the parent or guardian village'],
+        trim: true,
+    },
+    parent_lc1: {
+        type: String,
+        required: [true, 'Please provide the parent or guardian LC1'],
+        trim: true,
+    },
+    parent_nin: {
+        type: String,
+        required: [true, 'Please provide parent or guardian NIN number'],
+        trim: true,
+    },
+    next_of_kin_name: {
+        type: String,
+        required: [true, 'Please provide next of kin name'],
+        trim: true,
+    },
+    next_of_kin_gender: {
+        type: String,
+        required: [true, 'Please provide next of kin gender'],
+        trim: true,
+    },
+    next_of_kin_telephone: {
+        type: String,
+        required: [true, 'Please provide the next of kin telephone'],
+        trim: true,
+    },
+    next_of_kin_relationship_with_pupil: {
+        type: String,
+        required: [true, 'Please provide the next of kin relationship with pupil'],
+        trim: true,
+    },
+    next_of_kin_address: {
+        type: String,
+        required: [true, 'Please provide the next of kin address'],
+        trim: true,
+    },
+    next_of_kin_village: {
+        type: String,
+        required: [true, 'Please provide the next of kin village'],
+        trim: true,
+    },
+    next_of_kin_lc1: {
+        type: String,
+        required: [true, 'Please provide the next of kin LC1'],
+        trim: true,
+    },
+    child_medical_info: {
+        type: String,
         trim: true,
     },
     createdAt: {
@@ -32,6 +126,6 @@ const clientSchema = new mongoose.Schema({
     }
 });
 
-const ozohClient = mongoose.models.ozohClient || mongoose.model('ozohClient', clientSchema);
+const ChildAdmission = mongoose.models.ChildAdmission || mongoose.model('ChildAdmission', childSchema);
 
-export default ozohClient;
+export default ChildAdmission;

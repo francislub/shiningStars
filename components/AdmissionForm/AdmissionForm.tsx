@@ -398,13 +398,13 @@ export default function AdmissionForm() {
                             parent_village: e.target.value,
                           })
                         }
-                      />
+                      /><br className="md:hidden" /><br className="md:hidden" />
                     </div>
 
                     <div>
                       <label className="text-body-color text-lg">
                         LC1:{" "}
-                      </label>
+                      </label><br className="md:hidden" />
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[200px]"
@@ -422,7 +422,7 @@ export default function AdmissionForm() {
                   <div>
                     <label className="text-body-color text-lg my-4 md:mr-[75px]">
                       NIN NO:{" "}
-                    </label>
+                    </label><br className="md:hidden" />
                     <input
                       type="text"
                       className="form-control rounded px-2 py-1 border border-body-color md:w-[400px] w-[300px]"
@@ -439,7 +439,7 @@ export default function AdmissionForm() {
                     <div>
                       <label className="text-body-color text-lg">
                         Name:{" "}
-                      </label>
+                      </label><br className="md:hidden" />
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[300px]"
@@ -456,7 +456,7 @@ export default function AdmissionForm() {
                     <div>
                       <label className="text-body-color text-lg">
                         Gender:{" "}
-                      </label>
+                      </label><br className="md:hidden" />
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[200px]"
@@ -478,7 +478,7 @@ export default function AdmissionForm() {
                       </label>
                       <input
                         type="text"
-                        className="form-control rounded px-2 py-1 border border-body-color w-[400px]"
+                        className="form-control rounded px-2 py-1 border border-body-color w-[300px]"
                         id="next_of_kin_telephone"
                         onChange={(e) =>
                           setChild({ ...child, next_of_kin_telephone: e.target.value })
@@ -523,7 +523,7 @@ export default function AdmissionForm() {
                     </div>
 
                     <div>
-                      <label className="text-body-color text-lg">Village: </label>
+                      <label className="text-body-color text-lg">Village: </label><br className="md:hidden" />
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[200px] md:mr-[58px]"
@@ -540,7 +540,7 @@ export default function AdmissionForm() {
                     <div>
                       <label className="text-body-color text-lg">
                         LC1:{" "}
-                      </label>
+                      </label><br className="md:hidden" />
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[200px]"
@@ -572,7 +572,7 @@ export default function AdmissionForm() {
                     </div>
                   </div>
 
-                  <div className="btn_box flex-col">
+                  <div className="btn_box flex flex-col">
                     <div className="-mt-2 mb-4">
                       <p className="text-lg text-orange-500">
                         {loading
@@ -605,9 +605,9 @@ export default function AdmissionForm() {
 
           <form action="" onSubmit={handleEmailSubmit}>
 
-            <div className="flex flex-col md:flex-row md:gap-5">
+            <div className="flex flex-col md:flex-row gap-3 md:gap-5">
               <input
-                className="text-body-color border border-body-color rounded py-1 px-2 w-[500px]"
+                className="text-body-color border border-body-color rounded py-1 px-2 w-[350px] md:w-[500px]"
                 type="email"
                 id="newsemail"
                 placeholder="Enter Your Email"
@@ -615,7 +615,7 @@ export default function AdmissionForm() {
                   setClientEmail({ ...clientEmail, newsemail: e.target.value })
                 }
               />
-              <button type="submit">
+              <button type="submit" className="mb-5">
                 <i className="fa fa-arrow-right bg-primary hover:bg-primary/90 py-[7px] px-2 rounded text-white" aria-hidden="true">Subscribe</i>
               </button>
 
