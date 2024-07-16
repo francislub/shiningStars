@@ -115,7 +115,7 @@ export default function AdmissionForm() {
       } else {
         setLoading(false);
       }
-      router.push("/");
+      router.push("/admission");
     } catch (error) {
       console.error(error.message);
     } finally {
