@@ -252,7 +252,7 @@ const Header = () => {
 
       {/* Header on small screens */}
       <header
-        className={`flex md:hidden header top-0 left-0 z-40 w-full items-center bg-blue-900 ${
+        className={`flex md:hidden header top-0 left-0 z-30 w-full items-center bg-blue-900 ${
           sticky
             ? "!fixed !z-[9999] !bg-blue-700 !bg-opacity-80 shadow-sticky backdrop-blur-sm !transition dark:!bg-primary dark:!bg-opacity-20"
             : "absolute"
@@ -269,19 +269,20 @@ const Header = () => {
                 } `}
               >
                     <Image 
-                        src={image} 
-                        alt="logo" 
-                        width={70} 
-                        height={20} 
-                        className="w-full dark:hidden rounded-full" 
+                      src={image} 
+                      alt="logo" 
+                      width={40} 
+                      height={12} 
+                      className="w-auto dark:hidden rounded-full" 
                     />
                     <Image 
-                        src={image} 
-                        alt="logo" 
-                        width={25} 
-                        height={12} 
-                        className="hidden w-full dark:block rounded-full" 
+                      src={image} 
+                      alt="logo" 
+                      width={18} 
+                      height={8} 
+                      className="hidden w-auto dark:block rounded-full" 
                     />
+
               </Link>
             </div>
 
