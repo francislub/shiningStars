@@ -81,9 +81,9 @@ const Breadcrumb = ({
               {/* <h1 className="mb-5 text-2xl font-bold text-black dark:text-white sm:text-3xl">
                 {pageName}
               </h1> */}
-              <p className="text-base font-medium leading-relaxed">
+              {/* <p className="text-base font-medium leading-relaxed">
                 {description}
-              </p>
+              </p> */}
             </div>
           </div>
           <div className="w-full px-4 md:w-4/12 lg:w-5/12">
