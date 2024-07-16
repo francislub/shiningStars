@@ -17,11 +17,12 @@ export default function AdmissionForm() {
     term: "",
     emis_no: "",
     parent_name: "",
+    parent_email: "",
     parent_telephone: "",
     parent_relationship_with_pupil: "",
     parent_address: "",
     parent_village: "",
-    parent_lc1: "",
+    parent_lc: "",
     parent_nin: "",
     next_of_kin_name: "",
     next_of_kin_gender: "",
@@ -29,11 +30,11 @@ export default function AdmissionForm() {
     next_of_kin_relationship_with_pupil: "",
     next_of_kin_address: "",
     next_of_kin_village: "",
-    next_of_kin_lc1: "",
+    next_of_kin_lc: "",
     child_medical_info: "",
   });
 
-  const [clientEmail, setClientEmail] = React.useState({
+  const [newsLetterEmail, setNewsLetterEmail] = React.useState({
     newsemail: "",
   });
 
@@ -53,11 +54,12 @@ export default function AdmissionForm() {
       child.term.length > 0 &&
       child.emis_no.length > 0 &&
       child.parent_name.length > 0 &&
+      child.parent_email.length > 0 &&
       child.parent_telephone.length > 0 &&
       child.parent_relationship_with_pupil.length > 0 &&
       child.parent_address.length > 0 &&
       child.parent_village.length > 0 &&
-      child.parent_lc1.length > 0 &&
+      child.parent_lc.length > 0 &&
       child.parent_nin.length > 0 &&
       child.next_of_kin_name.length > 0 &&
       child.next_of_kin_gender.length > 0 &&
@@ -65,8 +67,7 @@ export default function AdmissionForm() {
       child.next_of_kin_relationship_with_pupil.length > 0 &&
       child.next_of_kin_address.length > 0 &&
       child.next_of_kin_village.length > 0 &&
-      child.next_of_kin_lc1.length > 0 &&
-      child.child_medical_info.length > 0
+      child.next_of_kin_lc.length > 0
     ) {
       setButtonDisabled(false);
     } else {
@@ -78,7 +79,7 @@ export default function AdmissionForm() {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await fetch("/api/clients", {
+      const res = await fetch("/api/admission", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -98,11 +99,12 @@ export default function AdmissionForm() {
           term: "",
           emis_no: "",
           parent_name: "",
+          parent_email: "",
           parent_telephone: "",
           parent_relationship_with_pupil: "",
           parent_address: "",
           parent_village: "",
-          parent_lc1: "",
+          parent_lc: "",
           parent_nin: "",
           next_of_kin_name: "",
           next_of_kin_gender: "",
@@ -110,14 +112,14 @@ export default function AdmissionForm() {
           next_of_kin_relationship_with_pupil: "",
           next_of_kin_address: "",
           next_of_kin_village: "",
-          next_of_kin_lc1: "",
+          next_of_kin_lc: "",
           child_medical_info: "",
         });
         setLoading(false);
       } else {
         setLoading(false);
       }
-      router.push("/services");
+      router.push("/");
     } catch (error) {
       console.error(error.message);
     } finally {
@@ -134,18 +136,18 @@ export default function AdmissionForm() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(clientEmail),
+        body: JSON.stringify(newsLetterEmail),
       });
       const data = await res.json();
       if (data.success) {
-        setClientEmail({
+        setNewsLetterEmail({
           newsemail: "",
         });
         setLoading(false);
       } else {
         setLoading(false);
       }
-      router.push("/contact");
+      router.push("/");
     } catch (error) {
       console.error(error.message);
     } finally {
@@ -154,7 +156,7 @@ export default function AdmissionForm() {
   };
 
   return (
-    <div className="container h-full w-full my-3">
+    <div className="container h-full w-full my-3 mb-10">
       {/* contact section  */}
       <section className="mt-4">
         <div className="container">
@@ -321,7 +323,7 @@ export default function AdmissionForm() {
 
                   <h1 className="text-black/80 font-medium my-4 text-xl mt-8">Contact Information</h1>
 
-                  <div>
+                  <div className="mb-3">
                     <label className="text-body-color text-lg my-4">
                       Parent{"'"}s{"/"}Guardian{"'"}s Name:{" "}
                     </label>
@@ -331,6 +333,20 @@ export default function AdmissionForm() {
                       id="parent_name"
                       onChange={(e) =>
                         setChild({ ...child, parent_name: e.target.value })
+                      }
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-body-color text-lg my-4">
+                      Parent{"'"}s{"/"}Guardian{"'"}s Email:{" "}
+                    </label>
+                    <input
+                      type="email"
+                      className="form-control rounded px-2 py-1 border border-body-color md:w-[400px] w-[300px]"
+                      id="parent_email"
+                      onChange={(e) =>
+                        setChild({ ...child, parent_email: e.target.value })
                       }
                     />
                   </div>
@@ -398,21 +414,21 @@ export default function AdmissionForm() {
                             parent_village: e.target.value,
                           })
                         }
-                      />
+                      /><br className="md:hidden" /><br className="md:hidden" />
                     </div>
 
                     <div>
                       <label className="text-body-color text-lg">
                         LC1:{" "}
-                      </label>
+                      </label><br className="md:hidden" />
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[200px]"
-                        id="parent_lc1"
+                        id="parent_lc"
                         onChange={(e) =>
                           setChild({
                             ...child,
-                            parent_lc1: e.target.value,
+                            parent_lc: e.target.value,
                           })
                         }
                       />
@@ -422,13 +438,13 @@ export default function AdmissionForm() {
                   <div>
                     <label className="text-body-color text-lg my-4 md:mr-[75px]">
                       NIN NO:{" "}
-                    </label>
+                    </label><br className="md:hidden" />
                     <input
                       type="text"
                       className="form-control rounded px-2 py-1 border border-body-color md:w-[400px] w-[300px]"
-                      id="parent_name"
+                      id="parent_nin"
                       onChange={(e) =>
-                        setChild({ ...child, parent_name: e.target.value })
+                        setChild({ ...child, parent_nin: e.target.value })
                       }
                     />
                   </div>
@@ -439,7 +455,7 @@ export default function AdmissionForm() {
                     <div>
                       <label className="text-body-color text-lg">
                         Name:{" "}
-                      </label>
+                      </label><br className="md:hidden" />
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[300px]"
@@ -456,7 +472,7 @@ export default function AdmissionForm() {
                     <div>
                       <label className="text-body-color text-lg">
                         Gender:{" "}
-                      </label>
+                      </label><br className="md:hidden" />
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[200px]"
@@ -478,7 +494,7 @@ export default function AdmissionForm() {
                       </label>
                       <input
                         type="text"
-                        className="form-control rounded px-2 py-1 border border-body-color w-[400px]"
+                        className="form-control rounded px-2 py-1 border border-body-color w-[300px]"
                         id="next_of_kin_telephone"
                         onChange={(e) =>
                           setChild({ ...child, next_of_kin_telephone: e.target.value })
@@ -523,7 +539,7 @@ export default function AdmissionForm() {
                     </div>
 
                     <div>
-                      <label className="text-body-color text-lg">Village: </label>
+                      <label className="text-body-color text-lg">Village: </label><br className="md:hidden" />
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[200px] md:mr-[58px]"
@@ -540,15 +556,15 @@ export default function AdmissionForm() {
                     <div>
                       <label className="text-body-color text-lg">
                         LC1:{" "}
-                      </label>
+                      </label><br className="md:hidden" />
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[200px]"
-                        id="next_of_kin_lc1"
+                        id="next_of_kin_lc"
                         onChange={(e) =>
                           setChild({
                             ...child,
-                            next_of_kin_lc1: e.target.value,
+                            next_of_kin_lc: e.target.value,
                           })
                         }
                       />
@@ -572,11 +588,11 @@ export default function AdmissionForm() {
                     </div>
                   </div>
 
-                  <div className="btn_box flex-col">
+                  <div className="btn_box flex flex-col">
                     <div className="-mt-2 mb-4">
                       <p className="text-lg text-orange-500">
                         {loading
-                          ? "Please wait, processing Feedback Form ....."
+                          ? "Please wait, processing Admission Form ....."
                           : ""}
                       </p>
                     </div>
@@ -605,17 +621,17 @@ export default function AdmissionForm() {
 
           <form action="" onSubmit={handleEmailSubmit}>
 
-            <div className="flex flex-col md:flex-row md:gap-5">
+            <div className="flex flex-col md:flex-row gap-3 md:gap-5">
               <input
-                className="text-body-color border border-body-color rounded py-1 px-2 w-[500px]"
+                className="text-body-color border border-body-color rounded py-1 px-2 w-[350px] md:w-[500px]"
                 type="email"
                 id="newsemail"
                 placeholder="Enter Your Email"
                 onChange={(e) =>
-                  setClientEmail({ ...clientEmail, newsemail: e.target.value })
+                  setNewsLetterEmail({ ...newsLetterEmail, newsemail: e.target.value })
                 }
               />
-              <button type="submit">
+              <button type="submit" className="mb-5 md:mb-0">
                 <i className="fa fa-arrow-right bg-primary hover:bg-primary/90 py-[7px] px-2 rounded text-white" aria-hidden="true">Subscribe</i>
               </button>
 
