@@ -135,9 +135,9 @@ With Flexible Intakes, whether you’re a fresh high school graduate or a workin
       <div className="mb-8 block md:hidden text-sm">
         <div className="wow fadeInUp w-full" data-wow-delay=".1s">
           <h1 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl">
-            You Are Welcome
+          Discover Your Path
           </h1>
-          <div className="">
+          {/* <div className="">
             <Image
               className="img1 mb-2 rounded"
               src={img}
@@ -145,14 +145,11 @@ With Flexible Intakes, whether you’re a fresh high school graduate or a workin
               width="600"
               height="250"
             />
-          </div>
+          </div> */}
           <p className="text-base !leading-relaxed text-body-color md:text-lg">
-            Join us at Shining Stars, where education is embraced as
-            a catalyst for empowerment and change. Experience an
-            inclusive and enriching learning environment where equal
-            opportunities, academic excellence, and a commitment to the
-            success of the students define our core values. Together, we
-            can shape a brighter future through education.
+          At Shining Stars, it’s not just about academics; it’s about nurturing your mind, heart, and hands. Shining Stars fosters holistic excellence – where character development meets intellectual growth.
+With Flexible Intakes, whether you’re a fresh high school graduate or a working professional seeking advancement. 
+
           </p>
         </div>
 
