@@ -3,11 +3,10 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import Image from "next/image";
-import life from '@/public/images/shi/teacb.jpeg';
+import life from "@/public/images/shi/teacb.jpeg";
 
 const NewsLatterBox: React.FC = () => {
   const router = useRouter();
-  const [email, setEmail] = useState("");
   const [status, setStatus] = useState("");
 
   const [newsLetterEmail, setNewsLetterEmail] = React.useState({
@@ -16,49 +15,48 @@ const NewsLatterBox: React.FC = () => {
 
   const [loading, setLoading] = React.useState(false);
 
+  const handleEmailSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      const res = await fetch("/api/emails", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newsLetterEmail),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setNewsLetterEmail({
+          newsemail: "",
+        });
+        setLoading(false);
+        setStatus(
+          "Subscribed to newsletter! Check your email to confirm your subscription."
+        );
+      } else {
+        setLoading(false);
+      }
+      router.push("/");
+    } catch (error) {
+      console.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("");
 
-    if (!email) {
+    if (!newsLetterEmail) {
       setStatus("Email is required");
       return;
     }
 
     try {
-      async (e) => {
-        e.preventDefault();
-        try {
-          setLoading(true);
-          const res = await fetch("/api/emails", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(newsLetterEmail),
-          });
-          const data = await res.json();
-          if (data.success) {
-            setNewsLetterEmail({
-              newsemail: "",
-            });
-            setLoading(false);
-          } else {
-            setLoading(false);
-          }
-          router.push("/");
-        } catch (error) {
-          console.error(error.message);
-        } finally {
-          setLoading(false);
-        }};
-      localStorage.setItem("newsletter", email);
-      toast.success(
-        "Subscribed to newsletter! Check your email to confirm your subscription."
-      );
-      setStatus(
-        "Subscribed to newsletter! Check your email to confirm your subscription."
-      );
+      handleEmailSubmit(e);
     } catch (error) {
       setStatus("Failed to subscribe. Please try again.");
     }
@@ -72,7 +70,13 @@ const NewsLatterBox: React.FC = () => {
         data-wow-delay=".2s"
       >
         <div>
-          <Image src={life} width={500} height={500} alt="life" className="rounded" />
+          <Image
+            src={life}
+            width={500}
+            height={500}
+            alt="life"
+            className="rounded"
+          />
         </div>
         <div>
           <div>
@@ -94,11 +98,15 @@ const NewsLatterBox: React.FC = () => {
             <form onSubmit={handleSubmit}>
               <input
                 type="email"
-                name="email"
+                id="newsemail"
                 placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
+                onChange={(e) =>
+                  setNewsLetterEmail({
+                    ...newsLetterEmail,
+                    newsemail: e.target.value,
+                  })
+                }
+                className="mb-4 w-full rounded-md border border-body-color border-opacity-50 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
               />
               <button
                 type="submit"
@@ -120,7 +128,6 @@ const NewsLatterBox: React.FC = () => {
             </form>
           </div>
         </div>
-
       </div>
 
       {/* On small devices */}
@@ -135,18 +142,22 @@ const NewsLatterBox: React.FC = () => {
           Please subscribe to our newsletter
         </p>
         <div className="mt-2 mb-2">
-            <p className="text-lg text-orange-500">
-              {loading ? "Please wait, Processing Email ....." : ""}
-            </p>
-          </div>
+          <p className="text-lg text-orange-500">
+            {loading ? "Please wait, Processing Email ....." : ""}
+          </p>
+        </div>
         <form onSubmit={handleSubmit}>
           <input
             type="email"
-            name="email"
+            id="email"
             placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
+            onChange={(e) =>
+              setNewsLetterEmail({
+                ...newsLetterEmail,
+                newsemail: e.target.value,
+              })
+            }
+            className="mb-4 w-full rounded-md border border-body-color border-opacity-50 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
           />
           <button
             type="submit"

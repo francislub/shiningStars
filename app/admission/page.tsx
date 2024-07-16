@@ -8,6 +8,7 @@ import AdmissionForm from "@/components/AdmissionForm/AdmissionForm";
 const AboutPage = () => {
   return (
     <>
+    <div className="mb-10 pb-10">
       <Breadcrumb
         pageName="Admission Form"
         description="
@@ -15,6 +16,7 @@ const AboutPage = () => {
         "
       />
       <AdmissionForm />
+    </div>
     </>
   );
 };
