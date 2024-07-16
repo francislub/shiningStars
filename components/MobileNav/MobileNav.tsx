@@ -265,7 +265,7 @@ const MobileNav = ({ setNavbarOpen, navbarOpen }) => {
             
             <div className="flex mx-auto justify-center items-center gap-2 text-white text-lg font-semibold">
               <FaCopyright />
-              Bugema University
+              Shining Stars
             </div>
           </div>
         </div>
