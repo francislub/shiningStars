@@ -17,6 +17,7 @@ export default function AdmissionForm() {
     term: "",
     emis_no: "",
     parent_name: "",
+    parent_email: "",
     parent_telephone: "",
     parent_relationship_with_pupil: "",
     parent_address: "",
@@ -53,6 +54,7 @@ export default function AdmissionForm() {
       child.term.length > 0 &&
       child.emis_no.length > 0 &&
       child.parent_name.length > 0 &&
+      child.parent_email.length > 0 &&
       child.parent_telephone.length > 0 &&
       child.parent_relationship_with_pupil.length > 0 &&
       child.parent_address.length > 0 &&
@@ -97,6 +99,7 @@ export default function AdmissionForm() {
           term: "",
           emis_no: "",
           parent_name: "",
+          parent_email: "",
           parent_telephone: "",
           parent_relationship_with_pupil: "",
           parent_address: "",
@@ -330,6 +333,20 @@ export default function AdmissionForm() {
                       id="parent_name"
                       onChange={(e) =>
                         setChild({ ...child, parent_name: e.target.value })
+                      }
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-body-color text-lg my-4">
+                      Parent{"'"}s{"/"}Guardian{"'"}s Email:{" "}
+                    </label>
+                    <input
+                      type="email"
+                      className="form-control rounded px-2 py-1 border border-body-color md:w-[400px] w-[300px]"
+                      id="parent_email"
+                      onChange={(e) =>
+                        setChild({ ...child, parent_email: e.target.value })
                       }
                     />
                   </div>
