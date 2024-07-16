@@ -4,10 +4,6 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import img from "@/public/images/shin/buil.jpg";
-import img2 from "@/public/images/shin/builb.jpg";
-
-const images = [img, img2];
 
 const Breadcrumb = ({
   pageName,
@@ -17,41 +13,71 @@ const Breadcrumb = ({
   description: string;
 }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [slides, setSlides] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchSlides = async () => {
+      try {
+        const response = await fetch("https://shining-stars-dashboard.onrender.com/api/v1/sliders", {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setSlides(data.reverse());
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+
+    fetchSlides();
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % slides.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [slides]);
 
   return (
     <section className="relative z-10 overflow-hidden pt-8 lg:pt-[150px]">
       <div className="absolute inset-0">
         <AnimatePresence>
-          <motion.div
-            key={currentImageIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
-            className="absolute inset-0"
-          >
-            <Image
-              src={images[currentImageIndex]}
-              alt={`Background ${currentImageIndex + 1}`}
-              layout="fill"
-              objectFit="cover"
-              // style={{ width: '100%', height: '100%' }}
-            />
-          </motion.div>
+          {slides.length > 0 && (
+            <motion.div
+              key={currentImageIndex}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1 }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={slides[currentImageIndex].photo}
+                alt={`Background ${currentImageIndex + 1}`}
+                layout="fill"
+                objectFit="cover"
+              />
+               <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white p-4">
+                <h2 className="text-3xl font-bold">{slides[currentImageIndex].title}</h2>
+                <p className="text-xl mt-2">{slides[currentImageIndex].description}</p>
+              </div>
+            </motion.div>
+          )}
         </AnimatePresence>
       </div>
       <div className="relative container z-20">
         <div className="-mx-4 flex flex-wrap items-center">
           <div className="w-full px-4 md:w-8/12 lg:w-7/12">
-            <div className="mb-8 max-w-[570px] md:mb-0 lg:mb-12 mt-16 lg:mt-0 bg-white bg-opacity-75 p-6 rounded-md">
+            <div className="mb-8 max-w-[570px] md:mb-0 lg:mb-12 mt-16 lg:mt-0 bg-opacity-75 p-6 rounded-md">
               <h1 className="mb-5 text-2xl font-bold text-black dark:text-white sm:text-3xl">
                 {pageName}
               </h1>
@@ -61,7 +87,7 @@ const Breadcrumb = ({
             </div>
           </div>
           <div className="w-full px-4 md:w-4/12 lg:w-5/12">
-            <div className="text-end bg-white bg-opacity-75 p-6 rounded-md">
+            <div className="text-end bg-opacity-75 p-6 rounded-md">
               <ul className="flex items-center md:justify-end">
                 <li className="flex items-center">
                   <Link
