@@ -40,7 +40,7 @@ export default function SchoolsPage() {
       </div>
 
       {/* Carousel on small devices */}
-      <div className="-mt-44 flex h-screen flex-col items-center justify-center md:hidden">
+      <div className="-mt-20 lg:-mt-44 -mb-10 lg:mb-0 flex h-screen flex-col items-center justify-center md:hidden">
         <Swiper 
           navigation
           onSwiper={setSwiper}
@@ -63,7 +63,7 @@ export default function SchoolsPage() {
               >
                 <Link
                   href={item.cardlink}
-                  className="group relative mx-auto mb-12 flex h-[150px] w-[100px] cursor-pointer flex-col gap-6 overflow-hidden rounded-xl px-6 py-8 text-white shadow-lg lg:h-[200px] lg:w-[150px]"
+                  className="group relative mx-auto mb-12 flex h-[190px] w-[250px] cursor-pointer flex-col gap-6 overflow-hidden rounded-xl px-6 py-8 text-white shadow-lg lg:h-[200px] lg:w-[150px]"
                 >
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-all duration-700 group-hover:scale-125"
