@@ -87,7 +87,6 @@ export default function AdmissionForm() {
         body: JSON.stringify(child),
       });
       const data = await res.json();
-      console.log(data);
       if (data.success) {
         setChild({
           name: "",
