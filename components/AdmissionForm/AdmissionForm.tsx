@@ -22,7 +22,7 @@ export default function AdmissionForm() {
     parent_relationship_with_pupil: "",
     parent_address: "",
     parent_village: "",
-    parent_lc1: "",
+    parent_lc: "",
     parent_nin: "",
     next_of_kin_name: "",
     next_of_kin_gender: "",
@@ -30,7 +30,7 @@ export default function AdmissionForm() {
     next_of_kin_relationship_with_pupil: "",
     next_of_kin_address: "",
     next_of_kin_village: "",
-    next_of_kin_lc1: "",
+    next_of_kin_lc: "",
     child_medical_info: "",
   });
 
@@ -59,7 +59,7 @@ export default function AdmissionForm() {
       child.parent_relationship_with_pupil.length > 0 &&
       child.parent_address.length > 0 &&
       child.parent_village.length > 0 &&
-      child.parent_lc1.length > 0 &&
+      child.parent_lc.length > 0 &&
       child.parent_nin.length > 0 &&
       child.next_of_kin_name.length > 0 &&
       child.next_of_kin_gender.length > 0 &&
@@ -67,7 +67,7 @@ export default function AdmissionForm() {
       child.next_of_kin_relationship_with_pupil.length > 0 &&
       child.next_of_kin_address.length > 0 &&
       child.next_of_kin_village.length > 0 &&
-      child.next_of_kin_lc1.length > 0
+      child.next_of_kin_lc.length > 0
     ) {
       setButtonDisabled(false);
     } else {
@@ -87,6 +87,7 @@ export default function AdmissionForm() {
         body: JSON.stringify(child),
       });
       const data = await res.json();
+      console.log(data);
       if (data.success) {
         setChild({
           name: "",
@@ -104,7 +105,7 @@ export default function AdmissionForm() {
           parent_relationship_with_pupil: "",
           parent_address: "",
           parent_village: "",
-          parent_lc1: "",
+          parent_lc: "",
           parent_nin: "",
           next_of_kin_name: "",
           next_of_kin_gender: "",
@@ -112,14 +113,14 @@ export default function AdmissionForm() {
           next_of_kin_relationship_with_pupil: "",
           next_of_kin_address: "",
           next_of_kin_village: "",
-          next_of_kin_lc1: "",
+          next_of_kin_lc: "",
           child_medical_info: "",
         });
         setLoading(false);
       } else {
         setLoading(false);
       }
-      router.push("/services");
+      router.push("/");
     } catch (error) {
       console.error(error.message);
     } finally {
@@ -147,7 +148,7 @@ export default function AdmissionForm() {
       } else {
         setLoading(false);
       }
-      router.push("/contact");
+      router.push("/");
     } catch (error) {
       console.error(error.message);
     } finally {
@@ -156,7 +157,7 @@ export default function AdmissionForm() {
   };
 
   return (
-    <div className="container h-full w-full my-3">
+    <div className="container h-full w-full my-3 mb-10">
       {/* contact section  */}
       <section className="mt-4">
         <div className="container">
@@ -323,7 +324,7 @@ export default function AdmissionForm() {
 
                   <h1 className="text-black/80 font-medium my-4 text-xl mt-8">Contact Information</h1>
 
-                  <div>
+                  <div className="mb-3">
                     <label className="text-body-color text-lg my-4">
                       Parent{"'"}s{"/"}Guardian{"'"}s Name:{" "}
                     </label>
@@ -424,11 +425,11 @@ export default function AdmissionForm() {
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[200px]"
-                        id="parent_lc1"
+                        id="parent_lc"
                         onChange={(e) =>
                           setChild({
                             ...child,
-                            parent_lc1: e.target.value,
+                            parent_lc: e.target.value,
                           })
                         }
                       />
@@ -442,9 +443,9 @@ export default function AdmissionForm() {
                     <input
                       type="text"
                       className="form-control rounded px-2 py-1 border border-body-color md:w-[400px] w-[300px]"
-                      id="parent_name"
+                      id="parent_nin"
                       onChange={(e) =>
-                        setChild({ ...child, parent_name: e.target.value })
+                        setChild({ ...child, parent_nin: e.target.value })
                       }
                     />
                   </div>
@@ -560,11 +561,11 @@ export default function AdmissionForm() {
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[200px]"
-                        id="next_of_kin_lc1"
+                        id="next_of_kin_lc"
                         onChange={(e) =>
                           setChild({
                             ...child,
-                            next_of_kin_lc1: e.target.value,
+                            next_of_kin_lc: e.target.value,
                           })
                         }
                       />
@@ -592,7 +593,7 @@ export default function AdmissionForm() {
                     <div className="-mt-2 mb-4">
                       <p className="text-lg text-orange-500">
                         {loading
-                          ? "Please wait, processing Feedback Form ....."
+                          ? "Please wait, processing Admission Form ....."
                           : ""}
                       </p>
                     </div>
@@ -631,7 +632,7 @@ export default function AdmissionForm() {
                   setNewsLetterEmail({ ...newsLetterEmail, newsemail: e.target.value })
                 }
               />
-              <button type="submit" className="mb-5">
+              <button type="submit" className="mb-5 md:mb-0">
                 <i className="fa fa-arrow-right bg-primary hover:bg-primary/90 py-[7px] px-2 rounded text-white" aria-hidden="true">Subscribe</i>
               </button>
 
