@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const clientSchema = new mongoose.Schema({
+const newsLetterSchema = new mongoose.Schema({
     newsemail: {
         type: String,
         required: [true, 'Please provide your email'],
@@ -12,6 +12,6 @@ const clientSchema = new mongoose.Schema({
     }
 });
 
-const ozohEmailsClient = mongoose.models.ozohEmailsClient || mongoose.model('ozohEmailsClient', clientSchema);
+const newsLetter = mongoose.models.newsLetter || mongoose.model('newsLetter', newsLetterSchema);
 
-export default ozohEmailsClient;
+export default newsLetter;

@@ -33,7 +33,7 @@ export default function AdmissionForm() {
     child_medical_info: "",
   });
 
-  const [clientEmail, setClientEmail] = React.useState({
+  const [newsLetterEmail, setNewsLetterEmail] = React.useState({
     newsemail: "",
   });
 
@@ -65,8 +65,7 @@ export default function AdmissionForm() {
       child.next_of_kin_relationship_with_pupil.length > 0 &&
       child.next_of_kin_address.length > 0 &&
       child.next_of_kin_village.length > 0 &&
-      child.next_of_kin_lc1.length > 0 &&
-      child.child_medical_info.length > 0
+      child.next_of_kin_lc1.length > 0
     ) {
       setButtonDisabled(false);
     } else {
@@ -78,7 +77,7 @@ export default function AdmissionForm() {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await fetch("/api/clients", {
+      const res = await fetch("/api/admission", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -134,11 +133,11 @@ export default function AdmissionForm() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(clientEmail),
+        body: JSON.stringify(newsLetterEmail),
       });
       const data = await res.json();
       if (data.success) {
-        setClientEmail({
+        setNewsLetterEmail({
           newsemail: "",
         });
         setLoading(false);
@@ -612,7 +611,7 @@ export default function AdmissionForm() {
                 id="newsemail"
                 placeholder="Enter Your Email"
                 onChange={(e) =>
-                  setClientEmail({ ...clientEmail, newsemail: e.target.value })
+                  setNewsLetterEmail({ ...newsLetterEmail, newsemail: e.target.value })
                 }
               />
               <button type="submit" className="mb-5">
