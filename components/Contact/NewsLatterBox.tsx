@@ -1,14 +1,20 @@
 "use client";
 import React, { useState } from "react";
-import { subscribeToNewsletter } from "@/lib/requests";
+import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import Brands from "../Brands";
 import Image from "next/image";
 import life from '@/public/images/shi/teacb.jpeg';
 
 const NewsLatterBox: React.FC = () => {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("");
+
+  const [newsLetterEmail, setNewsLetterEmail] = React.useState({
+    newsemail: "",
+  });
+
+  const [loading, setLoading] = React.useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -20,7 +26,32 @@ const NewsLatterBox: React.FC = () => {
     }
 
     try {
-      await subscribeToNewsletter(email);
+      async (e) => {
+        e.preventDefault();
+        try {
+          setLoading(true);
+          const res = await fetch("/api/emails", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newsLetterEmail),
+          });
+          const data = await res.json();
+          if (data.success) {
+            setNewsLetterEmail({
+              newsemail: "",
+            });
+            setLoading(false);
+          } else {
+            setLoading(false);
+          }
+          router.push("/");
+        } catch (error) {
+          console.error(error.message);
+        } finally {
+          setLoading(false);
+        }};
       localStorage.setItem("newsletter", email);
       toast.success(
         "Subscribed to newsletter! Check your email to confirm your subscription."
@@ -53,6 +84,12 @@ const NewsLatterBox: React.FC = () => {
             </p>
           </div>
 
+          <div className="mt-2 mb-2">
+            <p className="text-lg text-orange-500">
+              {loading ? "Please wait, Processing Email ....." : ""}
+            </p>
+          </div>
+
           <div>
             <form onSubmit={handleSubmit}>
               <input
@@ -70,7 +107,7 @@ const NewsLatterBox: React.FC = () => {
                 Subscribe
               </button>
               <p className="text-center text-base font-medium leading-relaxed text-body-color">
-                No spam guaranteed, so please don’t send any spam mail.
+                No spam guaranteed, so please don{"'"}t send any spam mail.
               </p>
               {status && (
                 <p
@@ -97,6 +134,11 @@ const NewsLatterBox: React.FC = () => {
         <p className="mb-11 border-b border-body-color border-opacity-25 pb-11 text-base font-medium leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
           Please subscribe to our newsletter
         </p>
+        <div className="mt-2 mb-2">
+            <p className="text-lg text-orange-500">
+              {loading ? "Please wait, Processing Email ....." : ""}
+            </p>
+          </div>
         <form onSubmit={handleSubmit}>
           <input
             type="email"
@@ -113,7 +155,7 @@ const NewsLatterBox: React.FC = () => {
             Subscribe
           </button>
           <p className="text-center text-base font-medium leading-relaxed text-body-color">
-            No spam guaranteed, so please don’t send any spam mail.
+            No spam guaranteed, so please don{"'"}t send any spam mail.
           </p>
           {status && (
             <p
