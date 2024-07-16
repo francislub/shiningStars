@@ -76,9 +76,8 @@ const childSchema = new mongoose.Schema({
         required: [true, 'Please provide the parent or guardian village'],
         trim: true,
     },
-    parent_lc1: {
+    parent_lc: {
         type: String,
-        required: [true, 'Please provide the parent or guardian LC1'],
         trim: true,
     },
     parent_nin: {
@@ -116,9 +115,8 @@ const childSchema = new mongoose.Schema({
         required: [true, 'Please provide the next of kin village'],
         trim: true,
     },
-    next_of_kin_lc1: {
+    next_of_kin_lc: {
         type: String,
-        required: [true, 'Please provide the next of kin LC1'],
         trim: true,
     },
     child_medical_info: {
