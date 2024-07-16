@@ -66,7 +66,6 @@ export async function POST(request: NextRequest) {
     });
 
     const childAdmission = await newChildAdmission.save();
-    console.log(childAdmission);
 
     // Send feedback email
     const transporter = nodemailer.createTransport({
@@ -86,29 +85,30 @@ export async function POST(request: NextRequest) {
         subject: `New Admission for child, ${name}`,
         html: `
                     <p>Name: ${name}</p>
-                    <p>Number: ${admission_no}</p>
-                    <p>Service: ${date_of_birth}</p>
-                    <p>Email: ${age}</p>
-                    <p>Message: ${gender}</p>
-                    <p>Name: ${grade}</p>
-                    <p>Number: ${residence}</p>
-                    <p>Service: ${term}</p>
-                    <p>Email: ${emis_no}</p>
-                    <p>Message: ${parent_name}</p>
-                    <p>Name: ${parent_telephone}</p>
-                    <p>Number: ${parent_relationship_with_pupil}</p>
-                    <p>Service: ${parent_address}</p>
-                    <p>Email: ${parent_village}</p>
-                    <p>Message: ${parent_lc}</p>
-                    <p>Name: ${parent_nin}</p>
-                    <p>Number: ${next_of_kin_name}</p>
-                    <p>Service: ${next_of_kin_gender}</p>
-                    <p>Email: ${next_of_kin_telephone}</p>
-                    <p>Message: ${next_of_kin_relationship_with_pupil}</p>
-                    <p>Name: ${next_of_kin_address}</p>
-                    <p>Number: ${next_of_kin_village}</p>
-                    <p>Service: ${next_of_kin_lc}</p>
-                    <p>Email: ${child_medical_info}</p>
+                    <p>Admission Number: ${admission_no}</p>
+                    <p>Date Of Birth: ${date_of_birth}</p>
+                    <p>Age: ${age}</p>
+                    <p>Gender: ${gender}</p>
+                    <p>Class: ${grade}</p>
+                    <p>Residence: ${residence}</p>
+                    <p>Term: ${term}</p>
+                    <p>Emis No: ${emis_no}</p>
+                    <p>Parent/Guardian Name: ${parent_name}</p>
+                    <p>Parent/Guardian Email: ${parent_email}</p>
+                    <p>Parent/Guardian Telephone: ${parent_telephone}</p>
+                    <p>Parent/Guardian Relationship with pupil: ${parent_relationship_with_pupil}</p>
+                    <p>Parent/Guardian Address: ${parent_address}</p>
+                    <p>Parent/Guardian Village: ${parent_village}</p>
+                    <p>Parent/Guardian LC1: ${parent_lc}</p>
+                    <p>Parent/Guardian NIN No: ${parent_nin}</p>
+                    <p>Next Of Kin Name: ${next_of_kin_name}</p>
+                    <p>Next Of Kin Gender: ${next_of_kin_gender}</p>
+                    <p>Next Of Kin Telephone: ${next_of_kin_telephone}</p>
+                    <p>Next Of Kin Relationship with pupil: ${next_of_kin_relationship_with_pupil}</p>
+                    <p>Next Of Kin Address: ${next_of_kin_address}</p>
+                    <p>Next Of Kin Village: ${next_of_kin_village}</p>
+                    <p>Next Of Kin LC1: ${next_of_kin_lc}</p>
+                    <p>Child Medical Information (Issues): ${child_medical_info}</p>
                 `,
       });
 
