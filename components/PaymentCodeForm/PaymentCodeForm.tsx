@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-export default function AdmissionForm() {
+export default function PaymentCodeForm() {
   const router = useRouter();
 
   const [child, setChild] = React.useState({
