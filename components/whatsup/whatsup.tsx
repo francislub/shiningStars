@@ -18,7 +18,7 @@ export default function WhatsApp() {
   }, []);
 
   const openWhatsApp = () => {
-    window.open("https://wa.me/+256773297951", "_blank");
+    window.open("https://wa.me/+256753753179", "_blank");
   };
 
   return (
