@@ -46,9 +46,11 @@ export default function PaymentCodeForm() {
       const studentData = await studentResponse.json();
       const filteredStudent = studentData.filter(child => child.stid === parent.child_id);
       console.log(filteredStudent);
+      const student = filteredStudent[0];
 
       if (student) {
-        const paymentCode = filteredStudent.paymentCode;
+        const paymentCode = student.paymentCode;
+        console.log(paymentCode);
 
         const res = await fetch("/api/paymentcode", {
           method: "POST",
