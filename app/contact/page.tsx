@@ -1,5 +1,5 @@
 import Breadcrumb from "@/components/Common/Breadcrumb";
-import Contact from "@/components/Contact";
+import Contacts from "@/components/Contacts";
 
 const ContactPage = () => {
   return (
@@ -9,7 +9,7 @@ const ContactPage = () => {
         description=""
       />
 
-      <Contact />
+      <Contacts />
     </>
   );
 };
