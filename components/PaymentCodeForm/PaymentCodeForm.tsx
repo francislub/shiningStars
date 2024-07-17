@@ -33,7 +33,7 @@ export default function PaymentCodeForm() {
     try {
       setLoading(true);
       // Fetch the student based on child_id
-      const studentResponse = await fetch(`https://shining-stars-dashboard.onrender.com/api/v1/students/${parent.child_id}`, {
+      const studentResponse = await fetch(`https://shining-stars-dashboard.onrender.com/api/v1/students`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -43,12 +43,12 @@ export default function PaymentCodeForm() {
       if (!studentResponse.ok) {
         throw new Error("Network response was not ok");
       }
-
       const studentData = await studentResponse.json();
-      const student = studentData[0]; 
+      const filteredStudent = studentData.filter(child => child.stid === parent.child_id);
+      console.log(filteredStudent);
 
       if (student) {
-        const paymentCode = student.paymentCode;
+        const paymentCode = filteredStudent.paymentCode;
 
         const res = await fetch("/api/paymentcode", {
           method: "POST",
