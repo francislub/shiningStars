@@ -1,11 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import AdmissionForm from "@/components/AdmissionForm/AdmissionForm";
 
-const AboutPage = () => {
+const AdmissionPage = () => {
   return (
     <>
     <div className="mb-10 pb-10">
@@ -21,4 +19,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default AdmissionPage;
