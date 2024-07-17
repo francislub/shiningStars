@@ -1,5 +1,4 @@
 import { connect } from "../../../dbConfig/dbConfig";
-import ChildAdmission from "../../../models/childModel";
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
@@ -12,9 +11,10 @@ export async function POST(request: NextRequest) {
       parent_name,
       parent_email,
       child_id,
+      paymentCode 
     } = reqBody;
 
-    // Provide code for querying a student from Student model whose parent_name === parent_name, parent_email === parent_email, stid === child_id and get the paymentCode, store it in a variable named paymentcode.
+    console.log(reqBody);
 
     const user = process.env.EMAIL_USER;
 
@@ -36,8 +36,8 @@ export async function POST(request: NextRequest) {
         replyTo: parent_email,
         subject: `Child Payment Code`,
         html: `
-                <p>Hello ${parent_name}. You requested for your child's payment code. The payment code for your child with ID: ${child_id} is  . Thank you for trusting Shining Stars.</p>
-                `,
+          <p>Hello ${parent_name}. You requested for your child's payment code. The payment code for your child with ID: ${child_id} is ${paymentCode}. Thank you for trusting Shining Stars.</p>
+        `,
       });
     } catch (error) {
       console.log(error.message);
