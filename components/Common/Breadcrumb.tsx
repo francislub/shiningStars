@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -48,8 +48,8 @@ const Breadcrumb = ({
   }, [slides]);
 
   return (
-    <section className="relative z-10 overflow-hidden pt-8 lg:pt-[150px]">
-      <div className="absolute inset-0">
+    <section className="relative z-10 overflow-hidden pt-8 lg:pt-[150px] min-h-[400px] lg:min-h-[600px]">
+      <div className="absolute inset-0 h-screen"> 
         <AnimatePresence>
           {slides.length > 0 && (
             <motion.div
@@ -58,7 +58,7 @@ const Breadcrumb = ({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 1 }}
-              className="absolute inset-0"
+              className="absolute inset-0 h-full" 
             >
               <Image
                 src={slides[currentImageIndex].photo}
@@ -66,7 +66,7 @@ const Breadcrumb = ({
                 layout="fill"
                 objectFit="cover"
               />
-               <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white p-4">
+              <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white p-4">
                 <h2 className="text-3xl font-bold">{slides[currentImageIndex].title}</h2>
                 <p className="text-xl mt-2">{slides[currentImageIndex].description}</p>
               </div>
