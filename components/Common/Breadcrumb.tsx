@@ -15,6 +15,7 @@ const Breadcrumb = ({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [slides, setSlides] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true); // Loading state
 
   useEffect(() => {
     const fetchSlides = async () => {
@@ -32,7 +33,9 @@ const Breadcrumb = ({
         const data = await response.json();
         setSlides(data.reverse());
       } catch (err) {
-        setError(err.message);
+        setError('Failed to load slides. Please check your internet connection.');
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -49,22 +52,33 @@ const Breadcrumb = ({
 
   return (
     <section className="relative z-10 overflow-hidden pt-8 lg:pt-[150px] min-h-[400px] lg:min-h-[600px]">
-      <div className="absolute inset-0 h-screen"> 
+      <div className="absolute inset-0 h-full">
         <AnimatePresence>
-          {slides.length > 0 && (
+          {loading && (
+            <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 text-white">
+              <p>Loading...</p>
+            </div>
+          )}
+          {error && !loading && (
+            <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 text-white">
+              <p>{error}</p>
+            </div>
+          )}
+          {slides.length > 0 && !loading && !error && (
             <motion.div
               key={currentImageIndex}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 1 }}
-              className="absolute inset-0 h-full" 
+              className="absolute inset-0 h-full"
             >
               <Image
                 src={slides[currentImageIndex].photo}
                 alt={`Background ${currentImageIndex + 1}`}
                 layout="fill"
                 objectFit="cover"
+                priority // Load image with higher priority
               />
               <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white p-4">
                 <h2 className="text-3xl font-bold">{slides[currentImageIndex].title}</h2>
