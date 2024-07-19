@@ -44,7 +44,7 @@ const Breadcrumb = ({
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % slides.length);
+      setCurrentImageIndex((prevIndex) => (slides.length > 0 ? (prevIndex + 1) % slides.length : 0));
     }, 3000);
 
     return () => clearInterval(interval);
@@ -73,16 +73,18 @@ const Breadcrumb = ({
               transition={{ duration: 1 }}
               className="absolute inset-0 h-full"
             >
-              <Image
-                src={slides[currentImageIndex].photo}
-                alt={`Background ${currentImageIndex + 1}`}
-                layout="fill"
-                objectFit="cover"
-                priority // Load image with higher priority
-              />
+              {slides[currentImageIndex] && (
+                <Image
+                  src={slides[currentImageIndex].photo}
+                  alt={`Background ${currentImageIndex + 1}`}
+                  layout="fill"
+                  objectFit="cover"
+                  priority
+                />
+              )}
               <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white p-4">
-                <h2 className="text-3xl font-bold">{slides[currentImageIndex].title}</h2>
-                <p className="text-xl mt-2">{slides[currentImageIndex].description}</p>
+                <h2 className="text-3xl font-bold">{slides[currentImageIndex]?.title}</h2>
+                <p className="text-xl mt-2">{slides[currentImageIndex]?.description}</p>
               </div>
             </motion.div>
           )}
