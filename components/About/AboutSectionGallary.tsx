@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { BookOpenIcon, GlobeAltIcon, StarIcon, EyeIcon } from '@heroicons/react/solid';
 
 import basketa from "../../public/images/shi/life.jpeg";
@@ -118,9 +119,20 @@ const AboutSectionGallery = () => {
               </div>
             </div>
           </div>
+
           {/* ########END######### */}
           
       </div>
+      <h3 className="mt-10 lg:-mt-20 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-4xl text-center">
+            Get more Photos
+          </h3>
+          <div className="flex justify-center">
+            <Link href="https://photos.google.com/share/AF1QipM3aWmWdnZT28nqVVjQPo3KNfKz0NIjkF7Od8Ap73blWXzz-Pz1CHERvhnHC8zjcg?key=QWxpUkNxNW5BTHZCMDE3czEzMXpIWkFLWE9LUFpB">
+              <button className="bg-gray-700 text-white py-2 px-4 rounded-md shadow-lg hover:bg-blue-700 hover:cursor-pointer transition-colors duration-300 ease-in-out mt-6 lg:mt-12">
+                Explore More Photos
+              </button>
+            </Link>
+          </div>
     </section>
   );
 };
