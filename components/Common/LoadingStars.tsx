@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useState } from 'react';
 
 const colors = ['#ff6347', '#ffa07a', '#ff4500', '#ff1493', '#ff69b4'];
