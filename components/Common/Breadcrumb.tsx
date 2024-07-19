@@ -56,7 +56,7 @@ const Breadcrumb = ({
         <AnimatePresence>
           {loading && (
             <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 text-white">
-              <p>Loading...</p>
+              <p>Shining Stars Loading...</p>
             </div>
           )}
           {error && !loading && (
