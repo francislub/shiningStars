@@ -1,9 +1,10 @@
-"use client";
+"use client"
 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
+import Link from 'next/link';
+import LoadingStars from './LoadingStars'; // Import the LoadingStars component
 
 const Breadcrumb = ({
   pageName,
@@ -15,7 +16,7 @@ const Breadcrumb = ({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [slides, setSlides] = useState([]);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true); // Loading state
+  const [loading, setLoading] = useState(true); // Add loading state
 
   useEffect(() => {
     const fetchSlides = async () => {
@@ -32,10 +33,10 @@ const Breadcrumb = ({
         }
         const data = await response.json();
         setSlides(data.reverse());
+        setLoading(false); // Set loading to false when data is fetched
       } catch (err) {
-        setError('Failed to load slides. Please check your internet connection.');
-      } finally {
-        setLoading(false);
+        setError(err.message);
+        setLoading(false); // Set loading to false even on error
       }
     };
 
@@ -44,7 +45,7 @@ const Breadcrumb = ({
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (slides.length > 0 ? (prevIndex + 1) % slides.length : 0));
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % slides.length);
     }, 3000);
 
     return () => clearInterval(interval);
@@ -55,16 +56,14 @@ const Breadcrumb = ({
       <div className="absolute inset-0 h-full">
         <AnimatePresence>
           {loading && (
-            <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 text-white">
-              <p>Shining Stars Loading...</p>
-            </div>
+            <LoadingStars /> // Use the LoadingStars component here
           )}
           {error && !loading && (
             <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 text-white">
               <p>{error}</p>
             </div>
           )}
-          {slides.length > 0 && !loading && !error && (
+          {!loading && !error && slides.length > 0 && (
             <motion.div
               key={currentImageIndex}
               initial={{ opacity: 0 }}
@@ -73,18 +72,15 @@ const Breadcrumb = ({
               transition={{ duration: 1 }}
               className="absolute inset-0 h-full"
             >
-              {slides[currentImageIndex] && (
-                <Image
-                  src={slides[currentImageIndex].photo}
-                  alt={`Background ${currentImageIndex + 1}`}
-                  layout="fill"
-                  objectFit="cover"
-                  priority
-                />
-              )}
+              <Image
+                src={slides[currentImageIndex].photo}
+                alt={`Background ${currentImageIndex + 1}`}
+                layout="fill"
+                objectFit="cover"
+              />
               <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white p-4">
-                <h2 className="text-3xl font-bold">{slides[currentImageIndex]?.title}</h2>
-                <p className="text-xl mt-2">{slides[currentImageIndex]?.description}</p>
+                <h2 className="text-3xl font-bold">{slides[currentImageIndex].title}</h2>
+                <p className="text-xl mt-2">{slides[currentImageIndex].description}</p>
               </div>
             </motion.div>
           )}
