@@ -36,6 +36,7 @@ const Breadcrumb = ({
         setLoading(false); // Set loading to false when data is fetched
       } catch (err) {
         setError(err.message);
+        // Keep loading state true to show LoadingStars component even on error
         setLoading(false); // Set loading to false even on error
       }
     };
@@ -44,11 +45,13 @@ const Breadcrumb = ({
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 3000);
+    if (slides.length > 0) {
+      const interval = setInterval(() => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % slides.length);
+      }, 3000);
 
-    return () => clearInterval(interval);
+      return () => clearInterval(interval);
+    }
   }, [slides]);
 
   return (
@@ -58,31 +61,37 @@ const Breadcrumb = ({
           {loading && (
             <LoadingStars /> // Use the LoadingStars component here
           )}
-          {error && !loading && (
-            <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 text-white">
-              <p>{error}</p>
-            </div>
-          )}
-          {!loading && !error && slides.length > 0 && (
-            <motion.div
-              key={currentImageIndex}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1 }}
-              className="absolute inset-0 h-full"
-            >
-              <Image
-                src={slides[currentImageIndex].photo}
-                alt={`Background ${currentImageIndex + 1}`}
-                layout="fill"
-                objectFit="cover"
-              />
-              <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white p-4">
-                <h2 className="text-3xl font-bold">{slides[currentImageIndex].title}</h2>
-                <p className="text-xl mt-2">{slides[currentImageIndex].description}</p>
-              </div>
-            </motion.div>
+          {!loading && (
+            <>
+              {error && (
+                <div className="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 text-white">
+                  <p>{error}</p>
+                </div>
+              )}
+              {!error && slides.length > 0 && (
+                <motion.div
+                  key={currentImageIndex}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1 }}
+                  className="absolute inset-0 h-full"
+                >
+                  {slides[currentImageIndex] && (
+                    <Image
+                      src={slides[currentImageIndex].photo}
+                      alt={`Background ${currentImageIndex + 1}`}
+                      layout="fill"
+                      objectFit="cover"
+                    />
+                  )}
+                  <div className="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white p-4">
+                    <h2 className="text-3xl font-bold">{slides[currentImageIndex]?.title}</h2>
+                    <p className="text-xl mt-2">{slides[currentImageIndex]?.description}</p>
+                  </div>
+                </motion.div>
+              )}
+            </>
           )}
         </AnimatePresence>
       </div>
