@@ -202,7 +202,7 @@ const why_bugema = () =>{
                               </Link>
                               </li>
                               <li>
-                              <Link href={"/codepay"}>
+                              <Link href={"/payment-code"}>
                                     <div className="mr-2 my-5  ">
                                           <h1 onClick={onClose} style={{fontSize: '15px',cursor:"pointer", marginRight:'5px'}} className='schools text-black font-bold' > Pupils pay code</h1> 
                                           
