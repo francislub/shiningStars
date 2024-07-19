@@ -43,7 +43,7 @@ const AboutSectionLife2 = () => {
                               <p className="mb-4 text-base text-white">
                               Search for your childs mobile pay code for easy transactions.
                               </p>
-                              <Link href={"/codepay"} >
+                              <Link href={"/payment-code"} >
                                     <button className="px-6 py-2 text-white bg-blue-300 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                                     Search
                                     </button>

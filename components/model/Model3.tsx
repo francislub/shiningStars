@@ -116,7 +116,7 @@ const why_bugema = () =>{
                               </Link>
                               <Link href={"/gallary"}>
                                     <div className="mr-2 my-5  slider slide--slower">
-                                          <h1 onClick={onClose} style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '>  <span id='Mbale' className='animated'> Gallary</span></h1> 
+                                          <h1 onClick={onClose} style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold '>  <span id='Mbale' className='animated'> Gallery</span></h1> 
                                     </div>
                               </Link>
                               
