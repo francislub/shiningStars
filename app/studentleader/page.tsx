@@ -1,6 +1,7 @@
 'use client';
 
 import SectionTitle from "@/components/Common/SectionTitle";
+import Breadcrumb from "@/components/Common/Breadcrumb";
 import School from "@/components/school/School";
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
@@ -35,14 +36,14 @@ export default function StudentLeader() {
 
   return (
     <div>
-      <section className="my-20 mt-36 mx-10">
-        {/* <School
-          dean="DR. LUBOWA MARTIN"
-          deanImage={"/images/blog/author-03.png"}
-          message="As business times evolve, so are the skills needed to run such environments. The school of business Bugema University is always evolving to meet the current business trends. We shall equip you with the necessary skills in the areas of accounting, procurement, and management. Your decision to join us is a perfect one. Looking forward to serving and preparing you for a better future."
-          preamble=""
-          goal=""
-        /> */}
+      <section className="my-20 mt-5 mx-10">
+      <Breadcrumb
+        pageName="Prefects"
+        description="
+        Shining Stars is a place for everyone, somewhere you can be yourself. Whether you're an out-of-the-box thinker, boundary-breaker or change-maker, this is where you'll get ahead and find your place as part of a global community.
+        "
+      />
+      </section>
         <div className="flex flex-col items-start mx-auto md:pl-28 justify-center items-center">
           <div className="md:pl-2">
             <SectionTitle title="Leadership" paragraph="" />
@@ -76,7 +77,7 @@ export default function StudentLeader() {
                       ))}
 
                     </div>
-      </section>
+      {/* </section> */}
     </div>
   );
 }
