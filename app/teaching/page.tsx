@@ -52,7 +52,7 @@ export default function Teaching() {
             </div>
           </div>
 
-          <div className="boxContainer justify-center items-center md:flex flex flex-wrap md:flex-row mb-5">
+          <div className="boxContainer justify-center items-center md:flex flex flex-wrap md:flex-row mb-20">
                       {teachings.map((post) => (
                           <div className="box bg-gray-300 flex flex-col md:w-[300px] lg:w-[350px] xl:w-[400px] 2xl:w-[450px] p-3 md:max-w-[25%] md:p-4 hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer" key={post._id}>
                               
