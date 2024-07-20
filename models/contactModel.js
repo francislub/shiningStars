@@ -1,9 +1,18 @@
 import mongoose from "mongoose";
 
-const newsLetterSchema = new mongoose.Schema({
-    newsemail: {
+const contactSchema = new mongoose.Schema({
+    email: {
         type: String,
         required: [true, 'Please provide your email'],
+        trim: true,
+    },
+    subject: {
+        type: String,
+        trim: true,
+    },
+    message: {
+        type: String,
+        required: [true, 'Please provide a message'],
         trim: true,
     },
     createdAt: {
@@ -12,6 +21,6 @@ const newsLetterSchema = new mongoose.Schema({
     }
 });
 
-const newsLetter = mongoose.models.newsLetter || mongoose.model('newsLetter', newsLetterSchema);
+const Contact = mongoose.models.Contact || mongoose.model('Contact', contactSchema);
 
-export default newsLetter;
+export default Contact;
