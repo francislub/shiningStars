@@ -122,7 +122,7 @@ const Video = () => {
           <h1 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px]">
           Discover Your Path at Shining Stars! 
           </h1>
-          <p className="text-base !leading-relaxed text-body-color md:text-lg">
+          <p className="text-base !leading-relaxed md:text-lg">
           
 At Shining Stars, it’s not just about academics; it’s about nurturing your mind, heart, and hands. Shining Stars fosters holistic excellence – where character development meets intellectual growth.
 With Flexible Intakes, whether you’re a fresh high school graduate or a working professional seeking advancement. 
