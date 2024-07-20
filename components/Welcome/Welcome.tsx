@@ -22,7 +22,7 @@ const Welcome = () => {
                   <h1 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px]">
                     Shining Stars
                   </h1>
-                  <p className="text-base !leading-relaxed text-body-color md:text-lg">
+                  <p className="text-base !leading-relaxed md:text-lg">
                     At Shining Stars, we understand the importance of
                     quality assurance. We have developed comprehensive
                     self-regulating and self-maintaining procedures to ensure
@@ -66,7 +66,7 @@ const Welcome = () => {
                       height="250"
                     />
                   </div>
-                  <p className="text-base !leading-relaxed text-body-color md:text-lg">
+                  <p className="text-base !leading-relaxed md:text-lg">
                     Join us at Shining Stars, where education is embraced as
                     a catalyst for empowerment and change. Experience an
                     inclusive and enriching learning environment where equal
