@@ -59,7 +59,7 @@ const AboutSectionLife2 = () => {
                         <p className="mb-4 text-base text-white dark:text-gray-300">
                         Find the attached circular for school fees dues/fees remainder.
                         </p>
-                        <Link href="/finances.pdf" target="_blank" rel="noopener noreferrer">
+                        <Link href="/circular.pdf" target="_blank" rel="noopener noreferrer">
                               <button className="px-6 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                                     Download
                               </button>
@@ -70,12 +70,12 @@ const AboutSectionLife2 = () => {
                         <div className="wow fadeInUp relative mx-auto mb-12 aspect-[25/24] lg:m-0 flex flex-col justify-center items-center text-center" data-wow-delay=".15s">
                         <FaScroll className="w-10 h-8 text-black dark:text-white "/>
                         <h3 className="mb-2 mt-3 text-xl font-bold text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                        Meeting Letters
+                        Requirements
                         </h3>
                         <p className="mb-2 text-base text-white ">
-                        Find meeting letter
+                        Find Schools Requirements
                         </p>
-                        <Link href="/finances.pdf" target="_blank" rel="noopener noreferrer">
+                        <Link href="/requirements.pdf" target="_blank" rel="noopener noreferrer">
                               <button className="px-6 py-2 mt-2 text-white bg-blue-300 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                                     Download
                               </button>
