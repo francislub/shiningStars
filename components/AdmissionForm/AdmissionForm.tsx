@@ -277,7 +277,7 @@ export default function AdmissionForm() {
 
                   <div>
                     <label className="text-body-color text-lg my-4">
-                      Emis No{"("}LIN{")"}:{" "}
+                      Emis No{"("}LIN{")("}If child is directly from another school{")"}:{" "}
                     </label>
                     <input
                       type="text"
