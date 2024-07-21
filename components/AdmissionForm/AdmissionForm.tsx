@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 
 export default function AdmissionForm() {
   const router = useRouter();
+  const [admissions, setAdmissions] = useState([]);
+  const [error, setError] = useState(null);
 
   const [child, setChild] = React.useState({
     name: "",
@@ -37,6 +39,33 @@ export default function AdmissionForm() {
   const [loading, setLoading] = React.useState(false);
 
   const [buttonDisabled, setButtonDisabled] = React.useState(true);
+
+  useEffect(() => {
+    const fetchAdmissions = async () => {
+      try {
+        const response = await fetch(
+          "https://shining-stars-dashboard.onrender.com/api/v1/admissions",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const data = await response.json();
+        setAdmissions(data);
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+
+    fetchAdmissions();
+  }, []);
 
   useEffect(() => {
     if (
@@ -75,13 +104,16 @@ export default function AdmissionForm() {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await fetch("https://shining-stars-dashboard.onrender.com/api/v1/admissions", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(child),
-      });
+      const res = await fetch(
+        "https://shining-stars-dashboard.onrender.com/api/v1/admissions",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(child),
+        }
+      );
       const data = await res.json();
       if (data.success) {
         setChild({
