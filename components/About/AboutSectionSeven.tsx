@@ -20,6 +20,7 @@ const AboutSectionSeven = () => {
         <h3 className="-mt-7 lg:-mt-20 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-4xl text-center">
            Excellence in research, teaching, and medical care
         </h3>
+
         <div className="flex flex-col lg:flex-row items-center gap-10 mb-8">
           <div
             className="wow h-[500px] -mb-20 fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
