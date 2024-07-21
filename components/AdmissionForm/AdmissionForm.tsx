@@ -82,8 +82,8 @@ export default function AdmissionForm() {
         body: JSON.stringify(child),
       });
       const data = await res.json();
-      console.log(data);
-      if (data.status === 200) {
+      
+      if (data) {
         setChild({
           name: "",
           admission_no: "",
@@ -115,7 +115,7 @@ export default function AdmissionForm() {
       } else {
         setLoading(false);
       }
-      router.push("/admission");
+      router.push("/");
     } catch (error) {
       console.error(error.message);
     } finally {
