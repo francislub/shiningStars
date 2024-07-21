@@ -35,7 +35,7 @@ const Model4 = ({ is4visible, onClose, children }) => {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://shining-stars-dashboard.onrender.com/api/v1/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
