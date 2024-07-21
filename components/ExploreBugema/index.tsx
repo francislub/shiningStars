@@ -106,8 +106,12 @@ const Video = () => {
         className={`wow fadeInUp overflow-hidden rounded-md h-[400px]  ${animate ?"slider slide--slower":"" }`}
         data-wow-delay=".15s">
            {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/kVH8TNOGeF0?si=XAcCeZbkGzFJCBrk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
-            <iframe width="500" height="300" title="YouTube video player"  allow="accelerometer; loop=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen
+            {/* <iframe width="500" height="300" title="YouTube video player"  allow="accelerometer; loop=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen
                 src="https://www.youtube.com/embed/kVH8TNOGeF0?si=XAcCeZbkGzFJCBrk &autoplay=1"
+                className='w-full h-full'>
+            </iframe> */}
+            <iframe width="500" height="300" title="YouTube video player"  allow="accelerometer; loop=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen
+                src="https://www.youtube.com/embed/kVH8TNOGeF0?si=XAcCeZbkGzFJCBrk"
                 className='w-full h-full'>
             </iframe>
 
@@ -122,7 +126,7 @@ const Video = () => {
           <h1 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px]">
           Discover Your Path at Shining Stars! 
           </h1>
-          <p className="text-base !leading-relaxed text-body-color md:text-lg">
+          <p className="text-base !leading-relaxed md:text-lg">
           
 At Shining Stars, it’s not just about academics; it’s about nurturing your mind, heart, and hands. Shining Stars fosters holistic excellence – where character development meets intellectual growth.
 With Flexible Intakes, whether you’re a fresh high school graduate or a working professional seeking advancement. 
