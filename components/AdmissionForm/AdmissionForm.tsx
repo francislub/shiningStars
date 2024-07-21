@@ -5,8 +5,6 @@ import { useRouter } from "next/navigation";
 
 export default function AdmissionForm() {
   const router = useRouter();
-  const [admissions, setAdmissions] = useState([]);
-  const [error, setError] = useState(null);
 
   const [child, setChild] = React.useState({
     name: "",
@@ -41,33 +39,6 @@ export default function AdmissionForm() {
   const [buttonDisabled, setButtonDisabled] = React.useState(true);
 
   useEffect(() => {
-    const fetchAdmissions = async () => {
-      try {
-        const response = await fetch(
-          "https://shining-stars-dashboard.onrender.com/api/v1/admissions",
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-
-        const data = await response.json();
-        setAdmissions(data);
-      } catch (err) {
-        setError(err.message);
-      }
-    };
-
-    fetchAdmissions();
-  }, []);
-
-  useEffect(() => {
     if (
       child.name.length > 0 &&
       child.admission_no.length > 0 &&
@@ -77,7 +48,6 @@ export default function AdmissionForm() {
       child.grade.length > 0 &&
       child.residence.length > 0 &&
       child.term.length > 0 &&
-      child.emis_no.length > 0 &&
       child.parent_name.length > 0 &&
       child.parent_email.length > 0 &&
       child.parent_telephone.length > 0 &&
@@ -104,18 +74,16 @@ export default function AdmissionForm() {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await fetch(
-        "https://shining-stars-dashboard.onrender.com/api/v1/admissions",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(child),
-        }
-      );
+      const res = await fetch("https://shining-stars-dashboard.onrender.com/api/v1/admissions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(child),
+      });
       const data = await res.json();
-      if (data.success) {
+      console.log(data);
+      if (data.status === 200) {
         setChild({
           name: "",
           admission_no: "",
@@ -167,15 +135,13 @@ export default function AdmissionForm() {
             <div className="px-0">
               <div className=" ">
                 <form action="" onSubmit={handleSubmit}>
-                  <h1 className="text-black/80 font-medium my-4 text-xl">
-                    Personal Details
-                  </h1>
+                  <h1 className="text-black/80 font-medium my-4 text-xl">Personal Details</h1>
                   <div className="my-4 flex flex-col md:flex-row md:justify-between md:gap-[20px]">
                     <div>
                       <label className="text-body-color text-lg">
                         Pupil{"'"}s Name:{" "}
                       </label>
-                      <br className="md:hidden" />
+                      <br className="md:hidden"/>
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color md:w-[400px] w-[300px] mb-3 md:mb-0"
@@ -190,7 +156,7 @@ export default function AdmissionForm() {
                       <label className="text-body-color text-lg">
                         Admission No:{" "}
                       </label>
-                      <br className="md:hidden" />
+                      <br className="md:hidden"/>
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color"
@@ -211,7 +177,7 @@ export default function AdmissionForm() {
                         Date Of Birth:{" "}
                       </label>
                       <input
-                        type="date"
+                        type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[300px] mb-4 md:mb-0"
                         id="date_of_birth"
                         placeholder="dd/mm/yy"
@@ -225,8 +191,7 @@ export default function AdmissionForm() {
                     </div>
 
                     <div>
-                      <label className="text-body-color text-lg">Age: </label>
-                      <br className="md:hidden" />
+                      <label className="text-body-color text-lg">Age: </label><br className="md:hidden"/>
                       <input
                         type="number"
                         className="form-control rounded px-2 py-1 border border-body-color w-[100px]"
@@ -238,15 +203,14 @@ export default function AdmissionForm() {
                           })
                         }
                       />
-                    </div>
-                    <br className="md:hidden" />
+                    </div><br className="md:hidden"/>
 
                     <div>
                       <label className="text-body-color text-lg">
                         Gender:{" "}
-                      </label>
-                      <br className="md:hidden" />
-                      <select
+                      </label><br className="md:hidden"/>
+                      <input
+                        type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[200px]"
                         id="gender"
                         onChange={(e) =>
@@ -255,11 +219,7 @@ export default function AdmissionForm() {
                             gender: e.target.value,
                           })
                         }
-                        value={child.gender}
-                      >
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                      </select>
+                      />
                     </div>
                   </div>
 
@@ -268,7 +228,8 @@ export default function AdmissionForm() {
                       <label className="text-body-color text-lg mr-[65px]">
                         Class:{" "}
                       </label>
-                      <select
+                      <input
+                        type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[300px] mb-4 md:mb-0"
                         id="grade"
                         onChange={(e) =>
@@ -277,24 +238,11 @@ export default function AdmissionForm() {
                             grade: e.target.value,
                           })
                         }
-                        value={child.grade}
-                      >
-                        <option value="Primary One">Baby Class</option>
-                        <option value="Primary One">Middle Class</option>
-                        <option value="Primary One">Top Class</option>
-                        <option value="Primary One">Primary One</option>
-                        <option value="Primary Two">Primary Two</option>
-                        <option value="Primary Three">Primary Three</option>
-                        <option value="Primary Four">Primary Four</option>
-                        <option value="Primary Five">Primary Five</option>
-                        <option value="Primary Six">Primary Six</option>
-                        <option value="Primary Seven">Primary Seven</option>
-                      </select>
+                      />
                     </div>
 
                     <div>
-                      <label className="text-body-color text-lg">Term: </label>
-                      <br className="md:hidden" />
+                      <label className="text-body-color text-lg">Term: </label><br className="md:hidden"/>
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[100px] mb-4 md:mb-0"
@@ -311,9 +259,10 @@ export default function AdmissionForm() {
                     <div>
                       <label className="text-body-color text-lg">
                         Residence:{" "}
-                      </label>
-                      <br className="md:hidden" />
-                      <select
+                      </label><br className="md:hidden"/>
+                      <input
+                        type="text"
+                        placeholder="Day / Boarding"
                         className="form-control rounded px-2 py-1 border border-body-color w-[200px]"
                         id="residence"
                         onChange={(e) =>
@@ -322,18 +271,13 @@ export default function AdmissionForm() {
                             residence: e.target.value,
                           })
                         }
-                        value={child.residence}
-                      >
-                        <option value="Day">Day</option>
-                        <option value="Boarding">Boarding</option>
-                      </select>
+                      />
                     </div>
                   </div>
 
                   <div>
                     <label className="text-body-color text-lg my-4">
-                      Emis No{"("}LIN{")("}If child is directly from another
-                      school{")"}:{" "}
+                      Emis No{"("}LIN{")"}:{" "}
                     </label>
                     <input
                       type="text"
@@ -345,9 +289,7 @@ export default function AdmissionForm() {
                     />
                   </div>
 
-                  <h1 className="text-black/80 font-medium my-4 text-xl mt-8">
-                    Contact Information
-                  </h1>
+                  <h1 className="text-black/80 font-medium my-4 text-xl mt-8">Contact Information</h1>
 
                   <div className="mb-3">
                     <label className="text-body-color text-lg my-4">
@@ -387,10 +329,7 @@ export default function AdmissionForm() {
                         className="form-control rounded px-2 py-1 border border-body-color md:w-[400px] w-[300px]"
                         id="parent_telephone"
                         onChange={(e) =>
-                          setChild({
-                            ...child,
-                            parent_telephone: e.target.value,
-                          })
+                          setChild({ ...child, parent_telephone: e.target.value })
                         }
                       />
                     </div>
@@ -417,8 +356,7 @@ export default function AdmissionForm() {
                     <div>
                       <label className="text-body-color text-lg md:mr-[70px]">
                         Address:{" "}
-                      </label>
-                      <br className="md:hidden" />
+                      </label><br className="md:hidden" />
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[300px]"
@@ -433,10 +371,7 @@ export default function AdmissionForm() {
                     </div>
 
                     <div>
-                      <label className="text-body-color text-lg">
-                        Village:{" "}
-                      </label>
-                      <br className="md:hidden" />
+                      <label className="text-body-color text-lg">Village: </label><br className="md:hidden" />
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[200px] md:mr-[58px]"
@@ -447,14 +382,13 @@ export default function AdmissionForm() {
                             parent_village: e.target.value,
                           })
                         }
-                      />
-                      <br className="md:hidden" />
-                      <br className="md:hidden" />
+                      /><br className="md:hidden" /><br className="md:hidden" />
                     </div>
 
                     <div>
-                      <label className="text-body-color text-lg">LC1: </label>
-                      <br className="md:hidden" />
+                      <label className="text-body-color text-lg">
+                        LC1:{" "}
+                      </label><br className="md:hidden" />
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[200px]"
@@ -472,8 +406,7 @@ export default function AdmissionForm() {
                   <div>
                     <label className="text-body-color text-lg my-4 md:mr-[75px]">
                       NIN NO:{" "}
-                    </label>
-                    <br className="md:hidden" />
+                    </label><br className="md:hidden" />
                     <input
                       type="text"
                       className="form-control rounded px-2 py-1 border border-body-color md:w-[400px] w-[300px]"
@@ -484,14 +417,13 @@ export default function AdmissionForm() {
                     />
                   </div>
 
-                  <h1 className="text-black/80 font-medium my-4 text-xl mt-8">
-                    Next Of Kin
-                  </h1>
+                  <h1 className="text-black/80 font-medium my-4 text-xl mt-8">Next Of Kin</h1>
 
                   <div className="my-4 flex flex-col md:flex-row md:gap-[50px]">
                     <div>
-                      <label className="text-body-color text-lg">Name: </label>
-                      <br className="md:hidden" />
+                      <label className="text-body-color text-lg">
+                        Name:{" "}
+                      </label><br className="md:hidden" />
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[300px]"
@@ -508,9 +440,9 @@ export default function AdmissionForm() {
                     <div>
                       <label className="text-body-color text-lg">
                         Gender:{" "}
-                      </label>
-                      <br className="md:hidden" />
-                      <select
+                      </label><br className="md:hidden" />
+                      <input
+                        type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[200px]"
                         id="next_of_kin_gender"
                         onChange={(e) =>
@@ -519,11 +451,7 @@ export default function AdmissionForm() {
                             next_of_kin_gender: e.target.value,
                           })
                         }
-                        value={child.next_of_kin_gender}
-                      >
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                      </select>
+                      />
                     </div>
                   </div>
 
@@ -537,10 +465,7 @@ export default function AdmissionForm() {
                         className="form-control rounded px-2 py-1 border border-body-color w-[300px]"
                         id="next_of_kin_telephone"
                         onChange={(e) =>
-                          setChild({
-                            ...child,
-                            next_of_kin_telephone: e.target.value,
-                          })
+                          setChild({ ...child, next_of_kin_telephone: e.target.value })
                         }
                       />
                     </div>
@@ -582,10 +507,7 @@ export default function AdmissionForm() {
                     </div>
 
                     <div>
-                      <label className="text-body-color text-lg">
-                        Village:{" "}
-                      </label>
-                      <br className="md:hidden" />
+                      <label className="text-body-color text-lg">Village: </label><br className="md:hidden" />
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[200px] md:mr-[58px]"
@@ -600,8 +522,9 @@ export default function AdmissionForm() {
                     </div>
 
                     <div>
-                      <label className="text-body-color text-lg">LC1: </label>
-                      <br className="md:hidden" />
+                      <label className="text-body-color text-lg">
+                        LC1:{" "}
+                      </label><br className="md:hidden" />
                       <input
                         type="text"
                         className="form-control rounded px-2 py-1 border border-body-color w-[200px]"
@@ -616,14 +539,9 @@ export default function AdmissionForm() {
                     </div>
                   </div>
 
-                  <h1 className="text-black/80 font-medium text-xl mt-8">
-                    Medical Information
-                  </h1>
+                  <h1 className="text-black/80 font-medium text-xl mt-8">Medical Information</h1>
 
-                  <h2 className="text-body-color font-medium my-4">
-                    If your child has any medical issue{"("}s{")"} of which we
-                    need to be aware of please let us know below
-                  </h2>
+                  <h2 className="text-body-color font-medium my-4">If your child has any medical issue{"("}s{")"} of which we need to be aware of please let us know below</h2>
 
                   <div className="form-row mb-5">
                     <div className="form-group col">
@@ -632,10 +550,7 @@ export default function AdmissionForm() {
                         id="child_medical_info"
                         placeholder="Explain the medical issue(s) here..."
                         onChange={(e) =>
-                          setChild({
-                            ...child,
-                            child_medical_info: e.target.value,
-                          })
+                          setChild({ ...child, child_medical_info: e.target.value })
                         }
                       />
                     </div>
@@ -649,13 +564,11 @@ export default function AdmissionForm() {
                           : ""}
                       </p>
                     </div>
-                    <button
-                      type="submit"
-                      className="rounded bg-primary hover:bg-primary/90 py-1 px-2 text-white"
-                    >
+                    <button type="submit" className="rounded bg-primary hover:bg-primary/90 py-1 px-2 text-white">
                       {buttonDisabled ? "All Information Required" : "Submit"}
                     </button>
                   </div>
+
                 </form>
               </div>
             </div>
