@@ -174,7 +174,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Stuff{" "}
+                      Staff{" "}
                     </Link>
                   </li>
                   {/* <li>
@@ -264,7 +264,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Stuff{" "}
+                      Staff{" "}
                     </Link>
                     </li>
                     {/* <li>
