@@ -75,16 +75,13 @@ export default function AdmissionForm() {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await fetch(
-        "https://shining-stars-dashboard.onrender.com/api/v1/admissions",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(child),
-        }
-      );
+      const res = await fetch("https://shining-stars-dashboard.onrender.com/api/v1/admissions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(child),
+      });
       const data = await res.json();
       if (data.success) {
         setChild({
