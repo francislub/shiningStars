@@ -62,7 +62,7 @@ export default function AdmissionForm() {
         // Compute the new admission number
         const currentYear = new Date().getFullYear();
         const newIndex = data.length + 1;
-        const newAdmissionNo = `${currentYear}-${String(newIndex).padStart(2, "0")}`;
+        const newAdmissionNo = `SSNPSV/${String(newIndex).padStart(3, "00")}/${currentYear}`;
 
         // Set the computed admission number
         setChild((prevChild) => ({
@@ -76,39 +76,6 @@ export default function AdmissionForm() {
 
     fetchAdmissions();
   }, []);
-
-  // useEffect(() => {
-  //   if (
-  //     child.name.length > 0 &&
-  //     child.admission_no.length > 0 &&
-  //     child.date_of_birth.length > 0 &&
-  //     child.age.length > 0 &&
-  //     child.gender.length > 0 &&
-  //     child.grade.length > 0 &&
-  //     child.residence.length > 0 &&
-  //     child.term.length > 0 &&
-  //     child.emis_no.length > 0 &&
-  //     child.parent_name.length > 0 &&
-  //     child.parent_email.length > 0 &&
-  //     child.parent_telephone.length > 0 &&
-  //     child.parent_relationship_with_pupil.length > 0 &&
-  //     child.parent_address.length > 0 &&
-  //     child.parent_village.length > 0 &&
-  //     child.parent_lc.length > 0 &&
-  //     child.parent_nin.length > 0 &&
-  //     child.next_of_kin_name.length > 0 &&
-  //     child.next_of_kin_gender.length > 0 &&
-  //     child.next_of_kin_telephone.length > 0 &&
-  //     child.next_of_kin_relationship_with_pupil.length > 0 &&
-  //     child.next_of_kin_address.length > 0 &&
-  //     child.next_of_kin_village.length > 0 &&
-  //     child.next_of_kin_lc.length > 0
-  //   ) {
-  //     setButtonDisabled(false);
-  //   } else {
-  //     setButtonDisabled(true);
-  //   }
-  // }, [child]);
 
   const handleDateChange = (e) => {
     const dateOfBirth = e.target.value;
