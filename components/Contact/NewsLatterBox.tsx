@@ -38,7 +38,7 @@ const NewsLatterBox: React.FC = () => {
       } else {
         setLoading(false);
       }
-      router.push("/");
+      router.push("/whyshin");
     } catch (error) {
       console.error(error.message);
     } finally {
