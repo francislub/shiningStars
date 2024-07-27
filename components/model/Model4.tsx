@@ -334,7 +334,7 @@ const Model4 = ({ is4visible, onClose, children }) => {
             </Link>
 
             <Link
-              href="/https://www.linkedin.com"
+              href="https://www.tiktok.com/@shining.stars.sch6?_t=8oN2mFeXmB4&_r=1"
               aria-label="social-link"
               className="mr-6 text-[#CED3F6] hover:text-primary"
             >
