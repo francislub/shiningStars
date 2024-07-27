@@ -273,7 +273,7 @@ const Model4 = ({ is4visible, onClose, children }) => {
           <div className=" my-5 flex items-center justify-center">
             {/*###=============== S O C I A L   L I N K S ================###*/}
             <Link
-              href="/https://www.facebook.com"
+              href="https://www.facebook.com/muhumuza.hillary/"
               aria-label="social-link"
               className="mr-6 text-[#CED3F6] hover:text-primary"
             >
