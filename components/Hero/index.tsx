@@ -2,8 +2,12 @@ import Link from "next/link";
 import { FaArrowDownLong, FaArrowRightLong } from "react-icons/fa6";
 import { BiBookOpen, BiSolidPencil } from "react-icons/bi";
 import { motion } from "framer-motion";
+import Slider from "react-slick";
+import HeroSlide from "./HeroSlide";
 import HeroVideo from "../HeroVideo/HeroVideo";
 import HeroOverlay from "../HeroOverlay/HeroOverlay";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export const bgImage = "/images/shin/s.jpg";
 // export const heroVid = "https://res.cloudinary.com/dfqmkufnq/video/upload/v1720035342/francis_f6ijfa.mp4";
@@ -62,11 +66,16 @@ const Hero = () => {
     <>
       <section
         id="home"
-        className="hero-section w-full lg:h-[800px] relative z-10"
+        className="hero-section w-full lg:h-[800px] relative z-10 hidden sm:block"
       >
 
-        <HeroVideo src={heroVid} />
-        <HeroOverlay
+        {/* <HeroVideo src={heroVid} /> */}
+        <Slider {...sliderSettings}>
+          {heroVid.map((media, index) => (
+            <HeroSlide key={index} media={media} />
+          ))}
+        </Slider>
+        {/* <HeroOverlay
           title="Arise and shine"
           title2 = ""
           title3="SHINING STARS NURSERY AND PRIMARY SCHOOL- VVUMBA"
@@ -75,10 +84,7 @@ const Hero = () => {
           subtitle3=""
           buttonText="Apply Now"
           buttonLink="/admission"
-        />
-
-        
-        
+        /> */}
       </section>
 
       <div className="container px-4 mt-[100px] mb-[50px] w-full h-full">
