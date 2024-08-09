@@ -19,7 +19,7 @@ const NewsLatterBox: React.FC = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await fetch("/api/emails", {
+      const res = await fetch("https://shining-stars-dashboard.onrender.com/api/v1/newsletter", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -38,7 +38,7 @@ const NewsLatterBox: React.FC = () => {
       } else {
         setLoading(false);
       }
-      router.push("/");
+      router.push("/whyshin");
     } catch (error) {
       console.error(error.message);
     } finally {
