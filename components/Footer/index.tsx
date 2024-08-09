@@ -161,11 +161,11 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href="/admission"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Academic Programs{" "}
+                      Apply Now{" "}
                     </Link>
                   </li>
                   <li>
@@ -251,11 +251,11 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link
-                      href="/"
+                      href="/admission"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Academic Programs{" "}
+                      Apply Now{" "}
                     </Link>
                     </li>
                     <li>
