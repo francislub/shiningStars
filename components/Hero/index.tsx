@@ -16,7 +16,7 @@ export const heroVid = [
   { type: 'video', src: "https://res.cloudinary.com/dfqmkufnq/video/upload/v1720035342/francis_f6ijfa.mp4" },
   { type: 'image', src: "/images/shi/grac.jpeg"},
   { type: 'image', src: "/images/shi/mdd.jpeg" },
-  { type: 'image', src: "/images/shi/tree.jpeg" }
+  { type: 'image', src: "/images/shi/cake.jpeg" }
 ];
 
 // Variants for hero content
