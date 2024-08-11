@@ -13,7 +13,7 @@ export const bgImage = "/images/shin/s.jpg";
 // export const heroVid = "https://res.cloudinary.com/dfqmkufnq/video/upload/v1720035342/francis_f6ijfa.mp4";
 
 export const heroVid = [
-  { type: 'video', src: "https://res.cloudinary.com/dfqmkufnq/video/upload/v1720035342/francis_f6ijfa.mp4" },
+  { type: 'video', src: "https://res.cloudinary.com/dytcuelfd/video/upload/v1723370373/SHINNING_STAR_ADVERT_FINAL_tmi84h.mp4" },
   { type: 'image', src: "/images/shi/grac.jpeg"},
   { type: 'image', src: "/images/shi/mdd.jpeg" },
   { type: 'image', src: "/images/shi/cake.jpeg" }
