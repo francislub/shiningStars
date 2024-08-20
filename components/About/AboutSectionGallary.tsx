@@ -133,6 +133,24 @@ const AboutSectionGallery = () => {
               </button>
             </Link>
           </div>
+
+          <div className="flex mx-2">
+            <Link href="https://photos.app.goo.gl/fVYcE9K1GW8f98Jp9">
+              <button className="bg-gray-700 text-white py-2 px-4 rounded-md shadow-lg hover:bg-blue-700 hover:cursor-pointer transition-colors duration-300 ease-in-out mt-6 lg:mt-12">
+                Explore More About Our Events
+              </button>
+            </Link>
+          </div>
+
+          <div className="flex mx-2">
+            <Link href="https://photos.app.goo.gl/cmdPf3JP5cstDoi77">
+              <button className="bg-gray-700 text-white py-2 px-4 rounded-md shadow-lg hover:bg-blue-700 hover:cursor-pointer transition-colors duration-300 ease-in-out mt-6 lg:mt-12">
+                Explore More About Our News
+              </button>
+            </Link>
+          </div>
+
+
           </div>
           
     </section>
