@@ -238,6 +238,15 @@ const Header = () => {
                         </span>
                       </Link>
                     </li>
+
+                    <li>
+                    <Link
+                        href="admission"
+                        className={`nav hover flex py-2 text-white font-bold bg-yellow-700 hover:bg-yellow-600 group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0 rounded-md`}
+                      >
+                        <span>Apply Now</span>
+                      </Link>
+                    </li>
                   </ul>
                 </nav>
               </div>
