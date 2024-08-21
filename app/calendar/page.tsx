@@ -62,7 +62,7 @@ export default function EventsPage() {
           pageName=""
           description=""
         />
-        <div className="pt-16">
+        <div className="pt-16 mb-20">
           <div className="max-w-md px-4 mx-auto sm:px-7 md:max-w-4xl md:px-6">
           <h1 className="text-2xl font-bold text-center mb-10">Shining Stars Calendar</h1>
           {/* <p className="mt-2 text-gray-600">
@@ -165,7 +165,7 @@ export default function EventsPage() {
                       <Activity activity={activity} key={activity.id} />
                     ))
                   ) : (
-                    <p>No activities scheduled for this day.</p>
+                    <p>No activities scheduled for this day at Shining Stars.</p>
                   )}
                 </ol>
               </section>
