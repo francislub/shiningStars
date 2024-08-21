@@ -50,11 +50,11 @@ const News = () => {
             </div>
           ))}
         </div>
-        <Link href="https://photos.app.goo.gl/cmdPf3JP5cstDoi77">
+        {/* <Link href="">
           <div className="bg-blue-300 text-white text-2xl font-bold p-4 rounded mb-10 lg:mb-2 w-full h-10 lg:15 flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-blue-600">
             <h1 className="animate-fade-in delay-500">Our previous News</h1>
           </div>
-        </Link>
+        </Link> */}
       </div>
     </section>
   );

@@ -78,13 +78,13 @@ const WhyHero = () => {
                 {/* On big screens */}
                 <motion.h2 className="head hidden md:block uppercase text-base font-medium !leading-relaxed text-gray-500/90 dark:text-white dark:opacity-90 sm:text-xl md:text-4xl" 
                 variants={textVariants}>
-                  Why Bugema
+                  Why Shining Stars
                 </motion.h2>
 
                 {/* On small screens */}
                 <motion.h2 className="head-sm md:hidden uppercase font-medium !leading-relaxed text-gray-500/90 dark:text-white dark:opacity-90 sm:text-xl text-xl md:text-4xl" 
                 variants={textVariants}>
-                  Why Bugema
+                  Why Shining Stars
                 </motion.h2>
 
                 {/* Buttons on big screens */}
@@ -195,7 +195,7 @@ const WhyHero = () => {
                 initial="initial" 
                 animate="animate"
               >
-                Why Bugema.
+                Why Shining Stars.
               </motion.div>
 
             </div>
