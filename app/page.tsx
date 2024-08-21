@@ -19,6 +19,7 @@ import Welcome from "@/components/Welcome/Welcome";
 import Events from "@/components/Events";
 import News from "@/components/News";
 import Whatsup from "@/components/whatsup/whatsup";
+import Calender from "@/components/calender/calender";
 
 
 
@@ -41,6 +42,7 @@ export default function Home() {
       {/* <Brands /> */}
       <Contact />
       <Whatsup />
+      <Calender />
       <ScrollToTop />
     </>
   );
