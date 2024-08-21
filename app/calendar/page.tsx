@@ -59,12 +59,15 @@ export default function EventsPage() {
     <>
       <div className="container mt-[100px] md:mt-[120px]">
         <Breadcrumb
-          pageName="Shining Stars Calendar"
-          description="The Shining Stars Calendar showing all school programs and activities for every term. 
-          "
+          pageName=""
+          description=""
         />
         <div className="pt-16">
           <div className="max-w-md px-4 mx-auto sm:px-7 md:max-w-4xl md:px-6">
+          <h1 className="text-2xl font-bold text-center mb-10">Shining Stars Calendar</h1>
+          {/* <p className="mt-2 text-gray-600">
+            The Shining Stars Calendar showing all school programs and activities for every term.
+          </p> */}
             <div className="md:grid md:grid-cols-2 md:divide-x md:divide-gray-200">
               <div className="md:pr-14">
                 <div className="flex items-center">
