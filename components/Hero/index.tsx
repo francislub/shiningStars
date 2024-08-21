@@ -127,7 +127,7 @@ const Hero = () => {
                   variants={textVariants}
                 >
                   <motion.div
-                    className="bg-black/50 border rounded py-1"
+                    className=" border rounded py-1"
                     variants={textVariants}
                     animate="scrollButton2"
                   >
