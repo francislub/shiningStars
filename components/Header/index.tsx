@@ -242,6 +242,8 @@ const Header = () => {
                     <li>
                     <Link
                         href="admission"
+                        target="_blank"  // Open link in a new tab
+                        rel="noopener noreferrer"  // Improve security when opening new tab
                         className={`nav hover flex py-2 text-white font-bold bg-yellow-700 hover:bg-yellow-600 group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0 rounded-md`}
                       >
                         <span>Apply Now</span>
