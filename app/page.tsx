@@ -20,6 +20,8 @@ import Events from "@/components/Events";
 import News from "@/components/News";
 import Whatsup from "@/components/whatsup/whatsup";
 import Calender from "@/components/calender/calender";
+import WebsiteShowcase from "@/components/Welcome/Wel";
+import FeatureShowcase from "@/components/Brands";
 
 
 
@@ -32,6 +34,7 @@ export default function Home() {
       <Hero />
       <BelowHero />
       <Welcome />
+      <WebsiteShowcase />
       <ExploreBugema />
       <Events />
       <News />
@@ -39,7 +42,7 @@ export default function Home() {
       <SchoolsPage />
       {/* <CampusNews /> */}
       {/* <Blog /> */}
-      {/* <Brands /> */}
+      <FeatureShowcase />
       <Contact />
       <Whatsup />
       <Calender />
