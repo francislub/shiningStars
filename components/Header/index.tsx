@@ -175,11 +175,25 @@ const Header = () => {
                   className={`navbar hidden lg:block absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100`}
                 >
                   <ul className="block lg:flex bg-transparent lg:space-x-8 top-0 left-0 h-full  text-black" >
+                  <li className="group relative">
+                      <Link
+                        href="/"
+                        className={`nav hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        onClick={close } onMouseEnter={close}
+                        >
+
+                        <span className={"hover:navlinks"}>
+                          Home
+                        </span>
+                        
+                      </Link>
+                    </li>
+
                     <li className="group relative">
                       <Link
                         href="."
-                        className={`nav hover ml-3 flex py-2 text-black text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onMouseEnter={first_modal}
+                        className={`nav cursor-pointer hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        onClick={first_modal}
 
                       >
                         <span className={showModel ? "active" : ""}>About Us</span>
@@ -192,8 +206,8 @@ const Header = () => {
                     <li>
                       <Link
                         href=""
-                        className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onMouseEnter={second_modal}
+                        className={`nav hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        onClick={second_modal}
                       >
                         <span className={showModel1 ? "active" : ""}>School life</span>
                         <span className="my-1 ml-2 dark:text-dark ">
@@ -202,25 +216,11 @@ const Header = () => {
                       </Link>
                     </li>
 
-
-
-                    {/* <li>
-                      <Link
-                        href=""
-                        className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onMouseEnter={third_modal}
-                      >
-                        <span className={showModel2 ? "active" : ""}>Others</span>
-                        <span className={"my-1 ml-2 dark:text-dark "}>
-                          <FaChevronDown className={showModel2 ? "drop" : ""} />
-                        </span>
-                      </Link>
-                    </li> */}
                     <li>
                       <Link
                         href=""
-                        className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onMouseEnter={forth_modal}
+                        className={`nav hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        onClick={forth_modal}
                       >
                         <span className={showModel3 ? "active" : ""}>Resources</span>
                         <span className="my-1 ml-2 dark:text-dark ">
@@ -234,11 +234,11 @@ const Header = () => {
                     <li>
                       <Link
                         href=""
-                        className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onMouseEnter={fifth_modal}
+                        className={`nav hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        onClick={fifth_modal}
                       >
                         <span className={showModel4 ? "active" : ""}>Contact Us</span>
-                        <span className="my-1 ml-2 text-dark ">
+                        <span className="my-1 ml-2 text-white ">
                           <FaChevronDown className={showModel4 ? "drop" : ""} />
                         </span>
                       </Link>

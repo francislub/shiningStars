@@ -10,37 +10,8 @@ interface SearchItem {
 
 const searchItems: SearchItem[] = [
   { title: "Home", link: "/" },
-  { title: "Admissions", link: "http://erms.bugemauniv.ac.ug/application" },
-  { title: "Financial Information", link: "https://www.bugemauniv.ac.ug/finances.pdf" },
-  { title: "Student Portal", link: "https://erms.bugemauniv.ac.ug/student/" },
-  { title: "Student Portal New Students", link: "https://erms.bugemauniv.ac.ug/student/login" },
-  { title: "Programs", link: "https://unche.or.ug/institution/bugema-university/" },
-  { title: "About Bugema", link: "https://www.bugemauniv.ac.ug/whybugema" },
-  { title: "Student Life", link: "https://www.bugemauniv.ac.ug/studentlife" },
-  { title: "E-Learning", link: "https://elearning.bugemauniv.ac.ug/" },
-  { title: "E-Library", link: "https://e-library.bugemauniv.ac.ug/" },
-  { title: "Library", link: "https://www.myloft.xyz/" },
-  { title: "Bulletin", link: "https://www.bugemauniv.ac.ug/docs/Bulletin.pdf" },
-  { title: "Nursing Fees Structure", link: "https://www.bugemauniv.ac.ug/docs/NUR.pdf" },
-  { title: "School of Graduate Studies", link: "https://www.bugemauniv.ac.ug/schools/school-of-graduate" },
-  { title: "School of Business", link: "https://www.bugemauniv.ac.ug/schools/school-of-business" },
-  { title: "School of Agriculture", link: "https://www.bugemauniv.ac.ug/schools/school-of-agric" },
-  { title: "School of Education", link: "https://www.bugemauniv.ac.ug/schools/school-of-education" },
-  { title: "School of Theology", link: "https://www.bugemauniv.ac.ug/schools/school-of-theology" },
-  { title: "School of Health Sciences", link: "https://www.bugemauniv.ac.ug/schools/school-of-health" },
-  { title: "School of Science And Technology", link: "https://www.bugemauniv.ac.ug/schools/school-of-science" },
+  // { title: "Admissions", link: "" },
 
-  { title: "work program", link: "https://www.bugemauniv.ac.ug/work_program" },
-  { title: "sports", link: "https://www.bugemauniv.ac.ug/sports/sports" },
-  { title: "religion", link: "https://www.bugemauniv.ac.ug/religious/religious" },
-  { title: "hospital", link: "https://www.bugemauniv.ac.ug/hospital" },
-  { title: "News", link: "https://www.bugemauniv.ac.ug/news" },
-  { title: "Events", link: "https://www.bugemauniv.ac.ug/events" },
-  { title: "agriculture", link: "https://www.bugemauniv.ac.ug/agriculture" },
-  // { title: "Research", link: "/research" },
-  // { title: "Campus Life", link: "/campus-life" },
-  // { title: "News & Events", link: "/news-events" },
-  // { title: "Contact", link: "/contact" },
 ];
 
 export const Search: React.FC = () => {
