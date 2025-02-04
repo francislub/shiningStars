@@ -3,7 +3,7 @@
 import React, { Children } from "react";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa6";
-import { BiPhoneCall } from "react-icons/bi";
+import { BiPhoneCall, BiX } from "react-icons/bi";
 import burundi from "../../public/images/shin/ear.jpg";
 import palm_girls from "../../public/images/shi/build.jpeg";
 import Image from "next/image";
@@ -144,11 +144,29 @@ const Model4 = ({ is4visible, onClose, children }) => {
   };
   return (
     <>
-      <div
-        className=" fade-in fixed z-40 inset-0 backdrop-blur-sm flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden bg-white"
-        id="wrapper"
-        onMouseLeave={onClose}
-      >
+      <div className=" fade-in fixed z-40 inset-0 backdrop-blur-sm flex ml-[5%] mt-[9%] w-[90%] h-[70%]  rounded-lg overflow-auto overflow-x-hidden bg-white" id="wrapper" onMouseLeave={onClose}  >                  
+                        <div className='flex ml-10 justify-center items-center'>
+                        <div className='flex '>
+                              <button 
+                                    style={{
+                                    borderRadius: '50%',
+                                    width: '30px',
+                                    height: '30px',
+                                    backgroundColor: 'black',
+                                    borderColor:'black',
+                                    color: 'white',
+                                    fontSize: '20px',
+                                    textAlign: 'center',
+                                    lineHeight: '30px',
+                                    position: 'absolute',
+                                    right: '70px',
+                                    top: '20px',
+                                    }}
+                                    onClick={onClose}>
+                                    <span className="text-white text-xl"><BiX className='text-3xl'/></span>
+                              </button>
+
+                        </div>
         <div id="programs">
           <div
             className="vertical-line ml-24 my-24 fade-in "
@@ -451,6 +469,7 @@ const Model4 = ({ is4visible, onClose, children }) => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
