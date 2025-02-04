@@ -249,7 +249,9 @@ const Header = () => {
                         href="admission"
                         target="_blank"  // Open link in a new tab
                         rel="noopener noreferrer"  // Improve security when opening new tab
-                        className={`nav hover flex py-2 text-white font-bold bg-yellow-700 hover:bg-yellow-600 group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0 rounded-md`}
+                        // className={`nav hover flex py-2 text-white font-bold bg-yellow-700 hover:bg-yellow-600 group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0 rounded-md`}
+                        className=" lg:mr-5 lg:inline-flex lg:py-6 lg:px-0 bg-blue-600 text-white px-6 py-1 rounded-full text-sm font-semibold hover:bg-blue-700 transition-colors duration-300"
+             
                       >
                         <span>Apply Now</span>
                       </Link>
