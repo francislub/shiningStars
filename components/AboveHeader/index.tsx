@@ -10,10 +10,9 @@ import { Search } from "./Search"
 import { useTypingEffect } from "@/utils/hooks"
 
 const statements = [
-  "Greetings from Bugema University",
-  "Get Your Admission Now",
-  "January Intake is Ongoing",
-  "Step Into Excellence",
+  "Welcome to shining Stars",
+  "Apply Now",
+  "Education is the key to success",
 ]
 
 const EnhancedNavbar: React.FC = () => {
@@ -35,21 +34,17 @@ const EnhancedNavbar: React.FC = () => {
               Calendar
             </AnimatedNavLink>
             <AnimatedNavLink href="https://elearning.bugemauniv.ac.ug/" icon={<RiComputerLine size={14} />}>
-              eLearning
+              Gallary 2024
             </AnimatedNavLink>
             <AnimatedNavLink href="https://erms.bugemauniv.ac.ug/buerms/default.aspx/" icon={<FaUserCircle size={14} />}>
-              StaffPortal
+              Gallary 2023
             </AnimatedNavLink>
-            <DropdownNavLink
-              items={[
-                { label: "Login", href: "https://erms.bugemauniv.ac.ug/student/login/" },
-                { label: "Register", href: "https://erms.bugemauniv.ac.ug/student/registration/" },
-              ]}
-            >
-              StudentsPortal
-            </DropdownNavLink>
+            <AnimatedNavLink href="https://erms.bugemauniv.ac.ug/buerms/default.aspx/" icon={<FaUserCircle size={14} />}>
+              Gallary 2023
+            </AnimatedNavLink>
+            
             <motion.a
-              href="https://erms.bugemauniv.ac.ug/application/"
+              href="admission"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue-600 text-white px-6 py-1 rounded-full text-sm font-semibold hover:bg-blue-700 transition-colors duration-300"
