@@ -54,7 +54,7 @@ The website will be accessible at [http://localhost:3000](http://localhost:3000)
 
 ## Contributing
 
-We welcome contributions from the community! If you want to contribute to the bugema university website, please follow these steps:
+We welcome contributions from the community! If you want to contribute to the Shining Stars website, please follow these steps:
 
 1. Fork the repository on GitHub.
 
