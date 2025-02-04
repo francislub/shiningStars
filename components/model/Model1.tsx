@@ -14,6 +14,7 @@ import woodball from "../../public/images/shin/volley2.jpg";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { BiX } from 'react-icons/bi';
 
 
 const Model1 = ({issvisible, onClose, children}) => {
@@ -161,9 +162,29 @@ const Foot = () =>{
   return (
       <>
         
-            <div className=" fade-in fixed z-40 inset-0 backdrop-blur-sm flex w-full h-4/5 my-24 overflow-auto overflow-x-hidden bg-white" id="wrapper" onMouseLeave={onClose}>
-                  
-                     
+        <div className=" fade-in fixed z-40 inset-0 backdrop-blur-sm flex ml-[5%] mt-[9%] w-[90%] h-[70%]  rounded-lg overflow-auto overflow-x-hidden bg-white" id="wrapper" onMouseLeave={onClose}  >                  
+                        <div className='flex ml-10 justify-center items-center'>
+                        <div className='flex '>
+                              <button 
+                                    style={{
+                                    borderRadius: '50%',
+                                    width: '30px',
+                                    height: '30px',
+                                    backgroundColor: 'black',
+                                    borderColor:'black',
+                                    color: 'white',
+                                    fontSize: '20px',
+                                    textAlign: 'center',
+                                    lineHeight: '30px',
+                                    position: 'absolute',
+                                    right: '70px',
+                                    top: '20px',
+                                    }}
+                                    onClick={onClose}>
+                                    <span className="text-white text-xl"><BiX className='text-3xl'/></span>
+                              </button>
+
+                        </div>
                   <div id="programs">
 
                         <div className="vertical-line ml-24 my-24 fade-in "  style={{marginLeft:'115px',marginTop:'25%'}}> 
@@ -529,6 +550,7 @@ const Foot = () =>{
                           
                   </div>
                   
+            </div>
             </div>
       </>
       
