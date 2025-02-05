@@ -152,16 +152,18 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href="/calender"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Music Dance And Drama{" "}
+                      Our Calender{" "}
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/admission"
+                      target="_blank"  // Open link in a new tab
+                      rel="noopener noreferrer"  // Improve security when opening new tab
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
@@ -242,11 +244,11 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link
-                      href="/"
+                      href="/calender"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Music Dance And Drama{" "}
+                      Our Calender{" "}
                     </Link>
                     </li>
                     <li>

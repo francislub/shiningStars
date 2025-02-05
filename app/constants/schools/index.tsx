@@ -55,9 +55,8 @@ export const ServiceData2 = [
     {
         icon: RxAccessibility,
         title: "RESEARCH",
-        content:"Bugema University re-recognised as Academic Centre of Excellence in Cyber Security Research (ACE-CSR)",
+        content:"Shining Stars re-recognised as Academic Centre of Excellence in Cyber Security Research (ACE-CSR)",
         backgroundImage: "/images/shin/s.jpg",
-        // cardlink: "https://www.bugemauniv.ac.ug/bursaries",
     },
     {
         icon: RxReader,
@@ -79,9 +78,8 @@ export const ServiceData3 = [
     {
         icon: RxPencil2,
         title: "RESEARCH",
-        content:"TFive ways Bugema University research is improving our food systems",
+        content:"TFive ways Shining Stars research is improving our food systems",
         backgroundImage: "/images/shin/s.jpg",
-        // cardlink: "https://www.bugemauniv.ac.ug/evangelism",
     },
     // {
     //     icon: RxDesktop,
@@ -134,7 +132,7 @@ export const ServiceData5 = [
     {
         icon: RxReader,
         title: "Admissions",
-        content:"Admissions for August Intake are currently ongoing at all campuses of Bugema University.",
+        content:"Admissions for August Intake are currently ongoing at all campuses of Shining Stars.",
         backgroundImage: "/images/shin/s.jpg",
         // cardlink: "https://www.bugemauniv.ac.ug/admissions",
     },

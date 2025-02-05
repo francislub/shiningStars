@@ -46,10 +46,10 @@ const Video = () => {
 
             <div className="hidden md:block">
             {/* <SectionTitle
-                  title="Explore Bugema University"
-                  paragraph="At Bugema University, we understand the importance of quality assurance. We have developed comprehensive self-regulating and self-maintaining procedures to ensure the highest standards of excellence in academic delivery and performance.
+                  title="Explore Shining Stars"
+                  paragraph="At Shining Stars, we understand the importance of quality assurance. We have developed comprehensive self-regulating and self-maintaining procedures to ensure the highest standards of excellence in academic delivery and performance.
 
-                  Join us at Bugema University, where education is embraced as a catalyst for empowerment and change. Experience an inclusive and enriching learning environment where equal opportunities, academic excellence, and a commitment to students' success define our core values. Together, we can shape a brighter future through education."
+                  Join us at Shining Stars, where education is embraced as a catalyst for empowerment and change. Experience an inclusive and enriching learning environment where equal opportunities, academic excellence, and a commitment to students' success define our core values. Together, we can shape a brighter future through education."
                   center
                   mb="50px"
             /> */}
@@ -58,8 +58,8 @@ const Video = () => {
             {/* Section Title on small screens 
             <div className="md:hidden block">
             <SectionTitle 
-                  title="Explore Bugema University"
-                  paragraph="Join us at Bugema University, where education is embraced as a catalyst for empowerment and change. Experience an inclusive and enriching learning environment where equal opportunities, academic excellence, and a commitment to students' success define our core values. Together, we can shape a brighter future through education."
+                  title="Explore Shining Stars"
+                  paragraph="Join us at Shining Stars, where education is embraced as a catalyst for empowerment and change. Experience an inclusive and enriching learning environment where equal opportunities, academic excellence, and a commitment to students' success define our core values. Together, we can shape a brighter future through education."
                   center
                   mb="50px"
             />
