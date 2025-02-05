@@ -137,7 +137,7 @@ const why_bugema = () =>{
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={payments}><span id='payments' className='animated'>Fees and Payments</span></h1> 
                               </div>
                               <div className="mr-2 my-5  slider slide--slower">
-                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold 'onClick={why_bugema} >  <span id='why_bugema' className='animated'> Why Bugema University </span></h1> 
+                                    <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold 'onClick={why_bugema} >  <span id='why_bugema' className='animated'> Why Bugema School </span></h1> 
                               </div>
                               <div className="mr-2 my-5 slider slide--slowest ">
                                     <h1  style={{color:'gray',fontSize: '25px',cursor:"pointer", marginRight:'5px'}} className='animated font-bold ' onClick={touch}> <span className='animated' id='contact'> Get in Touch </span></h1> 
@@ -410,7 +410,7 @@ const why_bugema = () =>{
                               </div>
                               <div className="ml-19 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
                                     <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Why Study at Bugema University <FaArrowRight className='arrow1'/></h1>
+                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Why Study at Bugema School <FaArrowRight className='arrow1'/></h1>
                                     </div>
                               </div> 
                               
@@ -461,18 +461,18 @@ const why_bugema = () =>{
                               </div>
                               <div className="ml-19 transform -skew-x-11 text-white grid-rows-2 fade-in " style={{marginTop:'-7%'}}>
                                     <div className='columns-1 bg-black slider-right slide--slow change-on-hover '>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Why Study at Bugema University <FaArrowRight className='arrow1'/></h1>
+                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"70px"}} className='arrow1'> Why Study at Bugema School <FaArrowRight className='arrow1'/></h1>
                                     </div>
                               </div> 
                               
                               <div className="ml-12 my-1 transform -skew-x-11 text-white grid-rows-2 " >
                                     <div className='columns-1 bg-black change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Why Study at Bugema University <FaArrowRight className='arrow2'/></h1>
+                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"80px"}} className='arrow2'> Why Study at Bugema School <FaArrowRight className='arrow2'/></h1>
                                     </div>
                               </div>  
                               <div className="ml-24 transform -skew-x-11 text-white grid-rows-2 " style={{borderRadius:'9px'}} >
                                     <div className='columns-1 bg-black slider slide--slow change-on-hover'>
-                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Why Study at Bugema University <FaArrowRight className='arrow3'/></h1>
+                                    <h1  style={{fontSize: '19px',cursor:"pointer",height:"90px"}} className='arrow3'> Why Study at Bugema School <FaArrowRight className='arrow3'/></h1>
                                     </div>
                               </div>
                         </div>

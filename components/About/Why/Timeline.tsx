@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 const timelineEvents = [
   {
     year: 1950,
-    title: "University Founded",
+    title: "School Founded",
     description: "Our institution was established with a vision to provide quality education.",
   },
   {
@@ -16,7 +16,7 @@ const timelineEvents = [
   {
     year: 2000,
     title: "International Expansion",
-    description: "Our university began welcoming students from around the globe, fostering a diverse community.",
+    description: "Our School began welcoming students from around the globe, fostering a diverse community.",
   },
   {
     year: 2020,
