@@ -35,14 +35,10 @@ export default function Welcome() {
 
             <div className="space-y-4 text-black">
               <p className="text-lg leading-relaxed">
-                At Shining Stars, we understand the importance of quality assurance. We have developed comprehensive
-                self-regulating and self-maintaining procedures to ensure the highest standards of excellence in
-                academic delivery and performance.
+                At Shining Stars, We believe that while what students know is important, the true measure of a students education is the ability to analyse what they do not know.
               </p>
               <p className="text-lg leading-relaxed">
-                Join us at Shining Stars, where education is embraced as a catalyst for empowerment and change.
-                Experience an inclusive and enriching learning environment where equal opportunities, academic
-                excellence, and a commitment to the success of the students define our core values.
+              The School emphasises a learner-centred approach to teaching and learning, whereby topics from different subject areas are taught and students’ prior knowledge and experiences are used to teach new content. Students are allowed to explore and use their environment to learn on their own through research, project work and related learner–centered methods of teaching and learning.
               </p>
             </div>
 
@@ -59,7 +55,7 @@ export default function Welcome() {
                 className="bg-blue-600 text-white px-6 py-1 rounded-full text-sm font-semibold hover:bg-blue-700 transition-colors duration-300"
               
               >
-                Explore More
+                <span>Explore More</span>
                 <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
