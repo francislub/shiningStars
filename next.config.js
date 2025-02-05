@@ -10,6 +10,10 @@ const nextConfig = {
         protocol: 'http',
         hostname: 'res.cloudinary.com',
       },
+      {
+        protocol: 'https', // Google Photos uses HTTPS
+        hostname: 'photos.google.com',
+      },
     ],
   },
 }

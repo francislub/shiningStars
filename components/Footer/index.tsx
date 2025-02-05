@@ -52,7 +52,7 @@ const Footer = () => {
                 </h1>
                 <div className="flex items-center justify-center">
                   <Link
-                    href="/https://www.facebook.com"
+                    href="https://www.facebook.com/muhumuza.hillary/"
                     aria-label="social-link"
                     className="mr-6 text-[#CED3F6] hover:text-primary"
                     // text-[#4d5fe6]
@@ -93,7 +93,7 @@ const Footer = () => {
                     </svg>
                   </Link>
                   <Link
-                    href="/https://www.linkedin.com"
+                    href="https://www.tiktok.com/@shining.stars.sch6?_t=8oN2mFeXmB4&_r=1"
                     aria-label="social-link"
                     className="mr-6 text-[#CED3F6] hover:text-primary"
                   >
@@ -161,11 +161,11 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href="/admission"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Academic Programs{" "}
+                      Apply Now{" "}
                     </Link>
                   </li>
                   <li>
@@ -174,7 +174,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Stuff{" "}
+                      Staff{" "}
                     </Link>
                   </li>
                   {/* <li>
@@ -251,11 +251,11 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link
-                      href="/"
+                      href="/admission"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Academic Programs{" "}
+                      Apply Now{" "}
                     </Link>
                     </li>
                     <li>
@@ -264,7 +264,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Stuff{" "}
+                      Staff{" "}
                     </Link>
                     </li>
                     {/* <li>
