@@ -4,7 +4,7 @@ import SectionTitle from '../Common/SectionTitle';
 const newsData = [
   {
     category: "Sports",
-    title: "Bugema University sports play a vital role in student life ............",
+    title: "Shining Stars sports play a vital role in student life ............",
     link: "/studentlife",
     imageSrc: "/images/life/sport.jpg",
     altText: "Image related to depression biotypes",
@@ -25,7 +25,7 @@ const newsData = [
   },
   {
     category: "Commencement 2024",
-    title: "‘You’re not a wave. You’re water,’ Melinda French tells Bugema University ’29th graduates",
+    title: "‘You’re not a wave. You’re water,’ Melinda French tells Shining Stars ’29th graduates",
     link: "/",
     imageSrc: "/images/shin/s.jpg",
     altText: "Melinda French Gates delivers Commencement address",
@@ -53,7 +53,7 @@ const CampusNews: React.FC = () => {
             <div className="hidden md:block">
           <SectionTitle
             title="Students Life"
-            paragraph="At Bugema University, student life goes beyond the classroom. 
+            paragraph="At Shining Stars, student life goes beyond the classroom. 
             Our vibrant campus community offers a diverse range of activities, organizations, 
             and resources designed to support your personal growth, leadership development, and overall well-being."
             center
@@ -64,8 +64,8 @@ const CampusNews: React.FC = () => {
         {/* Section Title on small screens */}
         <div className="md:hidden block">
           <SectionTitle 
-            title="Explore Bugema University"
-            paragraph="Join us at Bugema University, where education is embraced as a catalyst for empowerment and change. Experience an inclusive and enriching learning environment where equal opportunities, academic excellence, and a commitment to students' success define our core values. Together, we can shape a brighter future through education."
+            title="Explore Shining Stars"
+            paragraph="Join us at Shining Stars, where education is embraced as a catalyst for empowerment and change. Experience an inclusive and enriching learning environment where equal opportunities, academic excellence, and a commitment to students' success define our core values. Together, we can shape a brighter future through education."
             center
             mb="50px"
           />

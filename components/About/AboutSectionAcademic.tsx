@@ -56,7 +56,7 @@ const AboutSectionAcademic = () => {
           >
             <Image
               src={image}
-              alt="Bugema University"
+              alt="Shining Stars"
               className="w-[500px] "
             />
           </div>

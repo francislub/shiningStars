@@ -99,11 +99,11 @@ const Features = () => {
                   ? img2
                   : img1
               }
-              alt="Bugema University"
+              alt="Shining Stars"
               width="600"
               height="250"
             />
-            {/* <Image className="img1" src={img1} alt="Bugema University" width="600" height="150"/> */}
+            {/* <Image className="img1" src={img1} alt="Shining Stars" width="600" height="150"/> */}
             </div>
           </div>
 
@@ -130,7 +130,7 @@ const Features = () => {
               {/* Title and subtitle container */}
               <div className="px-4">
                 <p className="text-base !leading-relaxed text-body-color md:text-lg">
-                  Studying at Bugema University
+                  Studying at Shining Stars
                 </p>
                 <h2 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px]">
                   No matter how far you have come, you can always go further.
@@ -199,11 +199,11 @@ const Features = () => {
                   ? im1
                   : im
               }
-              alt="Bugema University"
+              alt="Shining Stars"
               width="600"
               height="150"
             />
-          {/* <Image className="img1" src={img1} alt="Bugema University" width="600" height="150"/> */}
+          {/* <Image className="img1" src={img1} alt="Shining Stars" width="600" height="150"/> */}
           </div>
           <div className="triangle-top-right" ></div>
           <div className="triangle-bottom-left" ></div>

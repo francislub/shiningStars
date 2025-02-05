@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import AboutSectionSix from "@/components/About/AboutSectionSix";
-import AboutSectionSeven from "@/components/About/AboutSectionSeven";
+import AboutSectionSeven from "@/components/About/Why/AboutSectionSeven";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 // import WhyHero from "@/components/WhyHero";
 // import backgroundImage from "../../public/images/features/int.jpg";
