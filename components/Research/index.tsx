@@ -21,8 +21,8 @@ const ResearchSection: React.FC = () => {
         {/* Section Title on small screens */}
         <div className="md:hidden block">
           <SectionTitle 
-            title="Explore Bugema University"
-            paragraph="Join us at Bugema University, where education is embraced as a catalyst for empowerment and change. Experience an inclusive and enriching learning environment where equal opportunities, academic excellence, and a commitment to students' success define our core values. Together, we can shape a brighter future through education."
+            title="Explore Shining Stars"
+            paragraph="Join us at Shining Stars, where education is embraced as a catalyst for empowerment and change. Experience an inclusive and enriching learning environment where equal opportunities, academic excellence, and a commitment to students' success define our core values. Together, we can shape a brighter future through education."
             center
             mb="50px"
           />

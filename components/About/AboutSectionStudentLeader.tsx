@@ -22,7 +22,7 @@ const AboutSectionStudentLeader = () => {
           >
             <Image
               src={image}
-              alt="Bugema University"
+              alt="Shining Stars"
               className="w-[500px] h-[300px]"
             />
           </div>
@@ -57,7 +57,7 @@ const AboutSectionStudentLeader = () => {
           >
             <Image
               src={image}
-              alt="Bugema University"
+              alt="Shining Stars"
               className="w-[500px]"
             />
           </div>
