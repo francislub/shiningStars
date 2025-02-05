@@ -65,7 +65,7 @@ const AboutSectionGallery = () => {
                   A matter of debate.
                 </h3>
                 <p className="mb-4 text-base text-gray-600 dark:text-gray-300">
-                  Join the debating society at Bugema University.
+                  Join the debating society at Shining Stars.
                 </p> */}
                 {/* <button className="px-6 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                   Bugema Debating Union
@@ -84,7 +84,7 @@ const AboutSectionGallery = () => {
                   A matter of debate.
                 </h3>
                 <p className="mb-4 text-base text-gray-600 dark:text-gray-300">
-                  Join the debating society at Bugema University.
+                  Join the debating society at Shining Stars.
                 </p> */}
                 {/* <button className="px-6 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                   Bugema Debating Union
@@ -103,7 +103,7 @@ const AboutSectionGallery = () => {
                   A matter of debate.
                 </h3>
                 <p className="mb-4 text-base text-gray-600 dark:text-gray-300">
-                  Join the debating society at Bugema University.
+                  Join the debating society at Shining Stars.
                 </p> */}
                 {/* <button className="px-6 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                   Bugema Debating Union

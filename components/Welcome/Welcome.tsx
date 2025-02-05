@@ -1,109 +1,75 @@
-import SectionTitle from "../Common/SectionTitle";
-import Image from "next/image";
-import img1 from "../../public/images/shin/hm.png";
+"use client"
 
-import React, { useState } from "react";
-import Link from "next/link";
-import { FaArrowRight } from "react-icons/fa";
+import Image from "next/image"
+import Link from "next/link"
+import { FaArrowRight } from "react-icons/fa"
 export const img = "/images/shin/hm.png";
-const Welcome = () => {
+
+export default function Welcome() {
   return (
-    <>
-      <section id="features" className="bg-primary/[.03] pt-8 -mt-5">
-        <div className="container mt-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-60">
-            <div className="flex flex-col mt-10 ">
-              {/* Section title on big screens */}
-              <div className=" mb-8 hidden md:flex md:flex-col">
-                <div className="ml-12 wow fadeInUp w-full" data-wow-delay=".1s">
-                  <h2 className="mb-2 font-bold !leading-tight text-black/80 dark:text-white md:text-xl">
-                    You Are Welcome To
-                  </h2>
-                  <h1 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px]">
-                    Shining Stars
-                  </h1>
-                  <p className="text-base !leading-relaxed md:text-lg">
-                    At Shining Stars, we understand the importance of
-                    quality assurance. We have developed comprehensive
-                    self-regulating and self-maintaining procedures to ensure
-                    the highest standards of excellence in academic delivery and
-                    performance. <br />
-                    <br /> Join us at Shining Stars, where education is
-                    embraced as a catalyst for empowerment and change.
-                    Experience an inclusive and enriching learning environment
-                    where equal opportunities, academic excellence, and a
-                    commitment to the success of the students define our core
-                    values. Together, we can shape a brighter future through
-                    education.
-                  </p>
-                </div>
-
-                <div className="bg-primary hover:bg-primary/90 duration-300 rounded-md py-1 px-3 md:py-2 md:px-4 ml-12 mt-4 w-[170px] transition-all hover:scale-105">
-                  <Link
-                    href="/whyshin"
-                    className="text-base font-semibold text-white"
-                  >
-                    <span className="flex items-center gap-2 justify-center">
-                      Explore More
-                      <FaArrowRight />
-                    </span>
-                  </Link>
-                </div>
-              </div>
-
-              {/* Section title on small screens */}
-              <div className="mb-8 block md:hidden text-sm">
-                <div className="wow fadeInUp w-full" data-wow-delay=".1s">
-                  <h1 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl">
-                    You Are Welcome
-                  </h1>
-                  <div className="">
-                    <Image
-                      className="img1 mb-2 rounded"
-                      src={img}
-                      alt="Shining Stars"
-                      width="600"
-                      height="250"
-                    />
-                  </div>
-                  <p className="text-base !leading-relaxed md:text-lg">
-                    Join us at Shining Stars, where education is embraced as
-                    a catalyst for empowerment and change. Experience an
-                    inclusive and enriching learning environment where equal
-                    opportunities, academic excellence, and a commitment to the
-                    success of the students define our core values. Together, we
-                    can shape a brighter future through education.
-                  </p>
-                </div>
-
-                <div className="bg-primary rounded-md py-1 px-3 mt-4 w-[170px]">
-                  <Link
-                    href="/whyshin"
-                    className="text-base font-semibold text-white "
-                  >
-                    <span className="flex items-center gap-2 justify-center">
-                      Explore More
-                      <FaArrowRight />
-                    </span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="">
+    <section className="min-h-screen relative bg-gradient-to-br from-blue-950 to-purple-900 py-16 mt-[60px] lg:mt-[50px]">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left side - Image */}
+          <div className="relative">
+            <div className="relative w-full aspect-square max-w-[400px] mx-auto">
+              <div className="absolute inset-0 rounded-full border-4 border-blue-400/30 animate-pulse" />
+              <div className="absolute inset-2 rounded-full border-2 border-blue-300/20" />
               <Image
-                className="img1 hidden md:block mt-28 rounded"
                 src={img}
-                alt="Shining Stars"
-                width={500}
-                height={245}
+                alt="Shining Stars Education"
+                width={600}
+                height={250}
+                className="rounded-full w-full h-full object-cover"
+                priority
               />
             </div>
           </div>
-        </div>
-      </section>
-    </>
-  );
-};
 
-export default Welcome;
+          {/* Right side - Content */}
+          <div className="text-white space-y-6">
+            <div className="space-y-2">
+              <h2 className="text-blue-300 text-xl font-medium">You Are Welcome To</h2>
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Shining Stars</h1>
+            </div>
+
+            <div className="space-y-4 text-gray-200">
+              <p className="text-lg leading-relaxed">
+                At Shining Stars, we understand the importance of quality assurance. We have developed comprehensive
+                self-regulating and self-maintaining procedures to ensure the highest standards of excellence in
+                academic delivery and performance.
+              </p>
+              <p className="text-lg leading-relaxed">
+                Join us at Shining Stars, where education is embraced as a catalyst for empowerment and change.
+                Experience an inclusive and enriching learning environment where equal opportunities, academic
+                excellence, and a commitment to the success of the students define our core values.
+              </p>
+            </div>
+
+            <div className="flex gap-4 pt-6">
+              <Link
+                href="/our-work"
+                className="inline-flex items-center justify-center px-6 py-3 bg-violet-600 hover:bg-violet-700 
+                transition-colors rounded-full text-white font-medium"
+              >
+                Our Work
+              </Link>
+              <Link
+                href="/whyshin"
+                className="inline-flex items-center justify-center px-6 py-3 border-2 border-white/20 
+                hover:bg-white/10 transition-colors rounded-full text-white font-medium group"
+              >
+                Explore More
+                <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-grid-white/[0.02] -z-10" />
+    </section>
+  )
+}
+

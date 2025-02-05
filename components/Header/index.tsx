@@ -125,14 +125,21 @@ const Header = () => {
         
   return (
     <>
-      <header className={`hidden md:flex header top-0 left-0 z-40 w-full items-center  mt-[-8px] ${
+      <header
+        // className={`hidden md:flex header top-0 left-0 z-40 w-full items-center  mt-[-8px] ${
+        //   sticky
+        //     ? " bg-dark !fixed !z-[9999] ! bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100"
+        //     : "absolute"
+        // }`}
+        className={`hidden md:flex header left-0 z-40 w-full items-center ${
           sticky
-            ? " bg-dark !fixed !z-[9999] ! bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition dark:! dark:!bg-opacity-100"
-            : "absolute"
-        }`}>
+            ? "bg-dark text-white top-0 !fixed !z-[9999] bg-opacity-100 shadow-sticky backdrop-blur-sm fade-in !transition"
+            : "absolute top-12 bg-gradient-to-b from-black  text-white"
+        }`}
+      >
         <div className="container">
           <div className="relative flex items-center justify-between">
-           <div className="w-30 relative z-10">
+           <div className="w-12 relative z-10">
                 <Link href="/" className={`header-logo block w-full ${sticky ? "py-2 lg:py-2" : "py-3"}`}>
                     <Image 
                         src={image} 
@@ -150,7 +157,7 @@ const Header = () => {
                     />
                 </Link>
             </div>
-            <div className="flex space-x-20 justify-between transform bg-white">
+            <div className="flex space-x-20 justify-between transform bg-transparent">
               <div>
 
               <button
@@ -165,16 +172,28 @@ const Header = () => {
                 
                 <nav
                   id="navbarCollapse"
-                  className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-dark lg:p-0 lg:opacity-100 ${
-                    navbarOpen ? "top-full opacity-100 right-0" : "top-[120%] opacity-0 right-[-250px]"
-                  }`}
+                  className={`navbar hidden lg:block absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-primary py-4 px-6 duration-300 ease-out transition-transform transform dark:border-body-color/20 dark:bg-white lg:visible lg:static lg:w-auto lg:border-none lg:bg-transparent lg:p-0 lg:opacity-100`}
                 >
-                  <ul className="block lg:flex bg-white lg:space-x-8 top-0 left-0 h-full  text-black">
+                  <ul className="block lg:flex bg-transparent lg:space-x-8 top-0 left-0 h-full  text-black" >
+                  <li className="group relative">
+                      <Link
+                        href="/"
+                        className={`nav hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        onClick={close } onMouseEnter={close}
+                        >
+
+                        <span className={"hover:navlinks"}>
+                          Home
+                        </span>
+                        
+                      </Link>
+                    </li>
+
                     <li className="group relative">
                       <Link
                         href="."
-                        className={`nav hover ml-3 flex py-2 text-black text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onMouseEnter={first_modal}
+                        className={`nav cursor-pointer hover ml-3 flex py-2 text-white text-md  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        onClick={first_modal}
 
                       >
                         <span className={showModel ? "active" : ""}>About Us</span>
@@ -187,8 +206,8 @@ const Header = () => {
                     <li>
                       <Link
                         href=""
-                        className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onMouseEnter={second_modal}
+                        className={`nav hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        onClick={second_modal}
                       >
                         <span className={showModel1 ? "active" : ""}>School life</span>
                         <span className="my-1 ml-2 dark:text-dark ">
@@ -197,25 +216,11 @@ const Header = () => {
                       </Link>
                     </li>
 
-
-
-                    {/* <li>
-                      <Link
-                        href=""
-                        className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onMouseEnter={third_modal}
-                      >
-                        <span className={showModel2 ? "active" : ""}>Others</span>
-                        <span className={"my-1 ml-2 dark:text-dark "}>
-                          <FaChevronDown className={showModel2 ? "drop" : ""} />
-                        </span>
-                      </Link>
-                    </li> */}
                     <li>
                       <Link
                         href=""
-                        className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onMouseEnter={forth_modal}
+                        className={`nav hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        onClick={forth_modal}
                       >
                         <span className={showModel3 ? "active" : ""}>Resources</span>
                         <span className="my-1 ml-2 dark:text-dark ">
@@ -229,11 +234,11 @@ const Header = () => {
                     <li>
                       <Link
                         href=""
-                        className={`nav hover flex py-2  text-black  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
-                        onMouseEnter={fifth_modal}
+                        className={`nav hover flex py-2  text-white  font-bold group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0`}
+                        onClick={fifth_modal}
                       >
                         <span className={showModel4 ? "active" : ""}>Contact Us</span>
-                        <span className="my-1 ml-2 text-dark ">
+                        <span className="my-1 ml-2 text-white ">
                           <FaChevronDown className={showModel4 ? "drop" : ""} />
                         </span>
                       </Link>
@@ -242,7 +247,11 @@ const Header = () => {
                     <li>
                     <Link
                         href="admission"
-                        className={`nav hover flex py-2 text-white font-bold bg-yellow-700 hover:bg-yellow-600 group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0 rounded-md`}
+                        target="_blank"  // Open link in a new tab
+                        rel="noopener noreferrer"  // Improve security when opening new tab
+                        // className={`nav hover flex py-2 text-white font-bold bg-yellow-700 hover:bg-yellow-600 group-hover:opacity-70 lg:mr-5 lg:inline-flex lg:py-6 lg:px-0 rounded-md`}
+                        className=" lg:mr-5 lg:inline-flex lg:py-6 lg:px-0 bg-blue-600 text-white px-6 py-1 rounded-full text-sm font-semibold hover:bg-blue-700 transition-colors duration-300"
+             
                       >
                         <span>Apply Now</span>
                       </Link>
