@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SectionTitle from "../Common/SectionTitle";
 import SingleEvent from "./SingleEvent";
+import Link from "next/link";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
@@ -49,6 +50,12 @@ const Events = () => {
             </div>
           ))}
         </div>
+        {/* <Link href="https://photos.app.goo.gl/fVYcE9K1GW8f98Jp9">
+          <div className="bg-blue-300 text-white text-2xl font-bold p-4 rounded mb-10 lg:mb-2 w-full h-10 lg:15 flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-blue-600">
+            <h1 className="animate-fade-in delay-500">Our previous Events</h1>
+          </div>
+        </Link> */}
+
       </div>
     </section>
   );

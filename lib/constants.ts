@@ -1,0 +1,111 @@
+export const activities = [
+  {
+    id: 1,
+    title: "Staff Reporting Back For Duty",
+    startDatetime: "2024-09-02",
+    endDatetime: "2024-09-02",
+  },
+  {
+    id: 2,
+    title: "Opening of term III",
+    startDatetime: "2024-09-9",
+    endDatetime: "2024-09-09",
+  },
+  {
+    id: 3,
+    title: "BOT III",
+    startDatetime: "2024-09-16",
+    endDatetime: "2024-09-17",
+  },
+  {
+    id: 4,
+    title:
+      "Mid Term III",
+    startDatetime: "2024-10-11",
+    endDatetime: "2024-10-15",
+  },
+  {
+    id: 5,
+    title: "Sports Day/Reports",
+    startDatetime: "2024-10-19",
+    endDatetime: "2024-10-19",
+  },
+  {
+    id: 6,
+    title: "Closing Of Term III",
+    startDatetime: "2024-11-29",
+    endDatetime: "2024-11-29",
+  },
+  // {
+  //   id: 7,
+  //   title: "Arrival of Continuing Students",
+  //   startDatetime: "2024-08-11",
+  //   endDatetime: "2024-08-11",
+  // },
+  // {
+  //   id: 8,
+  //   title: "Classes Begin for all Students/Late Registration",
+  //   startDatetime: "2024-08-19",
+  //   endDatetime: "2024-08-19",
+  // },
+  // {
+  //   id: 9,
+  //   title: "Closing of Normal Registration",
+  //   startDatetime: "2024-08-28",
+  //   endDatetime: "2024-08-28",
+  // },
+  // {
+  //   id: 10,
+  //   title: "In-service Non-theological Majors",
+  //   startDatetime: "2024-08-25",
+  //   endDatetime: "2024-09-13",
+  // },
+  // {
+  //   id: 11,
+  //   title: "Clearance Deadline for Graduation 2024",
+  //   startDatetime: "2024-09-28",
+  //   endDatetime: "2024-09-28",
+  // },
+  // {
+  //   id: 12,
+  //   title: "Mid-semester Exams for Regular Students",
+  //   startDatetime: "2024-10-07",
+  //   endDatetime: "2024-10-11",
+  // },
+  // {
+  //   id: 13,
+  //   title: "In-service Pastors",
+  //   startDatetime: "2024-11-01",
+  //   endDatetime: "2024-12-13",
+  // },
+  // {
+  //   id: 14,
+  //   title: "In-service Non-theological Majors",
+  //   startDatetime: "2024-12-8",
+  //   endDatetime: "2024-12-24",
+  // },
+  // {
+  //   id: 15,
+  //   title: "30th Graduation Ceremony",
+  //   startDatetime: "2024-11-10",
+  //   endDatetime: "2024-11-10",
+  // },
+  // {
+  //   id: 16,
+  //   title: "Week of Spiritual Emphasis",
+  //   startDatetime: "2024-11-11",
+  //   endDatetime: "2024-11-16",
+  // },
+  // {
+  //   id: 17,
+  //   title: "Final Exams for Regular Students",
+  //   startDatetime: "2024-11-25",
+  //   endDatetime: "2024-12-13",
+  // },
+  // {
+  //   id: 18,
+  //   title: "End of Semester 1, 2024/2025",
+  //   startDatetime: "2024-12-16",
+  //   endDatetime: "2024-12-16",
+  // },
+];

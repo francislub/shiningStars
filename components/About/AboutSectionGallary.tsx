@@ -10,7 +10,7 @@ import basketd from "../../public/images/shi/mdgd.jpeg";
 import grad from "../../public/images/shi/schoo.jpeg";
 
 const AboutSectionGallery = () => {
- 
+
   return (
     <section className="py-16 md:py-20 lg:py-28">
       <div className="container -mb-20">
@@ -50,15 +50,7 @@ const AboutSectionGallery = () => {
                   alt="about image 1"
                   className="w-full h-auto"
                 />
-                {/* <h3 className="mb-5 mt-3 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-                  A matter of debate.
-                </h3>
-                <p className="mb-4 text-base text-gray-600 dark:text-gray-300">
-                  Join the debating society at Bugema University.
-                </p> */}
-                {/* <button className="px-6 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                  Bugema Debating Union
-                </button> */}
+                
               </div>
             </div>
 
@@ -126,13 +118,41 @@ const AboutSectionGallery = () => {
       <h3 className="mt-10 lg:-mt-20 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-4xl text-center">
             Get more Photos
           </h3>
-          <div className="flex justify-center">
+          <div className="flex flex-wrap -mx-4 justify-center">
+          <div className="flex mx-2">
             <Link href="https://photos.google.com/share/AF1QipM3aWmWdnZT28nqVVjQPo3KNfKz0NIjkF7Od8Ap73blWXzz-Pz1CHERvhnHC8zjcg?key=QWxpUkNxNW5BTHZCMDE3czEzMXpIWkFLWE9LUFpB">
               <button className="bg-gray-700 text-white py-2 px-4 rounded-md shadow-lg hover:bg-blue-700 hover:cursor-pointer transition-colors duration-300 ease-in-out mt-6 lg:mt-12">
-                Explore More Photos
+                Explore More Entebbe Zoo
               </button>
             </Link>
           </div>
+          <div className="flex mx-2">
+            <Link href="https://photos.google.com/share/AF1QipOVrV6OjflOoHvuTC7w95KycHlXb-uQH0fV2w_dHJX7cBX0vsuJ1L9SQ_rYuzNgPg?key=cjBTMWxTN2tiNS1NVUx6VkVOeEZfWktLOG5wMFBB">
+              <button className="bg-gray-700 text-white py-2 px-4 rounded-md shadow-lg hover:bg-blue-700 hover:cursor-pointer transition-colors duration-300 ease-in-out mt-6 lg:mt-12">
+                Explore More About Tour 2024
+              </button>
+            </Link>
+          </div>
+
+          <div className="flex mx-2">
+            <Link href="https://photos.app.goo.gl/fVYcE9K1GW8f98Jp9">
+              <button className="bg-gray-700 text-white py-2 px-4 rounded-md shadow-lg hover:bg-blue-700 hover:cursor-pointer transition-colors duration-300 ease-in-out mt-6 lg:mt-12">
+                Explore More About Our Events
+              </button>
+            </Link>
+          </div>
+
+          <div className="flex mx-2">
+            <Link href="https://photos.app.goo.gl/cmdPf3JP5cstDoi77">
+              <button className="bg-gray-700 text-white py-2 px-4 rounded-md shadow-lg hover:bg-blue-700 hover:cursor-pointer transition-colors duration-300 ease-in-out mt-6 lg:mt-12">
+                Explore More About Our News
+              </button>
+            </Link>
+          </div>
+
+
+          </div>
+          
     </section>
   );
 };
