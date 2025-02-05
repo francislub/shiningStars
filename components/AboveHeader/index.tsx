@@ -184,7 +184,7 @@ const MobileMenu: React.FC<{ closeMenu: () => void }> = ({ closeMenu }) => (
         <SocialIcon href="https://twitter.com/UnivBugema" icon={<FaTwitch size={14} />} />
         <SocialIcon href="https://www.tiktok.com/@BugemaUniv" icon={<FaTiktok size={14} />} />
         <SocialIcon href="https://www.linkedin.com" icon={<FaLinkedinIn size={14} />} />
-        <SocialIcon href="https://youtube.com/@bugemauniversity3502" icon={<FaYoutube size={14} />} />
+        <SocialIcon href="https://youtube.com/@bugemaSchool3502" icon={<FaYoutube size={14} />} />
       </div>
     </nav>
   </motion.div>
