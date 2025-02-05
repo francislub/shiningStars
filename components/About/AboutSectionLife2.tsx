@@ -46,7 +46,7 @@ const AboutSectionLife2 = () => {
             <div className="w-full px-4 lg:w-3/5 flex flex-col bg-green-200">
               <div className="wow fadeInUp relative mx-auto lg:m-0" data-wow-delay=".15s">
                 <p className="mb-4 text-base text-gray-600">
-                  At Shining Stars, sports play a vital role in student life. From soccer and basketball to volleyball and athletics, students have numerous opportunities to engage in physical activities and competitions. The university&#39;s sports facilities are top-notch, providing a conducive environment for both recreational and competitive sports. Participating in sports not only helps students stay fit but also fosters teamwork, discipline, and leadership skills. Whether you&#39;re a seasoned athlete or just looking to stay active, Shining Stars offers something for everyone.
+                  At Shining Stars, sports play a vital role in student life. From soccer and basketball to volleyball and athletics, students have numerous opportunities to engage in physical activities and competitions. The School&#39;s sports facilities are top-notch, providing a conducive environment for both recreational and competitive sports. Participating in sports not only helps students stay fit but also fosters teamwork, discipline, and leadership skills. Whether you&#39;re a seasoned athlete or just looking to stay active, Shining Stars offers something for everyone.
      
                 </p>
               </div>
@@ -236,7 +236,7 @@ const AboutSectionLife2 = () => {
             <div className="w-full px-4 lg:w-3/5 flex flex-col bg-green-200">
               <div className="wow fadeInUp relative mx-auto lg:m-0" data-wow-delay=".15s">
                 <p className="mb-4 text-base text-gray-600">
-                  At Shining Stars, sports play a vital role in student life. From soccer and basketball to volleyball and athletics, students have numerous opportunities to engage in physical activities and competitions. The university&#39;s sports facilities are top-notch, providing a conducive environment for both recreational and competitive sports. Participating in sports not only helps students stay fit but also fosters teamwork, discipline, and leadership skills. Whether you&#39;re a seasoned athlete or just looking to stay active, Shining Stars offers something for everyone.
+                  At Shining Stars, sports play a vital role in student life. From soccer and basketball to volleyball and athletics, students have numerous opportunities to engage in physical activities and competitions. The School&#39;s sports facilities are top-notch, providing a conducive environment for both recreational and competitive sports. Participating in sports not only helps students stay fit but also fosters teamwork, discipline, and leadership skills. Whether you&#39;re a seasoned athlete or just looking to stay active, Shining Stars offers something for everyone.
      
                 </p>
               </div>

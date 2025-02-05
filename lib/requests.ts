@@ -25,7 +25,7 @@ export async function getBlogName() {
 export async function getPosts({ first = 9, pageParam = "" }: GetPostsArgs) {
   const query = gql`
     query Publication {
-    publication(host: "bugemauniversity.hashnode.dev") {
+    publication(host: "bugemaSchool.hashnode.dev") {
       isTeam
       title
       posts(first: 3) {

@@ -66,7 +66,7 @@ const Hero = () => {
     <>
       <section
         id="home"
-        className="hero-section w-full lg:h-[800px] relative z-10 hidden sm:block"
+        className="hero-section w-full lg:h-[800px] relative z-10 "
       >
 
         {/* <HeroVideo src={heroVid} /> */}
@@ -87,10 +87,10 @@ const Hero = () => {
         /> */}
       </section>
 
+      {/* On small screens */}
       <div className="container px-4 mt-[100px] mb-[50px] w-full h-full">
         <div className="flex flex-wrap justify-center md:justify-between">
           <div className="w-full px-4 md:w-2/3">
-            {/* Content */}
             <motion.div
               className="text-center md:text-left space-y-4 md:space-y-8 mx-auto max-w-[800px] fadeInUp"
               data-wow-delay=".2s"
@@ -99,7 +99,7 @@ const Hero = () => {
               animate="animate"
             >
 
-              {/* On small screens */}
+              
               <motion.h2
                 className="md:hidden uppercase font-medium leading-relaxed text-gray-500/70 dark:text-white dark:opacity-90 sm:text-xl text-2xl"
                 variants={textVariants}
@@ -107,7 +107,6 @@ const Hero = () => {
                 Shining Stars
               </motion.h2>
 
-              {/* Motto on small screens */}
               <motion.h1
                 className="md:hidden capitalize text-3xl sm:text-4xl font-bold leading-tight text-black/70 dark:text-primary sm:leading-tight md:text-5xl md:leading-tight"
                 variants={textVariants}
@@ -116,12 +115,10 @@ const Hero = () => {
                 
               </motion.h1>
 
-              {/* Buttons on small screens */}
               <motion.div
                 className="md:hidden flex flex-col items-center justify-center space-y-4"
                 variants={textVariants}
               >
-                {/* Apply now button */}
                 <motion.div
                   className="flex hover:scale-105 transition-all duration-300 space-y-6 flex-col items-center "
                   variants={textVariants}
@@ -135,8 +132,8 @@ const Hero = () => {
                   </motion.div>
                   <Link
                     href="/admission"
-                    target="_blank"  // Open link in a new tab
-                    rel="noopener noreferrer"  // Improve security when opening new tab
+                    target="_blank"  
+                    rel="noopener noreferrer"  
                     className="flex rounded-md bg-primary dark:bg-primary/60 py-2 px-4  text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
                   >
                     Apply Now
@@ -144,7 +141,6 @@ const Hero = () => {
                   </Link>
                 </motion.div>
 
-                {/* Learn more button */}
                 <motion.div
                   className="flex hover:scale-105 transition-all duration-300 flex-col text-center items-center justify-center"
                   variants={textVariants}
