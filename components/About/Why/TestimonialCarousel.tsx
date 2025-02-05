@@ -10,7 +10,7 @@ const testimonials = [
     name: "John Doe",
     role: "Alumni",
     quote:
-      "My time at this university was transformative. The professors and resources available helped shape my career.",
+      "My time at this School was transformative. The professors and resources available helped shape my career.",
     image: "/images/testimonial1.jpg",
   },
   {

@@ -11,7 +11,6 @@ import accommodation from "@/public/images/shi/build.jpeg"
 import health from "@/public/images/shin/stu.jpg"
 import religion from "@/public/images/shin/stu.jpg"
 import feeding from "@/public/images/shin/stuf.jpg"
-import HeroSection from "./HeroSection"
 import FloatingNav from "./FloatingNav"
 import Timeline from "./Timeline"
 import TestimonialCarousel from "./TestimonialCarousel"
@@ -29,7 +28,7 @@ const features = [
   {
     title: "Sports",
     description:
-      "The university treasures the quality of its products, and for that reason, we hire quality and experienced lecturers to train and produce the best for our students. Our lecturers are associated with industry enterprises which helps them get the market experience that they instil in our students. Research is a core role for our lecturers to keep producing relevant knowledge for the market.",
+      "The School treasures the quality of its products, and for that reason, we hire quality and experienced lecturers to train and produce the best for our students. Our lecturers are associated with industry enterprises which helps them get the market experience that they instil in our students. Research is a core role for our lecturers to keep producing relevant knowledge for the market.",
     image: sports,
     link: "/studentlife",
   },
@@ -50,7 +49,7 @@ const features = [
   {
     title: "Religion",
     description:
-      "We understand the importance of holistic development and the role of spirituality in our students' lives. We provide a nurturing environment that fosters personal growth and offers opportunities for spiritual enrichment. Our university offers worship services and spaces that cater to diverse religious and spiritual needs. Students can engage in prayer, meditation, and other spiritual activities to promote a sense of community, mindfulness, and well-being.",
+      "We understand the importance of holistic development and the role of spirituality in our students' lives. We provide a nurturing environment that fosters personal growth and offers opportunities for spiritual enrichment. Our School offers worship services and spaces that cater to diverse religious and spiritual needs. Students can engage in prayer, meditation, and other spiritual activities to promote a sense of community, mindfulness, and well-being.",
     image: religion,
     link: "/religion",
   },
