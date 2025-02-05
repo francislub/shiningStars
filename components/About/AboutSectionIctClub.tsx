@@ -47,7 +47,7 @@ const AboutSectionIctClub = () => {
             </h3>
            <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
               <div className="flex-1">
-              <p className="">The university treasures the quality of it&apos;s products, and for that reason, we hire the quality and experienced lecturers to train and produce the quality for our students. Our lecturers are associated with industry enterprises which helps them get the market experience that they instil in our students. Research is a core role for our lecturers to keep producing relevant knowledge for the market.</p>
+              <p className="">The School treasures the quality of it&apos;s products, and for that reason, we hire the quality and experienced lecturers to train and produce the quality for our students. Our lecturers are associated with industry enterprises which helps them get the market experience that they instil in our students. Research is a core role for our lecturers to keep producing relevant knowledge for the market.</p>
               
               </div>
             </div>
