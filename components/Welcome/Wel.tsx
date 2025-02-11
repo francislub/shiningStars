@@ -116,7 +116,7 @@ export default function WebsiteShowcase() {
               className="space-y-8"
             >
               <div className="inline-block">
-                <h1 className="text-5xl font-bold text-white relative">
+                <h1 className="text-2xl lg:text-4xl font-bold text-white relative">
                   <motion.span
                     className="relative z-10 inline-block"
                     initial={{ opacity: 0, y: 20 }}
