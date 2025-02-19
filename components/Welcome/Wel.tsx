@@ -8,28 +8,28 @@ import Image from "next/image"
 const showcaseItems = [
   {
     id: 1,
-    title: "Primary school websites",
+    title: "Our School Director",
     description: "Website solutions for all budgets",
     subtext: "Select from our range of website options and design packages to suit any school budget.",
     image: "/images/shi/drrr.jpeg",
   },
   {
     id: 2,
-    title: "Secondary school websites",
+    title: "Our Teaching Staff",
     description: "Engaging digital platforms",
     subtext: "Create an impressive online presence that reflects your school's values and achievements.",
     image: "/images/shi/drrx.jpeg",
   },
   {
     id: 3,
-    title: "College websites",
+    title: "Our Administrators",
     description: "Advanced educational platforms",
     subtext: "Modern solutions for higher education institutions with advanced features and integrations.",
     image: "/images/shi/dr.jpeg",
   },
   {
     id: 4,
-    title: "Learning Management",
+    title: "Pupils Life",
     description: "Complete LMS solutions",
     subtext: "Comprehensive learning management systems for educational institutions of all sizes.",
     image: "/images/shi/gradz.jpeg",
@@ -116,7 +116,7 @@ export default function WebsiteShowcase() {
               className="space-y-8"
             >
               <div className="inline-block">
-                <h1 className="text-5xl font-bold text-white relative">
+                <h1 className="text-2xl lg:text-4xl font-bold text-white relative">
                   <motion.span
                     className="relative z-10 inline-block"
                     initial={{ opacity: 0, y: 20 }}

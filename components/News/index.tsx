@@ -39,7 +39,7 @@ const News = () => {
 
         {error && <p className="text-red-500 text-center mb-8">Error: {error}</p>}
 
-        <div className="space-y-8 mb-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {news.map((post) => (
             <div key={post.id} className="w-full">
               <SingleNews post={post} />
@@ -48,7 +48,7 @@ const News = () => {
         </div>
 
         <div className="text-center">
-          <Link href="/all-news" passHref>
+          <Link href="/news" passHref>
             <div className="inline-block bg-blue-500 text-white font-semibold py-2 px-6 rounded-lg hover:bg-blue-600 transition-colors duration-300">
               View More
             </div>
