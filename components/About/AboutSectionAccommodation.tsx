@@ -1,71 +1,102 @@
-import Image from "next/image";
-import { BookOpenIcon } from '@heroicons/react/solid';
-import { GlobeAltIcon } from '@heroicons/react/solid';
-import { StarIcon } from '@heroicons/react/solid';
-import { EyeIcon } from '@heroicons/react/solid';
+import Image from "next/image"
+import { HomeIcon, ShieldCheckIcon, UserGroupIcon, WifiIcon } from "@heroicons/react/solid"
 
-import image from "../../public/images/shi/car.jpeg";
-import imaga from "../../public/images/shi/cara.jpeg";
+import dormImage from "../../public/images/shi/car.jpeg"
+import facilitiesImage from "../../public/images/shi/cara.jpeg"
 
-
-const AboutSectionAcademic = () => {
+const AboutSectionAccommodation = () => {
   return (
-    <section className="py-16 md:py-20 lg:py-28">
+    <section className="py-16 md:py-20 lg:py-28 bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-gray-800 dark:text-white mb-16">
+          Comfortable and Safe Student Accommodation
+        </h2>
 
-    <div className="container -mb-20">
-        <h3 className="mt-4 -mt-20 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-4xl text-center">
-           Excellence in research, teaching, and medical care
-        </h3>
-        <div className="flex flex-col lg:flex-row items-center gap-10 -mb-8">
-          <div
-            className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
-            data-wow-delay=".15s" 
-          >
+        <div className="flex flex-col lg:flex-row items-center gap-12 mb-20">
+          <div className="lg:w-1/2 wow fadeInLeft" data-wow-delay=".15s">
             <Image
-              src={image}
-              alt="Shining Stars Building"
-              className="w-[500px] h-[300px] lg:mt-12 -mb-10"
+              src={dormImage || "/placeholder.svg"}
+              alt="Student Dormitories"
+              className="rounded-lg shadow-xl transition-transform duration-300 hover:scale-105"
+              width={600}
+              height={400}
             />
           </div>
-          <div className="w-full px-2 lg:w-1/2 h-[500px] lg:h-[300px] mt-4 lg:-mt-20 bg-green-200">
-            <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-            ......................
+          <div className="lg:w-1/2 wow fadeInRight" data-wow-delay=".2s">
+            <h3 className="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-white mb-6">
+              Modern and Comfortable Dormitories
             </h3>
-           <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
-              <div className="flex-1">
-              <p className=""> We offer a number of professional courses across our faculties. The Department of Computing and Technology offers certifications from CISCO like CCNA, CCNP, and from Microsoft, the department provides MCSE, MCSA. The School of Business prepares students for CPA and other accounting professional courses. Our Nursing students are assessed by the Uganda Nurses And Midwifery Examination Board (UNMEB).
-              </p>
-              </div>
+            <p className="text-gray-600 dark:text-gray-300 mb-6">
+              Our school offers state-of-the-art dormitories designed to provide a comfortable and conducive living
+              environment for students. Each room is furnished with essential amenities, including study desks,
+              comfortable beds, and ample storage space. We prioritize creating a home away from home for our students,
+              ensuring they have a peaceful place to rest and study.
+            </p>
+            <div className="flex items-center text-blue-600 dark:text-blue-400">
+              <HomeIcon className="w-6 h-6 mr-2" />
+              <span className="font-semibold">Explore Our Dormitories</span>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-center gap-10 -mt-20 ">
-          <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5 bg-green-200">
-            <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-            ........
+        <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
+          <div className="lg:w-1/2 wow fadeInRight" data-wow-delay=".15s">
+            <Image
+              src={facilitiesImage || "/placeholder.svg"}
+              alt="Accommodation Facilities"
+              className="rounded-lg shadow-xl transition-transform duration-300 hover:scale-105"
+              width={600}
+              height={400}
+            />
+          </div>
+          <div className="lg:w-1/2 wow fadeInLeft" data-wow-delay=".2s">
+            <h3 className="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-white mb-6">
+              Comprehensive Facilities and Services
             </h3>
-           <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
-              <div className="flex-1">
-              <p className="">The School treasures the quality of it&apos;s products, and for that reason, we hire the quality and experienced lecturers to train and produce the quality for our students. Our lecturers are associated with industry enterprises which helps them get the market experience that they instil in our students. Research is a core role for our lecturers to keep producing relevant knowledge for the market.</p>
-              
-              </div>
+            <p className="text-gray-600 dark:text-gray-300 mb-6">
+              Our accommodation facilities go beyond just providing a place to sleep. We offer a range of services and
+              amenities to enhance student life, including common areas for socializing, quiet study spaces, laundry
+              facilities, and high-speed internet access throughout the premises. Our goal is to create a supportive
+              community that fosters academic success and personal growth.
+            </p>
+            <div className="flex items-center text-green-600 dark:text-green-400">
+              <UserGroupIcon className="w-6 h-6 mr-2" />
+              <span className="font-semibold">Learn About Our Community</span>
             </div>
           </div>
-          <div
-            className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
-            data-wow-delay=".15s" 
-          >
-            <Image
-              src={imaga}
-              alt="Shining Stars Building"
-              className="w-[500px]"
-            />
+        </div>
+
+        <div className="mt-20 text-center">
+          <h3 className="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-white mb-8">
+            Our Commitment to Student Comfort and Safety
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="wow fadeInUp" data-wow-delay=".1s">
+              <ShieldCheckIcon className="w-12 h-12 mx-auto text-blue-500 mb-4" />
+              <h4 className="text-xl font-semibold mb-2">24/7 Security</h4>
+              <p className="text-gray-600 dark:text-gray-300">Round-the-clock surveillance and security personnel</p>
+            </div>
+            <div className="wow fadeInUp" data-wow-delay=".2s">
+              <WifiIcon className="w-12 h-12 mx-auto text-green-500 mb-4" />
+              <h4 className="text-xl font-semibold mb-2">High-Speed Internet</h4>
+              <p className="text-gray-600 dark:text-gray-300">Seamless connectivity for studies and leisure</p>
+            </div>
+            <div className="wow fadeInUp" data-wow-delay=".3s">
+              <UserGroupIcon className="w-12 h-12 mx-auto text-yellow-500 mb-4" />
+              <h4 className="text-xl font-semibold mb-2">Community Events</h4>
+              <p className="text-gray-600 dark:text-gray-300">Regular activities to foster student bonding</p>
+            </div>
+            <div className="wow fadeInUp" data-wow-delay=".4s">
+              <HomeIcon className="w-12 h-12 mx-auto text-purple-500 mb-4" />
+              <h4 className="text-xl font-semibold mb-2">Maintenance Support</h4>
+              <p className="text-gray-600 dark:text-gray-300">Quick response to accommodation-related issues</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default AboutSectionAcademic;
+export default AboutSectionAccommodation
+
