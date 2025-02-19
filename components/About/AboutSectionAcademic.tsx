@@ -6,10 +6,10 @@ import { Book, Globe, Star, GraduationCap, Users, Award, Library } from "lucide-
 
 export default function AboutSectionAcademic() {
   const stats = [
-    { icon: <GraduationCap className="w-6 h-6" />, label: "Professional Courses", value: "15+" },
-    { icon: <Users className="w-6 h-6" />, label: "Expert Lecturers", value: "50+" },
-    { icon: <Award className="w-6 h-6" />, label: "Certifications", value: "20+" },
-    { icon: <Library className="w-6 h-6" />, label: "Research Papers", value: "100+" },
+    { icon: <GraduationCap className="w-6 h-6" />, label: "Subjects", value: "15+" },
+    { icon: <Users className="w-6 h-6" />, label: "Expert Teachers", value: "25+" },
+    { icon: <Award className="w-6 h-6" />, label: "Sports Activities", value: "10+" },
+    { icon: <Library className="w-6 h-6" />, label: "Buildings", value: "9+" },
   ]
 
   return (
@@ -21,7 +21,7 @@ export default function AboutSectionAcademic() {
           transition={{ duration: 0.5 }}
           className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-16"
         >
-          Excellence in Research, Teaching, and Medical Care
+          Excellence in Teaching, and Medical Care
         </motion.h2>
 
         {/* Stats Section */}
