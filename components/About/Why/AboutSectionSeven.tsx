@@ -3,7 +3,8 @@
 import { useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { motion, useScroll, useTransform } from "framer-motion"
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
+import { ArrowRight } from "lucide-react"
 
 import academic from "@/public/images/shi/name.jpeg"
 import sports from "@/public/images/shi/mddx.jpeg"
@@ -12,8 +13,6 @@ import health from "@/public/images/shin/stu.jpg"
 import religion from "@/public/images/shin/stu.jpg"
 import feeding from "@/public/images/shin/stuf.jpg"
 import FloatingNav from "./FloatingNav"
-import Timeline from "./Timeline"
-import TestimonialCarousel from "./TestimonialCarousel"
 import StatisticsSection from "./StatisticsSection"
 import CallToAction from "./CallToAction"
 
@@ -62,8 +61,9 @@ const features = [
   },
 ]
 
-const AboutSectionSeven = () => {
+const AdvancedAboutSection = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activeFeature, setActiveFeature] = useState(0)
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -76,9 +76,9 @@ const AboutSectionSeven = () => {
   return (
     <>
       <FloatingNav isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
-      <section ref={ref} className="py-16 md:py-20 lg:py-28 overflow-hidden">
+      <section ref={ref} className="py-16 md:py-20 lg:py-28 overflow-hidden bg-gradient-to-b from-white to-gray-100">
         <motion.div
-          className="fixed inset-0 z-[-1]"
+          className="fixed inset-0 z-[-1] opacity-10"
           style={{
             backgroundImage: "url('/images/background-pattern.svg')",
             backgroundPosition: "center",
@@ -98,14 +98,12 @@ const AboutSectionSeven = () => {
           </motion.h2>
 
           <div className="space-y-32">
-            {features.map((feature, index) => (
-              <FeatureSection key={index} feature={feature} index={index} />
-            ))}
+            <FeatureSelector features={features} activeFeature={activeFeature} setActiveFeature={setActiveFeature} />
+            <AnimatePresence mode="wait">
+              <FeatureSection key={activeFeature} feature={features[activeFeature]} />
+            </AnimatePresence>
           </div>
         </div>
-
-        <Timeline />
-        <TestimonialCarousel />
         <StatisticsSection />
         <CallToAction />
       </section>
@@ -113,16 +111,34 @@ const AboutSectionSeven = () => {
   )
 }
 
-const FeatureSection = ({ feature, index }) => {
-  const isEven = index % 2 === 0
+const FeatureSelector = ({ features, activeFeature, setActiveFeature }) => {
+  return (
+    <div className="flex flex-wrap justify-center gap-4">
+      {features.map((feature, index) => (
+        <motion.button
+          key={index}
+          className={`px-6 py-3 rounded-full text-sm font-semibold transition-colors ${
+            activeFeature === index ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+          }`}
+          onClick={() => setActiveFeature(index)}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          {feature.title}
+        </motion.button>
+      ))}
+    </div>
+  )
+}
 
+const FeatureSection = ({ feature }) => {
   return (
     <motion.div
-      className={`flex flex-col ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-10`}
+      className="flex flex-col lg:flex-row items-center gap-10"
       initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true, amount: 0.3 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -50 }}
+      transition={{ duration: 0.5 }}
     >
       <motion.div className="lg:w-1/2" whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300 }}>
         <Image
@@ -130,25 +146,42 @@ const FeatureSection = ({ feature, index }) => {
           alt={feature.title}
           width={500}
           height={300}
-          className="rounded-lg shadow-2xl"
+          className="rounded-lg shadow-2xl object-cover w-full h-[300px]"
         />
       </motion.div>
       <div className="lg:w-1/2 space-y-6">
-        <h3 className="text-3xl font-bold text-gray-800">{feature.title}</h3>
-        <p className="text-gray-600 leading-relaxed">{feature.description}</p>
-        <Link href={feature.link}>
-          <motion.button
-            className="bg-blue-600 text-white py-3 px-6 rounded-full font-semibold shadow-lg"
-            whileHover={{ scale: 1.05, backgroundColor: "#2563EB" }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Explore more
-          </motion.button>
-        </Link>
+        <motion.h3
+          className="text-3xl font-bold text-gray-800"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          {feature.title}
+        </motion.h3>
+        <motion.p
+          className="text-gray-600 leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          {feature.description}
+        </motion.p>
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
+          <Link href={feature.link}>
+            <motion.button
+              className="group bg-blue-600 text-white py-3 px-6 rounded-full font-semibold shadow-lg flex items-center gap-2"
+              whileHover={{ scale: 1.05, backgroundColor: "#2563EB" }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Explore more
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </motion.button>
+          </Link>
+        </motion.div>
       </div>
     </motion.div>
   )
 }
 
-export default AboutSectionSeven
+export default AdvancedAboutSection
 

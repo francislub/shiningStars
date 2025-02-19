@@ -44,7 +44,7 @@ export default function Welcome() {
 
             <div className="flex gap-4 pt-6">
               <Link
-                href="/our-work"
+                href="/school-content"
                 className="inline-flex items-center justify-center px-6 py-3 bg-violet-600 hover:bg-lime-600 
                 transition-colors rounded-full text-black font-medium"
               >
