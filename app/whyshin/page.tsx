@@ -5,6 +5,7 @@ import Image from "next/image";
 import AboutSectionSix from "@/components/About/AboutSectionSix";
 import AboutSectionSeven from "@/components/About/Why/AboutSectionSeven";
 import Breadcrumb from "@/components/Common/Breadcrumb";
+import Mission from "@/components/About/Mission/Mission";
 // import WhyHero from "@/components/WhyHero";
 // import backgroundImage from "../../public/images/features/int.jpg";
 
@@ -19,6 +20,7 @@ const AboutPage = () => {
         "
       />
       {/* <AboutSectionSix /> */}
+      <Mission />
       <AboutSectionSeven />
     </>
   );
