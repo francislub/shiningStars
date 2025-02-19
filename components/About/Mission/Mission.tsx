@@ -39,7 +39,7 @@ export default function Mission() {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 z-0" />
         <div className="max-w-6xl mx-auto px-4 py-20 relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold text-center mb-8">
-            Nurturing Tomorrow's
+            Nurturing Tomorrows
             <span className="text-blue-600"> Stars</span>
           </h1>
           <p className="text-center text-gray-600 max-w-2xl mx-auto text-lg">
