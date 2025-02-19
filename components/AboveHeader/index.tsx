@@ -33,13 +33,13 @@ const EnhancedNavbar: React.FC = () => {
             <AnimatedNavLink href="/calendar" icon={<FaCalendarAlt size={14} />}>
               Calendar
             </AnimatedNavLink>
-            <AnimatedNavLink href="https://elearning.bugemauniv.ac.ug/" icon={<RiComputerLine size={14} />}>
+            <AnimatedNavLink href="https://photos.google.com/share/AF1QipM3aWmWdnZT28nqVVjQPo3KNfKz0NIjkF7Od8Ap73blWXzz-Pz1CHERvhnHC8zjcg?key=QWxpUkNxNW5BTHZCMDE3czEzMXpIWkFLWE9LUFpB" icon={<RiComputerLine size={14} />}>
+              Gallary Zoo
+            </AnimatedNavLink>
+            <AnimatedNavLink href="https://photos.google.com/share/AF1QipOVrV6OjflOoHvuTC7w95KycHlXb-uQH0fV2w_dHJX7cBX0vsuJ1L9SQ_rYuzNgPg?key=cjBTMWxTN2tiNS1NVUx6VkVOeEZfWktLOG5wMFBB" icon={<FaUserCircle size={14} />}>
               Gallary 2024
             </AnimatedNavLink>
-            <AnimatedNavLink href="https://erms.bugemauniv.ac.ug/buerms/default.aspx/" icon={<FaUserCircle size={14} />}>
-              Gallary 2023
-            </AnimatedNavLink>
-            <AnimatedNavLink href="https://erms.bugemauniv.ac.ug/buerms/default.aspx/" icon={<FaUserCircle size={14} />}>
+            <AnimatedNavLink href="https://photos.app.goo.gl/fVYcE9K1GW8f98Jp9" icon={<FaUserCircle size={14} />}>
               Gallary 2023
             </AnimatedNavLink>
             
@@ -57,10 +57,10 @@ const EnhancedNavbar: React.FC = () => {
 
           {/* Social Media Icons */}
           <div className="hidden lg:flex items-center space-x-2">
-            <SocialIcon href="https://facebook.com" icon={<FaFacebookF size={14} />} />
+            <SocialIcon href="https://www.facebook.com/muhumuza.hillary/" icon={<FaFacebookF size={14} />} />
             <SocialIcon href="https://twitter.com" icon={<FaTwitter size={14} />} />
             <SocialIcon href="https://instagram.com" icon={<FaInstagram size={14} />} />
-            <SocialIcon href="https://linkedin.com" icon={<FaLinkedinIn size={14} />} />
+            <SocialIcon href="https://shining-stars.vercel.app/" icon={<FaLinkedinIn size={14} />} />
           </div>
 
           {/* Mobile Navigation */}
