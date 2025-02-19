@@ -5,10 +5,10 @@ import { useInView } from "react-intersection-observer"
 import { useState, useEffect } from "react"
 
 const stats = [
-  { label: "Students", value: 15000 },
-  { label: "Faculty Members", value: 1000 },
-  { label: "Research Papers", value: 5000 },
-  { label: "Alumni", value: 100000 },
+  { label: "Pupils", value: 35000 },
+  { label: "Teaching Staff", value: 25 },
+  { label: "Non Teaching Staff", value: 15 },
+  { label: "Administrators", value: 6 },
 ]
 
 const StatisticsSection = () => {
@@ -18,7 +18,7 @@ const StatisticsSection = () => {
   })
 
   return (
-    <div ref={ref} className="bg-gray-900 text-white py-16">
+    <div ref={ref} className="bg-gray-900 text-white py-16 lg:mt-[50px]">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">School by the Numbers</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -70,7 +70,7 @@ const AnimatedCounter = ({ value }) => {
   return (
     <span ref={ref} className="text-4xl font-bold">
       {count}
-      {value.toString().length > 3 && "k+"}
+      {value.toString().length > 3 }
     </span>
   )
 }
