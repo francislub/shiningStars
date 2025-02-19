@@ -28,7 +28,7 @@ export default function SchoolContentOne() {
       </div>
 
       {activeSection === "anthem" ? (
-        <div className="space-y-8">
+        <div className="space-y-8 mb-[60px]">
           <div className="text-center">
             <h1 className="text-2xl font-bold mb-6 flex items-center justify-center gap-2">
               <Star className="h-6 w-6 text-yellow-500" />
@@ -38,7 +38,7 @@ export default function SchoolContentOne() {
             <h2 className="text-xl font-semibold mb-8">SCHOOL ANTHEM</h2>
           </div>
 
-          <div className="space-y-8 text-center max-w-2xl mx-auto">
+          <div className="space-y-8 text-center max-w-2xl mx-auto ">
             <div className="space-y-2">
               <p>Shining stars the source of wisdom</p>
               <p>Honoring our talents to achieve all the best</p>
@@ -62,7 +62,7 @@ export default function SchoolContentOne() {
           </div>
         </div>
       ) : (
-        <div className="space-y-6">
+        <div className="space-y-6 mb-[60px]">
           <h1 className="text-2xl font-bold mb-6">SCHOOL RULES AND REGULATIONS</h1>
 
           <ul className="space-y-4 list-disc pl-6">
