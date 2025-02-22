@@ -1,71 +1,122 @@
-import Image from "next/image";
-import { BookOpenIcon } from '@heroicons/react/solid';
-import { GlobeAltIcon } from '@heroicons/react/solid';
-import { StarIcon } from '@heroicons/react/solid';
-import { EyeIcon } from '@heroicons/react/solid';
+
+import Image from "next/image"
+import { Laptop, Code, Globe, Users, Lightbulb, Rocket } from "lucide-react"
 
 import image from "../../public/images/shin/car.jpg";
 import imaga from "../../public/images/shin/buila.jpg";
 
-
 const AboutSectionIctClub = () => {
-  return (
-    <section className="py-16 md:py-20 lg:py-28">
+  const activities = [
+    {
+      icon: <Code className="w-6 h-6 text-blue-500" />,
+      title: "Coding Workshops",
+      description: "Learn programming basics and create your own projects",
+    },
+    {
+      icon: <Globe className="w-6 h-6 text-green-500" />,
+      title: "Web Design",
+      description: "Discover the art of creating attractive and functional websites",
+    },
+    {
+      icon: <Laptop className="w-6 h-6 text-purple-500" />,
+      title: "Digital Literacy",
+      description: "Enhance your computer skills and online safety knowledge",
+    },
+    {
+      icon: <Rocket className="w-6 h-6 text-red-500" />,
+      title: "Tech Innovations",
+      description: "Explore cutting-edge technologies and their applications",
+    },
+  ]
 
-    <div className="container -mb-20">
-        <h3 className=" -mt-20 text-xl font-bold text-black dark:text-white sm:text-3xl lg:text-xl xl:text-4xl text-center">
-           Excellence in research, teaching, and medical care
-        </h3>
-        <div className="flex flex-col lg:flex-row items-center gap-10 -mb-8">
-          <div
-            className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
-            data-wow-delay=".15s" 
-          >
-            <Image
+  return (
+    <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
+      <div className="container mx-auto px-4">
+        <h1 className="text-3xl font-bold text-center text-blue-800 dark:text-white sm:text-4xl lg:text-5xl mb-8">
+          ICT Club at Shining Stars Primary School
+        </h1>
+        <p className="text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12">
+          Empowering young minds with technology skills for the future
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+          <div className="space-y-6">
+            <h2 className="text-2xl font-semibold text-gray-800 dark:text-white">Discover the World of Technology</h2>
+            <p className="text-gray-600 dark:text-gray-300">
+              Our ICT Club offers students a unique opportunity to explore the exciting world of technology. Through
+              hands-on projects, interactive workshops, and expert guidance, we nurture the next generation of tech
+              innovators.
+            </p>
+            <ul className="space-y-2">
+              {activities.map((activity, index) => (
+                <li key={index} className="flex items-center space-x-3">
+                  {activity.icon}
+                  <span className="text-gray-700 dark:text-gray-200">{activity.title}</span>
+                </li>
+              ))}
+            </ul>
+            <button className="px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors">
+              Join the ICT Club
+            </button>
+          </div>
+          <div className="relative h-[400px] rounded-lg overflow-hidden shadow-lg">
+          <Image
               src={image}
               alt="Shining Stars Building"
-              className="w-[500px] h-[300px] lg:mt-12 -mb-10"
+              layout="fill"
+              objectFit="cover"
+              className="w-[500px] lg:mt-12 -mb-10 rounded-lg"
             />
-          </div>
-          <div className="w-full px-2 lg:w-1/2 h-[500px] lg:h-[300px] mt-4 lg:-mt-20 bg-green-200">
-            <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-           ICT
-            </h3>
-           <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
-              <div className="flex-1">
-              <p className=""> We offer a number of professional courses across our faculties. The Department of Computing and Technology offers certifications from CISCO like CCNA, CCNP, and from Microsoft, the department provides MCSE, MCSA. The School of Business prepares students for CPA and other accounting professional courses. Our Nursing students are assessed by the Uganda Nurses And Midwifery Examination Board (UNMEB).
-              </p>
-              </div>
-            </div>
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-center gap-10 -mt-20">
-          <div className="w-full px-2 lg:w-1/2 h-[500px] mt-5 bg-green-200">
-            <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
-            ICT CLUBS
-            </h3>
-           <div className="wow fadeInUp flex space-x-6" data-wow-delay=".2s">
-              <div className="flex-1">
-              <p className="">The School treasures the quality of it&apos;s products, and for that reason, we hire the quality and experienced lecturers to train and produce the quality for our students. Our lecturers are associated with industry enterprises which helps them get the market experience that they instil in our students. Research is a core role for our lecturers to keep producing relevant knowledge for the market.</p>
-              
-              </div>
-            </div>
-          </div>
-          <div
-            className="wow h-[500px] fadeInUp relative mx-auto text-center lg:m-0 transition-transform duration-300 hover:scale-105 cursor-pointer"
-            data-wow-delay=".15s" 
-          >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="order-2 md:order-1 relative h-[400px] rounded-lg overflow-hidden shadow-lg">
+           
             <Image
               src={imaga}
               alt="Shining Stars Building"
-              className="w-[500px] lg:mt-12 -mb-10"
+              layout="fill"
+              objectFit="cover"
+              className="w-[500px] lg:mt-12 -mb-10 rounded-lg"
             />
+          </div>
+          <div className="order-1 md:order-2 space-y-6">
+            <h2 className="text-2xl font-semibold text-blue-800 dark:text-white">Why Join Our ICT Club?</h2>
+            <ul className="space-y-4">
+              {[
+                {
+                  icon: <Lightbulb className="w-6 h-6 text-yellow-500" />,
+                  title: "Spark Creativity",
+                  description: "Unleash your imagination through technology-driven projects",
+                },
+                {
+                  icon: <Users className="w-6 h-6 text-indigo-500" />,
+                  title: "Build Friendships",
+                  description: "Connect with like-minded peers who share your passion for tech",
+                },
+                {
+                  icon: <Rocket className="w-6 h-6 text-red-500" />,
+                  title: "Prepare for the Future",
+                  description: "Gain valuable skills that will benefit you in your academic and professional life",
+                },
+              ].map((item, index) => (
+                <li key={index} className="flex items-start space-x-3">
+                  <div className="mt-1">{item.icon}</div>
+                  <div>
+                    <h3 className="font-semibold text-gray-800 dark:text-white">{item.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default AboutSectionIctClub;
+export default AboutSectionIctClub
+
+
