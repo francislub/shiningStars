@@ -32,7 +32,7 @@ const AboutSectionIctClub = () => {
   return (
     <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4">
-        <h1 className="text-3xl font-bold text-center text-blue-800 dark:text-white sm:text-4xl lg:text-5xl mb-8">
+        <h1 className="text-3xl font-bold text-center text-blue-500 sm:text-4xl lg:text-5xl mb-8">
           ICT Club at Shining Stars Primary School
         </h1>
         <p className="text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12">
@@ -41,7 +41,7 @@ const AboutSectionIctClub = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-gray-800 dark:text-white">Discover the World of Technology</h2>
+            <h2 className="text-2xl font-semibold text-blue-500">Discover the World of Technology</h2>
             <p className="text-gray-600 dark:text-gray-300">
               Our ICT Club offers students a unique opportunity to explore the exciting world of technology. Through
               hands-on projects, interactive workshops, and expert guidance, we nurture the next generation of tech
@@ -82,7 +82,7 @@ const AboutSectionIctClub = () => {
             />
           </div>
           <div className="order-1 md:order-2 space-y-6">
-            <h2 className="text-2xl font-semibold text-blue-800 dark:text-white">Why Join Our ICT Club?</h2>
+            <h2 className="text-2xl font-semibold text-blue-500">Why Join Our ICT Club?</h2>
             <ul className="space-y-4">
               {[
                 {
@@ -104,7 +104,7 @@ const AboutSectionIctClub = () => {
                 <li key={index} className="flex items-start space-x-3">
                   <div className="mt-1">{item.icon}</div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 dark:text-white">{item.title}</h3>
+                    <h3 className="font-semibold text-blue-500">{item.title}</h3>
                     <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
                   </div>
                 </li>

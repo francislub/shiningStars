@@ -21,7 +21,7 @@ const ClassroomSection = () => {
   return (
     <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4">
-        <h1 className="text-3xl font-bold text-center text-gray-800 dark:text-white sm:text-4xl lg:text-5xl mb-8">
+        <h1 className="text-3xl font-bold text-center text-blue-500 sm:text-4xl lg:text-5xl mb-8">
           Inspiring Classrooms at Shining Stars Primary School
         </h1>
         <p className="text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12">
@@ -47,7 +47,7 @@ const ClassroomSection = () => {
         {activeTab === "overview" && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
-              <h2 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-white">Our Learning Spaces</h2>
+              <h2 className="text-2xl font-semibold mb-4 text-blue-500">Our Learning Spaces</h2>
               <p className="text-gray-600 dark:text-gray-300 mb-6">
                 At Shining Stars Primary School, we believe that the environment plays a crucial role in a child's
                 learning journey. Our classrooms are thoughtfully designed to:
