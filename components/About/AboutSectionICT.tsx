@@ -91,7 +91,7 @@ const AboutSectionICT = () => {
   return (
     <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4">
-        <h1 className="text-3xl font-bold text-center text-gray-800 dark:text-white sm:text-4xl lg:text-5xl mb-8">
+        <h1 className="text-3xl font-bold text-center text-blue-500 sm:text-4xl lg:text-5xl mb-8">
           Computer Studies at Shining Stars Primary School
         </h1>
         <p className="text-center text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12">
@@ -100,7 +100,7 @@ const AboutSectionICT = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-gray-800 dark:text-white">Our ICT Curriculum</h2>
+            <h2 className="text-2xl font-semibold text-blue-500">Our ICT Curriculum</h2>
             <p className="text-gray-600 dark:text-gray-300">
               At Shining Stars Primary School, we believe in preparing our students for a digital future. Our
               comprehensive computer studies program is designed to introduce children to the world of technology in a
@@ -111,7 +111,7 @@ const AboutSectionICT = () => {
                 <li key={index} className="flex items-start space-x-3">
                   <div className="mt-1">{module.icon}</div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 dark:text-white">{module.title}</h3>
+                    <h3 className="font-semibold text-blue-500">{module.title}</h3>
                     <p className="text-gray-600 dark:text-gray-300">{module.description}</p>
                   </div>
                 </li>
@@ -130,7 +130,7 @@ const AboutSectionICT = () => {
         </div>
 
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 mb-16">
-          <h2 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6">Basic Computing Skills</h2>
+          <h2 className="text-2xl font-semibold text-blue-500 mb-6">Basic Computing Skills</h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6">
             We ensure our students are proficient in essential office applications, preparing them for academic success
             and future careers:
@@ -140,7 +140,7 @@ const AboutSectionICT = () => {
               <div key={index} className="flex items-start space-x-3">
                 <div className="mt-1">{skill.icon}</div>
                 <div>
-                  <h3 className="font-semibold text-gray-800 dark:text-white">{skill.title}</h3>
+                  <h3 className="font-semibold text-blue-500">{skill.title}</h3>
                   <p className="text-gray-600 dark:text-gray-300">{skill.description}</p>
                 </div>
               </div>
@@ -149,7 +149,7 @@ const AboutSectionICT = () => {
         </div>
 
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 mb-16">
-          <h2 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6">Learning Outcomes</h2>
+          <h2 className="text-2xl font-semibold text-blue-500 mb-6">Learning Outcomes</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {learningOutcomes.map((outcome, index) => (
               <div key={index} className="flex flex-col items-center text-center">
@@ -173,7 +173,7 @@ const AboutSectionICT = () => {
 
           </div>
           <div className="order-1 md:order-2 space-y-6">
-            <h2 className="text-2xl font-semibold text-gray-800 dark:text-white">ICT Club: Beyond the Classroom</h2>
+            <h2 className="text-2xl font-semibold text-blue-500">ICT Club: Beyond the Classroom</h2>
             <p className="text-gray-600 dark:text-gray-300">
               Our ICT Club provides enthusiastic students with opportunities to explore technology beyond the regular
               curriculum. Club activities include:
