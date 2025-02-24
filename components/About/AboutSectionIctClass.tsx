@@ -49,7 +49,7 @@ const ClassroomSection = () => {
             <div>
               <h2 className="text-2xl font-semibold mb-4 text-blue-500">Our Learning Spaces</h2>
               <p className="text-gray-600 dark:text-gray-300 mb-6">
-                At Shining Stars Primary School, we believe that the environment plays a crucial role in a child's
+                At Shining Stars Primary School, we believe that the environment plays a crucial role in a child&apos;s
                 learning journey. Our classrooms are thoughtfully designed to:
               </p>
               <ul className="space-y-2">
