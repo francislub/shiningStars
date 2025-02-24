@@ -30,23 +30,23 @@ export default function Welcome() {
           <div className="text-white space-y-6">
             <div className="space-y-2">
               <h2 className="text-blue-500 text-xl font-medium">You Are Welcome To</h2>
-              <h1 className="text-4xl md:text-5xl font-bold text-black mb-4">Shining Stars</h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-black mb-4 dark:text-white">Shining Stars</h1>
             </div>
 
             <div className="space-y-4 text-black">
-              <p className="text-lg leading-relaxed">
+              <p className="text-lg leading-relaxed dark:text-white">
                 At Shining Stars, We believe that while what students know is important, the true measure of a students education is the ability to analyse what they do not know.
               </p>
-              <p className="text-lg leading-relaxed">
+              <p className="text-lg leading-relaxed dark:text-white">
               The School emphasises a learner-centred approach to teaching and learning, whereby topics from different subject areas are taught and students’ prior knowledge and experiences are used to teach new content. Students are allowed to explore and use their environment to learn on their own through research, project work and related learner–centered methods of teaching and learning.
               </p>
             </div>
 
-            <div className="flex gap-4 pt-6">
+            <div className="flex gap-4 pt-6 dark:text-white">
               <Link
                 href="/school-content"
                 className="inline-flex items-center justify-center px-6 py-3 bg-violet-600 hover:bg-lime-600 
-                transition-colors rounded-full text-black font-medium"
+                transition-colors rounded-full text-black font-medium dark:text-white"
               >
                 Our Work
               </Link>
