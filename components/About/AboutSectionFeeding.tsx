@@ -71,7 +71,7 @@ const AboutSectionFeeding = () => {
               More Than Just Meals
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6">
-              Our feeding program goes beyond simply providing meals. We've created a welcoming dining environment that
+              Our feeding program goes beyond simply providing meals. We&apos;ve created a welcoming dining environment that
               fosters social interaction and community building. Our cafeteria is a place where students can relax,
               socialize, and recharge between classes. We also offer nutrition education programs to help students make
               informed food choices and develop healthy eating habits that will serve them well beyond their school
@@ -96,7 +96,7 @@ const AboutSectionFeeding = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <button className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105">
-              View This Week's Menu
+              View This Week&apos;s Menu
             </button>
             <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105">
               Learn About Our Sustainability Efforts
