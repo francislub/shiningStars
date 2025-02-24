@@ -42,7 +42,7 @@ const AboutSectionLibrary = () => {
     {
       icon: <Calendar className="w-6 h-6 text-orange-500" />,
       title: "Author Visits",
-      description: "Regular visits from children's authors for inspiration",
+      description: "Regular visits from childrens authors for inspiration",
     },
     {
       icon: <Award className="w-6 h-6 text-pink-500" />,

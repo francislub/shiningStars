@@ -105,7 +105,7 @@ const AboutSectionTransport = () => {
             {[
               {
                 q: "How do I sign up for the school bus service?",
-                a: "You can register for our bus service through the school's online portal or by visiting the administrative office.",
+                a: "You can register for our bus service through the schools online portal or by visiting the administrative office.",
               },
               {
                 q: "What areas does the school bus cover?",
