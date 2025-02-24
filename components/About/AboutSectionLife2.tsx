@@ -97,13 +97,13 @@ const AboutSectionLife2 = () => {
           >
             <h3 className="text-3xl font-bold mb-4 text-blue-600">Sports at Shining Stars</h3>
             <p className="text-lg mb-6 text-gray-700 leading-relaxed">
-              At Shining Stars, sports are more than just physical activities – they're a cornerstone of our holistic
+              At Shining Stars, sports are more than just physical activities – they&apos;re a cornerstone of our holistic
               education. Our state-of-the-art facilities and dedicated coaches nurture both recreational enthusiasts and
               competitive athletes.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
               Through sports, our students learn invaluable life skills such as teamwork, resilience, and leadership.
-              Whether you're aiming for personal fitness or dreaming of athletic stardom, Shining Stars provides the
+              Whether you&apos;re aiming for personal fitness or dreaming of athletic stardom, Shining Stars provides the
               perfect platform for your sporting journey.
             </p>
           </motion.div>
@@ -145,12 +145,12 @@ const AboutSectionLife2 = () => {
             </div>
             <div className="lg:w-1/2 lg:pl-12">
               <p className="text-lg mb-6 text-gray-700 leading-relaxed">
-                Our graduation ceremony is the pinnacle of the Shining Stars experience. It's not just a celebration of
+                Our graduation ceremony is the pinnacle of the Shining Stars experience. It&apos;s not just a celebration of
                 academic achievements, but a recognition of personal growth, leadership, and community impact.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                As we honor our graduates, we reflect on their journey and look forward to the bright futures they'll
-                forge. It's a momentous occasion that brings together families, friends, and faculty to celebrate the
+                As we honor our graduates, we reflect on their journey and look forward to the bright futures they&apos;ll
+                forge. It&apos;s a momentous occasion that brings together families, friends, and faculty to celebrate the
                 remarkable accomplishments of our students.
               </p>
             </div>
