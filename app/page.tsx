@@ -25,16 +25,16 @@ export default function Home() {
   return (
     <>
       <ScrollUp />
-      <Hero />
+      {/* <Hero />
       <BelowHero />
       <Welcome />
       <WebsiteShowcase />
       <ExploreBugema />
-      {/* <Events />
-      <News /> */}
-      {/* <FeatureShowcase /> */}
+      <Events />
+      <News />
+      <FeatureShowcase />
       <Contact />
-      <Whatsup />
+      <Whatsup /> */}
       <ScrollToTop />
     </>
   );
