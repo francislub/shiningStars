@@ -30,14 +30,11 @@ export default function Home() {
       <Welcome />
       <WebsiteShowcase />
       <ExploreBugema />
-      <Events />
-      <News />
-      {/* <SchoolsPage /> */}
-      {/* <Blog /> */}
-      <FeatureShowcase />
+      {/* <Events />
+      <News /> */}
+      {/* <FeatureShowcase /> */}
       <Contact />
       <Whatsup />
-      {/* <Calender /> */}
       <ScrollToTop />
     </>
   );
