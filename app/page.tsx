@@ -30,8 +30,8 @@ export default function Home() {
       <Welcome />
       <WebsiteShowcase />
       <ExploreBugema />
-      <Events />
-      <News />
+      {/* <Events />
+      <News /> */}
       <FeatureShowcase />
       <Contact />
       <Whatsup />
