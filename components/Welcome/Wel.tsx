@@ -19,7 +19,7 @@ const showcaseItems =
     "title": "Our Teaching Staff",
     "description": "Dedicated educators shaping young minds.",
     "subtext": "Committed to delivering quality education and fostering student development.",
-    "image": "/images/shi/drrx.jpeg"
+    "image": "/images/new/staff.jpg"
   },
   {
     "id": 3,
