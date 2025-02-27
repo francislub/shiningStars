@@ -28,11 +28,11 @@ export default function Home() {
       <Hero />
       <BelowHero />
       <Welcome />
-      <WebsiteShowcase />
+      {/* <WebsiteShowcase />
       <ExploreBugema />
-      {/* <Events />
-      <News /> */}
-      <FeatureShowcase />
+      <Events />
+      <News />
+      <FeatureShowcase /> */}
       <Contact />
       <Whatsup />
       <ScrollToTop />
