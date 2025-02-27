@@ -28,7 +28,7 @@ export default function Home() {
       <Hero />
       <BelowHero />
       <Welcome />
-      {/* <WebsiteShowcase /> */}
+      <WebsiteShowcase />
       <ExploreBugema />
       {/* <Events /> */}
       {/* <News /> */}
