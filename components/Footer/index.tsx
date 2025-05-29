@@ -571,6 +571,7 @@ const Footer = () => {
               &#169;  Shining Stars Nursery And Primary
             </Link>
             <h1 className="text-center text-base text-body-color hover:scale-105 hover:transition-all hover:duration-300 dark:text-white">
+<<<<<<< HEAD
               <a href="tel:+256-753-753-179">Reception: 0393102603</a>
             </h1>
             <h1 className="text-center text-base text-body-color hover:scale-105 hover:transition-all hover:duration-300 dark:text-white">
@@ -578,6 +579,15 @@ const Footer = () => {
             </h1>
             <h1 className="text-center text-base hover:scale-105  hover:transition-all hover:duration-300 text-body-color dark:text-white">
               <a href="mailto:shiningstars.school2022@gmail.com">Email: Shiningstars.primary2022@gmail.com</a>
+=======
+              <a href="tel:+256-753-753-179">Phone: +256-753-753-179</a>
+            </h1>
+            <h1 className="text-center text-base text-body-color hover:scale-105 hover:transition-all hover:duration-300 dark:text-white">
+              <a href="tel:+256-773-297-951">Phone: +256-773-297-951</a>
+            </h1>
+            <h1 className="text-center text-base hover:scale-105  hover:transition-all hover:duration-300 text-body-color dark:text-white">
+              <a href="mailto:shiningstars.school2022@gmail.com">Email: shiningstars.school2022@gmail.com</a>
+>>>>>>> d4ef586aa33e3eb80feebf6ab1d6aa2920d63087
             </h1>
           </div>
         </div>
