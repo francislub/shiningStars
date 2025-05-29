@@ -20,42 +20,42 @@ const features = [
   {
     title: "Academics",
     description:
-      "We offer a number of professional courses across our faculties. The Department of Computing and Technology offers certifications from CISCO like CCNA, CCNP, and from Microsoft, the department provides MCSE, MCSA. The School of Business prepares students for CPA and other accounting professional courses. Our Nursing students are assessed by the Uganda Nurses And Midwifery Examination Board (UNMEB).",
+      "At Shining Stars Nursery and Primary School Vvumba, we provide a strong academic foundation that nurtures curiosity and a love for learning. Our dedicated teachers use interactive and age-appropriate teaching methods to help pupils master reading, writing, mathematics, and science. We focus on holistic development to ensure every child reaches their full potential.",
     image: academic,
     link: "/academics",
   },
   {
     title: "Sports",
     description:
-      "The School treasures the quality of its products, and for that reason, we hire quality and experienced lecturers to train and produce the best for our students. Our lecturers are associated with industry enterprises which helps them get the market experience that they instil in our students. Research is a core role for our lecturers to keep producing relevant knowledge for the market.",
+      "We believe that physical education is vital to a child's overall growth. Our school offers structured sports and games that develop teamwork, discipline, and physical well-being. Pupils participate in inter-school competitions and enjoy regular physical activities that build confidence and improve health.", 
     image: sports,
     link: "/studentlife",
   },
   {
     title: "Accommodation",
     description:
-      "Our blended learning programs combine traditional classroom instruction with interactive online components, empowering students to engage with course materials, collaborate with peers. Our E-Learning system is available all the time to cater for those that may be in different time zones. Our support team will take you step by step on how to get the best from the platform. Pay a visit to our E-Learning Platform.",
+      "Shining Stars offers boarding facilities for pupils who live far from school. Our dormitories are safe, clean, and well-supervised by caring staff members. Boarding pupils follow a well-structured routine that includes study time, meals, recreation, and spiritual guidance to create a homely and disciplined environment.",
     image: accommodation,
     link: "/accommodation",
   },
   {
     title: "Health",
     description:
-      "We believe in creating relationships that last with our clients. The institution has academic families where each student is assigned to a mentor. This increases the bond between our students and lecturers. Since students are let free to interact with the lecturers, this gives them a chance to be well prepared for the market challenges ahead of them. This enriches their (Students) career readiness as well.",
+      "The health and safety of our pupils are a top priority. We have a first-aid facility and work closely with nearby health centers to handle any medical needs. Routine health checks are conducted to ensure the well-being of every child, and we teach basic hygiene practices as part of our daily routine.",
     image: health,
     link: "/health",
   },
   {
     title: "Religion",
     description:
-      "We understand the importance of holistic development and the role of spirituality in our students' lives. We provide a nurturing environment that fosters personal growth and offers opportunities for spiritual enrichment. Our School offers worship services and spaces that cater to diverse religious and spiritual needs. Students can engage in prayer, meditation, and other spiritual activities to promote a sense of community, mindfulness, and well-being.",
+      "As a Christian-founded school, we instill spiritual values in our pupils through daily devotions, Bible study, and Sunday worship. We nurture moral character, respect, and love for God and others, helping children grow spiritually and ethically in a supportive Christian environment.", 
     image: religion,
     link: "/religion",
   },
   {
     title: "Feeding",
     description:
-      "We believe in equipping our students with the necessary skills and credentials to excel in their chosen professions. As part of our commitment to professional development, we offer a range of professional certification programs. These certifications are designed to enhance students' expertise, improve their marketability, and demonstrate their proficiency in specific areas of study.",
+     "We provide nutritious meals to all pupils during school hours. Our feeding program is designed to support healthy growth and concentration in class. Meals are prepared hygienically, and special attention is given to balanced diets suitable for young children.",
     image: feeding,
     link: "/feeding",
   },
