@@ -567,7 +567,7 @@ const Footer = () => {
         </div>
         <div className="bg-primary/20 py-8 ">
           <div className="relative container md:flex md:justify-center text-center md:space-x-12">
-            <Link href="/" className="text-center hover:scale-105 hover:transition-all hover:duration-300 text-base text-body-color dark:text-white">
+            <Link href="https://www.shiningstarsvvumba.com" className="text-center hover:scale-105 hover:transition-all hover:duration-300 text-base text-body-color dark:text-white">
               &#169;  Shining Stars Nursery And Primary
             </Link>
             <h1 className="text-center text-base text-body-color hover:scale-105 hover:transition-all hover:duration-300 dark:text-white">
@@ -576,13 +576,13 @@ const Footer = () => {
             <h1 className="text-center text-base text-body-color hover:scale-105 hover:transition-all hover:duration-300 dark:text-white">
               <a href="tel:0393102604">HeadTeacher: 0393102604</a>
             </h1>
-            <h1 className="text-center text-base hover:scale-105  hover:transition-all hover:duration-300 text-body-color dark:text-white">
+            {/* <h1 className="text-center text-base hover:scale-105  hover:transition-all hover:duration-300 text-body-color dark:text-white">
               <a href="mailto:Shiningstars.primary2022@gmail.com">Email: Shiningstars.primary2022@gmail.com</a>
               <a href="tel:+256-753-763-179">Phone: +256-753-763-179</a>
             </h1>
             <h1 className="text-center text-base text-body-color hover:scale-105 hover:transition-all hover:duration-300 dark:text-white">
               <a href="tel:+256-773-297-951">Phone: +256-773-297-951</a>
-            </h1>
+            </h1> */}
             {/* <h1 className="text-center text-base hover:scale-105  hover:transition-all hover:duration-300 text-body-color dark:text-white">
               <a href="mailto:shiningstars.school2022@gmail.com">Email: shiningstars.school2022@gmail.com</a>
             </h1> */}
