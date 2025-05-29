@@ -48,7 +48,7 @@ const Footer = () => {
                   />
                 </Link>
                 <h1 className="mb-9 text-base font-medium leading-relaxed text-body-color">
-                Shining Stars Nursery And Primary School, P. O Box 170262
+                Shining Stars Nursery And Primary School,   P.O Box 170262
                 Luwero, Uganda
                 </h1>
                 <div className="flex items-center justify-center">

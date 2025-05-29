@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { FaArrowRight } from "react-icons/fa"
-export const img = "/images/new/hm.png";
+export const img = "https://cloud.appwrite.io/console/project-fra-683381d6001779054d64/storage/bucket-683383760031705f5948/file-6838091700173d8d1cd4";
 
 export default function Welcome() {
   return (
