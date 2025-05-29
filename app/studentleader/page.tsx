@@ -13,7 +13,7 @@ export default function StudentLeader() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch("https://shining-stars-dashboard.onrender.com/api/v1/prefects", {
+        const response = await fetch("https://shining-stars-dashboard.vercel.app/api/v1/prefects", {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
