@@ -33,7 +33,7 @@ export default function Events() {
     const fetchEvents = async () => {
       try {
         setIsLoading(true)
-        const response = await fetch("https://shining-stars-dashboard.onrender.com/api/v1/events")
+        const response = await fetch("https://shining-stars-dashboard-hr8p.onrender.com/api/v1/events")
         if (!response.ok) {
           throw new Error("Failed to fetch events")
         }

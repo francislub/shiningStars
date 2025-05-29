@@ -21,7 +21,7 @@ const Breadcrumb = ({
   useEffect(() => {
     const fetchSlides = async () => {
       try {
-        const response = await fetch("https://shining-stars-dashboard.onrender.com/api/v1/sliders", {
+        const response = await fetch("https://shining-stars-dashboard-hr8p.onrender.com/api/v1/sliders", {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

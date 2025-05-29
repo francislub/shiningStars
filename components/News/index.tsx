@@ -23,7 +23,7 @@ const News = () => {
   const fetchPosts = useCallback(async () => {
     try {
       setLoading(true)
-      const response = await fetch("https://shining-stars-dashboard.onrender.com/api/v1/news", {
+      const response = await fetch("https://shining-stars-dashboard-hr8p.onrender.com/api/v1/news", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

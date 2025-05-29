@@ -33,7 +33,7 @@ export default function PaymentCodeForm() {
     try {
       setLoading(true);
       // Fetch the student based on child_id
-      const studentResponse = await fetch(`https://shining-stars-dashboard.onrender.com/api/v1/students`, {
+      const studentResponse = await fetch(`https://shining-stars-dashboard-hr8p.onrender.com/api/v1/students`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

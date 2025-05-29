@@ -19,7 +19,7 @@ const NewsLatterBox: React.FC = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await fetch("https://shining-stars-dashboard.onrender.com/api/v1/newsletter", {
+      const res = await fetch("https://shining-stars-dashboard-hr8p.onrender.com/api/v1/newsletter", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

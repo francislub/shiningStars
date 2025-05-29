@@ -12,7 +12,7 @@ const AllEvents = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await fetch("https://shining-stars-dashboard.onrender.com/api/v1/events")
+        const response = await fetch("https://shining-stars-dashboard-hr8p.onrender.com/api/v1/events")
         if (!response.ok) {
           throw new Error("Network response was not ok")
         }
