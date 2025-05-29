@@ -30,11 +30,11 @@ const AboutSectionICT = () => {
       title: "Coding Fundamentals",
       description: "Learn basic programming concepts and simple coding",
     },
-    {
-      icon: <Database className="w-6 h-6 text-purple-500" />,
-      title: "Data Management",
-      description: "Understanding file systems and basic data organization",
-    },
+    // {
+    //   icon: <Database className="w-6 h-6 text-purple-500" />,
+    //   title: "Data Management",
+    //   description: "Understanding file systems and basic data organization",
+    // },
     {
       icon: <Globe className="w-6 h-6 text-red-500" />,
       title: "Internet Safety",
@@ -102,7 +102,7 @@ const AboutSectionICT = () => {
           <div className="space-y-6">
             <h2 className="text-2xl font-semibold text-blue-500">Our ICT Curriculum</h2>
             <p className="text-gray-600 dark:text-gray-300">
-              At Shining Stars Primary School, we believe in preparing our students for a digital future. Our
+              At Shining Stars Nursery And Primary School, we believe in preparing our students for a digital future. Our
               comprehensive computer studies program is designed to introduce children to the world of technology in a
               fun, engaging, and age-appropriate manner.
             </p>
@@ -181,19 +181,19 @@ const AboutSectionICT = () => {
             <ul className="space-y-2 text-gray-600 dark:text-gray-300">
               <li className="flex items-center space-x-2">
                 <Code className="w-5 h-5 text-blue-500" />
-                <span>Advanced coding projects</span>
+                <span>Graphics Design Using Publisher</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Globe className="w-5 h-5 text-green-500" />
-                <span>Web design workshops</span>
+                <span>Hardware use and maintaince</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Cpu className="w-5 h-5 text-purple-500" />
-                <span>Robotics and electronics</span>
+                <span>Typing Skill</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Users className="w-5 h-5 text-red-500" />
-                <span>Tech talks and guest speakers</span>
+                <span>Designing powerpoint presentations</span>
               </li>
             </ul>
             <p className="text-gray-600 dark:text-gray-300">
