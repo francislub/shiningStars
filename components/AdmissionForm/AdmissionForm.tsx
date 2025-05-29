@@ -43,7 +43,7 @@ export default function AdmissionForm() {
     const fetchAdmissions = async () => {
       try {
         const response = await fetch(
-          "https://shining-stars-dashboard.onrender.com/api/v1/admissions",
+          "https://shining-stars-dashboard-hr8p.onrender.com/api/v1/admissions",
           {
             method: "GET",
             headers: {
@@ -105,7 +105,7 @@ export default function AdmissionForm() {
     try {
       setLoading(true);
       const res = await fetch(
-        "https://shining-stars-dashboard.onrender.com/api/v1/admissions",
+        "https://shining-stars-dashboard-hr8p.onrender.com/api/v1/admissions",
         {
           method: "POST",
           headers: {

@@ -14,7 +14,7 @@ export default async function NewsPage({ params }: Props) {
   let news: News | null = null;
 
   try {
-    const response = await fetch(`https://shining-stars-dashboard.onrender.com/api/v1/news/${id}`, {
+    const response = await fetch(`https://shining-stars-dashboard-hr8p.onrender.com/api/v1/news/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

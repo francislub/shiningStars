@@ -15,7 +15,7 @@ export default function Teaching() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch("https://shining-stars-dashboard.onrender.com/api/v1/admins", {
+        const response = await fetch("https://shining-stars-dashboard-hr8p.onrender.com/api/v1/admins", {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

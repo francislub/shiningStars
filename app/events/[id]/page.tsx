@@ -14,7 +14,7 @@ export default async function EventPage({ params }: Props) {
   let event: Event | null = null;
 
   try {
-    const response = await fetch(`https://shining-stars-dashboard.onrender.com/api/v1/events/${id}`, {
+    const response = await fetch(`https://shining-stars-dashboard-hr8p.onrender.com/api/v1/events/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

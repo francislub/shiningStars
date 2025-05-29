@@ -13,7 +13,7 @@ export default function NonTeaching() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch("https://shining-stars-dashboard.onrender.com/api/v1/staffs", {
+        const response = await fetch("https://shining-stars-dashboard-hr8p.onrender.com/api/v1/staffs", {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
