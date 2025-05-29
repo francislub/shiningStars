@@ -576,11 +576,11 @@ const Footer = () => {
             <h1 className="text-center text-base text-body-color hover:scale-105 hover:transition-all hover:duration-300 dark:text-white">
               <a href="tel:0393102604">HeadTeacher: 0393102604</a>
             </h1>
-            {/* <h1 className="text-center text-base hover:scale-105  hover:transition-all hover:duration-300 text-body-color dark:text-white">
+            <h1 className="text-center text-base hover:scale-105  hover:transition-all hover:duration-300 text-body-color dark:text-white">
               <a href="mailto:Shiningstars.primary2022@gmail.com">Email: Shiningstars.primary2022@gmail.com</a>
-              <a href="tel:+256-753-763-179">Phone: +256-753-763-179</a>
+              {/* <a href="tel:+256-753-763-179">Phone: +256-753-763-179</a> */}
             </h1>
-            <h1 className="text-center text-base text-body-color hover:scale-105 hover:transition-all hover:duration-300 dark:text-white">
+            {/* <h1 className="text-center text-base text-body-color hover:scale-105 hover:transition-all hover:duration-300 dark:text-white">
               <a href="tel:+256-773-297-951">Phone: +256-773-297-951</a>
             </h1> */}
             {/* <h1 className="text-center text-base hover:scale-105  hover:transition-all hover:duration-300 text-body-color dark:text-white">
