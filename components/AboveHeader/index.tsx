@@ -141,7 +141,7 @@ const EnhancedNavbar: React.FC = () => {
               transition={{ delay: 0.6 }}
             >
               <SocialIcon
-                href="https://www.facebook.com/muhumuza.hillary/"
+                href="https://www.facebook.com/share/16F8BLqHF8/"
                 icon={<FaFacebookF size={12} />}
                 color="text-blue-600"
               />
@@ -332,7 +332,7 @@ const MobileMenu: React.FC<{ closeMenu: () => void }> = ({ closeMenu }) => (
 
     <div className="flex items-center justify-center space-x-4 pt-3 border-t border-gray-200 mt-3">
       <SocialIcon
-        href="https://www.facebook.com/muhumuza.hillary/"
+        href="https://www.facebook.com/share/16F8BLqHF8"
         icon={<FaFacebookF size={16} />}
         color="text-blue-600"
       />

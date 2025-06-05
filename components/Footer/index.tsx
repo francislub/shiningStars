@@ -53,7 +53,7 @@ const Footer = () => {
                 </h1>
                 <div className="flex items-center justify-center">
                   <Link
-                    href="https://www.facebook.com/share/16F8BLqHF8/"
+                    href="https://www.facebook.com/share/16F8BLqHF8"
                     aria-label="social-link"
                     className="mr-6 text-[#CED3F6] hover:text-primary"
                     // text-[#4d5fe6]
