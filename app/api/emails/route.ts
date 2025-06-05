@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
     try {
       await transporter.sendMail({
         from: user,
-        to: "mugabimoses07@gmail.com",
+        to: "lubanjwafrancispro@gmail.com",
         subject: `New Email subscribed for NewsLetter.`,
         html: `
                     <p>Email: ${newsemail}</p>
