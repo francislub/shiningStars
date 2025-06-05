@@ -3,8 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { FaArrowRight } from "react-icons/fa"
-// export const img = "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/6838091700173d8d1cd4/view";
-export const img = "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/6838091700173d8d1cd4/view?project=683381d6001779054d64/view";
+// export const img = "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/6838091700173d8d1cd4/view?project=683381d6001779054d64&mode=admin";
 
 export default function Welcome() {
   return (
@@ -17,7 +16,7 @@ export default function Welcome() {
               <div className="absolute inset-0 rounded-full border-4 border-blue-400/30 animate-pulse" />
               <div className="absolute inset-2 rounded-full border-2 border-blue-300/20" />
               <Image
-                src="/images/new/hm.png"
+                src="https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/684192d10021e3fdcc1e/view?project=683381d6001779054d64&mode=admin"
                 alt="Shining Stars Education"
                 width={600}
                 height={250}
