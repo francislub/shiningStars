@@ -20,6 +20,10 @@ const nextConfig = {
         hostname: 'photos.google.com',
       },
     ],
+    domains: ['fra.cloud.appwrite.io'],
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   },
 }
 

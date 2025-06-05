@@ -4,7 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { FaArrowRight } from "react-icons/fa"
 // export const img = "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/6838091700173d8d1cd4/view";
-export const img = "/images/new/hm.png";
+export const img = "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/6838091700173d8d1cd4/view?project=683381d6001779054d64/view";
 
 export default function Welcome() {
   return (
