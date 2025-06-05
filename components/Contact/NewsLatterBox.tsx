@@ -38,7 +38,7 @@ const NewsLatterBox: React.FC = () => {
       } else {
         setLoading(false);
       }
-      router.push("/whyshin");
+      router.push("/");
     } catch (error) {
       console.error(error.message);
     } finally {
@@ -71,10 +71,10 @@ const NewsLatterBox: React.FC = () => {
       >
         <div>
           <Image
-            src={life}
-            width={500}
+            src="https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/6841947c00006b45cc93/view?project=683381d6001779054d64&mode=admin"
+            width={600}
             height={500}
-            alt="life"
+            alt="Subscribe for me news"
             className="rounded"
           />
         </div>
