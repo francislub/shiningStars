@@ -1,5 +1,5 @@
 import { connect } from "../../../dbConfig/dbConfig"
-import newsLetter from "../../../models/emailsModel"
+import newsLetter, { type INewsLetter } from "../../../models/emailsModel"
 import { type NextRequest, NextResponse } from "next/server"
 import nodemailer from "nodemailer"
 
@@ -43,11 +43,12 @@ export async function POST(request: NextRequest) {
 
     console.log("4. Checking if email already exists...")
     let isExistingSubscriber = false
-    let newsLetterEmail: any = null
+    let newsLetterEmail: INewsLetter | null = null
 
     try {
-      // Fixed: Use direct await without chaining methods
-      const existingEmail = await newsLetter.findOne({ newsemail: newsemail })
+      // Fixed: Use proper typing and simplified query
+      const query = { newsemail }
+      const existingEmail = (await newsLetter.findOne(query)) as INewsLetter | null
       if (existingEmail) {
         console.log("⚠️ Email already subscribed")
         isExistingSubscriber = true
@@ -65,10 +66,9 @@ export async function POST(request: NextRequest) {
         newsemail,
       })
 
-      console.log("6. Saving to database with timeout...")
+      console.log("6. Saving to database...")
       try {
-        // Fixed: Simplified save operation
-        newsLetterEmail = await newNewsLetterEmail.save()
+        newsLetterEmail = (await newNewsLetterEmail.save()) as INewsLetter
         console.log("✅ Newsletter email saved:", newsLetterEmail._id)
       } catch (saveError: any) {
         console.log("❌ Database save error:", saveError.message)
@@ -79,7 +79,8 @@ export async function POST(request: NextRequest) {
           isExistingSubscriber = true
           // Try to fetch the existing record
           try {
-            newsLetterEmail = await newsLetter.findOne({ newsemail: newsemail })
+            const query = { newsemail }
+            newsLetterEmail = (await newsLetter.findOne(query)) as INewsLetter | null
           } catch (e) {
             // Ignore error, we'll proceed anyway
           }
@@ -340,7 +341,7 @@ function getAlreadySubscribedEmailTemplate(email: string) {
         <div style="border-top: 1px solid #e5e7eb; padding-top: 15px;">
           <p style="margin: 0; font-size: 12px; color: #9ca3af;">
             You're receiving this email because you're subscribed to our newsletter.<br>
-            © 2025 Shining Stars School. All rights reserved.
+            © 2024 Shining Stars School. All rights reserved.
           </p>
         </div>
       </div>

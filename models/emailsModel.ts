@@ -1,6 +1,12 @@
-import mongoose from "mongoose"
+import mongoose, { type Document, Schema } from "mongoose"
 
-const newsLetterSchema = new mongoose.Schema({
+export interface INewsLetter extends Document {
+  newsemail: string
+  createdAt: Date
+  isActive: boolean
+}
+
+const newsLetterSchema = new Schema<INewsLetter>({
   newsemail: {
     type: String,
     required: [true, "Please provide your email"],
@@ -23,6 +29,6 @@ const newsLetterSchema = new mongoose.Schema({
 // Add index for better query performance
 newsLetterSchema.index({ newsemail: 1 })
 
-const newsLetter = mongoose.models.newsLetter || mongoose.model("newsLetter", newsLetterSchema)
+const newsLetter = mongoose.models.newsLetter || mongoose.model<INewsLetter>("newsLetter", newsLetterSchema)
 
 export default newsLetter
