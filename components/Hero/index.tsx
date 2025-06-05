@@ -12,6 +12,7 @@ import "slick-carousel/slick/slick-theme.css";
 export const heroVid = [
   { type: 'image', src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/6841968a002b68edd8da/view?project=683381d6001779054d64&mode=admin" },
   { type: 'image', src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/68419901003545967bc1/view?project=683381d6001779054d64&mode=admin" },
+  { type: 'image', src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/68419ab30019c2853e78/view?project=683381d6001779054d64&mode=admin" },
   { type: 'video', src: "https://res.cloudinary.com/dytcuelfd/video/upload/v1723370373/SHINNING_STAR_ADVERT_FINAL_tmi84h.mp4" },
   // { type: 'image', src: "/images/shi/grac.jpeg"},
   // { type: 'image', src: "/images/shi/mdd.jpeg" },
