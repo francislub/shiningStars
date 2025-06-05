@@ -48,7 +48,8 @@ export async function POST(request: NextRequest) {
     try {
       // Fixed: Use proper typing and simplified query
       const query = { newsemail }
-      const existingEmail = (await newsLetter.findOne(query)) as INewsLetter | null
+      // const existingEmail = (await newsLetter.findOne(query)) as INewsLetter | null
+      const existingEmail = await newsLetter.findOne(query).lean<INewsLetter>()
       if (existingEmail) {
         console.log("⚠️ Email already subscribed")
         isExistingSubscriber = true
@@ -91,7 +92,7 @@ export async function POST(request: NextRequest) {
     }
 
     console.log("7. Creating email transporter...")
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 465,
       secure: true,
