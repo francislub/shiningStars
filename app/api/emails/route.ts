@@ -1,5 +1,5 @@
 import { connect } from "../../../dbConfig/dbConfig"
-import newsLetter, { type INewsLetter } from "../../../models/emailsModel"
+import newsLetter from "../../../models/emailsModel"
 import { type NextRequest, NextResponse } from "next/server"
 import nodemailer from "nodemailer"
 
@@ -43,19 +43,16 @@ export async function POST(request: NextRequest) {
 
     console.log("4. Checking if email already exists...")
     let isExistingSubscriber = false
-    let newsLetterEmail: INewsLetter | null = null
+    let newsLetterEmail = null
 
     try {
-      // Fixed: Use proper typing and simplified query
-      const query = { newsemail }
-      // const existingEmail = (await newsLetter.findOne(query)) as INewsLetter | null
-      const existingEmail = await newsLetter.findOne(query).lean<INewsLetter>()
+      const existingEmail = await newsLetter.findOne({ newsemail }).maxTimeMS(5000)
       if (existingEmail) {
         console.log("⚠️ Email already subscribed")
         isExistingSubscriber = true
         newsLetterEmail = existingEmail
       }
-    } catch (findError: any) {
+    } catch (findError) {
       console.log("❌ Error checking existing email:", findError.message)
       // Continue anyway, let the unique constraint handle duplicates
     }
@@ -67,11 +64,15 @@ export async function POST(request: NextRequest) {
         newsemail,
       })
 
-      console.log("6. Saving to database...")
+      console.log("6. Saving to database with timeout...")
       try {
-        newsLetterEmail = (await newNewsLetterEmail.save()) as INewsLetter
+        // Set a shorter timeout for the save operation
+        newsLetterEmail = await Promise.race([
+          newNewsLetterEmail.save(),
+          new Promise((_, reject) => setTimeout(() => reject(new Error("Database save timeout")), 8000)),
+        ])
         console.log("✅ Newsletter email saved:", newsLetterEmail._id)
-      } catch (saveError: any) {
+      } catch (saveError) {
         console.log("❌ Database save error:", saveError.message)
 
         // If it's a duplicate key error, treat as success
@@ -80,8 +81,7 @@ export async function POST(request: NextRequest) {
           isExistingSubscriber = true
           // Try to fetch the existing record
           try {
-            const query = { newsemail }
-            newsLetterEmail = (await newsLetter.findOne(query)) as INewsLetter | null
+            newsLetterEmail = await newsLetter.findOne({ newsemail }).maxTimeMS(5000)
           } catch (e) {
             // Ignore error, we'll proceed anyway
           }
@@ -142,7 +142,7 @@ export async function POST(request: NextRequest) {
             : getWelcomeEmailTemplate(newsemail),
         })
         console.log("✅ Welcome/reminder email sent")
-      } catch (emailError: any) {
+      } catch (emailError) {
         console.log("❌ Email sending error:", emailError.message)
       }
     })
@@ -159,7 +159,7 @@ export async function POST(request: NextRequest) {
       },
       { status: 200 },
     )
-  } catch (error: any) {
+  } catch (error) {
     console.log("❌ ERROR in email API route:")
     console.log("Error name:", error.name)
     console.log("Error message:", error.message)
@@ -255,7 +255,7 @@ function getWelcomeEmailTemplate(email: string) {
         <div style="border-top: 1px solid #e5e7eb; padding-top: 15px;">
           <p style="margin: 0; font-size: 12px; color: #9ca3af;">
             You're receiving this email because you subscribed to our newsletter.<br>
-            © 2024 Shining Stars School. All rights reserved.
+            © 2025 Shining Stars School. All rights reserved.
           </p>
         </div>
       </div>
@@ -342,7 +342,7 @@ function getAlreadySubscribedEmailTemplate(email: string) {
         <div style="border-top: 1px solid #e5e7eb; padding-top: 15px;">
           <p style="margin: 0; font-size: 12px; color: #9ca3af;">
             You're receiving this email because you're subscribed to our newsletter.<br>
-            © 2024 Shining Stars School. All rights reserved.
+            © 2025 Shining Stars School. All rights reserved.
           </p>
         </div>
       </div>
@@ -351,3 +351,4 @@ function getAlreadySubscribedEmailTemplate(email: string) {
   </html>
   `
 }
+
