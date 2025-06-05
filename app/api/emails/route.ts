@@ -351,3 +351,4 @@ function getAlreadySubscribedEmailTemplate(email: string) {
   </html>
   `
 }
+

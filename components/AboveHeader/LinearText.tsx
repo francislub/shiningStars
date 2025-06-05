@@ -1,4 +1,8 @@
-import { motion } from 'framer-motion'
+"use client"
+
+import type React from "react"
+
+import { motion } from "framer-motion"
 
 interface LinearTextProps {
   text: string
@@ -6,21 +10,20 @@ interface LinearTextProps {
 
 export const LinearText: React.FC<LinearTextProps> = ({ text }) => {
   return (
-    <div className="hidden lg:block overflow-hidden w-96">
+    <div className="hidden lg:block overflow-hidden w-96 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full px-4 py-2 shadow-sm">
       <motion.div
-        initial={{ x: '100%' }}
-        animate={{ x: '-100%' }}
+        initial={{ x: "100%" }}
+        animate={{ x: "-100%" }}
         transition={{
-          repeat: Infinity,
-          repeatType: 'loop',
-          duration: 15,
-          ease: 'linear'
+          repeat: Number.POSITIVE_INFINITY,
+          repeatType: "loop",
+          duration: 20,
+          ease: "linear",
         }}
-        className="whitespace-nowrap text-lg font-semibold text-blue-600"
+        className="whitespace-nowrap text-sm font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
       >
-        {text}
+        ✨ {text} ✨
       </motion.div>
     </div>
   )
 }
-
