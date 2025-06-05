@@ -20,8 +20,8 @@ const newsLetterSchema = new mongoose.Schema({
   },
 })
 
-// Add index for better performance
-newsLetterSchema.index({ newsemail: 1 }, { unique: true })
+// Add index for better query performance
+newsLetterSchema.index({ newsemail: 1 })
 
 const newsLetter = mongoose.models.newsLetter || mongoose.model("newsLetter", newsLetterSchema)
 

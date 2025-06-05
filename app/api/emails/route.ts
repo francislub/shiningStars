@@ -43,11 +43,11 @@ export async function POST(request: NextRequest) {
 
     console.log("4. Checking if email already exists...")
     let isExistingSubscriber = false
-    let newsLetterEmail = null
+    let newsLetterEmail: any = null
 
     try {
-      // Fixed: Properly handle the MongoDB query with timeout
-      const existingEmail = await newsLetter.findOne({ newsemail }).exec()
+      // Fixed: Use direct await without chaining methods
+      const existingEmail = await newsLetter.findOne({ newsemail: newsemail })
       if (existingEmail) {
         console.log("⚠️ Email already subscribed")
         isExistingSubscriber = true
@@ -67,11 +67,8 @@ export async function POST(request: NextRequest) {
 
       console.log("6. Saving to database with timeout...")
       try {
-        // Fixed: Use Promise.race with proper timeout handling
-        newsLetterEmail = await Promise.race([
-          newNewsLetterEmail.save(),
-          new Promise((_, reject) => setTimeout(() => reject(new Error("Database save timeout")), 8000)),
-        ])
+        // Fixed: Simplified save operation
+        newsLetterEmail = await newNewsLetterEmail.save()
         console.log("✅ Newsletter email saved:", newsLetterEmail._id)
       } catch (saveError: any) {
         console.log("❌ Database save error:", saveError.message)
@@ -82,7 +79,7 @@ export async function POST(request: NextRequest) {
           isExistingSubscriber = true
           // Try to fetch the existing record
           try {
-            newsLetterEmail = await newsLetter.findOne({ newsemail }).exec()
+            newsLetterEmail = await newsLetter.findOne({ newsemail: newsemail })
           } catch (e) {
             // Ignore error, we'll proceed anyway
           }
@@ -343,7 +340,7 @@ function getAlreadySubscribedEmailTemplate(email: string) {
         <div style="border-top: 1px solid #e5e7eb; padding-top: 15px;">
           <p style="margin: 0; font-size: 12px; color: #9ca3af;">
             You're receiving this email because you're subscribed to our newsletter.<br>
-            © 2024 Shining Stars School. All rights reserved.
+            © 2025 Shining Stars School. All rights reserved.
           </p>
         </div>
       </div>
