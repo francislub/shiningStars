@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
       grade,
       residence,
       term,
-      emis_no: emis_no || "", // Ensure emis_no is never null/undefined
+      emis_no: emis_no || "N/A", // Default to N/A if empty
       parent_name,
       parent_email,
       parent_telephone,
@@ -106,7 +106,8 @@ export async function POST(request: NextRequest) {
 
       try {
         console.log("Creating email transporter...")
-        const transporter = nodemailer.createTransporter({
+        // FIXED: Changed createTransporter to createTransport
+        const transporter = nodemailer.createTransport({
           host: "smtp.gmail.com",
           port: 465,
           secure: true,
@@ -118,6 +119,8 @@ export async function POST(request: NextRequest) {
           greetingTimeout: 5000,
           socketTimeout: 10000,
         })
+
+        console.log("✅ Email transporter created successfully")
 
         console.log("7. Sending admin notification email...")
         try {
@@ -155,6 +158,7 @@ export async function POST(request: NextRequest) {
                   <p><strong>Next Of Kin LC1:</strong> ${next_of_kin_lc}</p>
                   <p><strong>Child Medical Information:</strong> ${child_medical_info || "None provided"}</p>
                 </div>
+                <p style="color: #059669; font-weight: bold;">✅ Admission Status: Confirmed</p>
                 <p><strong>Submission Time:</strong> ${new Date().toLocaleString()}</p>
               </div>
             `,
