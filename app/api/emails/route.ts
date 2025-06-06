@@ -46,12 +46,14 @@ export async function POST(request: NextRequest) {
     let newsLetterEmail: any = null
 
     try {
-      // Fixed: Use find() which returns an array, then check if array has items
-      const existingEmails = await newsLetter.find({ newsemail: newsemail }).limit(1)
-      if (existingEmails && existingEmails.length > 0) {
+      // Fixed: Use countDocuments to check existence, then find if exists
+      const emailCount = await newsLetter.countDocuments({ newsemail })
+      if (emailCount > 0) {
         console.log("⚠️ Email already subscribed")
         isExistingSubscriber = true
-        newsLetterEmail = existingEmails[0]
+        // Get the existing document using findOne with explicit typing
+        const existingDoc = await (newsLetter as any).findOne({ newsemail })
+        newsLetterEmail = existingDoc
       }
     } catch (findError: any) {
       console.log("❌ Error checking existing email:", findError.message)
@@ -76,12 +78,10 @@ export async function POST(request: NextRequest) {
         if (saveError.code === 11000 || saveError.message.includes("duplicate")) {
           console.log("⚠️ Duplicate email detected, treating as success")
           isExistingSubscriber = true
-          // Try to fetch the existing record using find()
+          // Try to fetch the existing record
           try {
-            const existingEmails = await newsLetter.find({ newsemail: newsemail }).limit(1)
-            if (existingEmails && existingEmails.length > 0) {
-              newsLetterEmail = existingEmails[0]
-            }
+            const existingDoc = await (newsLetter as any).findOne({ newsemail })
+            newsLetterEmail = existingDoc
           } catch (e) {
             // Ignore error, we'll proceed anyway
           }
