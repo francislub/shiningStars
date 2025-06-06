@@ -8,9 +8,10 @@ connect()
 export async function POST(request: NextRequest) {
   try {
     const reqBody = await request.json()
-    const { email, subject, message } = reqBody
+    const { email, subject, message, recipientEmail } = reqBody
 
     const user = process.env.EMAIL_USER
+    const targetEmail = recipientEmail || "lubanjwafrancispro@gmail.com"
 
     const newContact = new Contact({
       email,
@@ -34,28 +35,38 @@ export async function POST(request: NextRequest) {
     try {
       await transporter.sendMail({
         from: user,
-        to: "lubanjwafrancispro@gmail.com",
-        subject: `New contact message from, ${email}`,
+        to: targetEmail,
+        subject: `New contact message from ${email}`,
         html: `
-                    <p>Email: ${email}</p>
-                    <p>Subject: ${subject}</p>
-                    <p>Message: ${message}</p>
-                    
-                `,
+          <h2>New Contact Form Submission</h2>
+          <p><strong>From:</strong> ${email}</p>
+          <p><strong>Subject:</strong> ${subject}</p>
+          <p><strong>Message:</strong></p>
+          <p>${message}</p>
+          <hr>
+          <p><small>Sent from Shining Stars Contact Form</small></p>
+        `,
       })
 
       await transporter.sendMail({
         from: user,
         to: email,
-        replyTo: email,
-        subject: `Message Received`,
+        replyTo: targetEmail,
+        subject: `Message Received - Thank You`,
         html: `
-                <p>Thank you so much for contacting us. 
-                We promise to get back to you as soon as possible.</p>
-                `,
+          <h2>Thank You for Contacting Us!</h2>
+          <p>Dear ${email},</p>
+          <p>Thank you so much for contacting Shining Stars. We have received your message and appreciate you reaching out to us.</p>
+          <p><strong>Your Message:</strong></p>
+          <p><em>"${message}"</em></p>
+          <p>We promise to get back to you as soon as possible, typically within 24-48 hours.</p>
+          <br>
+          <p>Best regards,</p>
+          <p>The Shining Stars Team</p>
+        `,
       })
     } catch (error) {
-      console.log(error.message)
+      console.log("Email sending failed:", error.message)
     }
     return NextResponse.json({ success: true }, { status: 200 })
   } catch (error) {
