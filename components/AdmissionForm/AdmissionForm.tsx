@@ -312,9 +312,9 @@ export default function AdmissionForm() {
                   <div className="bg-primary/10 rounded-lg p-4 mb-6">
                     <p className="text-sm text-gray-600">
                       <strong>Need Help?</strong> Contact our admissions office at{" "}
-                      <span className="text-primary font-medium">admissions@shiningstarsschool.com</span>
+                      <span className="text-primary font-medium">Shiningstars.primary2022@gmail.com</span>
                       <br />
-                      <strong>Phone:</strong> +256 XXX XXX XXX
+                      <strong>Phone:</strong> 0393102604
                     </p>
                   </div>
 

@@ -125,7 +125,7 @@ export async function POST(request: NextRequest) {
         console.log("7. Sending admin notification email...")
         try {
           await transporter.sendMail({
-            from: `"Shining Stars School" <${user}>`,
+            from: `"Shining Stars Nursery And Primary School" <${user}>`,
             to: "lubanjwafrancispro@gmail.com",
             subject: `New Admission for child, ${name}`,
             html: `
@@ -174,10 +174,10 @@ export async function POST(request: NextRequest) {
         try {
           const currentYear = new Date().getFullYear()
           await transporter.sendMail({
-            from: `"Shining Stars School" <${user}>`,
+            from: `"Shining Stars Nursery And Primary School" <${user}>`,
             to: parent_email,
             replyTo: user,
-            subject: `🌟 Welcome to Shining Stars School - Admission Confirmed!`,
+            subject: `🌟 Welcome to Shining Stars Nursery And Primary School- Admission Confirmed!`,
             html: getWelcomeEmailTemplate(name, parent_name, admission_no, grade, term, currentYear, parent_email),
           })
           console.log("✅ Parent confirmation email sent successfully")
@@ -249,7 +249,7 @@ function getWelcomeEmailTemplate(
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Shining Stars School</title>
+    <title>Welcome to Shining Stars Nursery And Primary School</title>
   </head>
   <body style="margin: 0; padding: 0; font-family: 'Arial', sans-serif; background-color: #f8fafc; line-height: 1.6;">
     <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
@@ -258,7 +258,7 @@ function getWelcomeEmailTemplate(
       <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 30px; text-align: center; color: white;">
         <div style="font-size: 32px; margin-bottom: 10px;">🌟</div>
         <h1 style="margin: 0; font-size: 28px; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">
-          Shining Stars School
+          Shining Stars Nursery And Primary School
         </h1>
         <p style="margin: 10px 0 0 0; font-size: 16px; opacity: 0.9;">
           Where Excellence Meets Education
@@ -284,7 +284,7 @@ function getWelcomeEmailTemplate(
             Dear <strong>${parentName}</strong>,
           </p>
           <p style="margin: 15px 0 0 0; color: #4a5568; font-size: 16px;">
-            Thank you for choosing Shining Stars School for <strong>${studentName}</strong>'s educational journey. 
+            Thank you for choosing Shining Stars Nursery And Primary School for <strong>${studentName}</strong>'s educational journey. 
             We are thrilled to welcome your child to our school community!
           </p>
         </div>
@@ -363,7 +363,7 @@ function getWelcomeEmailTemplate(
             Our admissions team is here to assist you
           </p>
           <p style="margin: 0; font-size: 14px; opacity: 0.9;">
-            Email: admissions@shiningstarsschool.com | Phone: +256 XXX XXX XXX
+            Email: Shiningstars.primary2022@gmail.com | Phone: 0393102604
           </p>
         </div>
 
@@ -375,14 +375,14 @@ function getWelcomeEmailTemplate(
           <span style="font-size: 24px;">🌟</span>
         </div>
         <p style="margin: 0 0 10px 0; font-size: 16px; font-weight: bold;">
-          Shining Stars School
+          Shining Stars Nursery And Primary School
         </p>
         <p style="margin: 0 0 15px 0; font-size: 14px; opacity: 0.8;">
           Empowering minds, Building futures
         </p>
         <div style="border-top: 1px solid #4a5568; padding-top: 15px; margin-top: 15px;">
           <p style="margin: 0; font-size: 12px; opacity: 0.7;">
-            © ${currentYear} Shining Stars School. All rights reserved.
+            © ${currentYear} Shining Stars Nursery And Primary School. All rights reserved.
           </p>
           <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.7;">
             This email was sent to ${parentEmail}
