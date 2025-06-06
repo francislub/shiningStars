@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
     let newsLetterEmail = null
 
     try {
-      const existingEmail = await newsLetter.findOne({ newsemail }).maxTimeMS(5000)
+      const existingEmail = await newsLetter.findOne({ newsemail }, null, { maxTimeMS: 5000 })
       if (existingEmail) {
         console.log("⚠️ Email already subscribed")
         isExistingSubscriber = true
@@ -81,7 +81,7 @@ export async function POST(request: NextRequest) {
           isExistingSubscriber = true
           // Try to fetch the existing record
           try {
-            newsLetterEmail = await newsLetter.findOne({ newsemail }).maxTimeMS(5000)
+            newsLetterEmail = await newsLetter.findOne({ newsemail }, null, { maxTimeMS: 5000 })
           } catch (e) {
             // Ignore error, we'll proceed anyway
           }
