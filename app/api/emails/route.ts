@@ -2,6 +2,7 @@ import { connect } from "../../../dbConfig/dbConfig"
 import newsLetter from "../../../models/emailsModel"
 import { type NextRequest, NextResponse } from "next/server"
 import nodemailer from "nodemailer"
+const currentYear = new Date().getFullYear();
 
 export async function POST(request: NextRequest) {
   console.log("=== EMAIL API ROUTE STARTED ===")
@@ -255,7 +256,7 @@ function getWelcomeEmailTemplate(email: string) {
         <div style="border-top: 1px solid #e5e7eb; padding-top: 15px;">
           <p style="margin: 0; font-size: 12px; color: #9ca3af;">
             You're receiving this email because you subscribed to our newsletter.<br>
-            © 2024 Shining Stars School. All rights reserved.
+            © ${currentYear} Shining Stars School. All rights reserved.
           </p>
         </div>
       </div>
@@ -342,7 +343,7 @@ function getAlreadySubscribedEmailTemplate(email: string) {
         <div style="border-top: 1px solid #e5e7eb; padding-top: 15px;">
           <p style="margin: 0; font-size: 12px; color: #9ca3af;">
             You're receiving this email because you're subscribed to our newsletter.<br>
-            © 2024 Shining Stars School. All rights reserved.
+            © ${currentYear} Shining Stars School. All rights reserved.
           </p>
         </div>
       </div>

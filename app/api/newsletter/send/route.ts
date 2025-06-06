@@ -2,6 +2,7 @@ import { connect } from "../../../../dbConfig/dbConfig"
 import newsLetter from "../../../../models/emailsModel"
 import { type NextRequest, NextResponse } from "next/server"
 import nodemailer from "nodemailer"
+const currentYear = new Date().getFullYear();
 
 connect()
 
@@ -15,12 +16,15 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Type, title and content are required" }, { status: 400 })
     }
 
-    // Get all subscribers
-    const subscribers = await newsLetter.find({})
+    // Check if subscribers exist first
+    const subscriberCount = await newsLetter.countDocuments({})
 
-    if (!subscribers || subscribers.length === 0) {
+    if (subscriberCount === 0) {
       return NextResponse.json({ message: "No subscribers found" }, { status: 200 })
     }
+
+    // Get all subscribers using type assertion
+    const subscribers = await (newsLetter as any).find({})
 
     const user = process.env.EMAIL_USER
 
@@ -279,7 +283,7 @@ function getEmailTemplate(
       </div>
       
       <div class="footer">
-        <p>© 2024 Shining Stars Nursery and Primary School, Vvumba</p>
+        <p>© ${currentYear} Shining Stars Nursery and Primary School, Vvumba</p>
         <p>You're receiving this email because you subscribed to our newsletter.</p>
         <div class="social-links">
           <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>

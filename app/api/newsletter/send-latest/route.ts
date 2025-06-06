@@ -4,21 +4,35 @@ import EventModel from "../../../../modules/event"
 import NewModel from "../../../../modules/new"
 import { type NextRequest, NextResponse } from "next/server"
 import nodemailer from "nodemailer"
+const currentYear = new Date().getFullYear();
 
 connect()
 
 export async function POST(request: NextRequest) {
   try {
-    // Get all subscribers
-    const subscribers = await newsLetter.find({})
+    // Check if subscribers exist first
+    const subscriberCount = await newsLetter.countDocuments({})
 
-    if (!subscribers || subscribers.length === 0) {
+    if (subscriberCount === 0) {
       return NextResponse.json({ message: "No subscribers found" }, { status: 200 })
     }
 
-    // Get the latest event and news
-    const latestEvent = await EventModel.findOne().sort({ createdAt: -1 })
-    const latestNews = await NewModel.findOne().sort({ createdAt: -1 })
+    // Get all subscribers using type assertion
+    const subscribers = await (newsLetter as any).find({})
+
+    // Check if events exist, then get the latest one
+    const eventCount = await (EventModel as any).countDocuments({})
+    let latestEvent = null
+    if (eventCount > 0) {
+      latestEvent = await (EventModel as any).findOne().sort({ createdAt: -1 })
+    }
+
+    // Check if news exist, then get the latest one
+    const newsCount = await (NewModel as any).countDocuments({})
+    let latestNews = null
+    if (newsCount > 0) {
+      latestNews = await (NewModel as any).findOne().sort({ createdAt: -1 })
+    }
 
     if (!latestEvent && !latestNews) {
       return NextResponse.json({ message: "No events or news found" }, { status: 200 })
@@ -27,7 +41,7 @@ export async function POST(request: NextRequest) {
     const user = process.env.EMAIL_USER
 
     // Create email transporter
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 465,
       secure: true,
@@ -292,7 +306,7 @@ function getSingleItemEmailTemplate(type: string, item: any) {
       </div>
       
       <div class="footer">
-        <p>© 2024 Shining Stars Nursery and Primary School, Vvumba</p>
+        <p>© ${currentYear} Shining Stars Nursery and Primary School, Vvumba</p>
         <p>You're receiving this email because you subscribed to our newsletter.</p>
         <div class="social-links">
           <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>

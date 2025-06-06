@@ -4,6 +4,7 @@ import EventModel from "../../../../modules/event"
 import NewModel from "../../../../modules/new"
 import { type NextRequest, NextResponse } from "next/server"
 import nodemailer from "nodemailer"
+const currentYear = new Date().getFullYear();
 
 connect()
 
@@ -17,12 +18,15 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Type must be 'events' or 'news'" }, { status: 400 })
     }
 
-    // Get all subscribers
-    const subscribers = await newsLetter.find({})
+    // Check if subscribers exist first
+    const subscriberCount = await newsLetter.countDocuments({})
 
-    if (!subscribers || subscribers.length === 0) {
+    if (subscriberCount === 0) {
       return NextResponse.json({ message: "No subscribers found" }, { status: 200 })
     }
+
+    // Get all subscribers using type assertion
+    const subscribers = await (newsLetter as any).find({})
 
     // Calculate date range for recent items
     const dateFrom = new Date()
@@ -31,17 +35,33 @@ export async function POST(request: NextRequest) {
     let recentItems = []
 
     if (type === "events") {
-      recentItems = await EventModel.find({
+      // Check if recent events exist first
+      const recentEventCount = await (EventModel as any).countDocuments({
         createdAt: { $gte: dateFrom },
       })
-        .sort({ createdAt: -1 })
-        .limit(5)
+
+      if (recentEventCount > 0) {
+        recentItems = await (EventModel as any)
+          .find({
+            createdAt: { $gte: dateFrom },
+          })
+          .sort({ createdAt: -1 })
+          .limit(5)
+      }
     } else {
-      recentItems = await NewModel.find({
+      // Check if recent news exist first
+      const recentNewsCount = await (NewModel as any).countDocuments({
         createdAt: { $gte: dateFrom },
       })
-        .sort({ createdAt: -1 })
-        .limit(5)
+
+      if (recentNewsCount > 0) {
+        recentItems = await (NewModel as any)
+          .find({
+            createdAt: { $gte: dateFrom },
+          })
+          .sort({ createdAt: -1 })
+          .limit(5)
+      }
     }
 
     if (!recentItems || recentItems.length === 0) {
@@ -51,7 +71,7 @@ export async function POST(request: NextRequest) {
     const user = process.env.EMAIL_USER
 
     // Create email transporter
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 465,
       secure: true,
@@ -293,7 +313,7 @@ function getRecentItemsEmailTemplate(type: string, items: any[]) {
       </div>
       
       <div class="footer">
-        <p>© 2024 Shining Stars Nursery and Primary School, Vvumba</p>
+        <p>© ${currentYear} Shining Stars Nursery and Primary School, Vvumba</p>
         <p>You're receiving this email because you subscribed to our newsletter.</p>
         <div class="social-links">
           <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
