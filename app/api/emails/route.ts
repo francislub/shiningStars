@@ -43,16 +43,17 @@ export async function POST(request: NextRequest) {
 
     console.log("4. Checking if email already exists...")
     let isExistingSubscriber = false
-    let newsLetterEmail = null
+    let newsLetterEmail: any = null
 
     try {
-      const existingEmail = await newsLetter.findOne({ newsemail }, null, { maxTimeMS: 5000 })
-      if (existingEmail) {
+      // Fixed: Use find() which returns an array, then check if array has items
+      const existingEmails = await newsLetter.find({ newsemail: newsemail }).limit(1)
+      if (existingEmails && existingEmails.length > 0) {
         console.log("⚠️ Email already subscribed")
         isExistingSubscriber = true
-        newsLetterEmail = existingEmail
+        newsLetterEmail = existingEmails[0]
       }
-    } catch (findError) {
+    } catch (findError: any) {
       console.log("❌ Error checking existing email:", findError.message)
       // Continue anyway, let the unique constraint handle duplicates
     }
@@ -64,24 +65,23 @@ export async function POST(request: NextRequest) {
         newsemail,
       })
 
-      console.log("6. Saving to database with timeout...")
+      console.log("6. Saving to database...")
       try {
-        // Set a shorter timeout for the save operation
-        newsLetterEmail = await Promise.race([
-          newNewsLetterEmail.save(),
-          new Promise((_, reject) => setTimeout(() => reject(new Error("Database save timeout")), 8000)),
-        ])
+        newsLetterEmail = await newNewsLetterEmail.save()
         console.log("✅ Newsletter email saved:", newsLetterEmail._id)
-      } catch (saveError) {
+      } catch (saveError: any) {
         console.log("❌ Database save error:", saveError.message)
 
         // If it's a duplicate key error, treat as success
         if (saveError.code === 11000 || saveError.message.includes("duplicate")) {
           console.log("⚠️ Duplicate email detected, treating as success")
           isExistingSubscriber = true
-          // Try to fetch the existing record
+          // Try to fetch the existing record using find()
           try {
-            newsLetterEmail = await newsLetter.findOne({ newsemail }, null, { maxTimeMS: 5000 })
+            const existingEmails = await newsLetter.find({ newsemail: newsemail }).limit(1)
+            if (existingEmails && existingEmails.length > 0) {
+              newsLetterEmail = existingEmails[0]
+            }
           } catch (e) {
             // Ignore error, we'll proceed anyway
           }
@@ -92,7 +92,7 @@ export async function POST(request: NextRequest) {
     }
 
     console.log("7. Creating email transporter...")
-    const transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransporter({
       host: "smtp.gmail.com",
       port: 465,
       secure: true,
@@ -142,7 +142,7 @@ export async function POST(request: NextRequest) {
             : getWelcomeEmailTemplate(newsemail),
         })
         console.log("✅ Welcome/reminder email sent")
-      } catch (emailError) {
+      } catch (emailError: any) {
         console.log("❌ Email sending error:", emailError.message)
       }
     })
@@ -159,7 +159,7 @@ export async function POST(request: NextRequest) {
       },
       { status: 200 },
     )
-  } catch (error) {
+  } catch (error: any) {
     console.log("❌ ERROR in email API route:")
     console.log("Error name:", error.name)
     console.log("Error message:", error.message)
@@ -255,7 +255,7 @@ function getWelcomeEmailTemplate(email: string) {
         <div style="border-top: 1px solid #e5e7eb; padding-top: 15px;">
           <p style="margin: 0; font-size: 12px; color: #9ca3af;">
             You're receiving this email because you subscribed to our newsletter.<br>
-            © 2025 Shining Stars School. All rights reserved.
+            © 2024 Shining Stars School. All rights reserved.
           </p>
         </div>
       </div>
@@ -342,7 +342,7 @@ function getAlreadySubscribedEmailTemplate(email: string) {
         <div style="border-top: 1px solid #e5e7eb; padding-top: 15px;">
           <p style="margin: 0; font-size: 12px; color: #9ca3af;">
             You're receiving this email because you're subscribed to our newsletter.<br>
-            © 2025 Shining Stars School. All rights reserved.
+            © 2024 Shining Stars School. All rights reserved.
           </p>
         </div>
       </div>
@@ -351,4 +351,3 @@ function getAlreadySubscribedEmailTemplate(email: string) {
   </html>
   `
 }
-
