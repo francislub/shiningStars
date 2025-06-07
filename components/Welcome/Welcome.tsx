@@ -148,7 +148,7 @@ export default function Welcome() {
               {/* Main image with hover effect */}
               <motion.div whileHover={{ scale: 1.03 }} transition={{ type: "spring", stiffness: 300 }}>
                 <Image
-                  src="https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/684192d10021e3fdcc1e/view?project=683381d6001779054d64&mode=admin"
+                  src="https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/6843ecdf003728b442c6/view?project=683381d6001779054d64&mode=admin"
                   alt="Shining Stars Education"
                   width={600}
                   height={250}
