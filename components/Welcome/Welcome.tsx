@@ -213,7 +213,7 @@ export default function Welcome() {
                 animate={{ x: 0 }}
                 transition={{ delay: 0.9 }}
               >
-                Shining Stars
+                Shining Stars Vvumba
               </motion.h1>
             </motion.div>
 

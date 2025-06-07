@@ -150,7 +150,7 @@ const Header = () => {
                 <div className="relative">
                   <Image
                     src={image || "/placeholder.svg"}
-                    alt="Shining Stars Logo"
+                    alt="Shining Stars Vvumba Logo"
                     width={60}
                     height={60}
                     className="rounded-full border-4 border-yellow-400 shadow-lg"
@@ -162,7 +162,7 @@ const Header = () => {
                   />
                 </div>
                 <div className="hidden md:block">
-                  <h1 className={`text-xl font-bold ${sticky ? "text-gray-800" : "text-white"}`}>Shining Stars</h1>
+                  <h1 className={`text-xl font-bold ${sticky ? "text-gray-800" : "text-white"}`}>Shining Stars Vvumba</h1>
                   <p className={`text-sm ${sticky ? "text-gray-600" : "text-gray-200"}`}>Nursery & Primary School</p>
                 </div>
               </Link>
