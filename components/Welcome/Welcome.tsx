@@ -229,8 +229,7 @@ export default function Welcome() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 1.3 }}
               >
-                At Shining Stars, we believe that while what students know is important, the true measure of a student's
-                education is the ability to analyse what they do not know.
+               At Shining Stars, we believe that while what our learners know is important, the true measure of a learner's education is the ability to analyse what they do not know.
               </motion.p>
               <motion.p
                 className="text-lg leading-relaxed"
@@ -238,10 +237,7 @@ export default function Welcome() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 1.5 }}
               >
-                The School emphasises a learner-centred approach to teaching and learning, whereby topics from different
-                subject areas are taught and students' prior knowledge and experiences are used to teach new content.
-                Students are allowed to explore and use their environment to learn on their own through research,
-                project work and related learner–centered methods of teaching and learning.
+                The School emphasizes a learner-centred approach to teaching and learning, whereby topics from different subject areas are taught and learners' prior knowledge and experiences are used to teach new content. Learners are allowed to explore and use their environment to learn on their own through research, project work and related learner–centered methods of teaching and learning.
               </motion.p>
             </motion.div>
 
