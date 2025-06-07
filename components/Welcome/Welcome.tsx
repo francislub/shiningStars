@@ -150,7 +150,7 @@ export default function Welcome() {
                 <Image
                   src="https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/6843ecdf003728b442c6/view?project=683381d6001779054d64&mode=admin"
                   alt="Shining Stars Education"
-                  width={600}
+                  width={600} 
                   height={250}
                   className="rounded-full w-full h-full object-cover shadow-xl shadow-blue-900/20"
                   priority
