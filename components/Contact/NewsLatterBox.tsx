@@ -168,7 +168,7 @@ const NewsLatterBox: React.FC = () => {
           <div className="absolute -top-6 -left-6 w-24 h-24 bg-yellow-200 rounded-full opacity-30 animate-pulse"></div>
           <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-blue-200 rounded-full opacity-30 animate-pulse"></div>
           <Image
-            src="https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/6841947c00006b45cc93/view?project=683381d6001779054d64&mode=admin"
+            src="https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/6843f13e002a2e59e216/view?project=683381d6001779054d64&mode=admin"
             width={600}
             height={500}
             alt="Subscribe for school news"
