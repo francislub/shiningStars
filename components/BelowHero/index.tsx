@@ -43,7 +43,7 @@ const AboutSectionLife2 = () => {
                   Get more information about fees structure.
                 </p>
                 <Link
-                  href="/finances.pdf"
+                  href="/fees.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
