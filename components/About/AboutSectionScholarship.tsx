@@ -23,13 +23,13 @@ const ScholarshipSection = () => {
         <div>
           <h3 className="text-2xl font-semibold text-gray-900 mb-4">About Our Scholarship</h3>
           <p className="text-gray-800 mb-4">
-            The Shining Stars Scholarship Program is designed to support exceptional students who demonstrate
+            The Shining Stars Vvumba Scholarship Program is designed to support exceptional students who demonstrate
             outstanding academic potential and a commitment to personal growth. Our program aims to provide financial
             assistance and mentorship to help students excel in their primary education journey.
           </p>
           <p className="text-gray-800">
-            Recipients of the Shining Stars Scholarship will receive full tuition coverage, access to advanced
-            learning resources, and participation in exclusive enrichment programs.
+          Recipients of the Shining Stars Scholarship will receive subsidized fees coverage, access to advanced
+          learning resources, and participation in exclusive enrichment programs.
           </p>
         </div>
       </div>
