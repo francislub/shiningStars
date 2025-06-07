@@ -162,8 +162,9 @@ const Header = () => {
                   />
                 </div>
                 <div className="hidden md:block">
-                  <h1 className={`text-xl font-bold ${sticky ? "text-gray-800" : "text-white"}`}>Shining Stars Vvumba</h1>
-                  <p className={`text-sm ${sticky ? "text-gray-600" : "text-gray-200"}`}>Nursery & Primary School</p>
+                  <h1 className={`text-xl font-bold ${sticky ? "text-gray-800" : "text-white"}`}>SHINING STARS</h1>
+                  <p className={`text-sm ${sticky ? "text-gray-600" : "text-gray-200"}`}>MIXED DAY & BOARDING</p>
+                  <p className={`text-sm ${sticky ? "text-gray-600" : "text-gray-200"}`}>Nursery & Primary School - Vvumba</p>
                 </div>
               </Link>
             </motion.div>
