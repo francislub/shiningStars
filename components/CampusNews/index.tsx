@@ -4,7 +4,7 @@ import SectionTitle from '../Common/SectionTitle';
 const newsData = [
   {
     category: "Sports",
-    title: "Shining Stars sports play a vital role in student life ............",
+    title: "Shining Stars sports play a vital role in Learners life ............",
     link: "/studentlife",
     imageSrc: "/images/life/sport.jpg",
     altText: "Image related to depression biotypes",
@@ -52,8 +52,8 @@ const CampusNews: React.FC = () => {
         <div className="container">
             <div className="hidden md:block">
           <SectionTitle
-            title="Students Life"
-            paragraph="At Shining Stars, student life goes beyond the classroom. 
+            title="Learners Life"
+            paragraph="At Shining Stars, Learner life goes beyond the classroom. 
             Our vibrant campus community offers a diverse range of activities, organizations, 
             and resources designed to support your personal growth, leadership development, and overall well-being."
             center
@@ -65,7 +65,7 @@ const CampusNews: React.FC = () => {
         <div className="md:hidden block">
           <SectionTitle 
             title="Explore Shining Stars"
-            paragraph="Join us at Shining Stars, where education is embraced as a catalyst for empowerment and change. Experience an inclusive and enriching learning environment where equal opportunities, academic excellence, and a commitment to students' success define our core values. Together, we can shape a brighter future through education."
+            paragraph="Join us at Shining Stars, where education is embraced as a catalyst for empowerment and change. Experience an inclusive and enriching learning environment where equal opportunities, academic excellence, and a commitment to Learners' success define our core values. Together, we can shape a brighter future through education."
             center
             mb="50px"
           />

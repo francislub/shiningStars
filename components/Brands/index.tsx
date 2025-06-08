@@ -10,7 +10,7 @@ const features = [
     id: 1,
     title: "Academic",
     description:
-      "Students enjoy a fulfilling lifestyle with academic excellence, personal growth, and preparation for future endeavors.",
+      "Learners enjoy a fulfilling lifestyle with academic excellence, personal growth, and preparation for future endeavors.",
     position: "left",
     order: 1,
     image: "/images/shin/hm.png",
@@ -21,7 +21,7 @@ const features = [
     id: 2,
     title: "Art & Clubs",
     description:
-      "Students explore their passions, unleash their creativity, and build new skills through a variety of enriching programs.",
+      "Learners explore their passions, unleash their creativity, and build new skills through a variety of enriching programs.",
     position: "left",
     order: 2,
     image: "/images/shin/hm.png",
@@ -32,7 +32,7 @@ const features = [
     id: 3,
     title: "ICT",
     description:
-      "Computer is the gateway to the digital world, empowering students with essential skills for the future.",
+      "Computer is the gateway to the digital world, empowering Learners with essential skills for the future.",
     position: "left",
     order: 3,
     image: "/images/shin/hm.png",
@@ -42,7 +42,7 @@ const features = [
   {
     id: 4,
     title: "Curricular Activities",
-    description: "Engaging students in diverse extracurricular activities to enhance skills, teamwork, and personal growth.",
+    description: "Engaging Learners in diverse extracurricular activities to enhance skills, teamwork, and personal growth.",
     position: "right",
     order: 1,
     image: "/images/shin/gra.jpeg",

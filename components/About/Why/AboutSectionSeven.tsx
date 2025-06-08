@@ -6,8 +6,8 @@ import Link from "next/link"
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 
-import academic from "@/public/images/shi/name.jpeg"
-import sports from "@/public/images/shi/mddx.jpeg"
+import academic from "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/6845ccc6003521df91eb/view?project=683381d6001779054d64&mode=admin"
+import sports from "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/6845cb2c000d1956278e/view?project=683381d6001779054d64&mode=admin"
 import accommodation from "@/public/images/shi/build.jpeg"
 import health from "@/public/images/shin/stu.jpg"
 import religion from "@/public/images/shin/stu.jpg"
@@ -34,7 +34,7 @@ const features = [
   {
     title: "Accommodation",
     description:
-      "Shining Stars offers boarding facilities for pupils who live far from school. Our dormitories are safe, clean, and well-supervised by caring staff members. Boarding pupils follow a well-structured routine that includes study time, meals, recreation, and spiritual guidance to create a homely and disciplined environment.",
+      "Shining Stars Vvumba offers boarding facilities for pupils who live far from school. Our dormitories are safe, clean, and well-supervised by caring staff members. Boarding pupils follow a well-structured routine that includes study time, meals, recreation, and spiritual guidance to create a homely and disciplined environment.",
     image: accommodation,
     link: "/accommodation",
   },

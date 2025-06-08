@@ -48,7 +48,7 @@ const Footer = () => {
                   />
                 </Link>
                 <h1 className="mb-9 text-base font-medium leading-relaxed text-body-color">
-                Shining Stars Nursery And Primary School,   P.O Box 170262
+                Shining Stars Nursery And Primary School Vvumba,   P.O Box 170262
                 Luwero, Uganda
                 </h1>
                 <div className="flex items-center justify-center">
@@ -148,7 +148,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Student Health Care{" "}
+                      Pupils Health Care{" "}
                     </Link>
                   </li>
                   <li>
@@ -240,7 +240,7 @@ const Footer = () => {
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
-                      Student Health Care{" "}
+                      Pupil's Health Care{" "}
                     </Link>
                     </li>
                     <li>
@@ -568,7 +568,7 @@ const Footer = () => {
         <div className="bg-primary/20 py-8 ">
           <div className="relative container md:flex md:justify-center text-center md:space-x-12">
             <Link href="https://www.shiningstarsvvumba.com" className="text-center hover:scale-105 hover:transition-all hover:duration-300 text-base text-body-color dark:text-white">
-              &#169;  Shining Stars Nursery And Primary
+              &#169;  Shining Stars Nursery And Primary Vvumba
             </Link>
             <h1 className="text-center text-base text-body-color hover:scale-105 hover:transition-all hover:duration-300 dark:text-white">
               <a href="tel:0393102603">Reception: 0393102603</a>

@@ -71,11 +71,7 @@ export default function AboutSectionAcademic() {
           >
             <h3 className="text-2xl md:text-3xl font-bold">Professional Development</h3>
             <p className="text-muted-foreground leading-relaxed">
-              We offer a comprehensive range of professional courses across our faculties. The Department of Computing
-              and Technology provides industry-recognized certifications including CISCO (CCNA, CCNP) and Microsoft
-              (MCSE, MCSA). Our School of Business prepares students for CPA and various accounting professional
-              courses, while our Nursing students are assessed by the Uganda Nurses And Midwifery Examination Board
-              (UNMEB).
+            At Shining Stars Vvumba Nursery and Primary School, we focus on building a strong foundation for our learners. Our teachers regularly take part in professional development to improve their skills and keep up with modern teaching methods. We emphasize training in areas such as effective classroom management, use of technology in teaching, and child-centered learning. This helps ensure that our pupils receive quality education in a supportive and well-prepared learning environment.
             </p>
             <div className="flex gap-4">
               <div className="p-3 rounded-lg bg-primary/10">
@@ -101,15 +97,15 @@ export default function AboutSectionAcademic() {
           >
             <h3 className="text-2xl md:text-3xl font-bold">Quality Education</h3>
             <p className="text-muted-foreground leading-relaxed">
-              The School treasures the quality of its products, and for that reason, we hire quality and experienced
-              lecturers to train and produce excellence in our students. Our lecturers are associated with industry
-              enterprises which helps them get the market experience that they instill in our students. Research is a
-              core role for our lecturers to keep producing relevant knowledge for the market.
+            At Shining Stars Vvumba Nursery and Primary School, we are committed to providing quality education through caring and qualified teachers. 
+            Our staff uses child-friendly teaching methods to help pupils learn in a fun and engaging way. 
+            We focus on building strong academic foundations while also nurturing good character, creativity, and a love for learning in every child.
+          </p>
             </p>
             <div className="grid grid-cols-2 gap-4">
               <div className="p-4 rounded-lg bg-primary/10 flex items-center gap-3">
                 <Users className="w-5 h-5 text-primary" />
-                <span className="font-medium">Expert Faculty</span>
+                <span className="font-medium">Expert Staff</span>
               </div>
               <div className="p-4 rounded-lg bg-primary/10 flex items-center gap-3">
                 <Award className="w-5 h-5 text-primary" />

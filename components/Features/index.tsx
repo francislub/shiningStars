@@ -44,7 +44,7 @@ const Features = () => {
               {/* Section title on big screens */}
               <div className="mb-8 hidden md:block">
                 <SectionTitle
-                  title="Offering an excellent and distinctive wholistic christian education designed to prepare our students through training for productive lives of useful service to God."
+                  title="Offering an excellent and distinctive wholistic christian education designed to prepare our pupil's through training for productive lives of useful service to God."
                   paragraph=""
                   // center
                   />
@@ -53,7 +53,7 @@ const Features = () => {
               {/* Section title on small screens */}
               <div className="mb-8 block md:hidden text-sm">
                 <SectionTitle
-                  title="Offering an excellent and distinctive wholistic christian education designed to prepare our students through training for productive lives of useful service to God."
+                  title="Offering an excellent and distinctive wholistic christian education designed to prepare our pupil's through training for productive lives of useful service to God."
                   paragraph=""
                   // center
                   />
@@ -69,7 +69,7 @@ const Features = () => {
                   <span className="icon-container">
                     <BiSolidPencil className="hidden md:block text-xl mx-2" />
                   </span>
-                  Why Bugema
+                  Why Shining Stars
                 
                   </Link>
                 </div>
@@ -82,7 +82,7 @@ const Features = () => {
                   <span className="icon-container ">
                     <BiSolidPencil className="hidden md:block text-xl mx-2" />
                   </span>
-                  Student life
+                  Pupils life
                   
                   </Link>
                 </div>

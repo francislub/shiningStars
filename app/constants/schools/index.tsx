@@ -17,7 +17,7 @@ export const SchoolsData = [
     {
         icon: RxDesktop,
         title: "Academic",
-        content:"Students enjoy a fulfilling lifestyle with academic excellence, personal growth, and preparation for future endeavors.",
+        content:"Learners enjoy a fulfilling lifestyle with academic excellence, personal growth, and preparation for future endeavors.",
         backgroundImage: "/images/shi/teach.jpeg",
         cardlink: "academics",
     },
@@ -31,7 +31,7 @@ export const SchoolsData = [
     {
         icon: BiCross,
         title: "Art & Clubs",
-        content:"Students explore their passions, unleash their creativity, and build new skills through a variety of enriching programs.",
+        content:"Learners explore their passions, unleash their creativity, and build new skills through a variety of enriching programs.",
         backgroundImage: "/images/shi/mddxd.jpeg",
         cardlink: "studentlife",
     },
@@ -84,7 +84,7 @@ export const ServiceData3 = [
     // {
     //     icon: RxDesktop,
     //     title: "RESEARCH",
-    //     content:"Partners donate 200 desktop computers to facilitate IT students in the computer labs.",
+    //     content:"Partners donate 200 desktop computers to facilitate IT Learners in the computer labs.",
     //     backgroundImage: "/images/features/bb.jpg",
     //     // cardlink: "https://www.bugemauniv.ac.ug/facilities",
     // },
@@ -108,7 +108,7 @@ export const ServiceData4 = [
     {
         icon: RxDesktop,
         title: "RESEARCH",
-        content:"Partners donate 200 desktop computers to facilitate IT students in the computer labs.",
+        content:"Partners donate 200 desktop computers to facilitate IT Learners in the computer labs.",
         backgroundImage: "/images/shin/s.jpg",
         // cardlink: "https://www.bugemauniv.ac.ug/facilities",
     },

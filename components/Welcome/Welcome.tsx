@@ -167,7 +167,7 @@ export default function Welcome() {
             >
               <AnimatedCounter
                 value={450}
-                label="Students"
+                label="Learners"
                 icon={<PiStudentFill className="text-2xl text-yellow-300" />}
                 delay={1000}
               />

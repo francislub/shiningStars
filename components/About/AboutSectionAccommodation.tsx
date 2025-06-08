@@ -9,14 +9,14 @@ const AboutSectionAccommodation = () => {
     <section className="py-16 md:py-20 lg:py-28 bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-gray-800 dark:text-white mb-16">
-          Comfortable and Safe Student Accommodation
+          Comfortable and Safe Learner Accommodation
         </h2>
 
         <div className="flex flex-col lg:flex-row items-center gap-12 mb-20">
           <div className="lg:w-1/2 wow fadeInLeft" data-wow-delay=".15s">
             <Image
               src={dormImage || "/placeholder.svg"}
-              alt="Student Dormitories"
+              alt="Learner Dormitories"
               className="rounded-lg shadow-xl transition-transform duration-300 hover:scale-105"
               width={600}
               height={400}
@@ -28,8 +28,8 @@ const AboutSectionAccommodation = () => {
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6">
               Our school offers state-of-the-art dormitories designed to provide a comfortable and conducive living
-              environment for students. Each room is furnished with essential amenities, including study desks,
-              comfortable beds, and ample storage space. We prioritize creating a home away from home for our students,
+              environment for Learners. Each room is furnished with essential amenities, including
+              comfortable beds, and ample storage space. We prioritize creating a home away from home for our Learners,
               ensuring they have a peaceful place to rest and study.
             </p>
             <div className="flex items-center text-blue-600 dark:text-blue-400">
@@ -55,7 +55,7 @@ const AboutSectionAccommodation = () => {
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6">
               Our accommodation facilities go beyond just providing a place to sleep. We offer a range of services and
-              amenities to enhance student life, including common areas for socializing, quiet study spaces, laundry
+              amenities to enhance Learner life, including common areas for socializing, quiet study spaces, laundry
               facilities, and high-speed internet access throughout the premises. Our goal is to create a supportive
               community that fosters academic success and personal growth.
             </p>
@@ -68,7 +68,7 @@ const AboutSectionAccommodation = () => {
 
         <div className="mt-20 text-center">
           <h3 className="text-2xl md:text-3xl font-semibold text-gray-800 dark:text-white mb-8">
-            Our Commitment to Student Comfort and Safety
+            Our Commitment to Learner Comfort and Safety
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="wow fadeInUp" data-wow-delay=".1s">
@@ -84,7 +84,7 @@ const AboutSectionAccommodation = () => {
             <div className="wow fadeInUp" data-wow-delay=".3s">
               <UserGroupIcon className="w-12 h-12 mx-auto text-yellow-500 mb-4" />
               <h4 className="text-xl font-semibold mb-2">Community Events</h4>
-              <p className="text-gray-600 dark:text-gray-300">Regular activities to foster student bonding</p>
+              <p className="text-gray-600 dark:text-gray-300">Regular activities to foster Learner bonding</p>
             </div>
             <div className="wow fadeInUp" data-wow-delay=".4s">
               <HomeIcon className="w-12 h-12 mx-auto text-purple-500 mb-4" />
