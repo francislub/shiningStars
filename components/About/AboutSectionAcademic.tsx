@@ -1,7 +1,8 @@
 "use client"
 
 import Image from "next/image"
-import image from "../../public/images/shin/stu.jpg"
+import image from "../../public/images/new/aa.jpg"
+import img from "../../public/images/new/computer.jpg"
 import { motion } from "framer-motion"
 import { Book, Globe, Star, GraduationCap, Users, Award, Library } from "lucide-react"
 
@@ -54,7 +55,7 @@ export default function AboutSectionAcademic() {
           >
             <div className="relative group">
               <Image
-                src={image || "/placeholder.svg"}
+                src={img || "/placeholder.svg"}
                 alt="Academic Excellence"
                 width={600}
                 height={400}

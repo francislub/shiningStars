@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { motion, useAnimation, useInView } from "framer-motion"
 
-import sport from "../../public/images/shin/chil.jpg"
+import sport from "../../public/images/new/sporta.jpg"
 import neta from "../../public/images/shin/stuc.jpg"
 import netb from "../../public/images/shin/stuf.jpg"
 import netc from "../../public/images/shin/teac.jpg"
