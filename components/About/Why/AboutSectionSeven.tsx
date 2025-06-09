@@ -7,9 +7,11 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 
 import accommodation from "@/public/images/shi/build.jpeg"
+import acca from "@/public/images/new/acca.jpg"
+import sports from "@/public/images/new/sports.jpg"
 import health from "@/public/images/shin/stu.jpg"
 import religion from "@/public/images/shin/stu.jpg"
-import feeding from "@/public/images/new/water.jpg"
+import feeding from "@/public/images/new/tou.jpg"
 import FloatingNav from "./FloatingNav"
 import StatisticsSection from "./StatisticsSection"
 import CallToAction from "./CallToAction"
@@ -19,16 +21,14 @@ const features = [
     title: "Academics",
     description:
       "At Shining Stars Nursery and Primary School Vvumba, we provide a strong academic foundation that nurtures curiosity and a love for learning. Our dedicated teachers use interactive and age-appropriate teaching methods to help pupils master reading, writing, mathematics, and science. We focus on holistic development to ensure every child reaches their full potential.",
-    image:
-      "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/6845ccc6003521df91eb/view?project=683381d6001779054d64&mode=admin",
+    image: acca,
     link: "/academics",
   },
   {
     title: "Sports",
     description:
       "We believe that physical education is vital to a child's overall growth. Our school offers structured sports and games that develop teamwork, discipline, and physical well-being. Pupils participate in inter-school competitions and enjoy regular physical activities that build confidence and improve health.",
-    image:
-      "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/6845cb2c000d1956278e/view?project=683381d6001779054d64&mode=admin",
+    image: sports,
     link: "/studentlife",
   },
   {
