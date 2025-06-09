@@ -3,7 +3,7 @@ import newsLetter from "../../../models/emailsModel"
 import { activities } from "../../../lib/constants"
 import { type NextRequest, NextResponse } from "next/server"
 import nodemailer from "nodemailer"
-import { parseISO, format, addDays, isSameDay } from "date-fns"
+import { parseISO, format, addDays, isSameDay, startOfDay } from "date-fns"
 
 export async function POST(request: NextRequest) {
   try {
@@ -12,26 +12,43 @@ export async function POST(request: NextRequest) {
 
     // Get tomorrow's date
     const tomorrow = addDays(new Date(), 1)
+    const tomorrowStart = startOfDay(tomorrow)
     console.log(`Checking for events on: ${format(tomorrow, "MMM dd, yyyy")}`)
+
+    // Debug: Show all events in the system
+    console.log("📅 All events in system:")
+    activities.forEach((activity, index) => {
+      const eventDate = parseISO(activity.startDatetime)
+      console.log(`${index + 1}. ${activity.title} - ${format(eventDate, "MMM dd, yyyy")} (${activity.startDatetime})`)
+    })
 
     // Find events happening tomorrow
     const tomorrowEvents = activities.filter((activity) => {
       const eventDate = parseISO(activity.startDatetime)
-      return isSameDay(eventDate, tomorrow)
+      const eventStart = startOfDay(eventDate)
+      const isTomorrow = isSameDay(eventStart, tomorrowStart)
+
+      console.log(
+        `Checking ${activity.title}: ${format(eventDate, "MMM dd, yyyy")} vs ${format(tomorrow, "MMM dd, yyyy")} = ${isTomorrow}`,
+      )
+
+      return isTomorrow
     })
 
-    console.log(`Found ${tomorrowEvents.length} events for tomorrow:`)
+    console.log(`✅ Found ${tomorrowEvents.length} events for tomorrow:`)
     tomorrowEvents.forEach((event) => {
       console.log(`- ${event.title} at ${format(parseISO(event.startDatetime), "h:mm a")}`)
     })
 
     if (tomorrowEvents.length === 0) {
-      console.log("✅ No events tomorrow, no reminders needed")
+      console.log("ℹ️ No events tomorrow, no reminders needed")
       return NextResponse.json(
         {
           success: true,
           message: "No events tomorrow, no reminders sent",
           date: format(tomorrow, "MMM dd, yyyy"),
+          totalEvents: activities.length,
+          checkedDate: tomorrow.toISOString(),
         },
         { status: 200 },
       )
@@ -41,8 +58,13 @@ export async function POST(request: NextRequest) {
     let subscribers = []
     try {
       await connect()
-      subscribers = await newsLetter.find({ isActive: true })
-      console.log(`✅ Found ${subscribers.length} active subscribers`)
+      subscribers = await newsLetter.find({})
+      console.log(`✅ Found ${subscribers.length} total subscribers`)
+
+      // Filter active subscribers
+      const activeSubscribers = subscribers.filter((sub) => sub.isActive !== false)
+      console.log(`✅ Found ${activeSubscribers.length} active subscribers`)
+      subscribers = activeSubscribers
     } catch (dbError) {
       console.log("❌ Database connection failed:", dbError.message)
       console.log("⚠️ Cannot send reminders without subscriber list")
@@ -51,6 +73,7 @@ export async function POST(request: NextRequest) {
           success: false,
           error: "Database connection failed - cannot access subscribers",
           events: tomorrowEvents.length,
+          dbError: dbError.message,
         },
         { status: 500 },
       )
@@ -63,6 +86,7 @@ export async function POST(request: NextRequest) {
           success: true,
           message: "No active subscribers found",
           events: tomorrowEvents.length,
+          totalSubscribers: 0,
         },
         { status: 200 },
       )
@@ -74,10 +98,45 @@ export async function POST(request: NextRequest) {
 
     if (!emailUser || !emailPass) {
       console.log("❌ Email credentials not found")
+      console.log("EMAIL_USER:", emailUser ? "✅ Set" : "❌ Missing")
+      console.log("EMAIL_PASS:", emailPass ? "✅ Set" : "❌ Missing")
+
       return NextResponse.json(
         {
           success: false,
           error: "Email credentials not configured",
+          events: tomorrowEvents.length,
+          subscribers: subscribers.length,
+          emailUser: !!emailUser,
+          emailPass: !!emailPass,
+        },
+        { status: 500 },
+      )
+    }
+
+    // Create email transporter
+    let transporter
+    try {
+      transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true,
+        auth: {
+          user: emailUser,
+          pass: emailPass,
+        },
+      })
+
+      // Test the connection
+      await transporter.verify()
+      console.log("✅ Email transporter created and verified successfully")
+    } catch (emailError) {
+      console.log("❌ Email transporter failed:", emailError.message)
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Email configuration failed",
+          emailError: emailError.message,
           events: tomorrowEvents.length,
           subscribers: subscribers.length,
         },
@@ -85,36 +144,28 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Create email transporter
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
-      secure: true,
-      auth: {
-        user: emailUser,
-        pass: emailPass,
-      },
-    })
-
-    console.log("✅ Email transporter created successfully")
-
     // Send reminder emails to all subscribers
     let successCount = 0
     let failureCount = 0
     const results = []
 
+    console.log(`📧 Starting to send emails to ${subscribers.length} subscribers...`)
+
     for (const subscriber of subscribers) {
       try {
-        await transporter.sendMail({
+        const emailResult = await transporter.sendMail({
           from: `"Shining Stars School" <${emailUser}>`,
           to: subscriber.newsemail,
           subject: `📅 Event Reminder: Tomorrow's Activities at Shining Stars`,
           html: getEventReminderTemplate(tomorrowEvents, tomorrow),
         })
 
-        console.log(`✅ Reminder sent to: ${subscriber.newsemail}`)
+        console.log(`✅ Reminder sent to: ${subscriber.newsemail} (MessageId: ${emailResult.messageId})`)
         successCount++
-        results.push({ email: subscriber.newsemail, sent: true })
+        results.push({ email: subscriber.newsemail, sent: true, messageId: emailResult.messageId })
+
+        // Small delay to avoid rate limiting
+        await new Promise((resolve) => setTimeout(resolve, 100))
       } catch (error) {
         console.error(`❌ Failed to send reminder to ${subscriber.newsemail}:`, error.message)
         failureCount++
@@ -127,7 +178,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         success: true,
-        message: `Event reminders processed`,
+        message: `Event reminders processed successfully`,
         eventsCount: tomorrowEvents.length,
         emailsSent: successCount,
         emailsFailed: failureCount,
@@ -136,8 +187,10 @@ export async function POST(request: NextRequest) {
         events: tomorrowEvents.map((e) => ({
           title: e.title,
           time: format(parseISO(e.startDatetime), "h:mm a"),
+          date: format(parseISO(e.startDatetime), "MMM dd, yyyy"),
         })),
         results,
+        timestamp: new Date().toISOString(),
       },
       { status: 200 },
     )
@@ -147,6 +200,7 @@ export async function POST(request: NextRequest) {
       {
         success: false,
         error: error.message,
+        stack: error.stack,
         timestamp: new Date().toISOString(),
       },
       { status: 500 },
@@ -156,7 +210,7 @@ export async function POST(request: NextRequest) {
 
 // Manual trigger endpoint (GET request)
 export async function GET() {
-  console.log("📅 Manual event reminder check triggered")
+  console.log("📅 Manual event reminder check triggered via GET")
   const request = new Request("http://localhost:3000/api/event-reminders", {
     method: "POST",
   })
@@ -263,6 +317,10 @@ function getEventReminderTemplate(events: any[], eventDate: Date) {
         border-radius: 50%;
         padding: 10px;
         margin: 0 auto 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 40px;
       }
       
       @media only screen and (max-width: 600px) {
