@@ -249,7 +249,7 @@ function getWelcomeEmailTemplate(
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Shining Stars Nursery And Primary School</title>
+    <title>Welcome to Shining Stars Vvumba Nursery And Primary School</title>
   </head>
   <body style="margin: 0; padding: 0; font-family: 'Arial', sans-serif; background-color: #f8fafc; line-height: 1.6;">
     <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
@@ -363,7 +363,7 @@ function getWelcomeEmailTemplate(
             Our admissions team is here to assist you
           </p>
           <p style="margin: 0; font-size: 14px; opacity: 0.9;">
-            Email: Shiningstars.primary2022@gmail.com | Phone: 0393102604
+            Email: info@shiningstarsvvumba.com | Phone: 0393102604
           </p>
         </div>
 
