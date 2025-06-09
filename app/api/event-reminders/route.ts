@@ -217,7 +217,7 @@ export async function POST(request: NextRequest) {
 // Manual trigger endpoint (GET request)
 export async function GET() {
   console.log("📅 Manual event reminder check triggered via GET")
-  const request = new Request("http://localhost:3000/api/event-reminders", {
+  const request = new Request("https://www.shiningstarsvvumba.com/api/event-reminders", {
     method: "POST",
   })
   return POST(request as NextRequest)
