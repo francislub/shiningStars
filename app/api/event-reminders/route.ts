@@ -58,11 +58,17 @@ export async function POST(request: NextRequest) {
     let subscribers = []
     try {
       await connect()
-      subscribers = await newsLetter.find({})
-      console.log(`✅ Found ${subscribers.length} total subscribers`)
 
-      // Filter active subscribers
-      const activeSubscribers = subscribers.filter((sub) => sub.isActive !== false)
+      // Use aggregate instead of find to avoid type issues
+      const subscriberResults = await newsLetter.aggregate([
+        { $match: {} }, // Get all documents
+        { $project: { newsemail: 1, isActive: 1, _id: 1 } }, // Only get needed fields
+      ])
+
+      console.log(`✅ Found ${subscriberResults.length} total subscribers`)
+
+      // Filter active subscribers (those without isActive: false)
+      const activeSubscribers = subscriberResults.filter((sub) => sub.isActive !== false)
       console.log(`✅ Found ${activeSubscribers.length} active subscribers`)
       subscribers = activeSubscribers
     } catch (dbError) {
@@ -117,7 +123,7 @@ export async function POST(request: NextRequest) {
     // Create email transporter
     let transporter
     try {
-      transporter = nodemailer.createTransport({
+      transporter = nodemailer.createTransporter({
         host: "smtp.gmail.com",
         port: 465,
         secure: true,
