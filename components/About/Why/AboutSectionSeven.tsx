@@ -6,8 +6,6 @@ import Link from "next/link"
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 
-import academic from "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/6845ccc6003521df91eb/view?project=683381d6001779054d64&mode=admin"
-import sports from "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/6845cb2c000d1956278e/view?project=683381d6001779054d64&mode=admin"
 import accommodation from "@/public/images/shi/build.jpeg"
 import health from "@/public/images/shin/stu.jpg"
 import religion from "@/public/images/shin/stu.jpg"
@@ -21,14 +19,16 @@ const features = [
     title: "Academics",
     description:
       "At Shining Stars Nursery and Primary School Vvumba, we provide a strong academic foundation that nurtures curiosity and a love for learning. Our dedicated teachers use interactive and age-appropriate teaching methods to help pupils master reading, writing, mathematics, and science. We focus on holistic development to ensure every child reaches their full potential.",
-    image: academic,
+    image:
+      "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/6845ccc6003521df91eb/view?project=683381d6001779054d64&mode=admin",
     link: "/academics",
   },
   {
     title: "Sports",
     description:
-      "We believe that physical education is vital to a child's overall growth. Our school offers structured sports and games that develop teamwork, discipline, and physical well-being. Pupils participate in inter-school competitions and enjoy regular physical activities that build confidence and improve health.", 
-    image: sports,
+      "We believe that physical education is vital to a child's overall growth. Our school offers structured sports and games that develop teamwork, discipline, and physical well-being. Pupils participate in inter-school competitions and enjoy regular physical activities that build confidence and improve health.",
+    image:
+      "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/6845cb2c000d1956278e/view?project=683381d6001779054d64&mode=admin",
     link: "/studentlife",
   },
   {
@@ -48,14 +48,14 @@ const features = [
   {
     title: "Religion",
     description:
-      "As a Christian-founded school, we instill spiritual values in our pupils through daily devotions, Bible study, and Sunday worship. We nurture moral character, respect, and love for God and others, helping children grow spiritually and ethically in a supportive Christian environment.", 
+      "As a Christian-founded school, we instill spiritual values in our pupils through daily devotions, Bible study, and Sunday worship. We nurture moral character, respect, and love for God and others, helping children grow spiritually and ethically in a supportive Christian environment.",
     image: religion,
     link: "/religion",
   },
   {
     title: "Feeding",
     description:
-     "We provide nutritious meals to all pupils during school hours. Our feeding program is designed to support healthy growth and concentration in class. Meals are prepared hygienically, and special attention is given to balanced diets suitable for young children.",
+      "We provide nutritious meals to all pupils during school hours. Our feeding program is designed to support healthy growth and concentration in class. Meals are prepared hygienically, and special attention is given to balanced diets suitable for young children.",
     image: feeding,
     link: "/feeding",
   },
@@ -142,11 +142,12 @@ const FeatureSection = ({ feature }) => {
     >
       <motion.div className="lg:w-1/2" whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300 }}>
         <Image
-          src={feature.image || "/placeholder.svg"}
+          src={typeof feature.image === "string" ? feature.image : feature.image}
           alt={feature.title}
           width={500}
           height={300}
           className="rounded-lg shadow-2xl object-cover w-full h-[300px]"
+          unoptimized={typeof feature.image === "string"}
         />
       </motion.div>
       <div className="lg:w-1/2 space-y-6">
@@ -184,4 +185,3 @@ const FeatureSection = ({ feature }) => {
 }
 
 export default AdvancedAboutSection
-
