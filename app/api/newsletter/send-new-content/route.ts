@@ -1,12 +1,9 @@
 import { connect } from "../../../../dbConfig/dbConfig"
 import newsLetter from "../../../../models/emailsModel"
+import EventModel from "../../../../modules/event"
+import NewModel from "../../../../modules/new"
 import { type NextRequest, NextResponse } from "next/server"
 import nodemailer from "nodemailer"
-import mongoose from "mongoose"
-
-// Import the models properly
-const EventModel = mongoose.models.Event || mongoose.model("Event", new mongoose.Schema({}, { strict: false }))
-const NewModel = mongoose.models.New || mongoose.model("New", new mongoose.Schema({}, { strict: false }))
 
 connect()
 
@@ -26,16 +23,21 @@ export async function POST(request: NextRequest) {
 
     // Fetch the actual content from database
     let content
-    if (type === "event") {
-      content = await EventModel.findById(contentId)
-      if (!content) {
-        return NextResponse.json({ error: "Event not found" }, { status: 404 })
+    try {
+      if (type === "event") {
+        content = await EventModel.findById(contentId).exec()
+        if (!content) {
+          return NextResponse.json({ error: "Event not found" }, { status: 404 })
+        }
+      } else {
+        content = await NewModel.findById(contentId).exec()
+        if (!content) {
+          return NextResponse.json({ error: "News not found" }, { status: 404 })
+        }
       }
-    } else {
-      content = await NewModel.findById(contentId)
-      if (!content) {
-        return NextResponse.json({ error: "News not found" }, { status: 404 })
-      }
+    } catch (dbError) {
+      console.error("Database error:", dbError)
+      return NextResponse.json({ error: "Content not found or invalid ID" }, { status: 404 })
     }
 
     // Get all active subscribers from database
@@ -60,7 +62,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Create email transporter
-    const transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransporter({
       host: "smtp.gmail.com",
       port: 465,
       secure: true,
@@ -71,7 +73,18 @@ export async function POST(request: NextRequest) {
     })
 
     // Verify transporter
-    await transporter.verify()
+    try {
+      await transporter.verify()
+    } catch (emailError) {
+      console.error("Email configuration error:", emailError)
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Email service configuration error",
+        },
+        { status: 500 },
+      )
+    }
 
     // Prepare content data for email template
     const contentData = {
@@ -94,12 +107,12 @@ export async function POST(request: NextRequest) {
     for (const subscriber of subscribers) {
       try {
         const emailResult = await transporter.sendMail({
-          from: `"Shining Stars Nursery and Primary School, Vvumba" <${emailUser}>`,
+          from: `"Shining Stars School" <${emailUser}>`,
           to: subscriber.newsemail,
           subject:
             type === "event"
-              ? `🎉 New Event: ${contentData.title} - Shining Stars Nursery and Primary School, Vvumba`
-              : `📰 Latest News: ${contentData.title} - Shining Stars Nursery and Primary School, Vvumba`,
+              ? `🎉 New Event: ${contentData.title} - Shining Stars School`
+              : `📰 Latest News: ${contentData.title} - Shining Stars School`,
           html: getNewContentEmailTemplate(type, contentData),
         })
 
@@ -113,7 +126,7 @@ export async function POST(request: NextRequest) {
 
         // Small delay to avoid rate limiting
         await new Promise((resolve) => setTimeout(resolve, 100))
-      } catch (error) {
+      } catch (error: any) {
         console.error(`❌ Failed to send ${type} notification to ${subscriber.newsemail}:`, error.message)
         failureCount++
         results.push({
@@ -140,7 +153,7 @@ export async function POST(request: NextRequest) {
       },
       { status: 200 },
     )
-  } catch (error) {
+  } catch (error: any) {
     console.error(`❌ Error sending content notification:`, error)
     return NextResponse.json(
       {
@@ -172,7 +185,7 @@ function getNewContentEmailTemplate(type: string, content: any) {
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${isEvent ? "New Event" : "Latest News"} - Shining Stars Nursery and Primary School, Vvumba</title>
+    <title>${isEvent ? "New Event" : "Latest News"} - Shining Stars School</title>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
       
@@ -385,7 +398,7 @@ function getNewContentEmailTemplate(type: string, content: any) {
           <div class="content-meta">
             ${contentDate ? `<span class="meta-item">📅 ${contentDate}</span>` : ""}
             ${content.place && isEvent ? `<span class="meta-item">📍 ${content.place}</span>` : ""}
-            <span class="meta-item">⭐ Shining Stars Nursery and Primary School, Vvumba</span>
+            <span class="meta-item">⭐ Shining Stars School</span>
           </div>
           
           ${content.photo ? `<img src="${content.photo}" alt="${content.title}" class="content-image">` : ""}
@@ -398,7 +411,7 @@ function getNewContentEmailTemplate(type: string, content: any) {
             ${
               isEvent
                 ? "Don't miss out on this exciting event! Mark your calendar and join us."
-                : "Stay connected with all the latest happenings at Shining Stars Nursery and Primary School, Vvumba."
+                : "Stay connected with all the latest happenings at Shining Stars School."
             }
           </p>
           <a href="https://www.shiningstarsvvumba.com/${isEvent ? `events/${content.contentId}` : `news/${content.contentId}`}" class="cta-button">
