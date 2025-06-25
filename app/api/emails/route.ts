@@ -93,7 +93,7 @@ export async function POST(request: NextRequest) {
     }
 
     console.log("7. Creating email transporter...")
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 465,
       secure: true,
