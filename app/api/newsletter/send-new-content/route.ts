@@ -1,9 +1,7 @@
 import { connect } from "../../../../dbConfig/dbConfig"
-import newsLetter from "../../../../models/emailsModel"
-import EventModel from "../../../../modules/event"
-import NewModel from "../../../../modules/new"
 import { type NextRequest, NextResponse } from "next/server"
 import nodemailer from "nodemailer"
+import mongoose from "mongoose"
 
 connect()
 
@@ -21,16 +19,24 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Missing required field: contentId" }, { status: 400 })
     }
 
+    // Get database collections directly
+    const db = mongoose.connection.db
+    if (!db) {
+      return NextResponse.json({ error: "Database connection not available" }, { status: 500 })
+    }
+
     // Fetch the actual content from database
     let content
     try {
       if (type === "event") {
-        content = await EventModel.findById(contentId).exec()
+        const eventsCollection = db.collection("events")
+        content = await eventsCollection.findOne({ _id: new mongoose.Types.ObjectId(contentId) })
         if (!content) {
           return NextResponse.json({ error: "Event not found" }, { status: 404 })
         }
       } else {
-        content = await NewModel.findById(contentId).exec()
+        const newsCollection = db.collection("news") // or whatever your news collection is called
+        content = await newsCollection.findOne({ _id: new mongoose.Types.ObjectId(contentId) })
         if (!content) {
           return NextResponse.json({ error: "News not found" }, { status: 404 })
         }
@@ -41,7 +47,8 @@ export async function POST(request: NextRequest) {
     }
 
     // Get all active subscribers from database
-    const subscribers = await newsLetter.find({ isActive: { $ne: false } }).exec()
+    const subscribersCollection = db.collection("newsletters")
+    const subscribers = await subscribersCollection.find({ isActive: { $ne: false } }).toArray()
 
     if (subscribers.length === 0) {
       return NextResponse.json({ message: "No active subscribers found" }, { status: 200 })
