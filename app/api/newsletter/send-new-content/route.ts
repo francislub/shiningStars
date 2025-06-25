@@ -1,9 +1,12 @@
 import { connect } from "../../../../dbConfig/dbConfig"
 import newsLetter from "../../../../models/emailsModel"
-import EventModel from "../../../../modules/event"
-import NewModel from "../../../../modules/new"
 import { type NextRequest, NextResponse } from "next/server"
 import nodemailer from "nodemailer"
+import mongoose from "mongoose"
+
+// Import the models properly
+const EventModel = mongoose.models.Event || mongoose.model("Event", new mongoose.Schema({}, { strict: false }))
+const NewModel = mongoose.models.New || mongoose.model("New", new mongoose.Schema({}, { strict: false }))
 
 connect()
 
@@ -24,19 +27,19 @@ export async function POST(request: NextRequest) {
     // Fetch the actual content from database
     let content
     if (type === "event") {
-      content = await EventModel.findById(contentId).populate("creator")
+      content = await EventModel.findById(contentId)
       if (!content) {
         return NextResponse.json({ error: "Event not found" }, { status: 404 })
       }
     } else {
-      content = await NewModel.findById(contentId).populate("creator")
+      content = await NewModel.findById(contentId)
       if (!content) {
         return NextResponse.json({ error: "News not found" }, { status: 404 })
       }
     }
 
     // Get all active subscribers from database
-    const subscribers = await newsLetter.find({ isActive: { $ne: false } })
+    const subscribers = await newsLetter.find({ isActive: { $ne: false } }).exec()
 
     if (subscribers.length === 0) {
       return NextResponse.json({ message: "No active subscribers found" }, { status: 200 })
