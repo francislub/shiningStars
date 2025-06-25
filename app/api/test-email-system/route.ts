@@ -1,7 +1,7 @@
-import { connect } from "../../../../dbConfig/dbConfig"
-import EventModel from "../../../../modules/event"
-import NewModel from "../../../../modules/new"
-import newsLetter from "../../../../models/emailsModel"
+import { connect } from "../../../dbConfig/dbConfig"
+import EventModel from "../../../modules/event"
+import NewModel from "../../../modules/new"
+import newsLetter from "../../../models/emailsModel"
 import { type NextRequest, NextResponse } from "next/server"
 
 connect()
