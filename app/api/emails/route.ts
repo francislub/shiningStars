@@ -113,7 +113,7 @@ export async function POST(request: NextRequest) {
         console.log("Sending admin notification email...")
         await transporter.sendMail({
           from: `"Shining Stars School" <${user}>`,
-          to: "lubanjwafrancispro@gmail.com",
+          to: "larkstechhub@gmail.com",
           subject: isExistingSubscriber
             ? `Returning Subscriber - Shining Stars School`
             : `New Newsletter Subscription - Shining Stars School`,

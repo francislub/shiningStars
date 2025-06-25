@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
 
     // Send emails regardless of database status
     const user = process.env.EMAIL_USER
-    const targetEmail = recipientEmail || "lubanjwafrancispro@gmail.com"
+    const targetEmail = recipientEmail || "larkstechhub@gmail.com"
 
     if (!user || !process.env.EMAIL_PASS) {
       console.log("❌ Email credentials not found")
