@@ -1,25 +1,35 @@
 import { connect } from "../../../dbConfig/dbConfig"
-import EventModel from "../../../modules/event"
-import NewModel from "../../../modules/new"
-import newsLetter from "../../../models/emailsModel"
+import mongoose from "mongoose"
 import { type NextRequest, NextResponse } from "next/server"
 
 connect()
 
 export async function GET(request: NextRequest) {
   try {
+    // Use direct database access to avoid TypeScript issues
+    const db = mongoose.connection.db
+
+    if (!db) {
+      throw new Error("Database connection not established")
+    }
+
+    // Get collections
+    const eventsCollection = db.collection("events")
+    const newsCollection = db.collection("news")
+    const subscribersCollection = db.collection("newsletters")
+
     // Test database connections
-    const eventCount = await EventModel.countDocuments()
-    const newsCount = await NewModel.countDocuments()
-    const subscriberCount = await newsLetter.countDocuments()
+    const eventCount = await eventsCollection.countDocuments()
+    const newsCount = await newsCollection.countDocuments()
+    const subscriberCount = await subscribersCollection.countDocuments()
 
     // Get latest event and news
-    const latestEvent = await EventModel.findOne().sort({ _id: -1 }).exec()
-    const latestNews = await NewModel.findOne().sort({ _id: -1 }).exec()
-    const subscribers = await newsLetter
+    const latestEvent = await eventsCollection.findOne({}, { sort: { _id: -1 } })
+    const latestNews = await newsCollection.findOne({}, { sort: { _id: -1 } })
+    const subscribers = await subscribersCollection
       .find({ isActive: { $ne: false } })
       .limit(5)
-      .exec()
+      .toArray()
 
     return NextResponse.json({
       success: true,
@@ -45,7 +55,7 @@ export async function GET(request: NextRequest) {
             }
           : null,
       },
-      sampleSubscribers: subscribers.map((sub) => ({
+      sampleSubscribers: subscribers.map((sub: any) => ({
         email: sub.newsemail,
         isActive: sub.isActive,
       })),
@@ -72,15 +82,24 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Type must be 'event' or 'news'" }, { status: 400 })
     }
 
+    // Use direct database access
+    const db = mongoose.connection.db
+
+    if (!db) {
+      throw new Error("Database connection not established")
+    }
+
     // Get the latest content
     let latestContent
     if (type === "event") {
-      latestContent = await EventModel.findOne().sort({ _id: -1 }).exec()
+      const eventsCollection = db.collection("events")
+      latestContent = await eventsCollection.findOne({}, { sort: { _id: -1 } })
       if (!latestContent) {
         return NextResponse.json({ error: "No events found in database" }, { status: 404 })
       }
     } else {
-      latestContent = await NewModel.findOne().sort({ _id: -1 }).exec()
+      const newsCollection = db.collection("news")
+      latestContent = await newsCollection.findOne({}, { sort: { _id: -1 } })
       if (!latestContent) {
         return NextResponse.json({ error: "No news found in database" }, { status: 404 })
       }
