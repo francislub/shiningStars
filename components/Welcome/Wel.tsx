@@ -13,7 +13,8 @@ const showcaseItems = [
     description: "Leading with Heart and Vision",
     subtext:
       "Guiding our little stars to shine their brightest every day at Shining Stars Nursery and Primary School, Vvumba.",
-    image: "/images/shi/drrr.jpeg",
+    // image: "/images/shi/drrr.jpeg",
+    image: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/686e21f50033eca71c99/view?project=683381d6001779054d64&mode=admin",
     icon: "Star",
     bgColor: "from-blue-400 to-purple-500",
     decorations: ["stars", "books"],
@@ -46,7 +47,7 @@ const showcaseItems = [
     description: "Where Learning is an Adventure",
     subtext:
       "At Shining Stars Vvumba, every day is filled with discovery, friendship, and fun activities that help our pupils grow into confident learners.",
-    image: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/6841a2c40008bd4b425d/view?project=683381d6001779054d64&mode=admin",
+    image: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/686e21a40002eee41d5e/view?project=683381d6001779054d64&mode=admin",
     icon: "Cloud",
     bgColor: "from-pink-400 to-purple-500",
     decorations: ["balloons", "stars"],
