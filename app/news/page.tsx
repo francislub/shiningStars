@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import SingleEvent from "@/components/Events/SingleEvent";
+import SingleNew from "@/components/News/SingleNews";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import { getPosts } from "@/lib/requests";
 import Contact from "@/components/Contact";
@@ -46,7 +46,7 @@ export default function Blog  () {
         <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {events.map((post) => (
-              <SingleEvent key={post._id} post={post} />
+              <SingleNew key={post._id} post={post} />
             ))}
           </div>
           <div>
