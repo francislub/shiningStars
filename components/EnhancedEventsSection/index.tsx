@@ -56,7 +56,7 @@ const EnhancedEventsSection = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2"
           >
-            School Events
+            School Activities
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: -20 }}
