@@ -1,9 +1,4 @@
 "use client"
-
-import Link from "next/link"
-import { FaArrowDownLong } from "react-icons/fa6"
-import { BiBookOpen, BiSolidPencil } from "react-icons/bi"
-import { motion } from "framer-motion"
 import Slider from "react-slick"
 import HeroSlide from "./HeroSlide"
 import EnhancedEventsSection from "../EnhancedEventsSection"
@@ -109,64 +104,6 @@ const Hero = () => {
           </div>
         </div>
       </section>
-
-      {/* Mobile-specific hero content overlay */}
-      <div className="lg:hidden container px-4 py-8 w-full">
-        <motion.div
-          className="text-center space-y-6 mx-auto max-w-[800px] fadeInUp"
-          data-wow-delay=".2s"
-          variants={textVariants}
-          initial="initial"
-          animate="animate"
-        >
-          <motion.h2
-            className="uppercase font-medium leading-relaxed text-gray-500/70 dark:text-white dark:opacity-90 text-xl sm:text-2xl"
-            variants={textVariants}
-          >
-            Shining Stars
-          </motion.h2>
-
-          <motion.h1
-            className="capitalize text-2xl sm:text-3xl md:text-4xl font-bold leading-tight text-black/70 dark:text-primary"
-            variants={textVariants}
-          >
-            Arise and shine
-          </motion.h1>
-
-          <motion.div className="flex flex-col items-center justify-center space-y-4" variants={textVariants}>
-            <motion.div
-              className="flex hover:scale-105 transition-all duration-300 space-y-6 flex-col items-center"
-              variants={textVariants}
-            >
-              <motion.div className="border rounded py-1" variants={textVariants} animate="scrollButton2">
-                <FaArrowDownLong className="text-primary" />
-              </motion.div>
-              <Link
-                href="/admission"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex rounded-md bg-primary dark:bg-primary/60 py-2 px-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
-              >
-                Apply Now
-                <BiSolidPencil className="text-xl mx-2" />
-              </Link>
-            </motion.div>
-
-            <motion.div
-              className="flex hover:scale-105 transition-all duration-300 flex-col text-center items-center justify-center"
-              variants={textVariants}
-            >
-              <Link
-                href="/learn-more"
-                className="mt-4 flex rounded-md bg-black/30 py-1 px-3 md:py-2 md:px-4 text-lg font-semibold text-black/90 duration-300 ease-in-out hover:bg-black/30 dark:bg-transparent dark:border dark:text-white"
-              >
-                Learn More
-                <BiBookOpen className="text-xl mx-2" />
-              </Link>
-            </motion.div>
-          </motion.div>
-        </motion.div>
-      </div>
     </>
   )
 }
