@@ -1,10 +1,11 @@
 "use client"
+
 import { useEffect, useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Calendar, Search, Loader2, AlertCircle } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
 import Breadcrumb from "@/components/Common/Breadcrumb"
-import Contact from "@/components/Contact"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight, Calendar, MapPin } from "lucide-react"
 
 interface Event {
   id: string
@@ -15,211 +16,214 @@ interface Event {
   photos: string[]
   createdAt: string
   comments: any[]
-  creator?: { name: string }
 }
 
 export default function EventsPage() {
   const [events, setEvents] = useState<Event[]>([])
+  const [filteredEvents, setFilteredEvents] = useState<Event[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [searchTerm, setSearchTerm] = useState("")
   const [currentPage, setCurrentPage] = useState(1)
-  const eventsPerPage = 9
+  const eventsPerPage = 6
 
   useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        setLoading(true)
-        const response = await fetch("/api/events")
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch events")
-        }
-
-        const data = await response.json()
-        setEvents(data)
-      } catch (err: any) {
-        setError(err.message)
-        console.error("Error fetching events:", err)
-      } finally {
-        setLoading(false)
-      }
-    }
-
     fetchEvents()
   }, [])
 
-  // Pagination logic
-  const indexOfLastEvent = currentPage * eventsPerPage
-  const indexOfFirstEvent = indexOfLastEvent - eventsPerPage
-  const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent)
-  const totalPages = Math.ceil(events.length / eventsPerPage)
+  useEffect(() => {
+    const filtered = events.filter(
+      (event) =>
+        event.activity.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        event.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        event.place.toLowerCase().includes(searchTerm.toLowerCase()),
+    )
+    setFilteredEvents(filtered)
+    setCurrentPage(1)
+  }, [events, searchTerm])
 
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
+  const fetchEvents = async () => {
+    try {
+      setLoading(true)
+      const response = await fetch("/api/events")
+      if (!response.ok) throw new Error("Failed to fetch events")
+
+      const data = await response.json()
+      setEvents(data)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "An error occurred")
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const totalPages = Math.ceil(filteredEvents.length / eventsPerPage)
+  const startIndex = (currentPage - 1) * eventsPerPage
+  const currentEvents = filteredEvents.slice(startIndex, startIndex + eventsPerPage)
 
   if (loading) {
     return (
-      <>
-        <Breadcrumb
-          pageName="Shining Stars Events"
-          description="Welcome to Shining Stars events! Here, you'll find exciting activities and happenings from our school community."
-        />
-        <section className="pt-[120px] pb-[120px]">
-          <div className="container">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[...Array(6)].map((_, i) => (
-                <Card key={i} className="animate-pulse">
-                  <div className="h-48 bg-gray-200 rounded-t-lg"></div>
-                  <CardContent className="p-6">
-                    <div className="h-4 bg-gray-200 rounded mb-2"></div>
-                    <div className="h-4 bg-gray-200 rounded mb-2 w-3/4"></div>
-                    <div className="h-3 bg-gray-200 rounded w-1/2"></div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <Breadcrumb pageName="Events" description="Discover upcoming school events and activities" />
+        <div className="container mx-auto px-4 py-16">
+          <div className="flex items-center justify-center">
+            <Loader2 className="w-8 h-8 animate-spin text-primary" />
           </div>
-        </section>
-      </>
+        </div>
+      </div>
     )
   }
 
   if (error) {
     return (
-      <>
-        <Breadcrumb pageName="Shining Stars Events" description="Welcome to Shining Stars events!" />
-        <section className="pt-[120px] pb-[120px]">
-          <div className="container">
-            <Card className="text-center p-8">
-              <CardContent>
-                <p className="text-red-600 mb-4">Error loading events: {error}</p>
-                <Button onClick={() => window.location.reload()}>Try Again</Button>
-              </CardContent>
-            </Card>
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <Breadcrumb pageName="Events" description="Discover upcoming school events and activities" />
+        <div className="container mx-auto px-4 py-16">
+          <div className="flex flex-col items-center justify-center text-center">
+            <AlertCircle className="w-12 h-12 text-red-500 mb-4" />
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Oops! Something went wrong</h2>
+            <p className="text-gray-600 dark:text-gray-400 mb-4">{error}</p>
+            <button
+              onClick={fetchEvents}
+              className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90 transition-colors"
+            >
+              Try Again
+            </button>
           </div>
-        </section>
-      </>
+        </div>
+      </div>
     )
   }
 
   return (
-    <>
-      <Breadcrumb
-        pageName="Shining Stars Events"
-        description="Welcome to Shining Stars events! Here, you'll find exciting activities and happenings from our school community."
-      />
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <Breadcrumb pageName="Events" description="Discover upcoming school events and activities" />
 
-      <section className="pt-[120px] pb-[120px]">
-        <div className="container">
-          {events.length === 0 ? (
-            <Card className="text-center p-8">
-              <CardContent>
-                <Calendar className="h-16 w-16 mx-auto text-gray-400 mb-4" />
-                <h3 className="text-xl font-semibold mb-2">No Events Found</h3>
-                <p className="text-gray-600">There are currently no events to display. Check back later for updates!</p>
-              </CardContent>
-            </Card>
+      <div className="container mx-auto px-4 py-16">
+        {/* Search and Filter */}
+        <div className="mb-8">
+          <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
+            <div className="relative flex-1 max-w-md">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input
+                type="text"
+                placeholder="Search events..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+              />
+            </div>
+
+            <div className="text-sm text-gray-600 dark:text-gray-400">
+              Showing {filteredEvents.length} of {events.length} events
+            </div>
+          </div>
+        </div>
+
+        {/* Events Grid */}
+        <AnimatePresence mode="wait">
+          {filteredEvents.length === 0 ? (
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-16">
+              <Calendar className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+              <h3 className="text-xl font-medium text-gray-900 dark:text-white mb-2">
+                {searchTerm ? "No events found" : "No events available"}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400">
+                {searchTerm ? "Try adjusting your search terms" : "Check back later for upcoming events"}
+              </p>
+            </motion.div>
           ) : (
-            <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {currentEvents.map((event) => (
-                  <Card key={event.id} className="group hover:shadow-lg transition-shadow duration-300">
-                    <div className="relative overflow-hidden rounded-t-lg">
-                      {event.photos.length > 0 ? (
-                        <img
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              {currentEvents.map((event, index) => (
+                <motion.div
+                  key={event.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                >
+                  <Link href={`/events/${event.id}`}>
+                    <div className="relative h-48 overflow-hidden">
+                      {event.photos && event.photos.length > 0 ? (
+                        <Image
                           src={event.photos[0] || "/placeholder.svg"}
                           alt={event.activity}
-                          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                          fill
+                          className="object-cover hover:scale-105 transition-transform duration-300"
                         />
                       ) : (
-                        <div className="w-full h-48 bg-gradient-to-br from-primary/20 to-primary/40 flex items-center justify-center">
-                          <Calendar className="h-16 w-16 text-primary" />
+                        <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/40 flex items-center justify-center">
+                          <Calendar className="w-16 h-16 text-primary" />
                         </div>
                       )}
+                      <div className="absolute inset-0 bg-black/20 hover:bg-black/10 transition-colors duration-300" />
                     </div>
-                    <CardContent className="p-6">
-                      <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 line-clamp-2 hover:text-primary transition-colors">
                         {event.activity}
                       </h3>
-                      <div className="flex items-center gap-2 text-sm text-gray-600 mb-2">
-                        <Calendar className="h-4 w-4" />
-                        <span>{event.date}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-gray-600 mb-3">
-                        <MapPin className="h-4 w-4" />
-                        <span>{event.place}</span>
-                      </div>
-                      <p className="text-gray-700 mb-4 line-clamp-3">
-                        {event.description.replace(/<[^>]*>/g, "").substring(0, 150)}...
-                      </p>
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-gray-500">
-                          {event.comments.length} comment{event.comments.length !== 1 ? "s" : ""}
-                        </span>
-                        <Button asChild size="sm">
-                          <a href={`/events/${event.id}`}>Read More</a>
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
 
-              {/* Pagination */}
-              {totalPages > 1 && (
-                <div className="flex items-center justify-center pt-8 space-x-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => paginate(currentPage - 1)}
-                    disabled={currentPage === 1}
-                  >
-                    <ChevronLeft className="h-4 w-4 mr-1" />
-                    Previous
-                  </Button>
+                      <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">{event.description}</p>
 
-                  {[...Array(totalPages)].map((_, index) => {
-                    const pageNumber = index + 1
-                    if (
-                      pageNumber === 1 ||
-                      pageNumber === totalPages ||
-                      (pageNumber >= currentPage - 1 && pageNumber <= currentPage + 1)
-                    ) {
-                      return (
-                        <Button
-                          key={pageNumber}
-                          variant={currentPage === pageNumber ? "default" : "outline"}
-                          size="sm"
-                          onClick={() => paginate(pageNumber)}
-                        >
-                          {pageNumber}
-                        </Button>
-                      )
-                    } else if (pageNumber === currentPage - 2 || pageNumber === currentPage + 2) {
-                      return (
-                        <span key={pageNumber} className="px-2">
-                          ...
-                        </span>
-                      )
-                    }
-                    return null
-                  })}
-
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => paginate(currentPage + 1)}
-                    disabled={currentPage === totalPages}
-                  >
-                    Next
-                    <ChevronRight className="h-4 w-4 ml-1" />
-                  </Button>
-                </div>
-              )}
-            </>
+                      <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                        <div className="flex items-center gap-1">
+                          <Calendar className="w-4 h-4" />
+                          {event.date}
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <span>{event.comments?.length || 0} comments</span>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </motion.div>
           )}
-        </div>
-      </section>
-      <Contact />
-    </>
+        </AnimatePresence>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="flex justify-center mt-12">
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+                className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              >
+                Previous
+              </button>
+
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <button
+                  key={page}
+                  onClick={() => setCurrentPage(page)}
+                  className={`px-4 py-2 rounded-lg transition-colors ${
+                    currentPage === page
+                      ? "bg-primary text-white"
+                      : "border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700"
+                  }`}
+                >
+                  {page}
+                </button>
+              ))}
+
+              <button
+                onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+                className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
   )
 }

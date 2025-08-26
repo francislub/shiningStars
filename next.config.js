@@ -19,6 +19,10 @@ const nextConfig = {
         protocol: 'https', // Google Photos uses HTTPS
         hostname: 'photos.google.com',
       },
+      {
+        protocol: 'https', 
+        hostname: "images.unsplash.com",
+      },
     ],
     domains: ['fra.cloud.appwrite.io'],
   },

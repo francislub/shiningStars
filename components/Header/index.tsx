@@ -222,7 +222,7 @@ const Header = () => {
 
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
-                  href="/admission"
+                  href="https://shining1.vercel.app/admission"
                   className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2"
                 >
                   <HiSparkles />
@@ -270,7 +270,7 @@ const Header = () => {
 
                   <motion.div whileTap={{ scale: 0.95 }} className="pt-4">
                     <Link
-                      href="/admission"
+                      href="https://shining1.vercel.app/admission"
                       className="block w-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-center py-3 rounded-lg font-semibold"
                       onClick={() => setNavbarOpen(false)}
                     >

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import { getNewsById } from "@/lib/api"
+import { getNewsById, getRelatedNews } from "@/lib/api"
 
 export async function GET(request: Request, { params }: { params: { id: string } }) {
   try {
@@ -7,9 +7,15 @@ export async function GET(request: Request, { params }: { params: { id: string }
     if (!news) {
       return NextResponse.json({ error: "News not found" }, { status: 404 })
     }
-    return NextResponse.json(news)
+
+    const relatedNews = await getRelatedNews(params.id)
+
+    return NextResponse.json({
+      news,
+      relatedNews,
+    })
   } catch (error) {
-    console.error("Error in news API:", error)
+    console.error("Error fetching news:", error)
     return NextResponse.json({ error: "Failed to fetch news" }, { status: 500 })
   }
 }

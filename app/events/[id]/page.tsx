@@ -1,154 +1,202 @@
-import { getEventById, getEvents } from "@/lib/api"
+"use client"
+
+import { useEffect, useState } from "react"
+import { useParams } from "next/navigation"
+import { motion } from "framer-motion"
+import { Calendar, MapPin, Clock, Share2, Loader2, AlertCircle } from "lucide-react"
 import Image from "next/image"
-import { notFound } from "next/navigation"
-import { Calendar, MapPin, User, Clock } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
-import CommentsList from "@/components/Comments/CommentsList"
+import Breadcrumb from "@/components/Common/Breadcrumb"
 import CommentForm from "@/components/Comments/CommentForm"
+import CommentsList from "@/components/Comments/CommentsList"
 import RelatedContent from "@/components/Sidebar/RelatedContent"
 
-type Props = {
-  params: {
-    id: string
-  }
+interface Event {
+  id: string
+  activity: string
+  description: string
+  date: string
+  place: string
+  photos: string[]
+  createdAt: string
+  comments: any[]
+  creator?: { name: string }
 }
 
-export default async function EventPage({ params }: Props) {
-  const { id } = params
-  const event = await getEventById(id)
+export default function EventDetailPage() {
+  const params = useParams()
+  const [event, setEvent] = useState<Event | null>(null)
+  const [relatedEvents, setRelatedEvents] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-  if (!event) {
-    return notFound()
+  useEffect(() => {
+    if (params.id) {
+      fetchEvent(params.id as string)
+    }
+  }, [params.id])
+
+  const fetchEvent = async (id: string) => {
+    try {
+      setLoading(true)
+      const response = await fetch(`/api/events/${id}`)
+      if (!response.ok) throw new Error("Event not found")
+
+      const data = await response.json()
+      setEvent(data.event)
+      setRelatedEvents(data.relatedEvents || [])
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "An error occurred")
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const handleCommentSubmitted = () => {
+    // Refresh the event data to get updated comments
+    if (params.id) {
+      fetchEvent(params.id as string)
+    }
+  }
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="container mx-auto px-4 py-16">
+          <div className="flex items-center justify-center">
+            <Loader2 className="w-8 h-8 animate-spin text-primary" />
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (error || !event) {
+    return (
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="container mx-auto px-4 py-16">
+          <div className="flex flex-col items-center justify-center text-center">
+            <AlertCircle className="w-12 h-12 text-red-500 mb-4" />
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Event Not Found</h2>
+            <p className="text-gray-600 dark:text-gray-400 mb-4">{error}</p>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   return (
-    <div className="pt-[120px] pb-[120px]">
-      <div className="container">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <Breadcrumb
+        pageName={event.activity}
+        description="Event Details"
+        links={[
+          { href: "/events", label: "Events" },
+          { href: `/events/${event.id}`, label: event.activity },
+        ]}
+      />
+
+      <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
-          <div className="lg:col-span-2">
-            <Card>
-              <CardContent className="p-0">
-                {/* Hero Image */}
-                <div className="relative h-64 md:h-80 overflow-hidden rounded-t-lg">
-                  {event.photos.length > 0 ? (
-                    <Image
-                      src={event.photos[0] || "/placeholder.svg"}
-                      alt={event.activity}
-                      fill
-                      className="object-cover"
-                      priority
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/40 flex items-center justify-center">
-                      <Calendar className="h-24 w-24 text-primary" />
-                    </div>
-                  )}
+          <div className="lg:col-span-2 space-y-8">
+            {/* Event Header */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden"
+            >
+              {event.photos && event.photos.length > 0 && (
+                <div className="relative h-64 md:h-80">
+                  <Image
+                    src={event.photos[0] || "/placeholder.svg"}
+                    alt={event.activity}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
+              )}
 
-                <div className="p-6 md:p-8">
-                  {/* Title */}
-                  <h1 className="text-2xl md:text-4xl font-bold mb-6 leading-tight">{event.activity}</h1>
-
-                  {/* Event Meta */}
-                  <div className="flex flex-wrap gap-4 mb-6 text-gray-600">
-                    <div className="flex items-center gap-2">
-                      <Calendar className="h-5 w-5" />
-                      <span>{event.date}</span>
+              <div className="p-6 md:p-8">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="w-4 h-4" />
+                      {event.date}
                     </div>
-                    <div className="flex items-center gap-2">
-                      <MapPin className="h-5 w-5" />
-                      <span>{event.place}</span>
+                    <div className="flex items-center gap-1">
+                      <MapPin className="w-4 h-4" />
+                      {event.place}
                     </div>
-                    <div className="flex items-center gap-2">
-                      <Clock className="h-5 w-5" />
-                      <span>{new Date(event.createdAt).toLocaleDateString()}</span>
+                    <div className="flex items-center gap-1">
+                      <Clock className="w-4 h-4" />
+                      {new Date(event.createdAt).toLocaleDateString()}
                     </div>
-                    {event.creator && (
-                      <div className="flex items-center gap-2">
-                        <User className="h-5 w-5" />
-                        <span>By {event.creator.name}</span>
-                      </div>
-                    )}
                   </div>
 
-                  {/* Additional Images */}
-                  {event.photos.length > 1 && (
-                    <div className="mb-6">
-                      <h3 className="text-lg font-semibold mb-4">Event Gallery</h3>
-                      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        {event.photos.slice(1).map((photo, index) => (
-                          <div key={index} className="relative h-32 rounded-lg overflow-hidden">
-                            <Image
-                              src={photo || "/placeholder.svg"}
-                              alt={`${event.activity} - Image ${index + 2}`}
-                              fill
-                              className="object-cover hover:scale-105 transition-transform duration-300"
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Description */}
-                  <div className="prose max-w-none">
-                    <div className="text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: event.description }} />
-                  </div>
+                  <button className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors">
+                    <Share2 className="w-4 h-4" />
+                    Share
+                  </button>
                 </div>
-              </CardContent>
-            </Card>
+
+                <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">{event.activity}</h1>
+
+                <div className="prose prose-lg dark:prose-invert max-w-none">
+                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{event.description}</p>
+                </div>
+
+                {event.creator && (
+                  <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      Posted by <span className="font-medium">{event.creator.name}</span>
+                    </p>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+
+            {/* Photo Gallery */}
+            {event.photos && event.photos.length > 1 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6"
+              >
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Photo Gallery</h2>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {event.photos.slice(1).map((photo, index) => (
+                    <div key={index} className="relative h-32 rounded-lg overflow-hidden">
+                      <Image
+                        src={photo || "/placeholder.svg"}
+                        alt={`${event.activity} - Photo ${index + 2}`}
+                        fill
+                        className="object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
 
             {/* Comments Section */}
-            <CommentsList comments={event.comments} />
-            <CommentForm itemId={event.id} itemType="events" />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="space-y-8"
+            >
+              <CommentsList comments={event.comments} />
+              <CommentForm contentId={event.id} contentType="event" onCommentSubmitted={handleCommentSubmitted} />
+            </motion.div>
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-6">
-            <RelatedContent currentId={event.id} type="events" />
-
-            {/* Event Details Card */}
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-semibold mb-4">Event Details</h3>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <Calendar className="h-5 w-5 text-primary mt-0.5" />
-                    <div>
-                      <p className="font-medium">Date</p>
-                      <p className="text-sm text-gray-600">{event.date}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <MapPin className="h-5 w-5 text-primary mt-0.5" />
-                    <div>
-                      <p className="font-medium">Location</p>
-                      <p className="text-sm text-gray-600">{event.place}</p>
-                    </div>
-                  </div>
-                  {event.creator && (
-                    <div className="flex items-start gap-3">
-                      <User className="h-5 w-5 text-primary mt-0.5" />
-                      <div>
-                        <p className="font-medium">Organizer</p>
-                        <p className="text-sm text-gray-600">{event.creator.name}</p>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
+          <div className="space-y-8">
+            <RelatedContent items={relatedEvents} type="events" title="Related Events" />
           </div>
         </div>
       </div>
     </div>
   )
-}
-
-export async function generateStaticParams() {
-  const events = await getEvents()
-  return events.map((event) => ({
-    id: event.id,
-  }))
 }

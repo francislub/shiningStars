@@ -1,89 +1,192 @@
-'use client';
-import SectionTitle from "@/components/Common/SectionTitle";
-import Breadcrumb from "@/components/Common/Breadcrumb";
-import School from "@/components/school/School";
-import React, { useState, useEffect } from 'react';
-import Link from "next/link";
-import Image from 'next/image';
+"use client"
 
-export default function Teaching() {
+import { useState, useEffect } from "react"
+import Link from "next/link"
+import { motion } from "framer-motion"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Loader2, Users, Calendar, ArrowRight, RefreshCw } from "lucide-react"
 
-  const [administrators, setAdministrators] = useState([]);
-  const [error, setError] = useState(null);
-  let id = "";
+interface Administrator {
+  id: string
+  title: string
+  name: string
+  message: string
+  description: string
+  photos: string[]
+  createdAt: string
+  creator?: {
+    name: string
+    email: string
+  }
+}
+
+interface ApiResponse {
+  administrators: Administrator[]
+  pagination: {
+    total: number
+    pages: number
+    currentPage: number
+    hasNext: boolean
+    hasPrev: boolean
+  }
+}
+
+export default function AdministratorsPage() {
+  const [data, setData] = useState<ApiResponse | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [page, setPage] = useState(1)
+
+  const fetchAdministrators = async (pageNum = 1) => {
+    try {
+      setLoading(true)
+      setError(null)
+      const response = await fetch(`/api/administrators?limit=6&page=${pageNum}`)
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch administrators")
+      }
+
+      const result = await response.json()
+      setData(result)
+      setPage(pageNum)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "An error occurred")
+    } finally {
+      setLoading(false)
+    }
+  }
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await fetch("https://shining-stars-dashboard-hr8p.onrender.com/api/v1/admins", {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
+    fetchAdministrators()
+  }, [])
 
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
+  const handleRetry = () => {
+    fetchAdministrators(page)
+  }
 
-        const data = await response.json();
-        setAdministrators(data);
-      } catch (err) {
-        setError(err.message);
-      }
-    };
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="text-center">
+          <Loader2 className="h-12 w-12 animate-spin text-blue-600 mx-auto mb-4" />
+          <p className="text-gray-600 font-medium">Loading administrators...</p>
+        </motion.div>
+      </div>
+    )
+  }
 
-    fetchPosts();
-  }, []);
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center max-w-md mx-auto p-6"
+        >
+          <div className="bg-red-100 rounded-full p-3 w-16 h-16 mx-auto mb-4">
+            <Users className="h-10 w-10 text-red-600" />
+          </div>
+          <h2 className="text-xl font-semibold text-gray-900 mb-2">Unable to Load Administrators</h2>
+          <p className="text-gray-600 mb-4">{error}</p>
+          <Button onClick={handleRetry} className="bg-blue-600 hover:bg-blue-700">
+            <RefreshCw className="h-4 w-4 mr-2" />
+            Try Again
+          </Button>
+        </motion.div>
+      </div>
+    )
+  }
 
   return (
-    <div>
-      <section className="my-20 mt-5 mx-10">
-      <Breadcrumb
-        pageName="Administrators"
-        description="
-        Shining Stars is a place for everyone, somewhere you can be yourself. Whether you're an out-of-the-box thinker, boundary-breaker or change-maker, this is where you'll get ahead and find your place as part of a global community.
-        "
-      />
-      </section>
-
-        <div className="flex flex-col items-start mx-auto md:pl-28 justify-center items-center">
-            <div className="md:pl-2 ">
-              <SectionTitle title="Administrators" paragraph="" />
-            </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <div className="container mx-auto px-4 py-8">
+        {/* Header */}
+        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">School Administrators</h1>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Meet our dedicated administrative team committed to excellence in education and service
+          </p>
+          <div className="flex items-center justify-center mt-4">
+            <Badge variant="secondary" className="bg-blue-100 text-blue-800">
+              <Users className="h-4 w-4 mr-1" />
+              {data?.pagination.total || 0} Administrators
+            </Badge>
           </div>
+        </motion.div>
 
-                <div className="boxContainer justify-center items-center md:flex flex flex-wrap md:flex-row mb-20">
-                      {administrators.map((post) => (
-                          <div className="box bg-gray-300 flex flex-col md:w-[300px] lg:w-[350px] xl:w-[400px] 2xl:w-[450px] p-3 md:max-w-[25%] md:p-4 hover:bg-gray-100 hover:scale-105 transition duration-300 ease-in-out cursor-pointer" key={post._id}>
-                              
-                              <Image 
-                                src={post.photo} 
-                                alt={post.name} 
-                                width={640} // Set the appropriate width
-                                height={360} // Set the appropriate height
-                                className="w-full h-30 object-cover"
-                              />
-                              <div className="programTitle px-5 text-center">
-                              <span className="text-xl text-[#1f8cad]">{post.title}</span>
-                              </div>
-                              <div className="programDesc text-center">
-                                <h2>{post.name}</h2>
-                              </div>
-                              {/* <div className="programDesc">
-                                <h2>{post.description}</h2>
-                              </div> */}
-                              <div className="flex justify-center mt-4">
-                                <Link href={`/admin/${id=post._id}`} passHref>
-                                  <button className="hover:bg-[#197996] bg-[#1f8cad] text-white px-4 py-2 rounded">
-                                    Read More
-                                  </button>
-                                </Link>
-                              </div>
-                          </div>
-                      ))}
-
+        {/* Administrators Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {data?.administrators.map((admin, index) => (
+            <motion.div
+              key={admin.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <Card className="h-full hover:shadow-lg transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm">
+                <CardHeader className="pb-4">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <CardTitle className="text-xl font-semibold text-gray-900 mb-1">{admin.name}</CardTitle>
+                      <Badge variant="outline" className="text-blue-600 border-blue-200">
+                        {admin.title}
+                      </Badge>
                     </div>
+                    <div className="w-16 h-16 rounded-full overflow-hidden bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-white font-semibold text-lg ml-4">
+                      {admin.photos.length > 0 ? (
+                        <img
+                          src={admin.photos[0] || "/placeholder.svg"}
+                          alt={admin.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        admin.name.charAt(0)
+                      )}
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="pt-0">
+                  <p className="text-gray-600 mb-4 line-clamp-3">{admin.description}</p>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center text-sm text-gray-500">
+                      <Calendar className="h-4 w-4 mr-1" />
+                      {new Date(admin.createdAt).toLocaleDateString()}
+                    </div>
+                    <Link href={`/administrators/${admin.id}`}>
+                      <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                        View Details
+                        <ArrowRight className="h-4 w-4 ml-1" />
+                      </Button>
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Pagination */}
+        {data && data.pagination.pages > 1 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="flex justify-center items-center space-x-2"
+          >
+            <Button variant="outline" disabled={!data.pagination.hasPrev} onClick={() => fetchAdministrators(page - 1)}>
+              Previous
+            </Button>
+            <span className="px-4 py-2 text-sm text-gray-600">
+              Page {data.pagination.currentPage} of {data.pagination.pages}
+            </span>
+            <Button variant="outline" disabled={!data.pagination.hasNext} onClick={() => fetchAdministrators(page + 1)}>
+              Next
+            </Button>
+          </motion.div>
+        )}
+      </div>
     </div>
-  );
+  )
 }

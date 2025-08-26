@@ -1,21 +1,98 @@
-import { NextResponse } from "next/server"
-import { addEventComment } from "@/lib/api"
+import { type NextRequest, NextResponse } from "next/server"
+import { prisma } from "@/lib/prisma"
+import { sendCommentNotification } from "@/lib/email-service"
 
-export async function POST(request: Request, { params }: { params: { id: string } }) {
+export async function POST(request: NextRequest, { params }: { params: { id: string } }) {
   try {
     const { name, email, comment } = await request.json()
+    const eventId = params.id
 
-    if (!name || !email || !comment) {
-      return NextResponse.json({ error: "Missing required fields" }, { status: 400 })
+    // Validate input
+    if (!comment || comment.trim().length === 0) {
+      return NextResponse.json({ error: "Comment is required" }, { status: 400 })
     }
 
-    const newComment = await addEventComment(params.id, name, email, comment)
+    // Get the event details for the email
+    const event = await prisma.websiteEvent.findUnique({
+      where: { id: eventId },
+      select: { activity: true, id: true },
+    })
+
+    if (!event) {
+      return NextResponse.json({ error: "Event not found" }, { status: 404 })
+    }
+
+    // Create the comment
+    const newComment = await prisma.websiteEventComment.create({
+      data: {
+        eventId,
+        name: name || "Anonymous",
+        email: email || null,
+        comment: comment.trim(),
+        isApproved: false, // Comments need approval
+      },
+    })
+
+    // Send notification email to admin
+    try {
+      await sendCommentNotification(
+        "event",
+        event.activity,
+        event.id,
+        name || "Anonymous",
+        email || "No email provided",
+        comment.trim(),
+      )
+      console.log("✅ Comment notification email sent to admin")
+    } catch (emailError) {
+      console.error("❌ Failed to send comment notification email:", emailError)
+      // Don't fail the comment creation if email fails
+    }
+
     return NextResponse.json({
-      message: "Comment submitted successfully. It will be visible after approval.",
-      comment: newComment,
+      success: true,
+      message: "Comment submitted successfully and is awaiting approval",
+      comment: {
+        id: newComment.id,
+        name: newComment.name,
+        comment: newComment.comment,
+        createdAt: newComment.createdAt,
+        isApproved: newComment.isApproved,
+      },
     })
   } catch (error) {
-    console.error("Error adding event comment:", error)
-    return NextResponse.json({ error: "Failed to add comment" }, { status: 500 })
+    console.error("Error creating comment:", error)
+    return NextResponse.json({ error: "Failed to submit comment" }, { status: 500 })
+  }
+}
+
+export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+  try {
+    const eventId = params.id
+
+    // Get approved comments only
+    const comments = await prisma.websiteEventComment.findMany({
+      where: {
+        eventId,
+        isApproved: true,
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+      select: {
+        id: true,
+        name: true,
+        comment: true,
+        createdAt: true,
+      },
+    })
+
+    return NextResponse.json({
+      success: true,
+      comments,
+    })
+  } catch (error) {
+    console.error("Error fetching comments:", error)
+    return NextResponse.json({ error: "Failed to fetch comments" }, { status: 500 })
   }
 }

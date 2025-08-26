@@ -148,20 +148,40 @@ export const activities = [
   },
   {
     id: "22",
+    title: "Holidays",
+    startDatetime: "2025-08-10T16:00:00",
+    endDatetime: "2025-08-30T19:00:00",
+    description: "Happy Holidays",
+  },
+  {
+    id: "23",
+    title: "Term III Begins",
+    startDatetime: "2025-09-14T16:00:00",
+    endDatetime: "2025-09-14T19:00:00",
+    description: "Beginning of Term III",
+  },
+
+
+
+
+
+
+  {
+    id: "50",
     title: "Independence Day",
     startDatetime: "2025-10-09T16:00:00",
     endDatetime: "2025-10-09T19:00:00",
     description: "Celebration of Uganda's independence from colonial rule.",
   },
   {
-    id: "23",
+    id: "55",
     title: "Mid Term Exams",
     startDatetime: "2025-10-22T16:00:00",
     endDatetime: "2025-10-24T19:00:00",
     description: "Midterm assessments for Term 3 academic progress.",
   },
   {
-    id: "24",
+    id: "54",
     title: "Visitation Day",
     startDatetime: "2025-11-01T16:00:00",
     endDatetime: "2025-11-01T19:00:00",

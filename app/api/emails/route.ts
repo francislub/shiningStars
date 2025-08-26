@@ -1,10 +1,11 @@
 import { connect } from "../../../dbConfig/dbConfig"
 import newsLetter from "../../../models/emailsModel"
-import { type NextRequest, NextResponse } from "next/server"
+import { NextResponse } from "next/server"
 import nodemailer from "nodemailer"
-const currentYear = new Date().getFullYear();
+import { addNewsletterSubscriber } from "@/lib/api"
+const currentYear = new Date().getFullYear()
 
-export async function POST(request: NextRequest) {
+export async function POST(request: Request) {
   console.log("=== EMAIL API ROUTE STARTED ===")
 
   try {
@@ -47,70 +48,37 @@ export async function POST(request: NextRequest) {
     let newsLetterEmail: any = null
 
     try {
-      // Fixed: Use countDocuments to check existence, then find if exists
-      const emailCount = await newsLetter.countDocuments({ newsemail })
-      if (emailCount > 0) {
+      await addNewsletterSubscriber(newsemail)
+    } catch (error: any) {
+      if (error.code === "P2002") {
         console.log("⚠️ Email already subscribed")
         isExistingSubscriber = true
         // Get the existing document using findOne with explicit typing
         const existingDoc = await (newsLetter as any).findOne({ newsemail })
         newsLetterEmail = existingDoc
-      }
-    } catch (findError: any) {
-      console.log("❌ Error checking existing email:", findError.message)
-      // Continue anyway, let the unique constraint handle duplicates
-    }
-
-    // Only save to database if not already subscribed
-    if (!isExistingSubscriber) {
-      console.log("5. Creating new newsletter entry...")
-      const newNewsLetterEmail = new newsLetter({
-        newsemail,
-      })
-
-      console.log("6. Saving to database...")
-      try {
-        newsLetterEmail = await newNewsLetterEmail.save()
-        console.log("✅ Newsletter email saved:", newsLetterEmail._id)
-      } catch (saveError: any) {
-        console.log("❌ Database save error:", saveError.message)
-
-        // If it's a duplicate key error, treat as success
-        if (saveError.code === 11000 || saveError.message.includes("duplicate")) {
-          console.log("⚠️ Duplicate email detected, treating as success")
-          isExistingSubscriber = true
-          // Try to fetch the existing record
-          try {
-            const existingDoc = await (newsLetter as any).findOne({ newsemail })
-            newsLetterEmail = existingDoc
-          } catch (e) {
-            // Ignore error, we'll proceed anyway
-          }
-        } else {
-          throw saveError
-        }
+      } else {
+        throw error
       }
     }
 
-    console.log("7. Creating email transporter...")
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
-      secure: true,
-      auth: {
-        user: user,
-        pass: pass,
-      },
-      connectionTimeout: 10000,
-      greetingTimeout: 5000,
-      socketTimeout: 10000,
-    })
-
-    console.log("8. Sending emails in background...")
+    console.log("5. Sending emails in background...")
     // Send emails asynchronously to avoid blocking the response
     setImmediate(async () => {
       try {
         console.log("Sending admin notification email...")
+        const transporter = nodemailer.createTransport({
+          host: "smtp.gmail.com",
+          port: 465,
+          secure: true,
+          auth: {
+            user: user,
+            pass: pass,
+          },
+          connectionTimeout: 10000,
+          greetingTimeout: 5000,
+          socketTimeout: 10000,
+        })
+
         await transporter.sendMail({
           from: `"Shining Stars School" <${user}>`,
           to: "larkstechhub@gmail.com",
@@ -148,32 +116,17 @@ export async function POST(request: NextRequest) {
       }
     })
 
-    console.log("9. API route completed successfully")
-    return NextResponse.json(
-      {
-        success: true,
-        message: isExistingSubscriber
-          ? "You're already subscribed to our newsletter! We've sent you a confirmation email."
-          : "Successfully subscribed to newsletter! Check your email for confirmation.",
-        id: newsLetterEmail?._id,
-        isExistingSubscriber: isExistingSubscriber,
-      },
-      { status: 200 },
-    )
-  } catch (error: any) {
-    console.log("❌ ERROR in email API route:")
-    console.log("Error name:", error.name)
-    console.log("Error message:", error.message)
-    console.log("Error stack:", error.stack)
-
-    return NextResponse.json(
-      {
-        error: "Failed to process subscription. Please try again.",
-        details: process.env.NODE_ENV === "development" ? error.message : undefined,
-        timestamp: new Date().toISOString(),
-      },
-      { status: 500 },
-    )
+    console.log("6. API route completed successfully")
+    return NextResponse.json({
+      success: true,
+      message: isExistingSubscriber
+        ? "You're already subscribed! We've sent you a confirmation email."
+        : "Successfully subscribed! Check your email for confirmation.",
+      isExistingSubscriber,
+    })
+  } catch (error) {
+    console.error("Newsletter subscription error:", error)
+    return NextResponse.json({ error: "Failed to process subscription. Please try again." }, { status: 500 })
   }
 }
 

@@ -32,7 +32,7 @@ const statements = [
 const EnhancedNavbar: React.FC = () => {
   const [navbarOpen, setNavbarOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
-  const displayedText = useTypingEffect(statements)
+  const displayedText = useTypingEffect(statements, 150, 3000)
 
   const toggleDropdown = (dropdown: string) => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown)
@@ -84,9 +84,9 @@ const EnhancedNavbar: React.FC = () => {
                 <LinearText text={displayedText} />
               </div>
             </motion.div>
-            <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.4, type: "spring" }}>
+            {/* <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.4, type: "spring" }}>
               <Search />
-            </motion.div>
+            </motion.div> */}
           </div>
 
           {/* Desktop Navigation */}
@@ -116,18 +116,30 @@ const EnhancedNavbar: React.FC = () => {
               Calendar
             </AnimatedNavLink>
 
-            {/* Apply Now Button */}
+            {/* Staff Portal Button */}
             <motion.a
-              href="/admission"
+              href="https://shining1.vercel.app/login"
               target="_blank"
               rel="noopener noreferrer"
-              // REDUCED HEIGHT: Reduced padding to make button smaller
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-2"
+              className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-1"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              <HiSparkles className="animate-pulse" />
-              <span>Apply Now</span>
+              <FaUserCircle size={12} />
+              <span>Staff</span>
+            </motion.a>
+
+            {/* Parent Portal Button */}
+            <motion.a
+              href="https://shining1.vercel.app/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-1"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FaUserCircle size={12} />
+              <span>Parent</span>
             </motion.a>
           </nav>
 
@@ -148,7 +160,7 @@ const EnhancedNavbar: React.FC = () => {
               <SocialIcon href="https://twitter.com" icon={<FaTwitter size={12} />} color="text-sky-500" />
               <SocialIcon href="https://instagram.com" icon={<FaInstagram size={12} />} color="text-pink-500" />
               <SocialIcon
-                href="https://shining-stars.vercel.app/"
+                href=""
                 icon={<FaLinkedinIn size={12} />}
                 color="text-blue-700"
               />
@@ -319,14 +331,29 @@ const MobileMenu: React.FC<{ closeMenu: () => void }> = ({ closeMenu }) => (
       Gallery 2023
     </MobileNavItem>
 
-    <div className="pt-3">
+    <div className="pt-2">
       <motion.a
-        href="/admission"
-        className="block w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center py-3 rounded-lg font-semibold shadow-lg"
+        href="https://shining1.vercel.app/login"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-center py-3 rounded-lg font-semibold shadow-lg"
         onClick={closeMenu}
         whileTap={{ scale: 0.95 }}
       >
-        Apply Now
+        Staff Portal
+      </motion.a>
+    </div>
+
+    <div className="pt-2">
+      <motion.a
+        href="https://shining1.vercel.app/login"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white text-center py-3 rounded-lg font-semibold shadow-lg"
+        onClick={closeMenu}
+        whileTap={{ scale: 0.95 }}
+      >
+        Parent Portal
       </motion.a>
     </div>
 
@@ -337,8 +364,8 @@ const MobileMenu: React.FC<{ closeMenu: () => void }> = ({ closeMenu }) => (
         color="text-blue-600"
       />
       <SocialIcon href="https://twitter.com" icon={<FaTwitter size={16} />} color="text-sky-500" />
-      <SocialIcon href="https://www.tiktok.com/@BugemaUniv" icon={<FaTiktok size={16} />} color="text-gray-800" />
-      <SocialIcon href="https://youtube.com/@bugemaSchool3502" icon={<FaYoutube size={16} />} color="text-red-600" />
+      <SocialIcon href="" icon={<FaTiktok size={16} />} color="text-gray-800" />
+      <SocialIcon href="" icon={<FaYoutube size={16} />} color="text-red-600" />
     </div>
   </nav>
 )
