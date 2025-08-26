@@ -5,7 +5,7 @@ import { useState, useEffect, useCallback } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import { Calendar, MapPin, ArrowRight, Loader2, RefreshCw, Search, Clock } from "lucide-react"
+import { Calendar, MapPin, ArrowRight, Search } from "lucide-react"
 
 interface Event {
   id: string
@@ -35,8 +35,6 @@ const EventSkeleton = () => (
 const Events: React.FC = () => {
   const [events, setEvents] = useState<Event[]>([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-  const [retryCount, setRetryCount] = useState(0)
   const [searchTerm, setSearchTerm] = useState("")
   const [filteredEvents, setFilteredEvents] = useState<Event[]>([])
 
@@ -61,78 +59,18 @@ const Events: React.FC = () => {
   const fetchEvents = useCallback(async () => {
     try {
       setLoading(true)
-      setError(null)
-      console.log("[v0] Starting events fetch from frontend...")
-
-      const controller = new AbortController()
-      const timeoutId = setTimeout(() => controller.abort(), 15000)
-
-      const response = await fetch("/api/events?limit=6", {
-        signal: controller.signal,
-        headers: {
-          "Cache-Control": "no-cache",
-          "Content-Type": "application/json",
-        },
-      })
-
-      clearTimeout(timeoutId)
-
-      if (!response.ok) {
-        if (response.status === 504) {
-          throw new Error("Database connection timeout. Please try again.")
-        } else if (response.status === 503) {
-          throw new Error("Database connection failed. Please check your connection.")
-        } else if (response.status >= 500) {
-          throw new Error("Server is experiencing issues. Please try again later.")
-        } else {
-          throw new Error(`Server error: ${response.status}`)
-        }
-      }
-
+      const response = await fetch("/api/events?limit=6")
       const data = await response.json()
-      console.log("[v0] Received response:", data)
 
       if (data.success) {
         setEvents(data.events || [])
-        setRetryCount(0) // Reset retry count on success
-        console.log("[v0] Successfully loaded events:", data.events?.length || 0)
-
-        if (data.fallback) {
-          console.log("Using cached school activities due to server load")
-        }
-      } else {
-        throw new Error(data.error || "Failed to fetch events")
       }
     } catch (err: any) {
-      console.error("[v0] Frontend error fetching events:", err)
-
-      if (err.name === "AbortError") {
-        setError("Server is taking too long to respond. Please try again.")
-      } else if (err.message.includes("timeout")) {
-        setError("Database connection timeout. Please try again.")
-      } else if (err.message.includes("connection failed")) {
-        setError("Database connection failed. Please check your connection.")
-      } else if (err.message.includes("Server error: 5")) {
-        setError("Server is experiencing high load. Please try again in a moment.")
-      } else if (err.message.includes("Failed to fetch")) {
-        setError("Network connection issue. Please check your internet connection.")
-      } else {
-        setError(err.message || "An unexpected error occurred.")
-      }
+      setEvents([])
     } finally {
       setLoading(false)
     }
   }, [])
-
-  const handleRetry = () => {
-    setRetryCount((prev) => prev + 1)
-    const delay = Math.min(1000 * Math.pow(2, retryCount), 10000) // Max 10 seconds
-    console.log(`[v0] Retrying in ${delay}ms (attempt ${retryCount + 1})`)
-
-    setTimeout(() => {
-      fetchEvents()
-    }, delay)
-  }
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString)
@@ -210,51 +148,6 @@ const Events: React.FC = () => {
               <EventSkeleton key={index} />
             ))}
           </div>
-        </div>
-      </section>
-    )
-  }
-
-  if (error) {
-    return (
-      <section className="py-16 md:py-20 lg:py-28 bg-gray-1 dark:bg-gray-dark">
-        <div className="container mx-auto px-4">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 dark:bg-red-900/20 rounded-full mb-6">
-              <Calendar className="w-8 h-8 text-red-500" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">Upcoming Events</h2>
-
-            <div className="max-w-md mx-auto bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-2xl p-8 shadow-lg">
-              <div className="text-red-600 dark:text-red-400 mb-4">
-                <Clock className="w-8 h-8 mx-auto mb-2" />
-                <p className="font-semibold">{error}</p>
-              </div>
-
-              <button
-                onClick={handleRetry}
-                disabled={loading}
-                className="inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {loading ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <RefreshCw className="w-4 h-4 mr-2" />}
-                {retryCount > 0 ? `Retry (${retryCount + 1})` : "Try Again"}
-              </button>
-
-              {retryCount > 2 && (
-                <div className="mt-4 p-4 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
-                  <p className="text-sm text-yellow-800 dark:text-yellow-200 mb-2">
-                    <strong>Still having issues?</strong>
-                  </p>
-                  <ul className="text-xs text-yellow-700 dark:text-yellow-300 space-y-1">
-                    <li>• Check if MONGODB_URI is set in Project Settings</li>
-                    <li>• Verify your database connection is active</li>
-                    <li>• Try refreshing the page</li>
-                    <li>• Contact support if the issue persists</li>
-                  </ul>
-                </div>
-              )}
-            </div>
-          </motion.div>
         </div>
       </section>
     )
