@@ -32,14 +32,16 @@ export default function EventsPage() {
   }, [])
 
   useEffect(() => {
-    const filtered = events.filter(
-      (event) =>
-        event.activity.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        event.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        event.place.toLowerCase().includes(searchTerm.toLowerCase()),
-    )
-    setFilteredEvents(filtered)
-    setCurrentPage(1)
+    if (Array.isArray(events)) {
+      const filtered = events.filter(
+        (event) =>
+          event.activity.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          event.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          event.place.toLowerCase().includes(searchTerm.toLowerCase()),
+      )
+      setFilteredEvents(filtered)
+      setCurrentPage(1)
+    }
   }, [events, searchTerm])
 
   const fetchEvents = async () => {
@@ -49,9 +51,16 @@ export default function EventsPage() {
       if (!response.ok) throw new Error("Failed to fetch events")
 
       const data = await response.json()
-      setEvents(data)
+      if (data.success && Array.isArray(data.events)) {
+        setEvents(data.events)
+      } else if (Array.isArray(data)) {
+        setEvents(data)
+      } else {
+        setEvents([])
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred")
+      setEvents([]) // Ensure events is always an array on error
     } finally {
       setLoading(false)
     }
@@ -63,7 +72,7 @@ export default function EventsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 mt-4 lg:mt-20 mb-1 lg:mb-20">
         <Breadcrumb pageName="Events" description="Discover upcoming school events and activities" />
         <div className="container mx-auto px-4 py-16">
           <div className="flex items-center justify-center">
@@ -76,7 +85,7 @@ export default function EventsPage() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 mt-4 lg:mt-20 mb-1 lg:mb-20">
         <Breadcrumb pageName="Events" description="Discover upcoming school events and activities" />
         <div className="container mx-auto px-4 py-16">
           <div className="flex flex-col items-center justify-center text-center">
@@ -96,7 +105,7 @@ export default function EventsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 mt-4 lg:mt-20 mb-1 lg:mb-20">
       <Breadcrumb pageName="Events" description="Discover upcoming school events and activities" />
 
       <div className="container mx-auto px-4 py-16">
@@ -147,12 +156,13 @@ export default function EventsPage() {
                   className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
                 >
                   <Link href={`/events/${event.id}`}>
-                    <div className="relative h-48 overflow-hidden">
+                    <div className="relative h-48 sm:h-52 md:h-48 lg:h-52 xl:h-56 overflow-hidden">
                       {event.photos && event.photos.length > 0 ? (
                         <Image
                           src={event.photos[0] || "/placeholder.svg"}
                           alt={event.activity}
                           fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           className="object-cover hover:scale-105 transition-transform duration-300"
                         />
                       ) : (
