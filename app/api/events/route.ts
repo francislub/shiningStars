@@ -7,13 +7,47 @@ const prisma = new PrismaClient()
 
 export async function GET() {
   try {
+    console.log("[v0] Starting events fetch...")
+
     const events = await getEvents()
-    // Wrap response in success object format expected by components
+
+    console.log("[v0] Successfully fetched events:", events?.length || 0)
     return NextResponse.json({ success: true, events })
   } catch (error) {
-    console.error("Error fetching events:", error)
-    // Return consistent error format
-    return NextResponse.json({ success: false, error: "Failed to fetch events" }, { status: 500 })
+    console.error("[v0] Error fetching events:", error)
+
+    if (error instanceof Error) {
+      if (
+        error.message.includes("connect") ||
+        error.message.includes("ENOTFOUND") ||
+        error.message.includes("ECONNREFUSED")
+      ) {
+        return NextResponse.json(
+          {
+            success: false,
+            error: "Database connection failed. Please check MONGODB_URI environment variable.",
+          },
+          { status: 503 },
+        )
+      }
+      if (error.message.includes("timeout") || error.message.includes("ETIMEDOUT")) {
+        return NextResponse.json(
+          {
+            success: false,
+            error: "Database query timed out. Please try again.",
+          },
+          { status: 504 },
+        )
+      }
+    }
+
+    return NextResponse.json(
+      {
+        success: false,
+        error: "Failed to fetch events. Please try again later.",
+      },
+      { status: 500 },
+    )
   }
 }
 
