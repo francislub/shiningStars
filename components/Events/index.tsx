@@ -59,7 +59,7 @@ const Events: React.FC = () => {
   const fetchEvents = useCallback(async () => {
     try {
       setLoading(true)
-      const response = await fetch("/api/events?limit=6")
+      const response = await fetch("/api/events?limit=3")
       const data = await response.json()
 
       if (data.success) {
