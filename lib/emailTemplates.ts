@@ -14,7 +14,9 @@ export function getWelcomeEmailTemplate(email: string): string {
         
         <!-- Header -->
         <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 30px; text-align: center; color: white;">
-          <div style="font-size: 32px; margin-bottom: 10px;">🌟</div>
+          <div style="font-size: 32px; margin-bottom: 10px;">
+             <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-qIkb15wjakedhFwPhSmyOGniRtPurY.jpeg" alt="Shining Stars School Logo" class="logo">
+          </div>
           <h1 style="margin: 0; font-size: 28px; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">
             Shining Stars Nursery And Primary School
           </h1>
@@ -90,7 +92,9 @@ export function getWelcomeEmailTemplate(email: string): string {
         <!-- Footer -->
         <div style="background-color: #1a202c; color: white; padding: 30px; text-align: center;">
           <div style="margin-bottom: 15px;">
-            <span style="font-size: 24px;">🌟</span>
+            <span style="font-size: 24px;">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-qIkb15wjakedhFwPhSmyOGniRtPurY.jpeg" alt="Shining Stars School Logo" class="logo">
+            </span>
           </div>
           <p style="margin: 0 0 10px 0; font-size: 16px; font-weight: bold;">
             Shining Stars Nursery And Primary School
@@ -130,7 +134,7 @@ export function getWelcomeEmailTemplate(email: string): string {
         
         <!-- Header -->
         <div style="background: linear-gradient(135deg, #48bb78 0%, #38a169 100%); padding: 40px 30px; text-align: center; color: white;">
-          <div style="font-size: 32px; margin-bottom: 10px;">🌟</div>
+          <div style="font-size: 32px; margin-bottom: 10px;"> <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo.jpg-qIkb15wjakedhFwPhSmyOGniRtPurY.jpeg" alt="Shining Stars School Logo" class="logo"></div>
           <h1 style="margin: 0; font-size: 28px; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">
             Shining Stars Nursery And Primary School
           </h1>
