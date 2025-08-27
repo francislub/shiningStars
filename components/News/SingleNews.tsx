@@ -7,9 +7,12 @@ type Props = {
 }
 
 const SingleNews = ({ post }: Props) => {
+  // Use either post.id OR post._id depending on your schema
+  const postId = (post as any).id || (post as any)._id
+
   return (
     <div className="wow fadeInUp relative overflow-hidden rounded-md bg-white shadow-one h-[450px] dark:bg-dark w-[220] mt-5">
-      <Link href={`/news/${post.id}`} passHref className="relative block h-[220px] w-full">
+      <Link href={`/news/${postId}`} className="relative block h-[220px] w-full">
         <span className="absolute top-6 right-6 z-20 inline-flex items-center justify-center rounded-full bg-primary py-2 px-4 text-sm font-semibold capitalize text-white">
           {post.category || "News"}
         </span>
@@ -23,8 +26,7 @@ const SingleNews = ({ post }: Props) => {
       <div className="p-6 sm:p-8 md:py-8 md:px-4 lg:p-8 xl:py-8 xl:px-4">
         <h3>
           <Link
-            href={`/news/${post.id}`}
-            passHref
+            href={`/news/${postId}`}
             className="mb-2 block text-xl font-bold text-black hover:text-primary dark:text-white dark:hover:text-primary sm:text-2xl"
           >
             {post.title}
