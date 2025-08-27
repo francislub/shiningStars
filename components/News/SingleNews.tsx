@@ -52,12 +52,12 @@ const SingleNews = ({ post }: Props) => {
               <p className="text-xs">School News</p>
             </div>
           </div>
-          <div className="inline-block">
+          {/* <div className="inline-block">
             <h4 className="mb-1 text-sm font-medium text-dark dark:text-white">Date</h4>
             <p className="text-xs text-body-color">
               {post.createdAt ? new Date(post.createdAt).toLocaleDateString() : "No date"}
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
