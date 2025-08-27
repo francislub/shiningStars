@@ -56,7 +56,7 @@ export default function AboutSectionAcademic() {
             <div className="relative group">
               <Image
                 src={img || "/placeholder.svg"}
-                alt="Academic Excellence"
+                alt="Academics Excellence"
                 width={600}
                 height={400}
                 className="rounded-2xl shadow-xl transition-transform duration-300 group-hover:scale-105"
