@@ -7,7 +7,6 @@ type Props = {
 }
 
 const SingleNews = ({ post }: Props) => {
-  // Use either post.id OR post._id depending on your schema
   const postId = (post as any).id || (post as any)._id
 
   return (
@@ -55,7 +54,9 @@ const SingleNews = ({ post }: Props) => {
           </div>
           <div className="inline-block">
             <h4 className="mb-1 text-sm font-medium text-dark dark:text-white">Date</h4>
-            <p className="text-xs text-body-color">{new Date(post.createdAt).toLocaleDateString()}</p>
+            <p className="text-xs text-body-color">
+              {post.createdAt ? new Date(post.createdAt).toLocaleDateString() : "No date"}
+            </p>
           </div>
         </div>
       </div>
