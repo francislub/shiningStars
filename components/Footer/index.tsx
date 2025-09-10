@@ -64,7 +64,7 @@ const Footer = () => {
                     </svg>
                   </Link>
                   <Link
-                    href="/https://www.x.com"
+                    href="https://x.com/SStarsVvumba/status/1963271372597031144?t=sgepOtNBY11zu9tY8Zaduw&s=08"
                     aria-label="social-link"
                     className="mr-6 text-[#CED3F6] hover:text-primary"
                   >
