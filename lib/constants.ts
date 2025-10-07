@@ -237,19 +237,73 @@ export const activities = [
   },
 
   {
-    id: "57",
-    title: "End of Term III & Children's Party",
-    startDatetime: "2025-12-05T16:00:00",
-    endDatetime: "2025-12-05T19:00:00",
-    description: "Closing ceremony for Term 3 with a party for children.",
+    id: "59",
+    title: "Primary leaving examination days",
+    startDatetime: "2025-11-03T16:00:00",
+    endDatetime: "2025-11-04T19:00:00",
+    description: "All candidates",
+  },
+
+  {
+    id: "60",
+    title: "primary seven teachers outing",
+    startDatetime: "2025-11-08T16:00:00",
+    endDatetime: "2025-11-08T19:00:00",
+    description: "All candidates and teachers",
+  },
+
+
+  {
+    id: "61",
+    title: "End of Term III Exams",
+    startDatetime: "2025-11-18T16:00:00",
+    endDatetime: "2025-11-20T19:00:00",
+    description: "All children and teachers",
+  },
+
+  {
+    id: "62",
+    title: "Assessment submissions",
+    startDatetime: "2025-11-22T16:00:00",
+    endDatetime: "2025-11-22T19:00:00",
+    description: "Deadline for assessment submissions in the system",
   },
   {
-    id: "26",
-    title: "Staff End of Year Party",
+    id: "63",
+    title: "Printing report cards",
+    startDatetime: "2025-11-26T16:00:00",
+    endDatetime: "2025-11-26T19:00:00",
+    description: "Academic office",
+  },
+
+  {
+    id: "64",
+    title: "Nursery Day Celebrations and report card issuing",
+    startDatetime: "2025-11-28T16:00:00",
+    endDatetime: "2025-11-28T19:00:00",
+    description: "all children and all teachers",
+  },
+
+
+  {
+    id: "65",
+    title: "End of term 3 Staff Meeting",
+    startDatetime: "2025-12-01T16:00:00",
+    endDatetime: "2025-12-01T19:00:00",
+    description: "All the staff members",
+  },
+
+  {
+    id: "66",
+    title: "End of year staff party",
     startDatetime: "2025-12-06T16:00:00",
     endDatetime: "2025-12-06T19:00:00",
-    description: "A celebration marking the end of the school year for staff members.",
+    description: "All the staff members",
   },
+
+
+
+  
   {
     id: "27",
     title: "Christmas Day",
