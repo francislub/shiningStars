@@ -10,11 +10,32 @@ const galleryImages = [
   "/images/ai/ai2.jpg",
   "/images/ai/ai3.jpg",
   "/images/ai/ai4.jpg",
-  "/images/shi/mddfz.jpeg",
-  "/images/shi/pip.jpeg",
-  "/images/shi/mdgd.jpeg",
-  "/images/shi/schoo.jpeg", // hero image
-  // Add more images here as needed
+  "/images/ai/ai5.jpg",
+  "/images/ai/ai6.jpg",
+  "/images/ai/ai7.jpg",
+  "/images/ai/ai8.jpg",
+  "/images/ai/ai9.jpg",
+  "/images/ai/ai10.jpg",
+  "/images/ai/ai11.jpg",
+  "/images/ai/ai12.jpg",
+  "/images/ai/ai13.jpg",
+  "/images/ai/ai14.jpg",
+  "/images/ai/ai15.jpg",
+  "/images/ai/ai16.jpg",
+  "/images/ai/ai17.jpg",
+  "/images/ai/ai18.jpg",
+  "/images/ai/ai19.jpg",
+  "/images/ai/ai20.jpg",
+
+  "/images/ai/ai21.jpg",
+  "/images/ai/ai22.jpg",
+  "/images/ai/ai23.jpg",
+  "/images/ai/ai24.jpg",
+  "/images/ai/ai25.jpg",
+  "/images/ai/ai26.jpg",
+  "/images/ai/ai27.jpg",
+  "/images/ai/ai28.jpg",
+  
 ];
 
 export default function AboutSectionGallery() {
