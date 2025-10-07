@@ -164,31 +164,80 @@ export const activities = [
 
 
 
-
-
   {
     id: "50",
+    title: "Candidates Levers party",
+    startDatetime: "2025-10-04T16:00:00",
+    endDatetime: "2025-10-04T19:00:00",
+    description: "candidates and P.7 teachers",
+  },
+
+  {
+    id: "51",
+    title: "Teachers day celebrations",
+    startDatetime: "2025-10-05T16:00:00",
+    endDatetime: "2025-10-05T19:00:00",
+    description: "For all teachers",
+  },
+
+  {
+    id: "52",
     title: "Independence Day",
     startDatetime: "2025-10-09T16:00:00",
     endDatetime: "2025-10-09T19:00:00",
     description: "Celebration of Uganda's independence from colonial rule.",
   },
+
   {
-    id: "55",
+    id: "53",
     title: "Mid Term Exams",
-    startDatetime: "2025-10-22T16:00:00",
-    endDatetime: "2025-10-24T19:00:00",
+    startDatetime: "2025-10-16T16:00:00",
+    endDatetime: "2025-10-17T19:00:00",
     description: "Midterm assessments for Term 3 academic progress.",
   },
+
   {
     id: "54",
-    title: "Visitation Day",
-    startDatetime: "2025-11-01T16:00:00",
-    endDatetime: "2025-11-01T19:00:00",
+    title: "Deadline for MID results entry in the system",
+    startDatetime: "2025-10-21T16:00:00",
+    endDatetime: "2025-10-21T19:00:00",
+    description: "All class teachers",
+  }, 
+
+  {
+    id: "55",
+    title: "Academic Assembly",
+    startDatetime: "2025-10-22T16:00:00",
+    endDatetime: "2025-10-22T19:00:00",
+    description: "All children and teachers",
+  },
+
+  {
+    id: "56",
+    title: "V.D and dedication for candidates",
+    startDatetime: "2025-10-24T16:00:00",
+    endDatetime: "2025-10-24T19:00:00",
+    description: "All teachers and candidates",
+  },
+
+  {
+    id: "57",
+    title: "Visitation Day/ class day",
+    startDatetime: "2025-10-25T16:00:00",
+    endDatetime: "2025-10-25T19:00:00",
     description: "Parents visit students to monitor academic performance.",
   },
+
   {
-    id: "25",
+    id: "58",
+    title: "briefing for candidates",
+    startDatetime: "2025-10-31T16:00:00",
+    endDatetime: "2025-10-31T19:00:00",
+    description: "All candidates and teachers",
+  },
+
+  {
+    id: "57",
     title: "End of Term III & Children's Party",
     startDatetime: "2025-12-05T16:00:00",
     endDatetime: "2025-12-05T19:00:00",
