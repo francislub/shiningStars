@@ -12,7 +12,7 @@ export const heroVid = [
   },
   {
     type: "image",
-    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/686e21bc0029500034a9/view?project=683381d6001779054d64&mode=admin",
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/68e4c424000407ce3d71/view?project=683381d6001779054d64&mode=admin",
   },
   {
     type: "image",
