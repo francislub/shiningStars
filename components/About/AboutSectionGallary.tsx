@@ -6,7 +6,10 @@ import { Camera, Eye } from "lucide-react";
 
 // ✅ Array of gallery images
 const galleryImages = [
-  "/images/shi/life.jpeg",
+  "/images/ai/ai1.jpg",
+  "/images/ai/ai2.jpg",
+  "/images/ai/ai3.jpg",
+  "/images/ai/ai4.jpg",
   "/images/shi/mddfz.jpeg",
   "/images/shi/pip.jpeg",
   "/images/shi/mdgd.jpeg",
