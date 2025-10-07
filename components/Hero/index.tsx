@@ -14,13 +14,15 @@ export const heroVid = [
     type: "image",
     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/68e4c424000407ce3d71/view?project=683381d6001779054d64&mode=admin",
   },
+
+
   {
     type: "image",
-    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/686e21d10007ceaebc3d/view?project=683381d6001779054d64&mode=admin",
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/68e4d20c0012204ada21/view?project=683381d6001779054d64&mode=admin",
   },
   {
     type: "image",
-    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/68419ab30019c2853e78/view?project=683381d6001779054d64&mode=admin",
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/68e4d261002500b1c634/view?project=683381d6001779054d64&mode=admin",
   },
   {
     type: "video",
