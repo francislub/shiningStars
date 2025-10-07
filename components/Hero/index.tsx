@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick-theme.css"
 export const heroVid = [
   {
     type: "image",
-    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/686e14f80023e872d058/view?project=683381d6001779054d64&mode=admin",
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/68e4c3a6003c7f1a8ed6/view?project=683381d6001779054d64&mode=admin",
   },
   {
     type: "image",
@@ -18,10 +18,6 @@ export const heroVid = [
     type: "image",
     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/686e21d10007ceaebc3d/view?project=683381d6001779054d64&mode=admin",
   },
-  // { type: 'image', src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/68440fe4002f471e72ce/view?project=683381d6001779054d64&mode=admin" },
-
-  // { type: 'image', src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/6841968a002b68edd8da/view?project=683381d6001779054d64&mode=admin" },
-  // { type: 'image', src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/68419901003545967bc1/view?project=683381d6001779054d64&mode=admin" },
   {
     type: "image",
     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/68419ab30019c2853e78/view?project=683381d6001779054d64&mode=admin",
@@ -30,9 +26,7 @@ export const heroVid = [
     type: "video",
     src: "https://res.cloudinary.com/dytcuelfd/video/upload/v1723370373/SHINNING_STAR_ADVERT_FINAL_tmi84h.mp4",
   },
-  // { type: 'image', src: "/images/shi/grac.jpeg"},
-  // { type: 'image', src: "/images/shi/mdd.jpeg" },
-  // { type: 'image', src: "/images/shi/cake.jpeg" }
+  
 ]
 
 // Variants for hero content
