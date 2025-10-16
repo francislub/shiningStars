@@ -166,7 +166,7 @@ export const activities = [
 
   {
     id: "50",
-    title: "Candidates Levers party",
+    title: "Candidates Leavers party",
     startDatetime: "2025-10-04T16:00:00",
     endDatetime: "2025-10-04T19:00:00",
     description: "candidates and P.7 teachers",
