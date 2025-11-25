@@ -131,7 +131,7 @@ const EnhancedNavbar: React.FC = () => {
 
             {/* Parent Portal Button */}
             <motion.a
-              href="https://shining1.vercel.app/login"
+              href="https://shining1.vercel.app/login/parent"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-1"
@@ -346,7 +346,7 @@ const MobileMenu: React.FC<{ closeMenu: () => void }> = ({ closeMenu }) => (
 
     <div className="pt-2">
       <motion.a
-        href="https://shining1.vercel.app/login"
+        href="https://shining1.vercel.app/login/parent"
         target="_blank"
         rel="noopener noreferrer"
         className="block w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white text-center py-3 rounded-lg font-semibold shadow-lg"
