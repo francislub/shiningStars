@@ -7,7 +7,6 @@ import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   FaChevronDown,
-  FaPhone,
   FaEnvelope,
   FaMapMarkerAlt,
   FaClock,
@@ -17,6 +16,7 @@ import {
   FaNewspaper,
   FaBars,
   FaTimes,
+  FaBriefcase,
 } from "react-icons/fa"
 import { HiSparkles } from "react-icons/hi"
 import image from "@/public/images/shin/log.jpg"
@@ -164,7 +164,9 @@ const Header = () => {
                 <div className="hidden md:block">
                   <h1 className={`text-xl font-bold ${sticky ? "text-gray-800" : "text-white"}`}>SHINING STARS</h1>
                   <p className={`text-sm ${sticky ? "text-gray-600" : "text-gray-200"}`}>MIXED DAY & BOARDING</p>
-                  <p className={`text-sm ${sticky ? "text-gray-600" : "text-gray-200"}`}>Nursery & Primary School - Vvumba</p>
+                  <p className={`text-sm ${sticky ? "text-gray-600" : "text-gray-200"}`}>
+                    Nursery & Primary School - Vvumba
+                  </p>
                 </div>
               </Link>
             </motion.div>
@@ -231,18 +233,30 @@ const Header = () => {
               </motion.div>
             </nav>
 
-            {/* Mobile Menu Button */}
-            <motion.button
-              onClick={navbarToggleHandler}
-              className="lg:hidden p-2 rounded-lg bg-white/10 backdrop-blur-sm"
-              whileTap={{ scale: 0.95 }}
-            >
-              {navbarOpen ? (
-                <FaTimes className={`w-6 h-6 ${sticky ? "text-gray-800" : "text-white"}`} />
-              ) : (
-                <FaBars className={`w-6 h-6 ${sticky ? "text-gray-800" : "text-white"}`} />
-              )}
-            </motion.button>
+            {/* Mobile Menu Button with Recruitment Button */}
+            <div className="lg:hidden flex items-center gap-2">
+              <motion.a
+                href="mailto:shiningstars2022@gmail.com"
+                className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-2 rounded-lg text-xs font-semibold shadow-md hover:shadow-lg transition-all flex items-center gap-1"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <FaBriefcase size={14} />
+                <span className="hidden sm:inline">Hiring</span>
+              </motion.a>
+
+              <motion.button
+                onClick={navbarToggleHandler}
+                className="p-2 rounded-lg bg-white/10 backdrop-blur-sm"
+                whileTap={{ scale: 0.95 }}
+              >
+                {navbarOpen ? (
+                  <FaTimes className={`w-6 h-6 ${sticky ? "text-gray-800" : "text-white"}`} />
+                ) : (
+                  <FaBars className={`w-6 h-6 ${sticky ? "text-gray-800" : "text-white"}`} />
+                )}
+              </motion.button>
+            </div>
           </div>
         </div>
 
