@@ -8,6 +8,10 @@ import "slick-carousel/slick/slick-theme.css"
 export const heroVid = [
   {
     type: "image",
+    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/6938e83100014b42ab7e/view?project=683381d6001779054d64&mode=admin",
+  },
+  {
+    type: "image",
     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/692d396000337de1b9b9/view?project=683381d6001779054d64&mode=admin",
   },
   {
