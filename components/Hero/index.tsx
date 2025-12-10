@@ -32,6 +32,7 @@ export const heroVid = [
     type: "image",
     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/68e4d20c0012204ada21/view?project=683381d6001779054d64&mode=admin",
   },
+
   
 ]
 
