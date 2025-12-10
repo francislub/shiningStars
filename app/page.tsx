@@ -12,7 +12,6 @@ import Events from "@/components/Events";
 import News from "@/components/News";
 import Whatsup from "@/components/whatsup/whatsup";
 import WebsiteShowcase from "@/components/Welcome/Wel";
-import RecruitmentPopup from "@/components/RecruitmentPopup/RecruitmentPopup"
 
 
 
@@ -22,7 +21,6 @@ export default function Home() {
   return (
     <>
       <ScrollUp />
-      <RecruitmentPopup />
       <Hero />
       <BelowHero />
       <Welcome />
