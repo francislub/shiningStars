@@ -17,6 +17,7 @@ import {
   FaBars,
   FaTimes,
   FaBriefcase,
+  FaUserCircle,
 } from "react-icons/fa"
 import { HiSparkles } from "react-icons/hi"
 import image from "@/public/images/shin/log.jpg"
@@ -245,6 +246,30 @@ const Header = () => {
                 <span className="hidden sm:inline">Hiring</span>
               </motion.a>
 
+              <motion.a
+                href="https://shining1.vercel.app/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-1"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <FaUserCircle size={12} />
+                <span className="hidden sm:inline">Staff</span>
+              </motion.a>
+
+              <motion.a
+                href="https://shining1.vercel.app/login/parent"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-1"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <FaUserCircle size={12} />
+                <span className="hidden sm:inline">Parent</span>
+              </motion.a>
+
               <motion.button
                 onClick={navbarToggleHandler}
                 className="p-2 rounded-lg bg-white/10 backdrop-blur-sm"
@@ -282,7 +307,43 @@ const Header = () => {
                   <MobileDropdown title="Resources" items={resourcesItems} />
                   <MobileDropdown title="Contact" items={contactItems} />
 
-                  <motion.div whileTap={{ scale: 0.95 }} className="pt-4">
+                  <div className="pt-4 border-t border-gray-200 mt-4 flex flex-col gap-2">
+                    <motion.a
+                      href="mailto:shiningstars2022@gmail.com"
+                      className="block w-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-center py-3 rounded-lg font-semibold"
+                      onClick={() => setNavbarOpen(false)}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      Join Our Team
+                    </motion.a>
+
+                    <motion.a
+                      href="https://shining1.vercel.app/login"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-3 rounded-lg font-semibold"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <FaUserCircle size={16} />
+                      Staff Portal
+                    </motion.a>
+
+                    <motion.a
+                      href="https://shining1.vercel.app/login/parent"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-3 rounded-lg font-semibold"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <FaUserCircle size={16} />
+                      Parent Portal
+                    </motion.a>
+                  </div>
+
+                  <motion.div whileTap={{ scale: 0.95 }} className="pt-2">
                     <Link
                       href="https://shining1.vercel.app/admission"
                       className="block w-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-center py-3 rounded-lg font-semibold"
