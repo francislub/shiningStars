@@ -1,21 +1,29 @@
-import Image from "next/image";
-import React from "react";
-import HeroOverlay from "../HeroOverlay/HeroOverlay";
+"use client"
 
+import Image from "next/image"
+import React from "react"
+import HeroOverlay from "../HeroOverlay/HeroOverlay"
 
 const HeroSlide = ({ media }) => {
   return (
-    <div className="relative w-full h-[800px] z-10">
+    <div className="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-full z-10">
+
       {media.type === "video" ? (
-        <div>
-          <video className="w-full h-full object-cover" autoPlay muted loop>
+        <div className="w-full h-full">
+          <video
+            className="w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
             <source src={media.src} type="video/mp4" />
-            Your browser does not support the video tag.
           </video>
+
           <HeroOverlay
             title="Arise and shine"
-            title2 = ""
-            title3="SHINING STARS NURSERY AND PRIMARY SCHOOL- VVUMBA"
+            title2=""
+            title3="SHINING STARS NURSERY AND PRIMARY SCHOOL - VVUMBA"
             subtitle="A Center for Guaranteed excellence"
             subtitle2=""
             subtitle3=""
@@ -23,20 +31,24 @@ const HeroSlide = ({ media }) => {
             buttonLink="/admission"
           />
         </div>
+
       ) : (
         <>
           <Image
             src={media.src}
             alt="Shining Stars"
-            className="w-fit h-[800px] object-cover lg:w-full"
-            width={1020}
-            height={700}
+            fill
+            priority
+            className="object-cover object-center"
           />
-          <div className="absolute top-0 left-0 w-full h-full opacity-50"></div>
+
+          {/* dark filter */}
+          <div className="absolute inset-0 bg-black/40" />
         </>
       )}
-    </div>
-  );
-};
 
-export default HeroSlide;
+    </div>
+  )
+}
+
+export default HeroSlide

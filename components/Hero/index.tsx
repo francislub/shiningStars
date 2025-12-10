@@ -1,7 +1,9 @@
 "use client"
+
 import Slider from "react-slick"
 import HeroSlide from "./HeroSlide"
 import EnhancedEventsSection from "../EnhancedEventsSection"
+
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
@@ -26,54 +28,11 @@ export const heroVid = [
     type: "image",
     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/68e4c424000407ce3d71/view?project=683381d6001779054d64&mode=admin",
   },
-
-
   {
     type: "image",
     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/68e4d20c0012204ada21/view?project=683381d6001779054d64&mode=admin",
   },
-  // {
-  //   type: "image",
-  //   src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/68e4d261002500b1c634/view?project=683381d6001779054d64&mode=admin",
-  // },
-  // {
-  //   type: "video",
-  //   src: "https://res.cloudinary.com/dytcuelfd/video/upload/v1723370373/SHINNING_STAR_ADVERT_FINAL_tmi84h.mp4",
-  // },
-  
 ]
-
-// Variants for hero content
-const textVariants = {
-  initial: {
-    x: -500,
-    opacity: 0,
-  },
-  animate: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 1,
-      staggerChildren: 0.1,
-    },
-  },
-  scrollButton: {
-    opacity: 0,
-    x: 10,
-    transition: {
-      duration: 2,
-      repeat: Number.POSITIVE_INFINITY,
-    },
-  },
-  scrollButton2: {
-    opacity: 0,
-    y: 10,
-    transition: {
-      duration: 2,
-      repeat: Number.POSITIVE_INFINITY,
-    },
-  },
-}
 
 const sliderSettings = {
   dots: true,
@@ -85,17 +44,30 @@ const sliderSettings = {
   autoplaySpeed: 6000,
 }
 
+// animation variants if you need them later
+export const textVariants = {}
+
 const Hero = () => {
   return (
     <>
       <section
         id="home"
-        className="hero-section w-full min-h-screen lg:h-screen relative z-10 overflow-hidden lg:mb-20 mb-1"
+        className="
+          hero-section w-full min-h-[100vh] 
+          relative z-10 overflow-hidden 
+          lg:mb-20 mb-1
+        "
       >
-        <div className="flex flex-col lg:flex-row h-full">
-          {/* Left side - Slider (65% on large screens for better proportion) */}
-          <div className="w-full lg:w-[65%] relative h-[50vh] lg:h-full">
-            <div className="h-full">
+        {/* Main layout */}
+        <div className="flex flex-col lg:flex-row h-[100vh] lg:h-full">
+
+          {/* Slider */}
+          <div className="
+            w-full lg:w-[65%] 
+            relative 
+            h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-full
+          ">
+            <div className="h-full overflow-hidden">
               <Slider {...sliderSettings}>
                 {heroVid.map((media, index) => (
                   <HeroSlide key={index} media={media} />
@@ -104,12 +76,17 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right side - Enhanced Events Section (35% on large screens for better fit) */}
-          <div className="w-full lg:w-[35%] bg-gray-50 dark:bg-gray-900 h-[50vh] lg:h-full">
-            <div className="h-full overflow-y-auto">
+          {/* Events section */}
+          <div className="
+            w-full lg:w-[35%] 
+            bg-gray-50 dark:bg-gray-900 
+            h-auto lg:h-full
+          ">
+            <div className="h-full lg:overflow-y-auto p-2 lg:p-4">
               <EnhancedEventsSection />
             </div>
           </div>
+
         </div>
       </section>
     </>
