@@ -91,42 +91,12 @@ const Header = () => {
 
   const contactItems = [
     { title: "Contact Us", path: "/contact", icon: <FaEnvelope /> },
-    { title: "Admission", path: "/admission", icon: <FaGraduationCap /> },
+    { title: "Admission", path: "https://shining1.vercel.app/admission", icon: <FaGraduationCap /> },
     { title: "Scholarships", path: "/scholarships", icon: <HiSparkles /> },
   ]
 
   return (
     <>
-      {/* Top Info Bar */}
-      {/* <motion.div
-        className="hidden lg:block bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 text-sm"
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-6">
-              <div className="flex items-center space-x-2">
-                <FaPhone className="text-yellow-300" />
-                <span>+256 123 456 789</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <FaEnvelope className="text-yellow-300" />
-                <span>info@shiningstars.ac.ug</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <FaMapMarkerAlt className="text-yellow-300" />
-                <span>Vvumba, Uganda</span>
-              </div>
-            </div>
-            <div className="flex items-center space-x-2">
-              <FaClock className="text-yellow-300" />
-              <span>Mon - Fri: 7:00 AM - 5:00 PM</span>
-            </div>
-          </div>
-        </div>
-      </motion.div> */}
 
       {/* Main Header */}
       <motion.header
@@ -284,80 +254,107 @@ const Header = () => {
             </div>
           </div>
         </div>
+      </motion.header>
 
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {navbarOpen && (
+      {/* Mobile Sidebar Drawer */}
+      <AnimatePresence>
+        {navbarOpen && (
+          <>
+            {/* Backdrop */}
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-200"
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 lg:hidden"
+              onClick={() => setNavbarOpen(false)}
+            />
+
+            {/* Side Drawer */}
+            <motion.div
+              initial={{ x: -400, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -400, opacity: 0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="fixed top-0 left-0 h-screen w-80 max-w-[90vw] bg-gradient-to-b from-white to-gray-50 shadow-2xl border-r border-gray-200 z-50 lg:hidden overflow-hidden flex flex-col"
             >
-              <div className="container mx-auto px-4 py-6">
-                <div className="space-y-4">
+              {/* Sidebar Header */}
+              <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-6 flex items-center justify-between border-b border-blue-500">
+                <h2 className="text-xl font-bold">Menu</h2>
+                <motion.button
+                  onClick={() => setNavbarOpen(false)}
+                  className="p-2 hover:bg-blue-500 rounded-lg transition-colors"
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <FaTimes className="w-5 h-5" />
+                </motion.button>
+              </div>
+
+              {/* Scrollable Content */}
+              <div className="flex-1 overflow-y-auto overflow-x-hidden">
+                <nav className="space-y-2 p-4">
                   <MobileNavLink href="/" onClick={() => setNavbarOpen(false)}>
                     Home
                   </MobileNavLink>
 
-                  <MobileDropdown title="About Us" items={aboutUsItems} />
-                  <MobileDropdown title="School Life" items={schoolLifeItems} />
-                  <MobileDropdown title="Staff" items={staffItems} />
-                  <MobileDropdown title="Resources" items={resourcesItems} />
-                  <MobileDropdown title="Contact" items={contactItems} />
+                  <MobileDropdown title="About Us" items={aboutUsItems} onClose={() => setNavbarOpen(false)} />
+                  <MobileDropdown title="School Life" items={schoolLifeItems} onClose={() => setNavbarOpen(false)} />
+                  <MobileDropdown title="Staff" items={staffItems} onClose={() => setNavbarOpen(false)} />
+                  <MobileDropdown title="Resources" items={resourcesItems} onClose={() => setNavbarOpen(false)} />
+                  <MobileDropdown title="Contact" items={contactItems} onClose={() => setNavbarOpen(false)} />
+                </nav>
+              </div>
 
-                  <div className="pt-4 border-t border-gray-200 mt-4 flex flex-col gap-2">
-                    <motion.a
-                      href="mailto:shiningstars2022@gmail.com"
-                      className="block w-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-center py-3 rounded-lg font-semibold"
-                      onClick={() => setNavbarOpen(false)}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      Join Our Team
-                    </motion.a>
+              {/* Sidebar Footer with Actions */}
+              <div className="bg-white border-t border-gray-200 p-4 space-y-3">
+                <motion.a
+                  href="mailto:shiningstars2022@gmail.com"
+                  className="block w-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-center py-3 rounded-lg font-semibold"
+                  onClick={() => setNavbarOpen(false)}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Join Our Team
+                </motion.a>
 
-                    <motion.a
-                      href="https://shining1.vercel.app/login"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-3 rounded-lg font-semibold"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <FaUserCircle size={16} />
-                      Staff Portal
-                    </motion.a>
+                <motion.a
+                  href="https://shining1.vercel.app/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-3 rounded-lg font-semibold"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <FaUserCircle size={16} />
+                  Staff Portal
+                </motion.a>
 
-                    <motion.a
-                      href="https://shining1.vercel.app/login/parent"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-3 rounded-lg font-semibold"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <FaUserCircle size={16} />
-                      Parent Portal
-                    </motion.a>
-                  </div>
+                <motion.a
+                  href="https://shining1.vercel.app/login/parent"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-3 rounded-lg font-semibold"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <FaUserCircle size={16} />
+                  Parent Portal
+                </motion.a>
 
-                  <motion.div whileTap={{ scale: 0.95 }} className="pt-2">
-                    <Link
-                      href="https://shining1.vercel.app/admission"
-                      className="block w-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-center py-3 rounded-lg font-semibold"
-                      onClick={() => setNavbarOpen(false)}
-                    >
-                      Apply Now
-                    </Link>
-                  </motion.div>
-                </div>
+                <motion.div whileTap={{ scale: 0.95 }}>
+                  <Link
+                    href="https://shining1.vercel.app/admission"
+                    className="block w-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-center py-3 rounded-lg font-semibold"
+                    onClick={() => setNavbarOpen(false)}
+                  >
+                    Apply Now
+                  </Link>
+                </motion.div>
               </div>
             </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.header>
+          </>
+        )}
+      </AnimatePresence>
     </>
   )
 }
@@ -448,7 +445,7 @@ const MobileNavLink = ({
   <motion.div whileTap={{ scale: 0.95 }}>
     <Link
       href={href}
-      className="block py-2 text-gray-700 font-medium hover:text-blue-600 transition-colors duration-200"
+      className="block py-3 px-4 text-gray-700 font-semibold rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 border-l-4 border-transparent hover:border-blue-600"
       onClick={onClick}
     >
       {children}
@@ -457,19 +454,19 @@ const MobileNavLink = ({
 )
 
 // Mobile Dropdown Component
-const MobileDropdown = ({ title, items }: { title: string; items: any[] }) => {
+const MobileDropdown = ({ title, items, onClose }: { title: string; items: any[]; onClose?: () => void }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div>
+    <div className="rounded-lg overflow-hidden bg-gradient-to-b from-gray-50 to-transparent">
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-full py-2 text-gray-700 font-medium hover:text-blue-600 transition-colors duration-200"
+        className="flex items-center justify-between w-full py-3 px-4 text-gray-700 font-semibold hover:bg-blue-50 hover:text-blue-600 transition-all duration-200"
         whileTap={{ scale: 0.95 }}
       >
         <span>{title}</span>
-        <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
-          <FaChevronDown className="w-3 h-3" />
+        <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
+          <FaChevronDown className="w-4 h-4" />
         </motion.div>
       </motion.button>
 
@@ -479,22 +476,23 @@ const MobileDropdown = ({ title, items }: { title: string; items: any[] }) => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.2 }}
-            className="ml-4 mt-2 space-y-2"
+            transition={{ duration: 0.3 }}
+            className="bg-white space-y-1 overflow-hidden"
           >
             {items.map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: -10 }}
+                initial={{ opacity: 0, x: -15 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.05 }}
+                transition={{ delay: index * 0.08 }}
               >
                 <Link
                   href={item.path}
-                  className="flex items-center space-x-2 py-2 text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                  className="flex items-center space-x-3 py-2 px-6 text-gray-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 border-l-2 border-transparent hover:border-blue-600"
+                  onClick={onClose}
                 >
                   <span className="text-blue-500 text-sm">{item.icon}</span>
-                  <span>{item.title}</span>
+                  <span className="text-sm font-medium">{item.title}</span>
                 </Link>
               </motion.div>
             ))}
