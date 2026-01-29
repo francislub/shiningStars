@@ -1,7 +1,7 @@
 "use client"
 import Slider from "react-slick"
 import HeroSlide from "./HeroSlide"
-import EnhancedEventsSection from "./EnhancedEventsSection"
+import EnhancedEventsSection from "../EnhancedEventsSection"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
