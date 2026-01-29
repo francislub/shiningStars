@@ -25,7 +25,7 @@ import { useTypingEffect } from "@/utils/hooks"
 const statements = [
   "Welcome to Shining Stars Nursery & Primary School",
   "Quality Education in Vvumba",
-  "Apply Now for 2025 Academic Year",
+  "Apply Now for 2026 Academic Year",
   "Building Tomorrow's Leaders Today",
 ]
 
