@@ -91,7 +91,7 @@ const Header = () => {
 
   const contactItems = [
     { title: "Contact Us", path: "/contact", icon: <FaEnvelope /> },
-    { title: "Admission", path: "https://shining1.vercel.app/admission", icon: <FaGraduationCap /> },
+    { title: "Admission", path: "https://erms.shiningstarsvvumba.com/admission", icon: <FaGraduationCap /> },
     { title: "Scholarships", path: "/scholarships", icon: <HiSparkles /> },
   ]
 
@@ -195,7 +195,7 @@ const Header = () => {
 
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
-                  href="https://shining1.vercel.app/admission"
+                  href="https://erms.shiningstarsvvumba.com/admission"
                   className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2"
                 >
                   <HiSparkles />
@@ -217,7 +217,7 @@ const Header = () => {
               </motion.a>
 
               <motion.a
-                href="https://shining1.vercel.app/login"
+                href="https://erms.shiningstarsvvumba.com/login"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-1"
@@ -229,7 +229,7 @@ const Header = () => {
               </motion.a>
 
               <motion.a
-                href="https://shining1.vercel.app/login/parent"
+                href="https://erms.shiningstarsvvumba.com/login/parent"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-1"
@@ -318,7 +318,7 @@ const Header = () => {
                 </motion.a>
 
                 <motion.a
-                  href="https://shining1.vercel.app/login"
+                  href="https://erms.shiningstarsvvumba.com/login"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-3 rounded-lg font-semibold"
@@ -330,7 +330,7 @@ const Header = () => {
                 </motion.a>
 
                 <motion.a
-                  href="https://shining1.vercel.app/login/parent"
+                  href="https://erms.shiningstarsvvumba.com/login/parent"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-3 rounded-lg font-semibold"
@@ -343,7 +343,7 @@ const Header = () => {
 
                 <motion.div whileTap={{ scale: 0.95 }}>
                   <Link
-                    href="https://shining1.vercel.app/admission"
+                    href="https://erms.shiningstarsvvumba.com/admission"
                     className="block w-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-center py-3 rounded-lg font-semibold"
                     onClick={() => setNavbarOpen(false)}
                   >
