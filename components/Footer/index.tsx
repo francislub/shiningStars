@@ -162,7 +162,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="https://shining1.vercel.app/admission"
+                      href="https://erms.shiningstarsvvumba.com/admission"
                       target="_blank"  // Open link in a new tab
                       rel="noopener noreferrer"  // Improve security when opening new tab
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
@@ -173,7 +173,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href={"https://shining1.vercel.app/login"}
+                      href={"https://erms.shiningstarsvvumba.com/login"}
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
@@ -254,7 +254,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link
-                      href="https://shining1.vercel.app/admission"
+                      href="https://erms.shiningstarsvvumba.com/admission"
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
@@ -263,7 +263,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link
-                      href={"https://shining1.vercel.app/login"}
+                      href={"https://erms.shiningstarsvvumba.com/login"}
                       className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
                     >
                       {" "}
