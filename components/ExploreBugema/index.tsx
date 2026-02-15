@@ -123,7 +123,7 @@ const Video = () => {
         <div className="wow fadeInUp w-full" data-wow-delay=".1s">
           
           <h1 className="mb-4 text-3xl font-bold !leading-tight text-black/80 dark:text-white sm:text-4xl md:text-[45px]">
-          Discover Your Path at Shining Stars Vvumba! 
+          Discover Your Path at Shining Stars
           </h1>
           <p className="text-base !leading-relaxed md:text-lg">
           
