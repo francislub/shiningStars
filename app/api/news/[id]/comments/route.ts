@@ -2,17 +2,15 @@ import { type NextRequest, NextResponse } from "next/server"
 import { prisma } from "@/lib/prisma"
 import { sendCommentNotification } from "@/lib/email-service"
 
-export async function POST(request: NextRequest, { params }: { params: { id: string } }) {
+export async function POST(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     const { name, email, comment } = await request.json()
-    const newsId = params.id
+    const { id: newsId } = await params
 
-    // Validate input
     if (!comment || comment.trim().length === 0) {
       return NextResponse.json({ error: "Comment is required" }, { status: 400 })
     }
 
-    // Get the news details for the email
     const news = await prisma.websiteNews.findUnique({
       where: { id: newsId },
       select: { title: true, id: true },
@@ -22,18 +20,16 @@ export async function POST(request: NextRequest, { params }: { params: { id: str
       return NextResponse.json({ error: "News not found" }, { status: 404 })
     }
 
-    // Create the comment
     const newComment = await prisma.websiteNewsComment.create({
       data: {
         newsId,
         name: name || "Anonymous",
         email: email || null,
         comment: comment.trim(),
-        isApproved: false, // Comments need approval
+        isApproved: false,
       },
     })
 
-    // Send notification email to admin
     try {
       await sendCommentNotification(
         "news",
@@ -46,7 +42,6 @@ export async function POST(request: NextRequest, { params }: { params: { id: str
       console.log("✅ Comment notification email sent to admin")
     } catch (emailError) {
       console.error("❌ Failed to send comment notification email:", emailError)
-      // Don't fail the comment creation if email fails
     }
 
     return NextResponse.json({
@@ -66,31 +61,17 @@ export async function POST(request: NextRequest, { params }: { params: { id: str
   }
 }
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const newsId = params.id
+    const { id: newsId } = await params
 
-    // Get approved comments only
     const comments = await prisma.websiteNewsComment.findMany({
-      where: {
-        newsId,
-        isApproved: true,
-      },
-      orderBy: {
-        createdAt: "desc",
-      },
-      select: {
-        id: true,
-        name: true,
-        comment: true,
-        createdAt: true,
-      },
+      where: { newsId, isApproved: true },
+      orderBy: { createdAt: "desc" },
+      select: { id: true, name: true, comment: true, createdAt: true },
     })
 
-    return NextResponse.json({
-      success: true,
-      comments,
-    })
+    return NextResponse.json({ success: true, comments })
   } catch (error) {
     console.error("Error fetching comments:", error)
     return NextResponse.json({ error: "Failed to fetch comments" }, { status: 500 })
