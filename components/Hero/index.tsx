@@ -6,10 +6,6 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
 export const heroVid = [
-  // {
-  //   type: "image",
-  //   src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/69d61ab0001f738985f1/view?project=683381d6001779054d64&mode=admin",
-  // },
   {
     type: "image",
     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/69ff0f88000502ba1751/view?project=683381d6001779054d64&mode=admin",
@@ -39,70 +35,84 @@ export const heroVid = [
 const sliderSettings = {
   dots: true,
   infinite: true,
-  speed: 600,
+  speed: 700,
   slidesToShow: 1,
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 6000,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        speed: 500,
-        autoplaySpeed: 5000,
-      },
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        speed: 400,
-        autoplaySpeed: 4000,
-        dots: true,
-      },
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        speed: 350,
-        autoplaySpeed: 3500,
-        dots: true,
-      },
-    },
-  ],
+  pauseOnHover: false,
+  arrows: false,
+  dotsClass: "slick-dots !bottom-3",
 }
 
 const Hero = () => {
   return (
-    <>
-      <section
-        id="home"
-        className="hero-section w-full min-h-screen lg:h-screen relative z-10 overflow-hidden lg:mb-20 mb-0"
-      >
-        {/* Mobile Layout: Vertical Stack */}
-        <div className="flex flex-col lg:flex-row h-full">
-          {/* Slider Section - Responsive heights */}
-          <div className="w-full lg:w-[65%] relative h-[45vh] sm:h-[50vh] md:h-[55vh] lg:h-full">
-            <div className="h-full w-full">
-              <Slider {...sliderSettings}>
-                {heroVid.map((media, index) => (
-                  <HeroSlide key={index} media={media} />
-                ))}
-              </Slider>
-            </div>
-          </div>
+    <section
+      id="home"
+      className="w-full bg-gray-950 overflow-hidden"
+    >
+      {/*
+        Mobile/tablet  → stacked: slider top, events below
+        lg+            → side by side: slider left 62%, events right 38%
+      */}
+      <div className="flex flex-col lg:flex-row lg:h-screen lg:max-h-[900px]">
 
-          {/* Events Section - Advanced Responsive Container */}
-          <div className="w-full lg:w-[35%] bg-gradient-to-b lg:bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 h-auto lg:h-full min-h-[50vh] md:min-h-[60vh] lg:min-h-auto">
-            {/* Mobile: Add bottom padding for comfortable viewing */}
-            <div className="h-full w-full overflow-y-auto lg:overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
-              <div className="px-3 sm:px-4 md:px-5 lg:px-6 py-4 sm:py-5 md:py-6 lg:py-8 pb-12 lg:pb-8">
-                <EnhancedEventsSection />
-              </div>
-            </div>
+        {/* ── SLIDER ── */}
+        <div
+          className="
+            relative w-full
+            lg:w-[62%] lg:h-full
+            /* Mobile: fixed aspect ratio so image is never squashed */
+            aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9]
+            lg:aspect-auto
+          "
+        >
+          {/* Slick needs 100% height on all wrappers */}
+          <style>{`
+            #home .slick-slider,
+            #home .slick-list,
+            #home .slick-track,
+            #home .slick-slide,
+            #home .slick-slide > div {
+              height: 100% !important;
+            }
+            #home .slick-dots li button:before {
+              color: rgba(255,255,255,0.5);
+              font-size: 8px;
+            }
+            #home .slick-dots li.slick-active button:before {
+              color: #60a5fa;
+            }
+          `}</style>
+
+          <Slider {...sliderSettings} className="h-full w-full">
+            {heroVid.map((media, index) => (
+              <HeroSlide key={index} media={media} />
+            ))}
+          </Slider>
+
+          {/* Right fade into events panel on lg */}
+          <div className="hidden lg:block absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-gray-950 to-transparent z-10 pointer-events-none" />
+        </div>
+
+        {/* ── EVENTS PANEL ── */}
+        <div className="
+          w-full lg:w-[38%]
+          bg-gray-950
+          border-t border-white/10 lg:border-t-0 lg:border-l lg:border-white/10
+          lg:h-full lg:overflow-y-auto
+          scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent
+        ">
+          {/* Top accent stripe — mobile only */}
+          <div className="h-[2px] w-full bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 lg:hidden" />
+
+          <div className="px-4 sm:px-6 lg:px-6 py-6 lg:py-8 pb-12 lg:pb-10">
+            <EnhancedEventsSection />
           </div>
         </div>
-      </section>
-    </>
+
+      </div>
+    </section>
   )
 }
 
