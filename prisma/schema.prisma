@@ -3,6 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-1.1.x"]
 }
 
 datasource db {
@@ -20,6 +21,9 @@ model User {
   updatedAt DateTime @updatedAt
   createdBy String?
   updatedBy String?
+
+  resetToken       String? 
+  resetTokenExpiry DateTime?
 
   // Class Teacher specific fields
   classId   String? @db.ObjectId
@@ -53,8 +57,39 @@ model User {
   parentAdmissions Admission[] @relation("AdmissionParent")
   approvedAdmissions Admission[] @relation("AdmissionApprovedBy")
 
+  // Financial management relations
+  createdFeeStructures FeeStructure[] @relation("FeeStructureCreatedBy")
+  createdStudentFees StudentFee[] @relation("StudentFeeCreatedBy")
+  createdFeePayments FeePayment[] @relation("FeePaymentCreatedBy")
+  createdIncome Income[] @relation("IncomeCreatedBy")
+  createdExpenditure Expenditure[] @relation("ExpenditureCreatedBy")
+  createdBankAccounts BankAccount[] @relation("BankAccountCreatedBy")
+  createdBankTransactions BankTransaction[] @relation("BankTransactionCreatedBy")
+
   // Add this line to the existing relations
   createdPortalAccess PortalAccess[] @relation("PortalAccessCreatedBy")
+  createdInvoices Invoice[] @relation("InvoiceCreatedBy")
+  createdInvoicePayments InvoicePayment[] @relation("InvoicePaymentCreatedBy")
+
+  // Nursery remarks
+  createdNurseryRemarks NurseryRemark[] @relation("NurseryRemarksCreatedBy")
+
+  // Nursery performance
+  createdNurseryPerformances NurseryPerformance[] @relation("NurseryPerformanceCreatedBy")
+  nurseryPerformanceComments NurseryPerformanceComment[] @relation("PerformanceCommentCreatedBy")
+
+  // Exam Types
+  createdExamTypes ExamType[] @relation("ExamTypeCreatedBy")
+
+  signatures Signature[] @relation("UserSignature")
+
+  // Marks access relations
+  marksAccess MarksAccess[] @relation("ParentMarksAccess")
+  createdReportCardConfigs ReportCardConfig[] @relation("ReportCardConfigCreatedBy")
+
+  // inside model User { ... }
+  createdJobs          Job[]            @relation("JobCreatedBy")
+  reviewedApplications JobApplication[] @relation("ApplicationReviewedBy")
 
   @@map("users")
 }
@@ -69,6 +104,186 @@ enum UserRole {
   DIRECTOR_OF_STUDIES
   RECEPTIONIST
   WEBSITE_ADMIN
+  BURSER // Added BURSER role
+}
+model NurseryRemark {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  studentId      String   @db.ObjectId
+  student        Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  classId        String   @db.ObjectId
+  class          Class    @relation("NurseryRemarks", fields: [classId], references: [id], onDelete: Cascade)
+  termId         String   @db.ObjectId
+  term           Term     @relation("NurseryRemarks", fields: [termId], references: [id], onDelete: Cascade)
+  academicYearId String   @db.ObjectId
+  academicYear   AcademicYear @relation("NurseryRemarks", fields: [academicYearId], references: [id], onDelete: Cascade)
+  
+  examType       ExamTypeStatus
+  
+  // Learning Area 1: Relating with others
+  learningArea1Score    Float?
+  learningArea1Remarks  String?
+  
+  // Learning Area 2: Interacting, exploring, knowing
+  learningArea2Score    Float?
+  learningArea2Remarks  String?
+  
+  // Learning Area 3: Taking care of myself
+  learningArea3Score    Float?
+  learningArea3Remarks  String?
+  
+  // Learning Area 4: Developing mathematical concepts
+  learningArea4Score    Float?
+  learningArea4Remarks  String?
+  
+  // Learning Area 5: Developing language
+  learningArea5Score    Float?
+  learningArea5Remarks  String?
+  
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  createdById    String?  @db.ObjectId
+  createdBy      User?    @relation("NurseryRemarksCreatedBy", fields: [createdById], references: [id])
+
+  @@unique([studentId, termId, academicYearId, examType])
+  @@index([classId])
+  @@index([termId])
+  @@index([academicYearId])
+  @@map("nursery_remarks")
+}
+
+enum ExamTypeStatus {
+  MID
+  END
+}
+
+model ExamType {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  name           String   @unique
+  code           String   @unique
+  description    String?
+  type           String?  // e.g. "WRITTEN", "ORAL", "PRACTICAL"
+
+  // NEW: Link to academic year, term, and class
+  academicYearId String?  @db.ObjectId
+  academicYear   AcademicYear? @relation("ExamTypeAcademicYear", fields: [academicYearId], references: [id])
+
+  termId         String?  @db.ObjectId
+  term           Term?    @relation("ExamTypeTerm", fields: [termId], references: [id])
+
+  classId        String?  @db.ObjectId
+  class          Class?   @relation("ExamTypeClass", fields: [classId], references: [id])
+
+  // Relationships
+  marks          Mark[]   @relation("ExamTypeMarks")
+
+  //mainReportConfigs    ReportCardConfig[] @relation("ConfigMainExamTypes", fields: [mainReportConfigIds], references: [id])
+  //mainReportConfigIds  String[]           @db.ObjectId
+
+  //subReportConfigs     ReportCardConfig[] @relation("ConfigSubExamTypes", fields: [subReportConfigIds], references: [id])
+  //subReportConfigIds   String[]           @db.ObjectId
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  createdById    String?  @db.ObjectId
+  createdBy      User?    @relation("ExamTypeCreatedBy", fields: [createdById], references: [id])
+
+  @@map("exam_types")
+}
+
+// Nursery Performance Tracking Model
+model NurseryPerformance {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  studentId      String   @db.ObjectId
+  student        Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  classId        String   @db.ObjectId
+  class          Class    @relation("NurseryPerformances", fields: [classId], references: [id], onDelete: Cascade)
+  termId         String   @db.ObjectId
+  term           Term     @relation("NurseryPerformances", fields: [termId], references: [id], onDelete: Cascade)
+  academicYearId String   @db.ObjectId
+  academicYear   AcademicYear @relation("NurseryPerformances", fields: [academicYearId], references: [id], onDelete: Cascade)
+  
+  // Learning Activities Performance
+  words          String?
+  writing        String?
+  listening      String?
+  reading        String?
+  speaking       String?
+  drawingShading String?
+  games          String?
+  rhymesStories  String?
+  music          String?
+  healthHabits   String?
+  toiletHabits   String?
+  
+  // Class Teacher Comment
+  classTeacherComment String?
+  
+  // Status & Approval
+  status         PerformanceStatus @default(PENDING)
+  
+  // Headteacher Comment (set by admin/headteacher)
+  headteacherComment String?
+  headteacherCommentSetAt DateTime?
+  
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  createdById    String?  @db.ObjectId
+  createdBy      User?    @relation("NurseryPerformanceCreatedBy", fields: [createdById], references: [id])
+
+  // Comments history
+  comments       NurseryPerformanceComment[] @relation("PerformanceComments")
+
+  examType       ExamTypeStatus
+
+  @@unique([studentId, termId, academicYearId, examType])
+  @@index([classId])
+  @@index([termId])
+  @@index([academicYearId])
+  @@index([status])
+  @@map("nursery_performances")
+}
+
+enum PerformanceStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model NurseryPerformanceComment {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  performanceId  String   @db.ObjectId
+  performance    NurseryPerformance @relation("PerformanceComments", fields: [performanceId], references: [id], onDelete: Cascade)
+  
+  midcomment        String
+  endcomment        String
+  commentType       String   // "HEADTEACHER" or "ADDITIONAL"
+
+  examType       ExamTypeStatus
+  
+  createdAt      DateTime @default(now())
+  createdById    String?  @db.ObjectId
+  createdBy      User?    @relation("PerformanceCommentCreatedBy", fields: [createdById], references: [id])
+
+  @@index([performanceId])
+  @@map("nursery_performance_comments")
+}
+
+model Signature {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  signatureData String   // Base64 encoded image data
+  type          String   // "HEADTEACHER" or "CLASS_TEACHER"
+  classId       String?  @db.ObjectId
+  class         Class?   @relation("ClassSignature", fields: [classId], references: [id])
+  userId        String   @db.ObjectId
+  user          User     @relation("UserSignature", fields: [userId], references: [id], onDelete: Cascade)
+  teacherName   String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([type])
+  @@index([classId])
+  @@index([userId])
+  @@map("signatures")
 }
 
 model AcademicYear {
@@ -91,6 +306,15 @@ model AcademicYear {
   reportCards ReportCard[] @relation("ReportCardAcademicYear")
   timetables Timetable[]
   admissions Admission[]
+  feeStructures FeeStructure[]
+  studentFees StudentFee[]
+  income Income[]
+  expenditure Expenditure[]
+  invoices Invoice[]
+  nurseryRemarks NurseryRemark[] @relation("NurseryRemarks")
+  nurseryPerformances NurseryPerformance[] @relation("NurseryPerformances")
+  examTypes  ExamType[] @relation("ExamTypeAcademicYear")
+  reportCardConfigs ReportCardConfig[] @relation("ReportCardConfigAcademicYear")
 
   @@map("academic_years")
 }
@@ -98,6 +322,7 @@ model AcademicYear {
 model Class {
   id             String      @id @default(auto()) @map("_id") @db.ObjectId
   name           String
+  level          String      @default("primary")  // "nursery" or "primary"
   academicYearId String?     @db.ObjectId
   academicYear   AcademicYear? @relation(fields: [academicYearId], references: [id])
   createdAt      DateTime    @default(now())
@@ -112,6 +337,14 @@ model Class {
   dailyAttendance DailyAttendance[]
   timetableEntries TimetableEntry[]
   admissions   Admission[]
+  feeStructures FeeStructure[]
+  studentFees StudentFee[]
+  invoices Invoice[]
+  nurseryRemarks NurseryRemark[] @relation("NurseryRemarks")
+  nurseryPerformances NurseryPerformance[] @relation("NurseryPerformances")
+  examTypes  ExamType[] @relation("ExamTypeClass")
+
+  signatures     Signature[] @relation("ClassSignature")
 
   @@map("classes")
 }
@@ -198,6 +431,15 @@ model Term {
   reportCards ReportCard[] @relation("ReportCardTerm")
   timetables Timetable[]
   admissions Admission[]
+  feeStructures FeeStructure[]
+  studentFees StudentFee[]
+  invoices Invoice[]
+  income Income[]
+  expenditure Expenditure[]
+  nurseryRemarks NurseryRemark[] @relation("NurseryRemarks")
+  nurseryPerformances NurseryPerformance[] @relation("NurseryPerformances")
+  examTypes  ExamType[] @relation("ExamTypeTerm") 
+  reportCardConfigs ReportCardConfig[] @relation("ReportCardConfigTerm")
 
   @@map("terms")
 }
@@ -215,6 +457,7 @@ model Student {
   emergencyContact   String?
   medicalInfo        String?
   registrationNumber String?     @unique
+  emisNumber         String? 
   classId            String?     @db.ObjectId
   class              Class?      @relation(fields: [classId], references: [id])
   termId             String?     @db.ObjectId
@@ -233,8 +476,28 @@ model Student {
   marks      Mark[]
   attendance Attendance[]
   reportCards ReportCard[]
+  studentFees StudentFee[]
+  feePayments FeePayment[]
+  invoices Invoice[]
+  nurseryRemarks NurseryRemark[]
+  nurseryPerformances NurseryPerformance[]
+  marksAccess MarksAccess[] @relation("StudentMarksAccess")
 
   @@map("students")
+}
+
+model MarksAccess {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  studentId String   @db.ObjectId
+  student   Student  @relation("StudentMarksAccess", fields: [studentId], references: [id], onDelete: Cascade)
+  parentId  String   @db.ObjectId
+  parent    User     @relation("ParentMarksAccess", fields: [parentId], references: [id], onDelete: Cascade)
+  
+  examType  String?  
+  grantedAt DateTime @default(now())
+  
+  @@unique([studentId, parentId, examType])
+  @@map("marks_access")
 }
 
 enum Gender {
@@ -254,6 +517,8 @@ model Mark {
   term           Term?       @relation(fields: [termId], references: [id])
   academicYearId String?     @db.ObjectId
   academicYear   AcademicYear? @relation(fields: [academicYearId], references: [id])
+  examTypeId     String?     @db.ObjectId
+  examType       ExamType?   @relation("ExamTypeMarks", fields: [examTypeId], references: [id])
   
   homework       Float?
   bot            Float?
@@ -376,6 +641,7 @@ model Timetable {
   termId         String?     @db.ObjectId
   term           Term?       @relation(fields: [termId], references: [id])
   startDate      DateTime?
+  notes           String?
   endDate        DateTime?
   isActive       Boolean     @default(false)
   createdAt      DateTime    @default(now())
@@ -460,7 +726,6 @@ model Grade {
 
   @@map("grades")
 }
-
 
 model Visitor {
   id              String      @id @default(auto()) @map("_id") @db.ObjectId
@@ -712,9 +977,9 @@ model WebsiteSlider {
   title       String
   description String
   photo       String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  createdBy   String?  @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  createdBy String?  @db.ObjectId
 
   // Relations
   creator User? @relation("CreatedBy", fields: [createdBy], references: [id])
@@ -774,6 +1039,7 @@ model Newsletter {
 
   @@map("newsletters")
 }
+
 enum SubjectCategory {
   GENERAL
   SUBSIDIARY
@@ -794,4 +1060,552 @@ enum DayOfWeek {
   FRIDAY
   SATURDAY
   SUNDAY
+}
+
+model FeeStructure {
+  id             String      @id @default(auto()) @map("_id") @db.ObjectId
+  name           String
+  classId        String      @db.ObjectId
+  class          Class       @relation(fields: [classId], references: [id])
+  academicYearId String      @db.ObjectId
+  academicYear   AcademicYear @relation(fields: [academicYearId], references: [id])
+  termId         String      @db.ObjectId
+  term           Term        @relation(fields: [termId], references: [id])
+ 
+  // Fee types
+  uniformType      String?
+  uniformFee       Float       @default(0)
+  medicalFeeType   String?
+  tuitionFeeType   String?
+  tuitionFee       Float       @default(0)
+  transportFee     Float       @default(0)
+  medicalFee       Float       @default(0)
+  computerFee      Float       @default(0)
+  libraryFee       Float       @default(0)
+  developmentFee   Float       @default(0)
+  otherFees        Float       @default(0)
+ 
+  // NEW fields
+  hairFee          Float       @default(0)
+  debtFee          Float       @default(0)
+  coversFee        Float       @default(0)
+  packagesFee      Float       @default(0)
+  regFee           Float       @default(0)
+  snacksFee        Float       @default(0)
+ 
+  // NEW multi-price entry arrays (JSON)
+  tuitionEntries   Json?
+  medicalEntries   Json?
+  uniformEntries   Json?
+  transportEntries Json?
+ 
+  totalFee         Float       @default(0)
+  isActive         Boolean     @default(true)
+ 
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+  createdById      String?     @db.ObjectId
+  createdBy        User?       @relation("FeeStructureCreatedBy", fields: [createdById], references: [id])
+ 
+  studentFees      StudentFee[]
+  invoices         Invoice[]
+ 
+  @@unique([classId, academicYearId, termId])
+  @@map("fee_structures")
+}
+
+model StudentFee {
+  id               String      @id @default(auto()) @map("_id") @db.ObjectId
+  studentId        String      @db.ObjectId
+  student          Student     @relation(fields: [studentId], references: [id])
+  feeStructureId   String      @db.ObjectId
+  feeStructure     FeeStructure @relation(fields: [feeStructureId], references: [id])
+  classId          String      @db.ObjectId
+  class            Class       @relation(fields: [classId], references: [id])
+  academicYearId   String      @db.ObjectId
+  academicYear     AcademicYear @relation(fields: [academicYearId], references: [id])
+  termId           String      @db.ObjectId
+  term             Term        @relation(fields: [termId], references: [id])
+
+  // ── Type flags ──────────────────────────────────────────────────────────────
+  uniformType      String?
+  medicalFeeType   String?
+  tuitionFeeType   String?
+
+  // ── Core fee columns ────────────────────────────────────────────────────────
+  tuitionFee       Float       @default(0)
+  transportFee     Float       @default(0)
+  medicalFee       Float       @default(0)
+  computerFee      Float       @default(0)
+  libraryFee       Float       @default(0)
+  developmentFee   Float       @default(0)
+  otherFees        Float       @default(0)
+  uniformFee       Float       @default(0)
+
+  // ── Extended fee columns (NEW — must match FeeStructure fields) ─────────────
+  hairFee          Float       @default(0)   // hair-related charges
+  debtFee          Float       @default(0)   // carried-over debt
+  coversFee        Float       @default(0)   // book covers / stationery
+  packagesFee      Float       @default(0)   // school supply packages
+  regFee           Float       @default(0)   // registration / admission fee
+  snacksFee        Float       @default(0)   // tuck-shop / snack programme
+
+  // ── Multi-price JSON snapshots (mirrors FeeStructure) ──────────────────────
+  tuitionEntries   Json?       // [{label, amount}] — copied at assignment time
+  medicalEntries   Json?
+  uniformEntries   Json?
+  transportEntries Json?
+
+  // ── Running totals (maintained by the API) ──────────────────────────────────
+  totalFee         Float       @default(0)
+  totalPaid        Float       @default(0)
+  balance          Float       @default(0)
+
+  status           FeeStatus   @default(PENDING)
+  dueDate          DateTime?
+
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+  createdById      String?     @db.ObjectId
+  createdBy        User?       @relation("StudentFeeCreatedBy", fields: [createdById], references: [id])
+
+  payments         FeePayment[]
+
+  @@unique([studentId, feeStructureId])
+  @@map("student_fees")
+}
+
+
+model FeePayment {
+  id             String      @id @default(auto()) @map("_id") @db.ObjectId
+  receiptNumber  String      @unique
+  studentFeeId   String      @db.ObjectId
+  studentFee     StudentFee  @relation(fields: [studentFeeId], references: [id])
+  studentId      String      @db.ObjectId
+  student        Student     @relation(fields: [studentId], references: [id])
+
+  amount         Float
+  paymentMethod  PaymentMethod @default(CASH)
+  paymentDate    DateTime    @default(now())
+
+  // ── Per-fee paid breakdown (core) ───────────────────────────────────────────
+  tuitionPaid      Float       @default(0)
+  transportPaid    Float       @default(0)
+  medicalPaid      Float       @default(0)
+  computerPaid     Float       @default(0)
+  libraryPaid      Float       @default(0)
+  developmentPaid  Float       @default(0)
+  otherPaid        Float       @default(0)
+  uniformPaid      Float       @default(0)   // ← NEW (was missing)
+
+  // ── Per-fee paid breakdown (extended) ───────────────────────────────────────
+  hairPaid         Float       @default(0)   // ← NEW
+  debtPaid         Float       @default(0)   // ← NEW
+  coversPaid       Float       @default(0)   // ← NEW
+  packagesPaid     Float       @default(0)   // ← NEW
+  regPaid          Float       @default(0)   // ← NEW
+  snacksPaid       Float       @default(0)   // ← NEW
+
+  // ── Transaction metadata ────────────────────────────────────────────────────
+  transactionId  String?
+  merchantCode   String?
+  bankReference  String?
+
+  status         PaymentStatus @default(PAID)
+  notes          String?
+
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+  createdById    String?     @db.ObjectId
+  createdBy      User?       @relation("FeePaymentCreatedBy", fields: [createdById], references: [id])
+
+  @@map("fee_payments")
+}
+
+model Income {
+  id             String      @id @default(auto()) @map("_id") @db.ObjectId
+  date           DateTime    @default(now())
+  source         String
+  description    String
+  amount         Float
+  paymentMethod  PaymentMethod @default(CASH)
+  receiptNumber  String?
+  bankReference  String?
+  
+  academicYearId String?     @db.ObjectId
+  academicYear   AcademicYear? @relation(fields: [academicYearId], references: [id])
+  termId         String?     @db.ObjectId
+  term           Term?       @relation(fields: [termId], references: [id])
+  
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+  createdById    String?     @db.ObjectId
+  createdBy      User?       @relation("IncomeCreatedBy", fields: [createdById], references: [id])
+
+  @@map("income")
+}
+
+model Expenditure {
+  id             String      @id @default(auto()) @map("_id") @db.ObjectId
+  date           DateTime    @default(now())
+  category       String
+  description    String
+  amount         Float
+  paymentMethod  PaymentMethod @default(CASH)
+  voucherNumber  String?
+  bankReference  String?
+  supplierName   String?
+  
+  academicYearId String?     @db.ObjectId
+  academicYear   AcademicYear? @relation(fields: [academicYearId], references: [id])
+  termId         String?     @db.ObjectId
+  term           Term?       @relation(fields: [termId], references: [id])
+  
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+  createdById    String?     @db.ObjectId
+  createdBy      User?       @relation("ExpenditureCreatedBy", fields: [createdById], references: [id])
+
+  @@map("expenditure")
+}
+
+model BankAccount {
+  id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  accountName   String?
+  accountNumber String      @unique
+  bankName      String?
+  accountType   String?
+  currency      String?
+  description   String?
+  balance       Float       @default(0)
+  isActive      Boolean?     @default(true)
+  
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  createdById   String?     @db.ObjectId
+  createdBy     User?       @relation("BankAccountCreatedBy", fields: [createdById], references: [id])
+
+  transactions  BankTransaction[]
+
+  @@map("bank_accounts")
+}
+
+model BankTransaction {
+  id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  bankAccountId String      @db.ObjectId
+  bankAccount   BankAccount @relation(fields: [bankAccountId], references: [id])
+  
+  date          DateTime    @default(now())
+  type          TransactionType
+  amount        Float
+  description   String
+  reference     String?
+  balance       Float
+  
+  createdAt     DateTime    @default(now())
+  createdById   String?     @db.ObjectId
+  createdBy     User?       @relation("BankTransactionCreatedBy", fields: [createdById], references: [id])
+
+  @@map("bank_transactions")
+}
+
+enum FeeStatus {
+  PENDING
+  PARTIAL
+  PAID
+  OVERDUE
+}
+
+enum PaymentMethod {
+  CASH
+  BANK_TRANSFER
+  MOBILE_MONEY
+  CHEQUE
+  CARD
+}
+
+enum TransactionType {
+  CREDIT
+  DEBIT
+}
+
+model Invoice {
+  id               String      @id @default(auto()) @map("_id") @db.ObjectId
+  invoiceNumber    String      @unique
+  studentId        String      @db.ObjectId
+  student          Student     @relation(fields: [studentId], references: [id])
+  feeStructureId   String      @db.ObjectId
+  feeStructure     FeeStructure @relation(fields: [feeStructureId], references: [id])
+  classId          String      @db.ObjectId
+  class            Class       @relation(fields: [classId], references: [id])
+  academicYearId   String      @db.ObjectId
+  academicYear     AcademicYear @relation(fields: [academicYearId], references: [id])
+  termId           String      @db.ObjectId
+  term             Term        @relation(fields: [termId], references: [id])
+
+  // Invoice details
+  issueDate        DateTime    @default(now())
+  dueDate          DateTime
+
+  // ── Type flags (mirrors StudentFee / FeeStructure) ──────────────────────────
+  uniformType      String?
+  medicalFeeType   String?
+  tuitionFeeType   String?
+
+  // ── Core fee breakdown (copied from StudentFee at invoice creation time) ─────
+  tuitionFee       Float       @default(0)
+  transportFee     Float       @default(0)
+  medicalFee       Float       @default(0)
+  computerFee      Float       @default(0)
+  libraryFee       Float       @default(0)
+  developmentFee   Float       @default(0)
+  otherFees        Float       @default(0)
+  uniformFee       Float       @default(0)
+
+  // ── Extended fee breakdown ← NEW (was missing, matches StudentFee) ──────────
+  hairFee          Float       @default(0)   // hair-related charges
+  debtFee          Float       @default(0)   // carried-over debt
+  coversFee        Float       @default(0)   // book covers / stationery
+  packagesFee      Float       @default(0)   // school supply packages
+  regFee           Float       @default(0)   // registration / admission fee
+  snacksFee        Float       @default(0)   // tuck-shop / snack programme
+
+  // ── Multi-price JSON snapshots ← NEW (mirrors StudentFee / FeeStructure) ────
+  tuitionEntries   Json?       // [{label, amount}]
+  medicalEntries   Json?
+  uniformEntries   Json?
+  transportEntries Json?
+
+  // ── Running totals ───────────────────────────────────────────────────────────
+  totalAmount      Float       @default(0)
+  paidAmount       Float       @default(0)
+  balanceAmount    Float       @default(0)
+
+  status           InvoiceStatus @default(PENDING)
+  notes            String?
+
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+  createdById      String?     @db.ObjectId
+  createdBy        User?       @relation("InvoiceCreatedBy", fields: [createdById], references: [id])
+
+  payments         InvoicePayment[]
+
+  @@map("invoices")
+}
+
+model InvoicePayment {
+  id             String      @id @default(auto()) @map("_id") @db.ObjectId
+  invoiceId      String      @db.ObjectId
+  invoice        Invoice     @relation(fields: [invoiceId], references: [id])
+  receiptNumber  String      @unique
+  
+  amount         Float
+  paymentMethod  PaymentMethod @default(CASH)
+  paymentDate    DateTime    @default(now())
+  
+  // Payment breakdown
+  tuitionPaid    Float       @default(0)
+  transportPaid  Float       @default(0)
+  medicalPaid    Float       @default(0)
+  computerPaid   Float       @default(0)
+  libraryPaid    Float       @default(0)
+  developmentPaid Float      @default(0)
+  uniformPaid    Float       @default(0)
+  otherPaid      Float       @default(0)
+  
+  // Transaction details
+  transactionId  String?
+  merchantCode   String?
+  bankReference  String?
+  
+  status         PaymentStatus @default(PAID)
+  notes          String?
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+  createdById    String?     @db.ObjectId
+  createdBy      User?       @relation("InvoicePaymentCreatedBy", fields: [createdById], references: [id])
+
+  @@map("invoice_payments")
+}
+
+enum InvoiceStatus {
+  PENDING
+  PARTIAL
+  PAID
+  OVERDUE
+  CANCELLED
+}
+
+model ReportCardConfig {
+  id                 String   @id @default(auto()) @map("_id") @db.ObjectId
+  name               String
+  reportType         String   // "midterm" or "endterm"
+  academicYearId     String   @db.ObjectId
+  academicYear       AcademicYear @relation("ReportCardConfigAcademicYear", fields: [academicYearId], references: [id])
+  termId             String   @db.ObjectId
+  term               Term     @relation("ReportCardConfigTerm", fields: [termId], references: [id])
+  classId            String?  @db.ObjectId
+  
+  mainExamTypeIds    String[] @db.ObjectId 
+  subExamTypeIds     String[] @db.ObjectId  
+  
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  createdById        String   @db.ObjectId
+  createdBy          User     @relation("ReportCardConfigCreatedBy", fields: [createdById], references: [id])
+
+  @@unique([name, academicYearId, termId])
+  @@index([academicYearId])
+  @@index([termId])
+  @@map("report_card_configs")
+}
+
+// ─── CAREERS & RECRUITMENT SYSTEM ──────────────────────────────────────────────
+
+model Job {
+  id                 String       @id @default(auto()) @map("_id") @db.ObjectId
+  title              String
+  department         String
+  category           JobCategory
+  employmentType     EmploymentType
+  location           String
+  vacancies          Int          @default(1)
+  salaryMin          Float?
+  salaryMax          Float?
+  genderPreference   Gender?
+  experienceRequired String?
+  minimumQualification String
+  applicationDeadline DateTime
+  interviewDate      DateTime?
+
+  // Rich text fields
+  rolesAndResponsibilities String?
+  requirements             String?
+  skillsNeeded             String?
+  benefits                 String?
+  workingHours             String?
+
+  // Attachments (file URLs/paths)
+  jobDescriptionPdf  String?
+  supportingDocuments String[] @default([])
+
+  // Publishing
+  status             JobStatus    @default(DRAFT)
+  publishedAt        DateTime?
+  scheduledPublishAt DateTime?
+  expiresAt          DateTime?
+
+  createdAt          DateTime     @default(now())
+  updatedAt          DateTime     @updatedAt
+  createdById        String?      @db.ObjectId
+  createdBy          User?        @relation("JobCreatedBy", fields: [createdById], references: [id])
+
+  applications       JobApplication[]
+
+  @@index([status])
+  @@index([applicationDeadline])
+  @@index([department])
+  @@map("jobs")
+}
+
+model JobApplication {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  jobId     String   @db.ObjectId
+  job       Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  // ── Personal Information ─────────────────────────────────────────────────────
+  fullName        String
+  gender          Gender?
+  dateOfBirth     DateTime?
+  nationality     String?
+  phone           String
+  email           String
+  physicalAddress String?
+
+  // ── Education Background (array of entries) ──────────────────────────────────
+  educationBackground  Json?   // [{institution, course, qualification, graduationYear}]
+
+  // ── Work Experience ───────────────────────────────────────────────────────────
+  workExperience  Json?   // [{company, position, duration, responsibilities}]
+
+  // ── Professional Details ──────────────────────────────────────────────────────
+  skills          String[] @default([])
+  certifications  String?
+  languages       String?
+
+  // ── Uploads (file URLs/paths) ─────────────────────────────────────────────────
+  cvUrl              String?
+  academicDocumentsUrl String?
+  nationalIdUrl      String?
+  coverLetterUrl     String?
+  passportPhotoUrl   String?
+
+  // ── Additional Questions ──────────────────────────────────────────────────────
+  whyShouldWeHireYou  String?
+  expectedSalary      Float?
+  availableStartDate  DateTime?
+
+  // ── Consent ───────────────────────────────────────────────────────────────────
+  consentGiven    Boolean  @default(false)
+  consentGivenAt  DateTime?
+
+  // ── Status & Review ───────────────────────────────────────────────────────────
+  status          ApplicationStatus @default(SUBMITTED)
+  reviewedAt      DateTime?
+  reviewedById    String?  @db.ObjectId
+  reviewedBy      User?    @relation("ApplicationReviewedBy", fields: [reviewedById], references: [id])
+  reviewNotes     String?
+
+  // ── Interview ─────────────────────────────────────────────────────────────────
+  interviewScheduledAt  DateTime?
+  interviewLocation     String?
+  interviewNotes        String?
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([jobId, email])   // one application per email per job
+  @@index([status])
+  @@index([jobId])
+  @@map("job_applications")
+}
+
+enum JobCategory {
+  TEACHING
+  ADMINISTRATION
+  SUPPORT_STAFF
+  MANAGEMENT
+  IT
+  FINANCE
+  SECURITY
+  CLEANING
+  OTHER
+}
+
+enum EmploymentType {
+  FULL_TIME
+  PART_TIME
+  CONTRACT
+  INTERNSHIP
+}
+
+enum JobStatus {
+  DRAFT
+  PUBLISHED
+  SCHEDULED
+  EXPIRED
+  CLOSED
+}
+
+enum ApplicationStatus {
+  SUBMITTED
+  UNDER_REVIEW
+  SHORTLISTED
+  INTERVIEW_SCHEDULED
+  INTERVIEWED
+  OFFERED
+  HIRED
+  REJECTED
+  WITHDRAWN
 }

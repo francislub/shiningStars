@@ -28,7 +28,6 @@ const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false)
   const [sticky, setSticky] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
-  const [scrolled, setScrolled] = useState(false)
 
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen)
@@ -37,10 +36,8 @@ const Header = () => {
   const handleStickyNavbar = () => {
     if (window.scrollY >= 80) {
       setSticky(true)
-      setScrolled(true)
     } else {
       setSticky(false)
-      setScrolled(false)
     }
   }
 
@@ -97,7 +94,6 @@ const Header = () => {
 
   return (
     <>
-
       {/* Main Header */}
       <motion.header
         className={`w-full z-50 transition-all duration-300 ${
@@ -143,10 +139,8 @@ const Header = () => {
             </motion.div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
-              <NavLink href="/" sticky={sticky}>
-                Home
-              </NavLink>
+            <nav className="hidden lg:flex items-center space-x-6">
+              <NavLink href="/" sticky={sticky}>Home</NavLink>
 
               <DropdownMenu
                 title="About Us"
@@ -193,10 +187,23 @@ const Header = () => {
                 onClose={closeDropdown}
               />
 
+              {/* ── Jobs & Careers CTA ── */}
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  href="/jobs"
+                  className="flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 text-red-500 px-4 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+                >
+                  <FaBriefcase size={13} />
+                  <span>Jobs &amp; Careers</span>
+                  {/* pulse dot */}
+                  <span className="absolute top-1 right-1 w-2 h-2 bg-white rounded-full animate-ping opacity-75" />
+                </Link>
+              </motion.div>
+
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
                   href="https://erms.shiningstarsvvumba.com/admission"
-                  className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2"
+                  className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-5 py-2.5 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2"
                 >
                   <HiSparkles />
                   <span>Apply Now</span>
@@ -204,23 +211,24 @@ const Header = () => {
               </motion.div>
             </nav>
 
-            {/* Mobile Menu Button with Recruitment Button */}
+            {/* Mobile Menu Button */}
             <div className="lg:hidden flex items-center gap-2">
-              <motion.a
-                href="mailto:shiningstars2022@gmail.com"
-                className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-2 rounded-lg text-xs font-semibold shadow-md hover:shadow-lg transition-all flex items-center gap-1"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <FaBriefcase size={14} />
-                <span className="hidden sm:inline">Hiring</span>
-              </motion.a>
+              {/* Jobs pill on mobile */}
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  href="/jobs"
+                  className="flex items-center gap-1 bg-gradient-to-r from-amber-500 to-orange-500 text-red-500 px-2.5 py-1.5 rounded-full text-xs font-bold shadow-md"
+                >
+                  <FaBriefcase size={11} />
+                  <span>Jobs</span>
+                </Link>
+              </motion.div>
 
               <motion.a
                 href="https://erms.shiningstarsvvumba.com/login"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-1"
+                className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md flex items-center space-x-1"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -232,7 +240,7 @@ const Header = () => {
                 href="https://erms.shiningstarsvvumba.com/login/parent"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-1"
+                className="bg-gradient-to-r from-green-500 to-emerald-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md flex items-center space-x-1"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -260,7 +268,6 @@ const Header = () => {
       <AnimatePresence>
         {navbarOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -270,7 +277,6 @@ const Header = () => {
               onClick={() => setNavbarOpen(false)}
             />
 
-            {/* Side Drawer */}
             <motion.div
               initial={{ x: -400, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
@@ -290,39 +296,37 @@ const Header = () => {
                 </motion.button>
               </div>
 
-              {/* Scrollable Content */}
               <div className="flex-1 overflow-y-auto overflow-x-hidden">
                 <nav className="space-y-2 p-4">
-                  <MobileNavLink href="/" onClick={() => setNavbarOpen(false)}>
-                    Home
-                  </MobileNavLink>
-
+                  <MobileNavLink href="/" onClick={() => setNavbarOpen(false)}>Home</MobileNavLink>
                   <MobileDropdown title="About Us" items={aboutUsItems} onClose={() => setNavbarOpen(false)} />
                   <MobileDropdown title="School Life" items={schoolLifeItems} onClose={() => setNavbarOpen(false)} />
                   <MobileDropdown title="Staff" items={staffItems} onClose={() => setNavbarOpen(false)} />
                   <MobileDropdown title="Resources" items={resourcesItems} onClose={() => setNavbarOpen(false)} />
                   <MobileDropdown title="Contact" items={contactItems} onClose={() => setNavbarOpen(false)} />
+
+                  <div className="pt-1">
+                    <Link
+                      href="/jobs"
+                      onClick={() => setNavbarOpen(false)}
+                      className="flex items-center gap-3 py-3 px-4 bg-amber-50 text-red-500 font-semibold rounded-lg border border-amber-200 hover:bg-amber-100 transition-all"
+                    >
+                      <FaBriefcase size={16} className="text-red-500" />
+                      <span className="text-red-500">Jobs &amp; Careers</span>
+                      <span className="ml-auto bg-amber-500 text-red-900 text-xs px-2 py-0.5 rounded-full">
+                        Hiring
+                      </span>
+                    </Link>
+                  </div>
                 </nav>
               </div>
 
-              {/* Sidebar Footer with Actions */}
               <div className="bg-white border-t border-gray-200 p-4 space-y-3">
-                <motion.a
-                  href="mailto:shiningstars2022@gmail.com"
-                  className="block w-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-center py-3 rounded-lg font-semibold"
-                  onClick={() => setNavbarOpen(false)}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Join Our Team
-                </motion.a>
-
                 <motion.a
                   href="https://erms.shiningstarsvvumba.com/login"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-3 rounded-lg font-semibold"
-                  whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   <FaUserCircle size={16} />
@@ -334,7 +338,6 @@ const Header = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-3 rounded-lg font-semibold"
-                  whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   <FaUserCircle size={16} />
@@ -359,31 +362,22 @@ const Header = () => {
   )
 }
 
-// Navigation Link Component
 const NavLink = ({ href, children, sticky }: { href: string; children: React.ReactNode; sticky: boolean }) => (
   <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
     <Link
       href={href}
-      className={`font-medium transition-colors duration-300 hover:text-yellow-400 ${
-        sticky ? "text-gray-700" : "text-white"
-      }`}
+      className={`font-medium transition-colors duration-300 hover:text-yellow-400 ${sticky ? "text-gray-700" : "text-white"}`}
     >
       {children}
     </Link>
   </motion.div>
 )
 
-// Dropdown Menu Component
 const DropdownMenu = ({
-  title,
-  items,
-  sticky,
-  isActive,
-  onToggle,
-  onClose,
+  title, items, sticky, isActive, onToggle, onClose,
 }: {
   title: string
-  items: any[]
+  items: { title: string; path: string; icon: React.ReactNode }[]
   sticky: boolean
   isActive: boolean
   onToggle: () => void
@@ -392,9 +386,7 @@ const DropdownMenu = ({
   <div className="relative group">
     <motion.button
       onClick={onToggle}
-      className={`flex items-center space-x-1 font-medium transition-colors duration-300 hover:text-yellow-400 ${
-        sticky ? "text-gray-700" : "text-white"
-      }`}
+      className={`flex items-center space-x-1 font-medium transition-colors duration-300 hover:text-yellow-400 ${sticky ? "text-gray-700" : "text-white"}`}
       whileHover={{ y: -2 }}
     >
       <span>{title}</span>
@@ -436,12 +428,7 @@ const DropdownMenu = ({
   </div>
 )
 
-// Mobile Navigation Link
-const MobileNavLink = ({
-  href,
-  children,
-  onClick,
-}: { href: string; children: React.ReactNode; onClick: () => void }) => (
+const MobileNavLink = ({ href, children, onClick }: { href: string; children: React.ReactNode; onClick: () => void }) => (
   <motion.div whileTap={{ scale: 0.95 }}>
     <Link
       href={href}
@@ -453,8 +440,7 @@ const MobileNavLink = ({
   </motion.div>
 )
 
-// Mobile Dropdown Component
-const MobileDropdown = ({ title, items, onClose }: { title: string; items: any[]; onClose?: () => void }) => {
+const MobileDropdown = ({ title, items, onClose }: { title: string; items: { title: string; path: string; icon: React.ReactNode }[]; onClose?: () => void }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
