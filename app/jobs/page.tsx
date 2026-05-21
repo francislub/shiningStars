@@ -6,9 +6,11 @@ import { motion, AnimatePresence } from "framer-motion"
 import {
   FaBriefcase, FaMapMarkerAlt, FaUsers, FaGraduationCap,
   FaCalendarAlt, FaSearch, FaFilter, FaTimes, FaArrowRight,
-  FaMoneyBillWave, FaClock, FaTag,
+  FaMoneyBillWave, FaClock, FaCheckCircle,
 } from "react-icons/fa"
 import { HiSparkles } from "react-icons/hi"
+import { MdOutlineSchool, MdAutoGraph, MdGroups2 } from "react-icons/md"
+import { IoMailOutline } from "react-icons/io5"
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -75,6 +77,91 @@ const CAT_COLORS: Record<string, { bg: string; text: string; dot: string }> = {
   SECURITY:       { bg: "bg-slate-100",   text: "text-slate-700",   dot: "bg-slate-400" },
   CLEANING:       { bg: "bg-lime-100",    text: "text-lime-700",    dot: "bg-lime-400" },
   OTHER:          { bg: "bg-orange-100",  text: "text-orange-700",  dot: "bg-orange-400" },
+}
+
+const PILLARS = [
+  {
+    icon: MdOutlineSchool,
+    title: "Advanced Curriculum",
+    desc: "Deliver cutting-edge learning frameworks designed for 21st-century learners.",
+    color: "from-sky-500/20 to-sky-500/5",
+    accent: "bg-sky-500",
+    textAccent: "text-sky-600",
+  },
+  {
+    icon: MdAutoGraph,
+    title: "Professional Growth",
+    desc: "Structured mentorship, CPD programmes, and clear career progression pathways.",
+    color: "from-violet-500/20 to-violet-500/5",
+    accent: "bg-violet-500",
+    textAccent: "text-violet-600",
+  },
+  {
+    icon: MdGroups2,
+    title: "Collaborative Culture",
+    desc: "Lead alongside visionary colleagues in a school that values every voice.",
+    color: "from-emerald-500/20 to-emerald-500/5",
+    accent: "bg-emerald-500",
+    textAccent: "text-emerald-600",
+  },
+]
+
+// ─── Newsletter Section ───────────────────────────────────────────────────────
+
+function NewsletterSection() {
+  const [email, setEmail] = useState("")
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+  const [errorMsg, setErrorMsg] = useState("")
+
+  const handleSubscribe = async () => {
+    if (!email.trim() || !email.includes("@")) {
+      setStatus("error")
+      setErrorMsg("Please enter a valid email address.")
+      return
+    }
+    setStatus("loading")
+    // Replace this with your actual newsletter API call
+    try {
+      await new Promise((r) => setTimeout(r, 1200)) // Simulate API
+      setStatus("success")
+      setEmail("")
+    } catch {
+      setStatus("error")
+      setErrorMsg("Something went wrong. Please try again.")
+    }
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.5, duration: 0.5 }}
+      className="relative overflow-hidden rounded-2xl border border-blue-200/60 bg-gradient-to-br from-[#0f2554] via-[#1a3a6e] to-[#1e4db7] p-8 md:p-10 text-white shadow-2xl"
+    >
+      {/* Background pattern */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -top-12 -right-12 w-64 h-64 rounded-full bg-blue-400/10 blur-3xl" />
+        <div className="absolute -bottom-8 -left-8 w-48 h-48 rounded-full bg-indigo-400/10 blur-2xl" />
+        <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1.5" fill="white" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#dots)" />
+        </svg>
+      </div>
+
+      <div className="relative flex flex-col md:flex-row md:items-center gap-8">
+        {/* Left copy */}
+        <div className="flex-1">
+          
+        </div>
+
+        
+      </div>
+    </motion.div>
+  )
 }
 
 // ─── Job Card ─────────────────────────────────────────────────────────────────
@@ -217,60 +304,126 @@ export default function JobsListingPage() {
 
   return (
     <div className="min-h-screen bg-[#f8faff]">
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#1a3a6e] via-[#1e4db7] to-[#2d62d4] text-white">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/5" />
-          <div className="absolute bottom-0 left-1/4 w-64 h-64 rounded-full bg-blue-400/10 blur-3xl" />
-        </div>
-        <div className="relative container mx-auto px-4 pt-14 pb-16">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-blue-200 text-xs font-semibold px-3 py-1.5 rounded-full mb-4">
-              <HiSparkles size={12} /> Career Opportunities
-            </div>
-            <h1 className="text-4xl sm:text-5xl font-black leading-tight mb-3">
-              Find Your <span className="text-blue-300">Next Role</span>
-            </h1>
-            <p className="text-blue-200 text-lg mb-8">
-              Explore open positions and join our team.
-            </p>
 
-            {/* Search bar */}
-            <div className="flex gap-2">
-              <div className="relative flex-1">
-                <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={13} />
-                <input
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Search by title, department, or location…"
-                  className="w-full pl-10 pr-4 py-3.5 rounded-xl bg-white text-gray-800 text-sm font-medium shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400/40"
-                />
-                {search && (
-                  <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
-                    <FaTimes size={12} />
-                  </button>
-                )}
+      {/* ── Hero ──────────────────────────────────────────────────────────── */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0c1f4a] via-[#1a3a6e] to-[#1e4db7] text-white">
+
+        {/* Decorative background layers */}
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -top-24 -right-24 w-[500px] h-[500px] rounded-full bg-blue-400/10 blur-3xl" />
+          <div className="absolute top-1/2 left-0 w-72 h-72 rounded-full bg-indigo-600/20 blur-3xl" />
+          <div className="absolute bottom-0 right-1/3 w-64 h-64 rounded-full bg-sky-400/10 blur-2xl" />
+          {/* Subtle grid */}
+          <svg className="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+          </svg>
+        </div>
+
+        <div className="relative container mx-auto px-4 pt-16 pb-20 max-w-6xl">
+
+          {/* ── Mission statement ──────────────────────────────────────── */}
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-14">
+
+            {/* Left: headline & statement */}
+            <motion.div initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
+              <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-blue-200 text-xs font-bold px-3 py-1.5 rounded-full mb-5 tracking-widest uppercase">
+                <HiSparkles size={12} /> Are you ready to
               </div>
-              <button
-                onClick={() => setShowFilters(!showFilters)}
-                className={`flex items-center gap-2 px-4 py-3.5 rounded-xl font-semibold text-sm shadow-lg transition-colors ${
-                  showFilters ? "bg-white text-blue-700" : "bg-white/10 border border-white/20 text-white hover:bg-white/20"
-                }`}
-              >
-                <FaFilter size={12} />
-                Filters
-                {activeFilters > 0 && (
-                  <span className="w-5 h-5 rounded-full bg-blue-600 text-white text-[10px] font-bold flex items-center justify-center">
-                    {activeFilters}
-                  </span>
-                )}
-              </button>
+
+              <h1 className="text-4xl sm:text-5xl font-black leading-[1.1] mb-6">
+                Redefine{" "}
+                <span className="relative inline-block">
+                  <span className="text-blue-300">Education?</span>
+                  <span className="absolute -bottom-1 left-0 w-full h-[3px] bg-blue-400/60 rounded-full" />
+                </span>
+                {/* <br />with Us. */}
+              </h1>
+
+              <p className="text-blue-100/80 text-base leading-relaxed mb-6 max-w-[480px]">
+                <strong className="text-white font-semibold">Shining Stars Day & Boarding Nursery and Primary School — Vvumba</strong> is
+                seeking passionate educators who don't just teach — they transform. If you believe a classroom
+                can be a place of wonder, innovation, and lifelong impact, you belong here.
+              </p>
+
+              <p className="text-blue-200/70 text-sm leading-relaxed max-w-[460px]">
+                We invest in our people with structured professional development, an advanced curriculum, and
+                collaborative leadership that gives you the resources, autonomy, and community to build an
+                extraordinary career in education.
+              </p>
+            </motion.div>
+
+            {/* Right: 3 pillars */}
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="space-y-4"
+            >
+              {PILLARS.map((p, i) => (
+                <motion.div
+                  key={p.title}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.25 + i * 0.1, duration: 0.45 }}
+                  className={`flex items-start gap-4 bg-gradient-to-br ${p.color} border border-white/10 rounded-2xl p-5 backdrop-blur-sm`}
+                >
+                  <div className={`w-10 h-10 rounded-xl ${p.accent} bg-opacity-20 flex items-center justify-center shrink-0`}>
+                    <p.icon className="text-white" size={20} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white text-sm mb-1">{p.title}</h4>
+                    <p className="text-blue-200/70 text-xs leading-relaxed">{p.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* ── Search bar ─────────────────────────────────────────────── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+            className="flex gap-2"
+          >
+            <div className="relative flex-1">
+              <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={13} />
+              <input
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search by title, department, or location…"
+                className="w-full pl-10 pr-4 py-3.5 rounded-xl bg-white text-gray-800 text-sm font-medium shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400/40"
+              />
+              {search && (
+                <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                  <FaTimes size={12} />
+                </button>
+              )}
             </div>
+            <button
+              onClick={() => setShowFilters(!showFilters)}
+              className={`flex items-center gap-2 px-4 py-3.5 rounded-xl font-semibold text-sm shadow-lg transition-colors ${
+                showFilters ? "bg-white text-blue-700" : "bg-white/10 border border-white/20 text-white hover:bg-white/20"
+              }`}
+            >
+              <FaFilter size={12} />
+              Filters
+              {activeFilters > 0 && (
+                <span className="w-5 h-5 rounded-full bg-blue-600 text-white text-[10px] font-bold flex items-center justify-center">
+                  {activeFilters}
+                </span>
+              )}
+            </button>
           </motion.div>
         </div>
       </section>
 
-      {/* Filter bar */}
+      {/* ── Filter bar ────────────────────────────────────────────────────── */}
       <AnimatePresence>
         {showFilters && (
           <motion.div
@@ -319,10 +472,11 @@ export default function JobsListingPage() {
         )}
       </AnimatePresence>
 
-      {/* Content */}
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
+      {/* ── Main content ──────────────────────────────────────────────────── */}
+      <div className="container mx-auto px-4 py-10 max-w-6xl space-y-10">
+
         {/* Results header */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between">
           <div>
             <h2 className="text-lg font-bold text-gray-900">
               {loading ? "Loading…" : `${total} Position${total !== 1 ? "s" : ""} Available`}
@@ -335,13 +489,13 @@ export default function JobsListingPage() {
 
         {/* Error */}
         {error && (
-          <div className="bg-red-50 border border-red-100 rounded-2xl p-5 text-center mb-6">
+          <div className="bg-red-50 border border-red-100 rounded-2xl p-5 text-center">
             <p className="text-sm text-red-600 font-medium">{error}</p>
             <button onClick={fetchJobs} className="mt-2 text-xs text-red-500 underline">Try again</button>
           </div>
         )}
 
-        {/* Loading */}
+        {/* Loading skeletons */}
         {loading && (
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
             {Array.from({ length: 6 }).map((_, i) => (
@@ -381,9 +535,7 @@ export default function JobsListingPage() {
               <FaBriefcase className="text-gray-300" size={28} />
             </div>
             <h3 className="text-lg font-bold text-gray-700 mb-2">No positions found</h3>
-            <p className="text-gray-400 text-sm mb-5">
-              Try adjusting your search or filters.
-            </p>
+            <p className="text-gray-400 text-sm mb-5">Try adjusting your search or filters.</p>
             <button
               onClick={() => { setSearch(""); setCategory(""); setEmploymentType("") }}
               className="text-sm font-semibold text-blue-600 hover:text-blue-800 underline"
@@ -392,6 +544,10 @@ export default function JobsListingPage() {
             </button>
           </div>
         )}
+
+        {/* ── Newsletter subscription ──────────────────────────────────── */}
+        <NewsletterSection />
+
       </div>
     </div>
   )
