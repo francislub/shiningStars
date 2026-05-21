@@ -9,6 +9,7 @@ import {
   FaMoneyBillWave, FaCalendarAlt, FaChevronLeft, FaShareAlt,
   FaClock, FaCheckCircle, FaEnvelope, FaArrowRight,
   FaBuilding, FaTag, FaFileAlt, FaTimes, FaExclamationCircle,
+  FaStar,
 } from "react-icons/fa"
 import { HiSparkles } from "react-icons/hi"
 
@@ -67,9 +68,90 @@ function daysUntil(iso: string) {
   return Math.ceil((new Date(iso).getTime() - Date.now()) / 86_400_000)
 }
 
+// ─── Top Banner ───────────────────────────────────────────────────────────────
+
+function TopBanner() {
+  return (
+    <div className="relative overflow-hidden bg-[#0a1a3e] border-b border-white/5">
+      {/* Subtle shimmer line at bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-400/40 to-transparent" />
+
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-0 sm:gap-6 py-3 sm:py-3.5">
+
+          {/* Left phrase — main */}
+          <motion.div
+            initial={{ opacity: 0, x: -16 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="flex items-center gap-2.5"
+          >
+            <div className="flex items-center gap-1">
+              {["text-yellow-400", "text-blue-400", "text-emerald-400"].map((color, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.2 + i * 0.1, duration: 0.35, type: "spring" }}
+                >
+                  <FaStar size={9} className={color} />
+                </motion.div>
+              ))}
+            </div>
+            <p className="text-white text-sm font-black tracking-wide leading-none">
+              Inspire.{" "}
+              <span className="text-blue-300">Grow.</span>{" "}
+              <span className="text-emerald-300">Achieve.</span>
+            </p>
+            <span className="hidden sm:block w-px h-4 bg-white/15 mx-1" />
+            <p className="hidden sm:block text-blue-200/80 text-xs font-semibold tracking-wider">
+              Join the{" "}
+              <span className="text-white font-bold">Shining Stars Vvumba</span>{" "}
+              Family.
+            </p>
+          </motion.div>
+
+          {/* Mobile: second line */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.35, duration: 0.5 }}
+            className="sm:hidden text-blue-200/70 text-[11px] font-semibold tracking-wider text-center"
+          >
+            Join the <span className="text-white font-bold">Shining Stars Vvumba</span> Family.
+          </motion.p>
+
+          {/* Divider — desktop only */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="hidden sm:block flex-1 h-px bg-gradient-to-r from-white/5 via-white/15 to-white/5 mx-4"
+          />
+
+          {/* Right phrase */}
+          <motion.div
+            initial={{ opacity: 0, x: 16 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
+            className="flex items-center gap-2"
+          >
+            <HiSparkles className="text-yellow-300/80 hidden sm:block" size={13} />
+            <p className="text-[11px] sm:text-xs font-bold tracking-widest uppercase text-blue-300/70 text-center sm:text-right">
+              Empowering{" "}
+              <span className="text-yellow-300/90">Teachers</span>
+              {" "}to Empower{" "}
+              <span className="text-emerald-300/90">Pupils</span>
+            </p>
+          </motion.div>
+
+        </div>
+      </div>
+    </div>
+  )
+}
+
 // ─── Rich Text Renderer ───────────────────────────────────────────────────────
-// Renders HTML from the rich-text editor exactly as saved:
-// bullet/numbered lists, bold, italic, headings, links, etc.
 
 function RichContent({ html }: { html: string }) {
   return (
@@ -77,22 +159,18 @@ function RichContent({ html }: { html: string }) {
       <style>{`
         .rich-content { color: #374151; font-size: 0.9rem; line-height: 1.75; }
 
-        /* Headings */
         .rich-content h1 { font-size: 1.25rem; font-weight: 800; color: #111827; margin: 1.25rem 0 0.5rem; }
         .rich-content h2 { font-size: 1.1rem;  font-weight: 700; color: #111827; margin: 1.1rem 0 0.4rem; }
         .rich-content h3 { font-size: 1rem;    font-weight: 700; color: #1f2937; margin: 1rem 0 0.35rem; }
 
-        /* Paragraphs */
         .rich-content p  { margin: 0 0 0.75rem; }
         .rich-content p:last-child { margin-bottom: 0; }
 
-        /* Inline */
         .rich-content strong, .rich-content b { font-weight: 700; color: #111827; }
         .rich-content em,     .rich-content i { font-style: italic; }
         .rich-content u { text-decoration: underline; }
         .rich-content s { text-decoration: line-through; }
 
-        /* Bullet list */
         .rich-content ul {
           list-style-type: disc;
           padding-left: 1.4rem;
@@ -103,7 +181,6 @@ function RichContent({ html }: { html: string }) {
         }
         .rich-content ul li { padding-left: 0.25rem; }
 
-        /* Numbered list */
         .rich-content ol {
           list-style-type: decimal;
           padding-left: 1.4rem;
@@ -114,7 +191,6 @@ function RichContent({ html }: { html: string }) {
         }
         .rich-content ol li { padding-left: 0.25rem; }
 
-        /* Nested lists */
         .rich-content ul ul,
         .rich-content ol ol,
         .rich-content ul ol,
@@ -122,7 +198,6 @@ function RichContent({ html }: { html: string }) {
           margin: 0.2rem 0 0.2rem 0.5rem;
         }
 
-        /* Links */
         .rich-content a {
           color: #2563eb;
           text-decoration: underline;
@@ -130,7 +205,6 @@ function RichContent({ html }: { html: string }) {
         }
         .rich-content a:hover { color: #1d4ed8; }
 
-        /* Blockquote */
         .rich-content blockquote {
           border-left: 3px solid #93c5fd;
           padding-left: 1rem;
@@ -139,7 +213,6 @@ function RichContent({ html }: { html: string }) {
           margin: 0.75rem 0;
         }
 
-        /* Code */
         .rich-content code {
           background: #f3f4f6;
           border: 1px solid #e5e7eb;
@@ -158,7 +231,6 @@ function RichContent({ html }: { html: string }) {
         }
         .rich-content pre code { background: none; border: none; padding: 0; }
 
-        /* Table */
         .rich-content table {
           width: 100%;
           border-collapse: collapse;
@@ -180,7 +252,6 @@ function RichContent({ html }: { html: string }) {
         }
         .rich-content tr:nth-child(even) td { background: #f9fafb; }
 
-        /* HR */
         .rich-content hr {
           border: none;
           border-top: 1px solid #e5e7eb;
@@ -425,6 +496,9 @@ export default function JobDetailPage() {
         {showRefer && <ReferModal job={job} onClose={() => setShowRefer(false)} />}
       </AnimatePresence>
 
+      {/* ── Top Banner ────────────────────────────────────────────────────── */}
+      <TopBanner />
+
       {/* ── Hero ────────────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#1a3a6e] via-[#1e4db7] to-[#2d62d4] text-white">
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -637,7 +711,6 @@ export default function JobDetailPage() {
           </div>
 
           {/* ── Right: sidebar ─────────────────────────────────────────────── */}
-          {/* On mobile this stacks below; on lg it sits in col 3 */}
           <div className="space-y-4 sm:space-y-5">
 
             {/* Job Summary card */}
@@ -720,7 +793,7 @@ export default function JobDetailPage() {
         </div>
       </div>
 
-      {/* ── Bottom padding for mobile so last card isn't flush with edge ─────── */}
+      {/* ── Bottom padding for mobile ─────────────────────────────────────── */}
       <div className="h-8 sm:h-10 lg:h-0" />
     </div>
   )
