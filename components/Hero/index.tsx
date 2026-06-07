@@ -8,20 +8,18 @@ import "slick-carousel/slick/slick-theme.css"
 export const heroVid = [
   {
     type: "image",
-    src: "https://wm2u9pzloi.ufs.sh/f/SmuIuYJcPsT4jGbKZ8dYSIZDmO9Qn7zKwxHqicp0lkJagXF8",
+    src: "https://wm2u9pzloi.ufs.sh/f/SmuIuYJcPsT42yCPiWZrR4HouPzqLt1WkKsFre7wAZS8fQDd",
   },
   {
     type: "image",
-    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/69ff0f88000502ba1751/view?project=683381d6001779054d64&mode=admin",
+    src: "https://wm2u9pzloi.ufs.sh/f/SmuIuYJcPsT4jGbKZ8dYSIZDmO9Qn7zKwxHqicp0lkJagXF8",
   },
+  
   {
     type: "image",
     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/69d61ab0001f738985f1/view?project=683381d6001779054d64&mode=admin",
   },
-   {
-    type: "image",
-    src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/69ff175b002fadf952c7/view?project=683381d6001779054d64&mode=admin",
-  },
+  
   {
     type: "image",
     src: "https://fra.cloud.appwrite.io/v1/storage/buckets/683383760031705f5948/files/692d396000337de1b9b9/view?project=683381d6001779054d64&mode=admin",
