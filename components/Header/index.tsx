@@ -18,11 +18,14 @@ import {
   FaTimes,
   FaBriefcase,
   FaUserCircle,
+  FaVoteYea,
 } from "react-icons/fa"
 import { HiSparkles } from "react-icons/hi"
 import image from "@/public/images/shin/log.jpg"
 import "../../styles/nav.css"
 import "../../styles/index.css"
+
+const VOTE_URL = "https://shiningstarsvoting.pythonanywhere.com/"
 
 const Header = () => {
   const [navbarOpen, setNavbarOpen] = useState(false)
@@ -200,6 +203,20 @@ const Header = () => {
                 </Link>
               </motion.div>
 
+              {/* ── Vote CTA ── */}
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <a
+                  href={VOTE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+                >
+                  <FaVoteYea size={13} />
+                  <span>Vote</span>
+                  <span className="absolute top-1 right-1 w-2 h-2 bg-white rounded-full animate-ping opacity-75" />
+                </a>
+              </motion.div>
+
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
                   href="https://erms.shiningstarsvvumba.com/admission"
@@ -222,6 +239,19 @@ const Header = () => {
                   <FaBriefcase size={11} />
                   <span>Jobs</span>
                 </Link>
+              </motion.div>
+
+              {/* Vote pill on mobile */}
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <a
+                  href={VOTE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-2.5 py-1.5 rounded-full text-xs font-bold shadow-md"
+                >
+                  <FaVoteYea size={11} />
+                  <span>Vote</span>
+                </a>
               </motion.div>
 
               <motion.a
@@ -318,10 +348,34 @@ const Header = () => {
                       </span>
                     </Link>
                   </div>
+
+                  <div className="pt-1">
+                    <a
+                      href={VOTE_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setNavbarOpen(false)}
+                      className="flex items-center gap-3 py-3 px-4 bg-purple-50 text-purple-700 font-semibold rounded-lg border border-purple-200 hover:bg-purple-100 transition-all"
+                    >
+                      <FaVoteYea size={16} className="text-purple-700" />
+                      <span>Vote</span>
+                    </a>
+                  </div>
                 </nav>
               </div>
 
               <div className="bg-white border-t border-gray-200 p-4 space-y-3">
+                <motion.a
+                  href={VOTE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-lg font-semibold"
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <FaVoteYea size={16} />
+                  Vote Now
+                </motion.a>
+
                 <motion.a
                   href="https://erms.shiningstarsvvumba.com/login"
                   target="_blank"

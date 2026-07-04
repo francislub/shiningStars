@@ -17,12 +17,15 @@ import {
   FaBars,
   FaTimes,
   FaBriefcase,
+  FaVoteYea,
 } from "react-icons/fa"
 import { RiComputerLine } from "react-icons/ri"
 import { HiSparkles } from "react-icons/hi"
 import { LinearText } from "./LinearText"
 import { Search } from "./Search"
 import { useTypingEffect } from "@/utils/hooks"
+
+const VOTE_URL = "https://shiningstarsvoting.pythonanywhere.com/"
 
 const statements = [
   "Welcome to Shining Stars Nursery & Primary School",
@@ -121,6 +124,20 @@ const EnhancedNavbar: React.FC = () => {
               </Link>
             </motion.div>
 
+            {/* Vote */}
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <a
+                href={VOTE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md hover:shadow-lg transition-all relative overflow-hidden"
+              >
+                <FaVoteYea size={11} />
+                <span>Vote</span>
+                <span className="absolute top-0.5 right-0.5 w-1.5 h-1.5 bg-white rounded-full animate-ping opacity-75" />
+              </a>
+            </motion.div>
+
             <motion.a
               href="https://erms.shiningstarsvvumba.com/login"
               target="_blank"
@@ -170,6 +187,15 @@ const EnhancedNavbar: React.FC = () => {
               <FaBriefcase size={10} />
               <span>Jobs</span>
             </Link>
+            <a
+              href={VOTE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-2 py-1 rounded-full text-xs font-bold shadow-sm"
+            >
+              <FaVoteYea size={10} />
+              <span>Vote</span>
+            </a>
             <Search />
             <motion.button
               onClick={() => setNavbarOpen(!navbarOpen)}
@@ -294,6 +320,11 @@ const MobileMenu: React.FC<{ closeMenu: () => void }> = ({ closeMenu }) => (
       </span>
     </MobileNavItem>
 
+    {/* Vote link in mobile menu */}
+    <MobileNavItem href={VOTE_URL} icon={<FaVoteYea size={14} />} onClick={closeMenu}>
+      Vote
+    </MobileNavItem>
+
     <div className="border-t border-gray-200 my-2" />
 
     <MobileNavItem
@@ -307,6 +338,19 @@ const MobileMenu: React.FC<{ closeMenu: () => void }> = ({ closeMenu }) => (
     <MobileNavItem href="https://photos.app.goo.gl/fVYcE9K1GW8f98Jp9" icon={<RiComputerLine size={14} />} onClick={closeMenu}>
       Gallery 2023
     </MobileNavItem>
+
+    <div className="pt-2">
+      <motion.a
+        href={VOTE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white text-center py-3 rounded-lg font-semibold shadow-lg"
+        onClick={closeMenu}
+        whileTap={{ scale: 0.95 }}
+      >
+        Vote Now
+      </motion.a>
+    </div>
 
     <div className="pt-2">
       <motion.a
