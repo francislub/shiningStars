@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { Volume2, VolumeX } from "lucide-react"
 
 interface HeroVideoProps {
@@ -16,13 +16,18 @@ declare global {
 }
 
 const HeroVideo = ({ videoId }: HeroVideoProps) => {
-  const [muted, setMuted] = useState(false)
+  const [muted, setMuted] = useState(true)
+  const [showHint, setShowHint] = useState(false)
+  const wrapperRef = useRef<HTMLDivElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const playerRef = useRef<any>(null)
+  const inViewRef = useRef(true)
 
   // Load the YouTube IFrame API and create the player
   useEffect(() => {
     let cancelled = false
+    let unmuteTimer: ReturnType<typeof setTimeout>
+    let confirmTimer: ReturnType<typeof setTimeout>
 
     const createPlayer = () => {
       if (cancelled || !containerRef.current) return
@@ -31,7 +36,11 @@ const HeroVideo = ({ videoId }: HeroVideoProps) => {
         videoId,
         playerVars: {
           autoplay: 1,
-          mute: 0, // try unmuted first
+          // Start muted — this is the ONLY combination every major
+          // browser guarantees will actually autoplay. We try to
+          // unmute immediately after, and fall back gracefully if
+          // the browser refuses.
+          mute: 1,
           loop: 1,
           playlist: videoId,
           controls: 0,
@@ -45,25 +54,27 @@ const HeroVideo = ({ videoId }: HeroVideoProps) => {
         },
         events: {
           onReady: (event: any) => {
-            // Attempt real unmuted autoplay
-            event.target.unMute()
-            event.target.setVolume(100)
+            event.target.mute()
             event.target.playVideo()
 
-            // Browsers that block sound-on autoplay will leave the
-            // player paused/unstarted — detect that and fall back
-            // to muted autoplay so the video still plays.
-            setTimeout(() => {
-              const state = event.target.getPlayerState()
-              // -1 unstarted, 0 ended, 2 paused = blocked
-              if (state === -1 || state === 2 || state === 0) {
-                event.target.mute()
-                event.target.playVideo()
-                setMuted(true)
-              } else {
-                setMuted(false)
-              }
-            }, 700)
+            // Give the player a beat to actually start, then try to
+            // turn sound on. Some browsers allow this without a
+            // gesture (especially returning visitors); most won't.
+            unmuteTimer = setTimeout(() => {
+              if (cancelled) return
+              event.target.unMute()
+              event.target.setVolume(100)
+
+              // Confirm whether it actually took using the player's
+              // own isMuted() — far more reliable than inferring it
+              // from playback state.
+              confirmTimer = setTimeout(() => {
+                if (cancelled) return
+                const stillMuted = event.target.isMuted()
+                setMuted(stillMuted)
+                setShowHint(stillMuted)
+              }, 250)
+            }, 300)
           },
         },
       })
@@ -75,44 +86,67 @@ const HeroVideo = ({ videoId }: HeroVideoProps) => {
       const tag = document.createElement("script")
       tag.src = "https://www.youtube.com/iframe_api"
       document.body.appendChild(tag)
-      window.onYouTubeIframeAPIReady = createPlayer
+      const prevReady = window.onYouTubeIframeAPIReady
+      window.onYouTubeIframeAPIReady = () => {
+        prevReady?.()
+        createPlayer()
+      }
     }
 
     return () => {
       cancelled = true
+      clearTimeout(unmuteTimer)
+      clearTimeout(confirmTimer)
       playerRef.current?.destroy?.()
     }
   }, [videoId])
 
-  // Unmute automatically the instant the visitor interacts with the page
-  // in any way — this satisfies the browser's autoplay policy without
-  // needing them to find/click a specific speaker button.
+  // Unmute the instant the visitor interacts with the page in any
+  // way — satisfies every browser's autoplay-with-sound policy.
   useEffect(() => {
+    if (!muted) return
+
     const unmuteOnInteraction = () => {
       const player = playerRef.current
-      if (player && muted) {
+      if (player) {
         player.unMute()
         player.setVolume(100)
         setMuted(false)
+        setShowHint(false)
       }
-      window.removeEventListener("click", unmuteOnInteraction)
-      window.removeEventListener("scroll", unmuteOnInteraction)
-      window.removeEventListener("keydown", unmuteOnInteraction)
-      window.removeEventListener("touchstart", unmuteOnInteraction)
     }
 
-    window.addEventListener("click", unmuteOnInteraction)
-    window.addEventListener("scroll", unmuteOnInteraction)
-    window.addEventListener("keydown", unmuteOnInteraction)
-    window.addEventListener("touchstart", unmuteOnInteraction)
+    const events = ["click", "scroll", "keydown", "touchstart"] as const
+    events.forEach((evt) => window.addEventListener(evt, unmuteOnInteraction, { once: true }))
 
     return () => {
-      window.removeEventListener("click", unmuteOnInteraction)
-      window.removeEventListener("scroll", unmuteOnInteraction)
-      window.removeEventListener("keydown", unmuteOnInteraction)
-      window.removeEventListener("touchstart", unmuteOnInteraction)
+      events.forEach((evt) => window.removeEventListener(evt, unmuteOnInteraction))
     }
   }, [muted])
+
+  // Pause when scrolled out of view, resume when it's back in view.
+  useEffect(() => {
+    const node = wrapperRef.current
+    if (!node) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        inViewRef.current = entry.isIntersecting
+        const player = playerRef.current
+        if (!player) return
+
+        if (entry.isIntersecting) {
+          player.playVideo?.()
+        } else {
+          player.pauseVideo?.()
+        }
+      },
+      { threshold: 0.25 }
+    )
+
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [])
 
   const toggleMute = () => {
     const player = playerRef.current
@@ -121,6 +155,7 @@ const HeroVideo = ({ videoId }: HeroVideoProps) => {
       player.unMute()
       player.setVolume(100)
       setMuted(false)
+      setShowHint(false)
     } else {
       player.mute()
       setMuted(true)
@@ -128,7 +163,7 @@ const HeroVideo = ({ videoId }: HeroVideoProps) => {
   }
 
   return (
-    <div className="relative w-full h-full overflow-hidden bg-gray-950">
+    <div ref={wrapperRef} className="relative w-full h-full overflow-hidden bg-gray-950">
       {/* ── Fullscreen "cover" video frame ── */}
       <motion.div
         initial={{ scale: 1.04, opacity: 0 }}
@@ -171,6 +206,28 @@ const HeroVideo = ({ videoId }: HeroVideoProps) => {
 
       {/* ── Invisible click-blocker so the video stays purely decorative ── */}
       <div className="absolute inset-0 z-40" />
+
+      {/* ── "Tap for sound" hint — only shows if autoplay-with-sound was blocked ── */}
+      <AnimatePresence>
+        {showHint && (
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            className="
+              absolute bottom-4 right-16 z-50
+              px-3 py-1.5 rounded-full
+              bg-black/50 backdrop-blur-sm
+              border border-white/20
+              text-white text-xs
+              pointer-events-none
+              whitespace-nowrap
+            "
+          >
+            Tap anywhere for sound
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* ── Mute/Unmute toggle ── */}
       <button
