@@ -30,7 +30,9 @@ export default function NewsPage() {
   }, [])
 
   useEffect(() => {
-    const filtered = news.filter(
+    // Guard against `news` ever being something other than an array
+    const list = Array.isArray(news) ? news : []
+    const filtered = list.filter(
       (item) =>
         item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item.description.toLowerCase().includes(searchTerm.toLowerCase()),
@@ -46,7 +48,22 @@ export default function NewsPage() {
       if (!response.ok) throw new Error("Failed to fetch news")
 
       const data = await response.json()
-      setNews(data)
+
+      // The API may return a plain array, or it may wrap the array in an
+      // object such as { news: [...] }, { data: [...] }, or { items: [...] }.
+      // Normalize all of these shapes into a plain array so `.filter`
+      // never breaks, and fall back to [] if nothing usable is found.
+      const list: News[] = Array.isArray(data)
+        ? data
+        : Array.isArray(data?.news)
+          ? data.news
+          : Array.isArray(data?.data)
+            ? data.data
+            : Array.isArray(data?.items)
+              ? data.items
+              : []
+
+      setNews(list)
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred")
     } finally {
@@ -150,6 +167,7 @@ export default function NewsPage() {
                           src={item.photos[0] || "/placeholder.svg"}
                           alt={item.title}
                           fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           className="object-cover hover:scale-105 transition-transform duration-300"
                         />
                       ) : (
