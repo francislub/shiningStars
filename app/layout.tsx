@@ -7,6 +7,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import "node_modules/react-modal-video/css/modal-video.css";
 import "../styles/index.css";
 import AboveHeader from "@/components/AboveHeader";
+import HeadTeacherPopup from "@/components/HeadTeacherPopup";
 
 export default function RootLayout({
   children,
@@ -23,6 +24,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
+          <HeadTeacherPopup />
         </Providers>
         <ScrollToTop />
       </body>
