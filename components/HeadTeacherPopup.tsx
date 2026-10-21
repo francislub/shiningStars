@@ -10,7 +10,7 @@ const HIDDEN_FOR_MS = 60_000;        // minimised for 1 minute, then opens again
 const REOPEN_ON_NAVIGATION = true;   // open again whenever the visitor changes page
 const IDLE_BEFORE_COUNTDOWN_MS = 5_000; // countdown pauses while the visitor is reading/scrolling
 const TICK_MS = 250;
-const IMAGE_SRC = "/images/hm.png";
+const IMAGE_SRC = "/images/head.jpg";
 
 /* ───────────── Message content ───────────── */
 type Block = { id?: string; body: ReactNode; strong?: boolean };
